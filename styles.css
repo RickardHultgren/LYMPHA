@@ -1,0 +1,411 @@
+@import url('http://fonts.googleapis.com/css?family=Open Sans');
+@import url('http://fonts.googleapis.com/css?family=Droid Sans Mono');
+@import url('http://fonts.googleapis.com/css?family=Share Tech Mono');
+@import url('http://fonts.googleapis.comF/css?family=Clicker Script');
+@import url('http://fonts.googleapis.com/css?family=Merriweather');
+* { margin:0; padding:0; border: 0 }
+
+body { background-color: #ffffff;
+	#background-image:url('bg.png');
+	#background-image:url('gradient.png');
+	#background-repeat:repeat; 
+	#background-color:#cccccc;
+	background-color:#ffffff;
+	color: #000000;
+	text-align:justify;
+	font-family:"Merriweather","Droid Serif", Georgia, serif, helvetica,arial;
+	font-size: 13px;
+    width:100%;
+    min-width: 600px;
+    margin:auto;
+    left:auto; 
+	right:auto;
+	position:absolute;
+}
+
+h2{
+text-align:justify;
+}
+
+p {
+width:100%;
+text-align:justify;
+margin:0em;
+}
+
+div {
+text-align:left;
+margin:0em 0em 0em 0em;
+}
+
+ol {
+text-align:left;
+margin:0em;
+}
+
+ul {
+text-align:left;
+margin-left:2em;
+}
+
+li {
+text-align:left;
+margin:0em;
+}
+
+h1 {
+font: normal 200% 'Merriweather'; padding: 1em 0em 0em 0em;color:#555555;
+}
+
+.subhead {
+font: bold 130% 'Merriweather'; padding: 0em 0em 1em 0em;color:#000000;
+}
+
+h2 {
+font: bold 120% 'Merriweather'; padding: 1em 0em 1em 0em;style="color:#333333; text-align:justify;
+}
+
+h3 {
+font: normal 100% 'Merriweather'; padding: 1.5em 0em 0.25em 0em;color:#000000;
+border-bottom:dotted #830052 thin;
+}
+
+.sc{
+font-variant:oldstyle-nums;
+font-variant:small-caps;
+font-variant-numeric:oldstyle-nums;
+font-variant-numeric:tnum;
+-moz-font-feature-settings:"tnum" 1; 
+-moz-font-feature-settings:"tnum=1"; 
+-ms-font-feature-settings:"tnum" 1; 
+-o-font-feature-settings:"tnum" 1; 
+-webkit-font-feature-settings:"onum" 1; 
+font-feature-settings:"tnum" 1;
+}
+
+.hidden {
+width:50%;
+}
+
+.code {
+border: #bfa98f dotted 1px;
+background-color:#676165;
+color:#ffc946;
+margin:0.25em 0em 0.25em 0em;
+padding:0.75em;
+font-family:"Share Tech Mono","Lucida Console",Monospace,"DejaVu Sans Mono","Courier New",MiscFixed;
+}
+
+.code span{
+margin-left:0.75em;
+}
+
+.header{font-size:138%;line-height: 125%;
+font-weight:bold;
+letter-spacing:0.1125em;
+text-align:center;
+color:#333333;
+}
+
+.rubric{
+font-size:133%;
+line-height:133%;
+font-weight:bold;
+text-align:left;
+margin:0em;
+}
+
+.air {margin: 0 3em 1em;
+border-left:solid 1px #0044cc;
+padding:0.5em;
+background-color:#ffffff;
+-moz-border-radius: 0 20px;
+-webkit-border-radius: 0 20px;
+-khtml-border-radius: 0 20px;
+border-radius: 0 20px;
+}
+
+.air2 {margin: 0 3em 1em;
+padding:0.5em;
+background-color:none;
+}
+
+a {color:#0044cc;text-decoration:none;}
+a:hover {color:#0044cc;text-decoration:none;}
+a {color:#0044cc;
+cursor:pointer;
+}
+
+hr { display: block; height: 1px; margin: 3px;background:#aaaaaa; margin-top:0.5em;margin-bottom:0.5em;width:100%; }
+
+.blocks{background-image:none;
+width:25%;
+font-size:100%;
+float:bottom;
+height: 100%;
+border: 0px solid #FF00FF;
+float: left; 
+width:12.5%;
+color:#ff8800; 
+font-weight:bold;
+text-shadow: 0.1em 0.1em 0.1em #000;
+}
+
+.layer
+{
+#background-color:#ff0000;
+#opacity:0.5;
+text-align:center;
+width:12.5%;
+font-size:100%;
+float:left;
+height: 3em;
+float: left;
+text-align:center;
+margin:0em;
+padding:0em;
+border:1px #ff0000;
+
+}
+
+.hidden {
+display:none;
+}
+
+
+.container {
+background-color:None;
+#background-image: url('paper.png');
+#background-repeat: repeat-y;
+#background-size: contain;
+width:60em;
+width:810px;
+margin: 0em auto 0em auto;
+padding: 0em 1.75em 1em 1.75em;
+padding: 0em;
+border-left: None;
+border-right: None;
+border-top:None;
+border-bottom:None;
+}
+
+.half {
+width:42%;
+float:left; margin:0em 2% 1em 2% ; padding:0em 2% 1em 2% ;
+font-size:13pt;
+background-color:#ededed;
+}
+
+.addon{
+width:47em;
+border: double #EFAB00 0px;
+background-color:#555555;
+background-color:#ffffff;
+color:#EFAB00;
+color:#493642;
+padding:0em;
+display:block;text-align:center;margin:0em auto 0em auto;
+font: normal 13px 'Droid Sans Mono';
+}
+
+.menu2{
+margin:2.7em 0em -2px 0.25em;
+vertical-align:bottom;
+background-color:None;
+z-index:2;
+float:right;
+padding:0.25em 1.5em 0.25em 1.5em;
+border-color:#ffffff;
+border-style:solid;
+border:2px 2px 0px 2px;
+color:#333333;
+}
+
+.menu2 a {
+color:#777777;
+}
+
+#thetop{
+#background-size:100% 50%; 
+border: 0px solid #2c2c2c;
+padding:0em 1em 0em 1em;
+padding:0em;
+background-color:#493642;
+background-color:#ffffff;
+background-color:None;
+color:#ffffff;
+width:60em;
+width:810px;
+height:5.5em;
+margin: 0em auto 0em auto;
+}
+
+table{
+width:100%;
+}
+
+td span{
+padding:1em 1em 1em 4em;
+margin:4px 0px 4px 0px;
+vertical-align:middle;
+font-size:60%;
+font-weight:bold;
+height:2.5em;
+width:auto;
+text-align:left;
+vertical-align:middle;
+background-repeat:no-repeat;
+background-position:0.5em 0.75em;
+display:block;
+}
+
+.menu2active {
+margin:2.5em 0em -2px 0.25em;
+z-index:2;
+float:right;
+padding:0.25em 1.5em 0.25em 1.5em;
+color:#000000;
+border-top:2px solid #EFAB00;
+font-style:italic;
+}
+
+#name{
+font: normal 6pt 'Open Sans', Sans, arial; font-variant:small-caps; letter-spacing:3px; 
+margin:15px 0em 0px 3px;
+float:left; 
+}
+
+#logopic{
+width:150px; 
+}
+
+
+#menusmall {
+    display:none;
+}
+
+
+#menubig {
+    display:block;
+}
+
+
+
+.menuon {
+	display:block;
+}
+.menuoff {
+	display:none;
+}    
+
+/*@media screen and (max-device-width: 640px) {*/
+@media screen and (max-device-width: 640px) {
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+#footer{
+	width:100%;
+}
+
+body {
+	font-size:large;
+	font-size:13pt;
+	font-family:"Droid Serif", Georgia, serif, helvetica,arial;
+	width:90%;
+}
+
+
+.container{
+width:100%;
+font-size:13pt;
+margin: 0pt 0pt 0pt 0pt;
+padding:0pt 4pt 0pt 4pt;
+text-align:center;
+}
+
+#thetop{
+font-size:large;
+font-size:13pt;
+width:80%;
+height:auto;
+margin: 0em auto 0em auto;
+}
+
+h1 {
+color:#EFAB00;
+font-weight:bold;
+}
+
+.half {
+width:90%;
+font-size:large;
+font-size:13pt;
+}
+
+.menu2 {
+background-color:#cccccc;
+margin:2px 0px 2px 0px;
+border:0em;
+#border:2px solid #493642;
+width:100%;
+font-size:13pt;
+font-size:x-large;
+text-align:center;
+font-weight:bold;
+letter-spacing:2px;
+height:2em;
+padding-top:20px;
+}
+
+.menu2active {
+margin:2px 0px 2px 0px;
+border:0em;
+width:100%;
+font-size:13pt;
+font-size:x-large;
+font-weight:bold;
+letter-spacing:2px;
+text-align:center;
+background-color:#EFAB00;
+#border:2px solid #493642;
+height:2em;
+padding-top:20px;
+}
+
+
+#logopic{
+width:45%;
+max-width:300px;
+text-align:left;
+}
+
+#name{
+width:50%;
+background-color:None;
+font: normal x-large 'Open Sans', Sans, arial; font-variant:small-caps; letter-spacing:3px;
+padding:0px 0em 0em 0em ;
+text-align:right;
+#text-align:left;
+margin:0em 0px 0px 0px;
+}
+
+#leftish{
+border-right: 2px solid #ffffff;
+font-size:13pt;
+font-size:large;
+}
+
+#thetable{
+font-size:13pt;
+font-size:large;
+}
+
+#menusmall {
+        display:block;
+}
+
+#menubig {
+        display:none;
+}
+
+}
+/*}*/

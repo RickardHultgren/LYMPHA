@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+  <head> 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
+    <meta http-equiv="content-language" content="en" /> 
+		
+    <title>LYMPHA</title> 
+    
+	<link href="styles.css" rel="stylesheet" type="text/css" />    
+	<script src="header.js" type="text/javascript"></script>
+	<link rel="shortcut icon" href="lympha.ico">
+
+</head> 
+<body> 
+	<script src="layout.js" type="text/javascript"></script>
+	<script>
+	document.getElementById("docstext").style.color="#000000";
+	document.getElementById("docs").className="menu2active";
+	</script>
+<div class="container" style="padding-top:1em;padding-bottom:6em;">
+<div style="width:45em; margin: 0em auto 0em auto; padding:0.5em 0.5em 2em 0.5em;">
+<h1>Documentation for alpha-version 1.1</h1>
+<h2>
+Content
+</h2>
+<ul>
+  <li><a href="#interpreter">Interpreter manual/tutorial</a></li>
+	<ul>
+		<li><a href="#requirements">Requirements</a></li>
+	</ul>
+	<ul>
+		<li><a href="#unarchiving">Unarchiving</a></li>
+	</ul>
+	<ul>
+		<li><a href="#running">Running a script</a></li>
+	</ul>
+  <li><a href="#syntax">Syntax tutorial</a></li>
+	<ul>
+		<li><a href="#head">Head</a></li>
+	</ul>
+	<ul>
+		<li><a href="#initiation">Initiation</a></li>
+	</ul>
+	<ul>
+		<li><a href="#node">Node</a></li>
+	</ul>
+</ul>
+		<h2 id="interpreter">
+			Interpreter manual/tutorial
+		</h2>
+	<p>So, how to use <span class=sc>lympha</span>? I hope this short tutorial for version 1.1 will give all the information needed to use the program.</p>
+	<h3 id="requirements">Requirements</h3>
+	<p>On my <a href="http://slackware.com/">Slackware</a> system there are only two additional installations required, namely ruffus and graphviz. The rest of the requirements are pre-installed in the OS. But in case you happen to have another OS, here is a complete list of all the open source requirements:</p>
+<ul>
+<li><a href="http://www.python.org/download/">python</a></li>
+<li><a href="http://code.google.com/p/ruffus/downloads/list">ruffus</a></li>
+<li><a href="http://www.gnu.org/software/bash/">bash</a> or an equivalent</li>
+<li><a href="http://www.ghostscript.com/">ghostscript</a> for the ps2pdf command</li>
+<li><a href="http://www.graphviz.org/">graphviz</a></li>
+</ul>
+<h3 id="unarchiving">Unarchiving</h3>
+<p>After installing the requirements it's time to unarchive either the zip file or the tar.gz file from <a href="http://sourceforge.net/projects/lymphascripting/files/lympha/">the <span class=sc>lympha</span> download site</a>. As for example:</p>
+<div class="code">tar -xvf lympha-alpha-1.11.tar.gz</div>
+<p>Then go into the lympha-alpha-1.11 folder.</p>
+<div class="code">cd lympha-alpha-1.11</div>
+<p>The content of the folder is shown below.</p>
+<br>
+<I>Data files:</I>
+<table rules="rows" style="background-color:#E9E7E3;"><tr><td style="width:12em">
+<I>patient_info.py</I></td><td style="width:30em">data about an example patient</td></tr>
+<tr><td><I>factors.py</I></td><td>specification of determinants,  symptoms and other manifestations</td></tr>
+<tr><td><I>procedures.py</I></td><td>specification of procedures</td></tr>
+<tr><td><I>external_functions.py</I></td><td>external functions that to be called from the script(e.g. sending referrals)</td></tr>
+</td></tr></table>
+<br>
+<I>Files containing the actual <span class=sc>lympha</span> program:</I>
+<table rules="rows" style="background-color:#E9E7E3;"><td style="width:12em">
+<I>lex.py</I></td><td style="width:30em">translator from the lympha programming language to python</td></tr>
+<tr><td><I>classes.py</I></td><td style="width:30em">classes of the program</td></tr>
+<tr><td><I>functions.py</I></td><td>functions of the program</td></tr>
+</td></tr></table>
+<br>
+<I>Additional files:</I>
+<table rules="rows" style="background-color:#E9E7E3;"><tr><td style="width:12em">
+<I>LICENSE</I></td><td style="width:30em">information about the <a href="http://www.gnu.org/licenses/">GPL3 license</a></td></tr>
+<tr><td><I>README</I></td><td>A little information about the program</td></tr>
+</td></tr></table>
+<br>
+<h3 id="running">Running a script<br>&#8212;Decision support for physicians</h3>
+<p>First you have to write a script or download one from e.g. <a href="http://sourceforge.net/projects/lymphascripting/files/lympha-scripts/">the collection of sketch scripts</a> that I've made. In this example I use the script for breast cancer called <i>C50_breast_cancer.lympha</i>. First place the script in same directory as the program files. Then write:</p>
+<div class="code">python lex C50_breast_cancer.lympha</div>
+<p>This produces a script in python. called <i>C50_breast_cancer.lympha.py</i>. Next write:</p>
+<div class="code">python C50_breast_cancer.lympha.py</div>
+<p>The computer will now go through the python script and then produce a flowchart called <i>C50_breast_cancer.pdf</i>, that is the same flowchart that you can download from the site where the script is.</p>
+		<h2 id="syntax">
+			Syntax tutorial
+		</h2>
+		<p>The current version supports one script per file. A script, and subsequently a file contains the following parts: <i>head</i>, <i>initiation</i> and <i>node</i>. Further the nodes contains <i>paragraphs</i>.</p>
+		<h3 id="head">
+			Head
+		</h3>
+		<p>The <i>head</i> section contains the name of the script:</p>
+		<div class="code">icd = '<i>the ICD code</i>'<br>title = '<i>the name of the file without the file extension</i>'</div>
+		<p>For example:</p><div class="code">icd = 'C50.-'<br>title = 'C50_breast_cancer'</div>
+		<h3 id="initiation">
+			Initiation
+		</h3>
+		<p>The <i>initiation</i> section contains descriptions of factors and procedures. An english name must be defined for each factor.</p>
+		<div class="code">* factors<br><span>- <i>variable name</i> ( english name='<i>the english name</i>' )<span><br><br> * procedures<br><span>- <i>variable name</i> ( english name='<i>the english name</i>' )</span></div>
+		<p>By default all factors are binar. A binar factor is for example a symptom that the patient in question either has or not. Additional arguments can be added. If the factor is a scale, as for example age, the additional arguments would look as follows:</p><div class="code"><span>- age ( english name='age' ; real ; unit = 'years old' )</span></div>
+		<p>The defenition of procedures is similar to factor defenition, e.g.:</p>
+		<div class="code">* procedures<br><span>- palpation ( english name='palpation' )</span><br><span>- CT ( english name='computed tomography' )<span></i></div>
+		
+		<h3 id="node">
+			Node
+		</h3>
+		<p>The <i>nodes</i> describe how different factors and procedures are related to each other. Each node has a name. A node can contain set of lists of indications for further action in the pipeline and lists of procedures. Those sets are called paragraphs. Nodes can also contain comments.</p>
+		<div class="code"><i>node the proceed the node in question</i>>><br>
+<i>name of node</i>:<br>
+** comment # the <i>**</i> stands for the comment<br>
+# A list of indications that begins with <i>* all</i> will require all the factors to be true in order to continue the flow of the pipline. The formula in paranthesis describes what interval the factor should be in to be true in the specific case.<br>
+* all<br>
+<span>- age ( x <= 50 )</span><br>
+# Instead of the <i>* all</i> you can use <i>* any</i> that will require any of the factors to be true.<br>
+# A list of procedures begins with <i>* todo</i> as follows:<br>
+* todo<br>
+<span>- auscultation</span>
+	</div>
+	</div>
+	</div>
+	<div class="container">
+	<script src="footer.js" type="text/javascript"></script>
+	</div>
+</body> 
+</html> 
+
