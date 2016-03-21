@@ -13,7 +13,7 @@ document.write("		</a><\/div><br><br><span style=\"font-size:18px;color:#6400EF;
 document.write("		<a id=\"contacttext\" href=\"contact.html\"><div class=\"menu2\" id=\"contact\">CONTACT<\/div><\/a>");
 document.write("		<a id=\"historytext\" href=\"history.html\"><div class=\"menu2\" id=\"history\">HISTORY<\/div><\/a>");
 document.write("		<a id=\"blogtext\" href=\"http://lymphascripting.blogspot.se/\"><div class=\"menu2\" id=\"blog\">BLOG<\/div><\/a>");
-document.write("		<a id=\"downloadstext\" href=\"https://sourceforge.net/projects/lymphascripting/files/?\"><div class=\"menu2\" id=\"downloads\">DOWNLOADS<\/div><\/a>");
+document.write("		<a id=\"downloadstext\" href=\"https://github.com/RickardHultgren/lympha\"><div class=\"menu2\" id=\"downloads\">DOWNLOADS<\/div><\/a>");
 document.write("		<a id=\"docstext\" href=\"docs.html\"><div class=\"menu2\" id=\"docs\">DOCS<\/div><\/a>");
 document.write("		<a id=\"indextext\" href=\"index.html\"><div class=\"menu2\" id=\"index\">HOME<\/div><\/a>");
 document.write("	<\/div> ");
