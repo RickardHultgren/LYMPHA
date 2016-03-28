@@ -25,7 +25,7 @@ document.write("	<span class=\"subtitle\" style=\"background-color:#ffffff; font
 document.write("	<div id=\"menuish\" style=\"width=100%;display:none;\">");
 document.write("		<a href=\"index.html\"><div id=\"indexsmall\" class=\"menu2\">HOME<\/div><\/a>");
 document.write("		<a href=\"docs.html\"><div id=\"docssmall\" class=\"menu2\">DOCS<\/div><\/a>");
-document.write("		<a id=\"downloadssmall\" href=\"downloads.html\"><div class=\"menu2\" id=\"downloads\">DOWNLOADS<\/div><\/a>");
+document.write("		<a href=\"downloads.html\"><div id=\"downloadssmall\" class=\"menu2\">DOWNLOADS<\/div><\/a>");
 document.write("		<a id=\"blogsmall\" href=\"http://lymphascripting.blogspot.se/\"><div class=\"menu2\" id=\"blog\">BLOG<\/div><\/a>");
 document.write("		<a href=\"history.html\"><div id=\"historysmall\" class=\"menu2\">HISTORY<\/div><\/a>");
 document.write("		<a href=\"contact.html\"><div id=\"contactsmall\" class=\"menu2\">CONTACT<\/div><\/a>");
