@@ -9,7 +9,7 @@ function changeMenu() {
 document.write("<font style=\"font-family: \"Merriweather\",\"Droid Serif\", Georgia, 'Times New Roman', Times, serif;\"><div class=\"container\" ");
 document.write("	<div id=\"menubig\" style=\"overflow:hidden;margin: 0px auto 0px auto; text-align:center; border:0em;border-bottom:2px; border-style:solid; border-color:#777777;\" id=\"thetop\">");
 document.write("		<div style=\"float:left;width:auto;width:95%;padding:1em 0px 1em 0px;height:7em;background-size:cover;background-size:150px, auto;background-repeat:no-repeat;margin:0.2em 0px 2px 0px;width:15%; height:auto;\"><a href=\"index.html\" style=\'font-family:\"Share Tech Mono\",\"Lucida Console\",Monospace,\"DejaVu Sans Mono\",\"Courier New\",MiscFixed; font-size:9px;\'><img id=\"logopic\" src=\"logo.png\" style=\"margin:1.8em 0em 0em 0em; float:left;\"><br>");
-document.write("		</a><\/div><br><br><span style=\"font-size:18px;color:#6400EF;margin-left:-2.5em;\">THE LANGUAGE FOR MEDICAL ALGORITHMS</span><br>");
+document.write("		</a><\/div><br><br><span class=\"menu2\" style=\"font-size:18px;color:#6400EF;margin-left:-2.5em;\">THE LANGUAGE FOR MEDICAL ALGORITHMS</span><br>");
 document.write("		<a id=\"contacttext\" href=\"contact.html\"><div class=\"menu2\" id=\"contact\">CONTACT<\/div><\/a>");
 document.write("		<a id=\"historytext\" href=\"history.html\"><div class=\"menu2\" id=\"history\">HISTORY<\/div><\/a>");
 document.write("		<a id=\"blogtext\" href=\"http://lymphascripting.blogspot.se/\"><div class=\"menu2\" id=\"blog\">BLOG<\/div><\/a>");
