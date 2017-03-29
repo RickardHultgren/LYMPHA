@@ -14,7 +14,7 @@ document.write("	<div style=\"margin-top:-1em;border-bottom:0.2vw solid #cccccc;
 document.write("		<a id=\"indextext\" href=\"index.html\"><div class=\"menu2\" id=\"index\">HOME<\/div><\/a> ");
 document.write("		<a id=\"docstext\" href=\"docs.html\"><div class=\"menu2\" id=\"docs\">DOCS<\/div><\/a>");
 document.write("		<a id=\"downloadstext\" href=\"downloads.html\"><div class=\"menu2\" id=\"downloads\">DOWNLOADS<\/div><\/a>");
-document.write("		<a id=\"blogtext\" href=\"http://lymphascripting.blogspot.se/\"><div class=\"menu2\" id=\"blog\">BLOG<\/div><\/a>");
+document.write("		<a id=\"blogtext\" href=\"http://rickardhultgren.github.io/lympha/blog/\"><div class=\"menu2\" id=\"blog\">BLOG<\/div><\/a>");
 //document.write("		<a id=\"contacttext\" href=\"contact.html\"><div class=\"menu2\" id=\"contact\">CONTACT<\/div><\/a>");
 //document.write("		<a id=\"historytext\" href=\"history.html\"><div class=\"menu2\" id=\"history\">HISTORY<\/div><\/a>");
 document.write("	<\/div>");
@@ -26,7 +26,7 @@ document.write("	<div id=\"menuish\" style=\"width=100%;display:none;position:re
 document.write("		<a href=\"index.html\"><div id=\"indexsmall\" class=\"menu2\">HOME<\/div><\/a>");
 document.write("		<a href=\"docs.html\"><div id=\"docssmall\" class=\"menu2\">DOCS<\/div><\/a>");
 document.write("		<a href=\"downloads.html\"><div id=\"downloadssmall\" class=\"menu2\">DOWNLOADS<\/div><\/a>");
-document.write("		<a id=\"blogsmall\" href=\"http://lymphascripting.blogspot.se/\"><div class=\"menu2\" id=\"blog\">BLOG<\/div><\/a>");
+document.write("		<a id=\"blogsmall\" href=\"http://rickardhultgren.github.io/lympha/blog/\"><div class=\"menu2\" id=\"blog\">BLOG<\/div><\/a>");
 //document.write("		<a href=\"history.html\"><div id=\"historysmall\" class=\"menu2\">HISTORY<\/div><\/a>");
 //document.write("		<a href=\"contact.html\"><div id=\"contactsmall\" class=\"menu2\">CONTACT<\/div><\/a>");
 document.write("	<\/div>");
