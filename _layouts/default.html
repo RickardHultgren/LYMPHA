@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    {% if site.url contains "//dev." %}
+      <meta name="robots" content="noindex">
+    {% endif %}
+    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+
+    <meta name="author" content="{{ site.name }}" />
+    <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines }}{% else %}{% if page.excerpt %}{{ page.excerpt | markdownify | strip_html | strip_newlines }}{% else %}{{ site.description }}{% endif %}{% endif %}">
+
+    <!-- Facebook metadata -->
+    <meta property="fb:admins" content="" />
+    <meta property="og:image" content="{% if page.hero %}{{ page.hero }}{% else %}https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png{% endif %}"/>
+    <meta property="og:title" content="{{ page.title }}"/>
+    <meta property="og:url" content="{{ page.url }}"/>
+    <meta property="og:site_name" content="Stack Overflow Blog"/>
+    <meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines }}{% else %}{% if page.excerpt %}{{ page.excerpt | markdownify | strip_html | strip_newlines }}{% else %}{{ site.description }}{% endif %}{% endif %}">
+    <meta property="og:type" content="website"/>
+
+    <!-- Twitter metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@StackOverflow">
+    <meta name="twitter:creator" content="@StackOverflow">
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta name="twitter:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines }}{% else %}{% if page.excerpt %}{{ page.excerpt | markdownify | strip_html | strip_newlines }}{% else %}{{ site.description }}{% endif %}{% endif %}">
+    <meta name="twitter:image" content="{% if page.hero %}{{ page.hero }}{% else %}https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png{% endif %}">
+    <meta name="twitter:image:alt" content="{% if page.hero %}{{ page.title }}{% else %}Stack Overflow{% endif %}">
+
+    <!--[if lt IE 9]>
+      <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/all.css" />
+
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed/" />
+  </head>
+
+  <body>
+    <div class="container">
+      {% include header.html %}
+    <div id="main" role="main">
+      {{ content }}
+    </div>
+
+    <footer class="footer">
+      <div class="inner-container">
+        <div class="-row">
+          {% unless page.url == '/' %}
+            <div class="-col2 media-padded">
+              <h4>Our Blogs</h4>
+              <p><a href="//codeforaliving.io">Code for a Living</a></p>
+              <p><a href="//business.stackoverflow.com/blog">Talent</a></p>
+              <p><a href="/company/">Company</a></p>
+              <p><a href="/engineering/">Engineering</a></p>
+            </div>
+          {% endunless %}
+          <div class="-col2 media-padded">
+            <h4>Business Products</h4>
+            <p><a href="https://www.stackoverflowbusiness.com/talent">Hire Developers</a></p>
+            <p><a href="https://www.stackoverflowbusiness.com/advertise">Advertise With Us</a></p>
+            <p><a href="https://www.stackoverflowbusiness.com/enterprise">Get Stack Overflow Enterprise</a></p>
+          </div>
+          <div class="-col2 media-padded">
+            <h4>Company</h4>
+            <p><a href="https://stackoverflow.com/company/about">About Us</a></p>
+            <p><a href="https://stackoverflow.com/company/work-here">Work Here</a></p>
+            <p><a href="http://meta.stackoverflow.com/">Any feedback?</a></p>
+          </div>
+          <div class="-col2 media-padded">
+            <h4>Support</h4>
+            <p><a href="https://stackexchange.com/about/contact">Contact Us</a></p>
+            <p><a href="https://stackexchange.com/legal/privacy-policy">Privacy Policy</a></p>
+            <p><a href="https://stackexchange.com/legal">Legal</a></p>
+          </div>
+          <div class="-col2 media-padded">
+            <h4>Connect</h4>
+            <p><a href="https://www.facebook.com/officialstackoverflow/">Facebook</a></p>
+            <p><a href="https://twitter.com/stackoverflow">Twitter</a></p>
+            <p><a href="https://www.linkedin.com/company/stack-overflow">LinkedIn</a></p>
+            {% unless page.url == '/'%}
+            <p><a href="https://stackoverflow.com/podcast">Podcast</a></p>
+            <p><a href="/speakers/">Speakers</a></p>
+            {% endunless %}
+          </div>
+          {% if page.url == '/' %}<div class="-col2"></div>{% endif %}
+          <div class="-col2 media-padded">
+            <p><strong>&copy; {{ site.time | date: "%Y" }} Stack Overflow</strong></p>
+          </div>
+        </div>
+        <p style="color: #ccc; margin-top: 25px; font-size: 10px; text-align: right;">Last build {{ site.time | date: "%a, %d %b %Y %T +0000" }}</p>
+      </div>
+    </footer>
+    </div>
+    {% include analytics.html %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+      $(window)
+        .scroll(function() {
+            $('header').toggleClass('sticky', $(this).scrollTop() > 1);
+        });
+    </script>
+  </body>
+</html>
