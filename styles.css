@@ -251,9 +251,10 @@ font: bold 120% 'Signika Negative';color:#333333; text-align:justify;
 }
 
 .menu2 {
+height:auto;margin-bottom:0.5em;text-align:center;color:#998855;font-style:italic;font-size:1em;padding:0.25em;display:inline-block; border: 0.1em solid #998855;background-color:#ffffff;font-family:'Signika Negative';font-size:0.9em;letter-spacing:0.15em;
 font-size:.75em;
-width:14.5vw;
-background-color:#cccccc;
+width:13.5vw;
+background-color:#eeeeee;
 z-index:2;
 position:relative;
 display:inline-block;
@@ -262,8 +263,9 @@ padding-bottom:0em;
 }
 
 .menu2active {
+height:auto;margin-bottom:0.5em;text-align:center;color:#998855;font-style:italic;;font-size:1em;padding:0.25em;display:inline-block; border: 0.1em solid #998855;background-color:#ffffff;font-family:'Signika Negative';font-size:0.9em;letter-spacing:0.15em;
 font-size:.75em;
-width:14.5vw;
+width:13.5vw;
 background-color:#EFAB00;
 z-index:2;
 position:relative;
