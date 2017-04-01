@@ -48,10 +48,14 @@ var listnew = "";
 var subarray = [];
 function reloading(){
 	if (listnew!=""){
+		alert("0");
 		listarray.push(listnew);
 	}
+	alert("1");
 	var listdot = listarray.join(",");
+	alert("2");
 	localStorage.setItem("listdot", JSON.stringify(listdot));
+	alert("3");
 	location.reload(); 
 }
 </script>	
