@@ -31,16 +31,16 @@ function storageAvailable(type) {
 var listarray = ["head"];
 if (storageAvailable('localStorage')) {
     // Yippee! We can use localStorage awesomeness
-	alert(1);
+	
     var listdot = JSON.parse(localStorage.getItem("listdot"));
-	alert(2);
+	
 	alert(listdot);
 	if (listdot!=""){
 		listarray = listdot.split(",");
 	}
-	alert(3);
+	
     var longus = listarray.length;
-	alert(4);
+	
 }
 else {
     // Too bad, no localStorage for us
