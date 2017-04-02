@@ -10,8 +10,7 @@ function changeMenu() {
 		
     var url = window.location.href;
     var parts = url.split("/");
-    var beforeLast = parts[parts.length - 3]; //keep in mind that since array starts with 0, last part is [length - 1]
-    alert(beforeLast);
+    var beforeLast = parts[parts.length - 1]; //keep in mind that since array starts with 0, last part is [length - 1]
     return beforeLast;
 }
 </script>
