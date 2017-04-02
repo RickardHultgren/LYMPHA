@@ -7,12 +7,14 @@ document.getElementById( "about").className="menu2active";
  - Pseudocode/REGEX
  - Javascript
 
+
 Planned branches for version 1.0:
  - Python
  - gforth
 
+
 To do in version 1.0:
  - Syntax description in REGEX  (almost done)
- - computing algorithms in pseudocode 
- - computing algorithms in python
+ - Computing algorithms in pseudocode and Gforth
+ - Computing algorithms in python
  - Update javascript version
