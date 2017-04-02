@@ -5,6 +5,6 @@ document.getElementById( "blog").className="menu2active";
 </script>
 
 {% for post in site.posts %}
-- {{ post.date | date_to_string }} &raquo; [{{ post.url }}]({{ post.title }})
+- {{ post.date | date_to_string }} &raquo; [{{ post.title }}]({{ post.url }})
 {% endfor %}
 
