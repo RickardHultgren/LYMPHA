@@ -77,6 +77,15 @@ z-index:1;position:relative;
 #margin:0em;
 }
 
+
+ul {
+#max-width:50em;
+text-align:justify;
+width:95vw;
+z-index:1;position:relative;
+#margin:0em;
+}
+
 a {
 	color:#998855;text-decoration:none;font-style:italic;
 }
@@ -286,6 +295,14 @@ tex
 	display:none;
 }    
 
+ul {
+#max-width:50em;
+font-size:1.5vw;
+margin:0vw 20vw 0vw 20vw ;
+text-align:justify;
+width:auto;
+#margin:0em;
+}
 
 p {
 #max-width:50em;
