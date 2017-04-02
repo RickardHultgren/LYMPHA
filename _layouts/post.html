@@ -1,13 +1,5 @@
 {% include header.html %}
-<article>
-  <h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
-  <p>
-    {{ page.date | date: "%-d %B %Y" }}
-  </p>
-
-
-
-
-  {{content}}
-</article>
+<a href="{{ page.url }}">{{ page.title }}</a><br>
+    {{ page.date | date: "%-d %B %Y" }}<br>
+{{content}}
 {% include footer.html %}
