@@ -23,55 +23,7 @@
     <div id="main" role="main">
       {{ content }}
     </div>
-
-    <footer class="footer">
-      <div class="inner-container">
-        <div class="-row">
-          {% unless page.url == '/' %}
-            <div class="-col2 media-padded">
-              <h4>Our Blogs</h4>
-              <p><a href="//codeforaliving.io">Code for a Living</a></p>
-              <p><a href="//business.stackoverflow.com/blog">Talent</a></p>
-              <p><a href="/company/">Company</a></p>
-              <p><a href="/engineering/">Engineering</a></p>
-            </div>
-          {% endunless %}
-          <div class="-col2 media-padded">
-            <h4>Business Products</h4>
-            <p><a href="https://www.stackoverflowbusiness.com/talent">Hire Developers</a></p>
-            <p><a href="https://www.stackoverflowbusiness.com/advertise">Advertise With Us</a></p>
-            <p><a href="https://www.stackoverflowbusiness.com/enterprise">Get Stack Overflow Enterprise</a></p>
-          </div>
-          <div class="-col2 media-padded">
-            <h4>Company</h4>
-            <p><a href="https://stackoverflow.com/company/about">About Us</a></p>
-            <p><a href="https://stackoverflow.com/company/work-here">Work Here</a></p>
-            <p><a href="http://meta.stackoverflow.com/">Any feedback?</a></p>
-          </div>
-          <div class="-col2 media-padded">
-            <h4>Support</h4>
-            <p><a href="https://stackexchange.com/about/contact">Contact Us</a></p>
-            <p><a href="https://stackexchange.com/legal/privacy-policy">Privacy Policy</a></p>
-            <p><a href="https://stackexchange.com/legal">Legal</a></p>
-          </div>
-          <div class="-col2 media-padded">
-            <h4>Connect</h4>
-            <p><a href="https://www.facebook.com/officialstackoverflow/">Facebook</a></p>
-            <p><a href="https://twitter.com/stackoverflow">Twitter</a></p>
-            <p><a href="https://www.linkedin.com/company/stack-overflow">LinkedIn</a></p>
-            {% unless page.url == '/'%}
-            <p><a href="https://stackoverflow.com/podcast">Podcast</a></p>
-            <p><a href="/speakers/">Speakers</a></p>
-            {% endunless %}
-          </div>
-          {% if page.url == '/' %}<div class="-col2"></div>{% endif %}
-          <div class="-col2 media-padded">
-            <p><strong>&copy; {{ site.time | date: "%Y" }} Stack Overflow</strong></p>
-          </div>
-        </div>
-        <p style="color: #ccc; margin-top: 25px; font-size: 10px; text-align: right;">Last build {{ site.time | date: "%a, %d %b %Y %T +0000" }}</p>
-      </div>
-    </footer>
+      {% include footer.html %}
     </div>
   </body>
 </html>
