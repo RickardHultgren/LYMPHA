@@ -1,6 +1,3 @@
----
-layout: default
----
 <script>
 document.getElementById( "blogsmall").style.backgroundColor="#EFAB00";
 document.getElementById( "blogtext").style.color="#000000";
