@@ -1,15 +1,11 @@
-  <!DOCTYPE html>
-<html lang="en" style="font-family:Signika Negative">
-  <head>
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Signika+Negative:300,400,600,700&amp;lang=en" />	
-</head> 
-<body style="font-family:Signika Negative">
-{% include header.html %}
-<a href="{{ page.url }}">{{ page.title }}</a><br>
-    {{ page.date | date: "%-d %B %Y" }}<br>
-{{content}}
-{% include footer.html %}
-  </body>
-</html>
+---
+layout: default
+---
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    {{ content }}
+  
+
+
+</article>
