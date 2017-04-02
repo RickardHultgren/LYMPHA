@@ -1,0 +1,11 @@
+{% include header.html %}
+<a href="{{ page.url }}">{{ page.title }}</a><br>
+    {{ page.date | date: "%-d %B %Y" }}<br>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    {{ content }}
+  
+
+
+</article>
