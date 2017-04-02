@@ -78,7 +78,7 @@ z-index:1;position:relative;
 }
 
 
-ul {
+ul li {
 #max-width:50em;
 text-align:justify;
 width:95vw;
@@ -295,7 +295,7 @@ tex
 	display:none;
 }    
 
-ul {
+ul li {
 #max-width:50em;
 font-size:1.5vw;
 margin:0vw 20vw 0vw 20vw ;
