@@ -1,11 +1,14 @@
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  </head>
+  <body>
+      <div id='content'>
 {% include header.html %}
 <a href="{{ page.url }}">{{ page.title }}</a><br>
     {{ page.date | date: "%-d %B %Y" }}<br>
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        {{ content }}
 
-  
-    {{ content }}
-  
-
-
-</article>
+      </div>
+  </body>
+</html>
