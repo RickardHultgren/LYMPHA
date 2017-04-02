@@ -8,6 +8,6 @@ document.getElementById( "blog").className="menu2active";
 </script>
     
 {% for post in site.posts %}
-*<span class="date">{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>
+* <span class="date">{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>
 {% endfor %}
     
