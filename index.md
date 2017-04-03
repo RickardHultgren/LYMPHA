@@ -8,3 +8,7 @@ Consolidating medical protocols and compute what further diagnostics and treatme
 
 <span style="float:right;text-align:left;diplay:block;width:auto;">[<img src="https://avatars3.githubusercontent.com/u/16224494?v=3&s=80" style="display:inline-block;"/>](https://github.com/RickardHultgren)<span style="vertical-align:bottom;display:inline-block;">Sincerely<br>[Rickard](https://github.com/RickardHultgren)</span></span>
 
+
+data = Tilt['md'].new { "# hello tilt" }
+layout.render { data.render }
+
