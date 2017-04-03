@@ -1,5 +1,4 @@
 
-<link href="http://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" />
 
 <script>
 document.getElementById( "indexsmall").style.backgroundColor="#EFAB00";
@@ -11,6 +10,10 @@ Consolidating medical protocols and compute what further diagnostics and treatme
 
 <span style="float:right;text-align:left;diplay:block;width:auto;">[<img src="https://avatars3.githubusercontent.com/u/16224494?v=3&s=80" style="display:inline-block;"/>](https://github.com/RickardHultgren)<span style="vertical-align:bottom;display:inline-block;">Sincerely<br>[Rickard](https://github.com/RickardHultgren)</span></span>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+<br> <br> <br>
+
 
 <script>
 var paperMenu = {
@@ -68,6 +71,9 @@ var paperMenu = {
 
 paperMenu.init();
 </script>
+
+
+<link href="http://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" />
 
 
 <div id="paper-window">
