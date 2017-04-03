@@ -7,13 +7,61 @@ Consolidating medical protocols and compute what further diagnostics and treatme
 
 
 <span style="float:right;text-align:left;diplay:block;width:auto;">[<img src="https://avatars3.githubusercontent.com/u/16224494?v=3&s=80" style="display:inline-block;"/>](https://github.com/RickardHultgren)<span style="vertical-align:bottom;display:inline-block;">Sincerely<br>[Rickard](https://github.com/RickardHultgren)</span></span>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
+<script>
+var paperMenu = {
+	$window: $('#paper-window'),
+	$paperFront: $('#paper-front'),
+	$hamburger: $('.hamburger'),
+	offset: 1800,
+	pageHeight: $('#paper-front').outerHeight(),
 
-layout = Tilt['erb'].new do
-  "<!doctype html><title></title><%= yield %>"
-end
-data = Tilt['md'].new { "# hello tilt" }
-layout.render { data.render }
-# => "<!doctype html><title></title><h1>hello tilt</h1>\n"
+	open: function() {
+		this.$window.addClass('tilt');
+		this.$hamburger.off('click');
+		$('#container, .hamburger').on('click', this.close.bind(this));
+		this.hamburgerFix(true);
+		console.log('opening...');
+	},
+	close: function() {
+		this.$window.removeClass('tilt'); 
+		$('#container, .hamburger').off('click');
+		this.$hamburger.on('click', this.open.bind(this));
+		this.hamburgerFix(false);
+		console.log('closing...');
+	},
+	updateTransformOrigin: function() {
+		scrollTop = this.$window.scrollTop();
+		equation = (scrollTop + this.offset) / this.pageHeight * 100;
+		this.$paperFront.css('transform-origin', 'center ' + equation + '%');
+	},
+	//hamburger icon fix to keep its position
+	hamburgerFix: function(opening) {
+			if(opening) {
+				$('.hamburger').css({
+					position: 'absolute',
+					top: this.$window.scrollTop() + 30 + 'px'
+				});
+			} else {
+				setTimeout(function() {
+					$('.hamburger').css({
+						position: 'fixed',
+						top: '30px'
+					});
+				}, 300);
+			}
+		},
+	bindEvents: function() {
+		this.$hamburger.on('click', this.open.bind(this));
+		$('.close').on('click', this.close.bind(this));
+		this.$window.on('scroll', this.updateTransformOrigin.bind(this));
+	},
+	init: function() {
+		this.bindEvents();
+		this.updateTransformOrigin();
+	},
+};
 
-
+paperMenu.init();
+</script>
