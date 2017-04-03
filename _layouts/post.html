@@ -7,15 +7,12 @@
 </head> 
 <body style="font-family:Signika Negative">
 <p style="container">
-  <div style="font-size:0.75em;">The blog of the <a href="http://rickardhultgren.github.io/lympha/index"><span class="sc">lympha</span> project</a></div>
+  <div style="font-size:0.75em;border-bottom:0.1em solid #888888;">The blog of the <a href="http://rickardhultgren.github.io/lympha/index"><span class="sc">lympha</span> project</a></div>
   <p>
-      <div id='content'>
-
 <a href="{{ page.url }}">{{ page.title }}</a><br>
     {{ page.date | date: "%-d %B %Y" }}<br>
         {{ content }}
 
-      </div>
 {% include footer.html %}
   </body>
 </html>
