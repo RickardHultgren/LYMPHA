@@ -7,6 +7,6 @@ Consolidating medical protocols and compute what further diagnostics and treatme
 </p>
 </p>
 <p>
-<img url="https://avatars3.githubusercontent.com/u/16224494?v=3&s=80" style="float:left;"/>
+<img src="https://avatars3.githubusercontent.com/u/16224494?v=3&s=80" style="float:left;"/>
 <p style="float:right;text-align:left;">Sincerely<br>Rickard</p>
 <p>
