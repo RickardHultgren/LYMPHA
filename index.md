@@ -1,3 +1,6 @@
+
+<link href="http://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" />
+
 <script>
 document.getElementById( "indexsmall").style.backgroundColor="#EFAB00";
 document.getElementById( "indextext").style.color="#000000";
@@ -65,3 +68,19 @@ var paperMenu = {
 
 paperMenu.init();
 </script>
+
+
+<div id="paper-window">
+	<div id="paper-front">
+		<div class="hamburger"><span></span></div>
+		<div id="container">
+			<section>
+				<h1>Page Tilt Menu Effect</h1>
+				<p>Click the hamburger icon to see it in action</p>
+			</section>
+			<section></section>
+			<section></section>
+			<section></section>
+		</div>
+	</div>
+</div>
