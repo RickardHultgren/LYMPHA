@@ -1,1 +1,7 @@
 theme: jekyll-theme-minimal
+kramdown:
+  toc_levels: 1..2
+highlighter: rouge
+gems:
+  - jekyll
+
