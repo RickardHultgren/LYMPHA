@@ -72,6 +72,7 @@ height:auto;margin-bottom:0.5em;text-align:center;color:#998855;font-style:itali
 }
 
 p {
+padding:0pt 3em 0pt 3em;
 #max-width:50em;
 text-align:justify;
 width:95vw;
@@ -103,8 +104,6 @@ a:focus {
 width:auto;
 border:0em;
 font-size:inherit;
-#margin:0.5em 0.5em 0.5em 0.5em ;
-padding:0pt 3em 0pt 3em;
 text-align:center;
 }
 
