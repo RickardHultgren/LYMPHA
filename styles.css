@@ -87,7 +87,9 @@ z-index:1;position:relative;
 ul li {
 #max-width:50em;
 text-align:justify;
-width:95vw;
+width:auto;
+left:1vw;
+right:1vw;
 z-index:1;position:relative;
 #margin:0em;
 }
