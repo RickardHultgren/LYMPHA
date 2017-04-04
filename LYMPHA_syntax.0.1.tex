@@ -1,0 +1,193 @@
+%Copyright (c) 2017, Rickard Verner Hultgren
+%All rights reserved.
+%
+%Redistribution and use in source and binary forms, with or without
+%modification, are permitted provided that the following conditions are met:
+%
+%1. Redistributions of source code must retain the above copyright notice, this
+%   list of conditions and the following disclaimer.
+%2. Redistributions in binary form must reproduce the above copyright notice,
+%   this list of conditions and the following disclaimer in the documentation
+%   and/or other materials provided with the distribution.
+%
+%THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+%ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+%WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+%DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+%ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+%(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+%LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+%ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+%(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+%SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+%
+%The views and conclusions contained in the software and documentation are those
+%of the authors and should not be interpreted as representing official policies,
+%either expressed or implied, of the FreeBSD Project.
+
+\documentclass[15pt,a4paper,oneside]{report}
+\usepackage{textcomp}
+\usepackage{tabularx}
+\usepackage[T1]{fontenc}
+\usepackage[math]{iwona}
+\usepackage{graphicx}
+\usepackage{cclicenses}
+\usepackage[textwidth=11cm]{geometry}
+\usepackage{color}
+\definecolor{orange}{RGB}{230,127,0}
+\definecolor{violet}{RGB}{127, 0, 255}
+\definecolor{grey}{RGB}{127, 127, 127}
+\usepackage{framed}
+\usepackage{textcomp}
+\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+\newcommand{\regex}[1]{{\tiny\\\colorbox{grey}{\textcolor{white}{CODE (REGEX)}\hspace{0.87\textwidth}}}\vspace{-2.2em}\\\begin{framed}\bf{\textcolor{grey}{\vspace{-1.5em}\\\texttt{\small #1}}}\vspace{-0.33em}\end{framed}\vspace{-0.75em}}
+\newcommand{\python}[1]{{\tiny\\\colorbox{grey}{\textcolor{white}{\tiny CODE (PYTHON)}\hspace{0.855\textwidth}}}\vspace{-2.2em}\\\begin{framed}\bf{\textcolor{grey}{\vspace{-1.5em}\\\texttt{\small #1}}}\vspace{-0.33em}\end{framed}\vspace{-0.75em}}
+\newcommand{\code}[1]{{\textcolor{violet}{\texttt{\small #1}}}}
+\newcommand{\comment}[1]{{\textcolor{orange}{\it #1}}}
+\renewcommand\contentsname{\vspace{-1cm}}
+\usepackage[boxed]{algorithm}
+%\usepackage[algonl]{algorithm}
+%\usepackage{algorithm}
+%\usepackage[None]{algorithm}
+\usepackage{algorithmic}
+%\usepackage{caption}
+%\DeclareCaptionLabelFormat{numberless}{\ALG@name#1}
+%\captionsetup[algorithm]{labelformat=numberless} 
+
+%\renewcommand{\algorithmicnot}{\MakeUppercase{\textit{\textbf{not}}}}
+%\renewcommand{\algorithmicif}{\MakeUppercase{\textit{\textbf{if}}}}
+%\renewcommand{\algorithmicthen}{\\ \ \ \ \MakeUppercase{\textit{\textbf{then}}}}
+%\renewcommand{\algorithmicthen}{\\ \ \ \ \ \MakeUppercase{\textit{\textbf{then}\vspace{-1.25em}}}}
+%\renewcommand{\algorithmicor}{\\ \MakeUppercase{\textit{\textbf{or}}}}
+%\renewcommand{\algorithmicand}{\\ \MakeUppercase{\textit{\textbf{and}}}}
+%\renewcommand{\algorithmicand}{\\ \MakeUppercase{\textit{\textbf{\&}}}}
+%\renewcommand{\algorithmicelse}{\MakeUppercase{\textit{\textbf{else}}}}
+%\renewcommand{\algorithmicendif}{\vspace{-1em}\ }
+\renewcommand{\algorithmicensure}[1][$\#$]{\textcolor{orange}{\textit{#1}}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+%\assignpagestyle{\chapter}{fancy}
+
+\chead{\raisebox{-.25cm}{\fontsize{5.5pt}{5.5pt}\selectfont{\sc Lympha} syntax\hfill{\cc This work by Rickard Verner Hultgren is licensed under a Creative Commons Attribution {\oldstylenums 3.0} Unported License.}}}
+
+\setlength{\parindent}{3em}
+
+\begin{document}
+\title{\vspace{-3cm}
+{\includegraphics[width=0.75\textwidth]{logo.png}}\vspace{-0.6cm}\\ \textcolor{orange}{\large{\sc Language} {that} {\sc Yields Medical Process HAndling}}\vspace{0.3cm}\\{\Huge {\bf SYNTAX}}}
+\author{\vspace{-0cm}Rickard Verner Hultgren \textit{\textcolor{grey}{rihu0003@student.umu.se}}\\\\
+}
+{\begin{minipage}[t]{\textwidth}
+%\date{\oldstylenums\today}
+\date{\vspace{-2cm}\today}
+\maketitle
+\vspace{-2cm}
+\tableofcontents
+\vspace{1cm}
+\textcolor{grey}{\cc This work by Rickard Verner Hultgren is licensed under a Creative Commons Attribution {\oldstylenums 3.0} Unported License. For the code and pseudocode in the document applies this free-{\sc bsd} license:\\
+\fontsize{5pt}{5pt}\selectfont
+\hrule
+\ \\
+Copyright (c) 2017, Rickard Verner Hultgren\\
+All rights reserved.\\
+\\
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:\\
+\\
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.\\
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.\\
+\\
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\\
+\\
+The views and conclusions contained in the software and documentation are those
+of the authors and should not be interpreted as representing official policies,
+either expressed or implied, of the FreeBSD Project.
+\hrule
+\ \\
+}\end{minipage}}
+\newpage
+\section{Introduction}
+\ \\
+The possibilities of treating diseases increase in a rapid speed. Consequently both diagnostics and treatment become more complex. The purpose of {\sc lympha} is to give clarity to those complex reasonings. {\sc Lympha} is a logical language for formulating medical algorithms. The language can be applied as {\it clinical decision support system}.
+
+The clinical work flow is dealing with series of events effecting the patients condition and evaluations of the condition. In {\sc lympha} this is put as {\it statements} devided by \code{->} building up a {\it serie}. A serie ends with semicolon as follows:\\\\
+\comment{statement} \code{->} \comment{statement} \code{->} \comment{statement} \code{;}
+\regex{[\textasciicircum ;]*(?=;)}
+\ \vspace{-2em}\\
+\python{[x.strip() for x in serie.split(''->'')]}
+\ \\
+A statement has either value of true (\code{1}) if it is executed, or false (\code{0}). A statemtent is further devided into these parts:\\\\
+\comment{variable name} \code{(} \comment{specification} \code{) =} \comment{content}
+\regex{($\backslash$w*$[$a-zA-Z]$\backslash$w*$\backslash$.)$\backslash$(\textasciicircum[\textasciicircum$\backslash$)]*?(?=$\backslash$))?$\backslash$s*?=$\backslash$s*?(\textasciicircum[\textasciicircum ;]*?(?=;))}
+\ \\
+Events effecting the condition includes ethymology, diagnostics and treatment. E.g. a bone frature that is examined and then treated. Some medical procedures are both diagnostical and treatment. Nevertheless these are events, that are semanticly separated from the evaluation of data from an event. The evaluation does oftne consist of sub-evaluation that will become factors in the main-evaluation: Therefore there are these two {\it datatypes} in {\sc lympha}: {\it events} and {\it factors}.
+\section{Variable name}
+Variable names are one word with at least one letter. The last character of the name indicates what datatype the variable has.
+\begin{itemize}
+\item {\it Events}; Always end with a full stop (\code{.}).
+\item {\it Factors}; Always end with a questionmark (\code{?}).
+\end{itemize}
+Even though both datatypes have a structure of an element as explained above, the parts looks a little bit different.
+\section{Specifications}
+A specification is a sub-variable. It is built as follow:\\\\
+\comment{datatype} \code{[} \comment{sub-variable name} \code{] =} \comment{content}
+\regex{($\backslash$w*$[$a-zA-Z]$\backslash$w*$\backslash$)$\backslash$[\textasciicircum[\textasciicircum$\backslash$]]*?(?=$\backslash$])?$\backslash$s*?=$\backslash$s*?($\backslash$w*$[$a-zA-Z]$\backslash$w*$\backslash$)}
+\ 
+\\
+Here follows how structurize the parts:
+\subsection{Dataype}
+This datatype describes what data the sub-variable is describing. These datatypes are used:\\\\
+\begin{tabular}{r|l}
+{\it Dataype} & {\it Meaning}\\
+\hline L & length \\
+\hline L2 & surface area \\
+\hline L3 & volume \\
+\hline M & mass \\
+\hline N & mole \\
+\hline -T & time elapsed\\
+\hline \%s & string \\
+\hline R & other real numbers\\
+\end{tabular}
+\subsection{Sub-variable name}
+These is the name or unit of the data.
+\subsection{Sub-variable  content}
+This is the value. All strings has quoationmarks at the beginning and at the end.
+\section{Content}
+These is the part of a statement that separates factors from events. The goal of a factor content is to evaluate data. The goal of event content is to descripe sub-events.
+\newpage
+\subsection{Event content}
+This is one serie of events and factors separted with commas \code{,}:\\\\
+\code{\{} \comment{event} \code{,} \comment{factor} \code{,} \comment{event} \code{\}}
+\python{[x.strip() for x in content.split(',')]}
+\subsection{Factor content}
+This is an evaluation of other sub-factors. Sub events are not allowed to be included in factor content.\\\\
+\code{} \comment{tipping point} \hspace{2em} \comment{relational operator} \code{|\{} \comment{sub-factor} \code{,} \comment{sub-factor} \code{\}|}
+\regex{($\backslash$d)$\backslash$s*?(==|>|<|>=|<=)$\backslash$s*?\{($\backslash$w*$[$a-zA-Z]$\backslash$w*$\backslash$)\}}
+Valid rational operators
+
+\begin{tabular}{l|l}
+{\it relational operator} & {\it read as}\\
+\hline{\textcolor{violet}{\tt ==}} & if and only if ($\equiv$)\\
+{\textcolor{violet}{\tt >}} & greater than \\
+{\textcolor{violet}{\tt >=}} & greater than or equal ($\geq$)\\
+{\textcolor{violet}{\tt <}} & lesser than\\
+{\textcolor{violet}{\tt <=}} & less than or equal ($\leq$)\\
+{\textcolor{violet}{\tt !=}} & not equal to ($\neq$)\\
+\end{tabular}\\\\\\
+\end{document}
+
+
