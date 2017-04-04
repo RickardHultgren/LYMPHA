@@ -74,17 +74,18 @@ height:auto;margin-bottom:0.5em;text-align:center;color:#998855;font-style:itali
 
 p {
 padding:0pt 3em 0pt 3em;
-#max-width:50em;
 text-align:justify;
 width:auto;
 left:1vw;
 right:1vw;
 z-index:1;position:relative;
-#margin:0em;
+
 }
-
-
+ul{
+position:relative;
+}
 li {
+	position:relative;
 text-align:justify;
 width:auto;
 left:25vw;
