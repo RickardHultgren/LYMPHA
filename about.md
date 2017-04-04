@@ -14,9 +14,9 @@ Planned branches for version 1.0:
 
 
 To do in version 1.0:
- - Syntax description in REGEX  (almost done)
+ -[] Syntax description in REGEX
  - Computing algorithms in:
-  - pseudocode
-  - Gforth
-  - python
- - Update javascript version
+   -[] pseudocode
+   -[] Gforth
+   -[] python
+ -[] Update javascript version
