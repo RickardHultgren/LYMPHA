@@ -227,29 +227,6 @@ font-family:"Share Tech Mono","Lucida Console",Monospace,"DejaVu Sans Mono","Cou
 }
 
 
-.close {
-	position: fixed;
-	top: 30px;
-	left: 30px;
-	width: 45px;
-	height: 34px;
-	cursor: pointer;
-
-	&:before, &:after {
-			content: '';
-			position: absolute;
-			display: block;
-			width: 45px;
-			height: 6px;
-			top: 50%;
-			background-color: white;
-			border-radius: 2px;
-		}
-		&:before { transform: translateY(-50%) rotate(45deg); }
-		&:after {	transform: translateY(-50%) rotate(-45deg); }
-}
-
-
 @media only all and (min-width: 981px) {
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
