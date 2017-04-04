@@ -100,12 +100,11 @@ a:focus {
     }
 
 .container{
-width:94vw;
-left:2vw;
+width:auto;
 border:0em;
 font-size:inherit;
 #margin:0.5em 0.5em 0.5em 0.5em ;
-#padding:0pt 0pt 0pt 0pt;
+padding:0pt 1em 0pt 1em;
 text-align:center;
 }
 
