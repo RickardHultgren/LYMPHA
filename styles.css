@@ -88,7 +88,20 @@ margin-left:5vw;
 margin-right:5vw;
 }
 
+ul ul{
+position:relative;
+	width:auto;
+margin-left:5vw;
+margin-right:5vw;
+}
+
 ol{
+position:relative;
+	width:auto;
+margin-left:5v;
+margin-right:5vw;
+}
+ol ol{
 position:relative;
 	width:auto;
 margin-left:5v;
