@@ -76,6 +76,7 @@ padding:0pt 3em 0pt 3em;
 #max-width:50em;
 text-align:justify;
 width:95vw;
+left:2.5vw;
 z-index:1;position:relative;
 #margin:0em;
 }
@@ -310,6 +311,7 @@ font-size:1.5vw;
 margin:0vw 20vw 0vw 20vw ;
 text-align:justify;
 width:auto;
+left:0px;
 #margin:0em;
 }
 
