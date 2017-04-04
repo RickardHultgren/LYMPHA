@@ -14,9 +14,9 @@ Planned branches for version 1.0:
 
 
 Parts of version 1.0:
- - [x] [Syntax description in REGEX](https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_syntax.0.1.pdf)
- - [ ] Computing algorithms in:
-   - [ ] pseudocode
-   - [ ] Gforth
-   - [ ] python
- - [ ] Update javascript version
+ - [Syntax description in REGEX](https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_syntax.0.1.pdf)
+ - Computing algorithms in:
+   - pseudocode
+   - Gforth
+   - python
+ - Update javascript version
