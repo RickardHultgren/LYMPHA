@@ -95,11 +95,9 @@ left:25vw;
 right:25vw;
 }
 li {
-	position:relative;
+position:relative;
 text-align:justify;
 width:auto;
-left:25vw;
-right:25vw;
 }
 
 a {
