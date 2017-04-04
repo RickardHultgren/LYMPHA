@@ -75,8 +75,9 @@ p {
 padding:0pt 3em 0pt 3em;
 #max-width:50em;
 text-align:justify;
-width:95vw;
-left:2.5vw;
+width:auto;
+left:1vw;
+right:1vw;
 z-index:1;position:relative;
 #margin:0em;
 }
@@ -103,6 +104,8 @@ a:focus {
 
 .container{
 width:auto;
+left:1vw;
+right:1vw;
 border:0em;
 font-size:inherit;
 text-align:center;
