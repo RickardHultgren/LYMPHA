@@ -100,7 +100,8 @@ a:focus {
     }
 
 .container{
-width:100%;
+width:94vw;
+left:2vw;
 border:0em;
 font-size:inherit;
 #margin:0.5em 0.5em 0.5em 0.5em ;
