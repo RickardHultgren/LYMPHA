@@ -24,15 +24,16 @@
 
 ######
 html{
-font-size:32pt;
+font-size:32pt; 	font-size:32pt;
+	overflow-x: hidden;
 }
 
 body {
 	font-size:32pt;
 	overflow-x: hidden;
 	font-family:'Signika+Negative';
-	width:95vw;
-left:2.5vw;
+	width:auto;
+left:1vw;right:1vw;
 	margin:0em 0em 0em 0em;
 	background-color:#ffffff;
 	color: #000000;
