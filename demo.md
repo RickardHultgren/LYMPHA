@@ -6,8 +6,8 @@ document.getElementById( "demo").className="menu2active";
 Perhaps you can this web-browser-version tool for making of medical work-flowcharts To use it do as follows:
 
 <ol>
- <li>Download the files from [here](https://github.com/RickardHultgren/lympha/tree/JavaScript).</li>
- <li>Downloads viz.js from here [here](https://github.com/mdaines/viz.js/releases).</li>
+ <li>Download the files from <a href="https://github.com/RickardHultgren/lympha/tree/JavaScript">here</a>).</li>
+ <li>Downloads viz.js from here <a href="https://github.com/mdaines/viz.js/releases">here</a>.</li>
  <li>Open the downloaded index.html in a web browser.</li>
 </ol>
 
