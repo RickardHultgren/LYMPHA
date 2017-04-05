@@ -3,7 +3,6 @@ document.getElementById( "demosmall").style.backgroundColor="#EFAB00";
 document.getElementById( "demotext").style.color="#000000";
 document.getElementById( "demo").className="menu2active";
 </script>
-<script>
 A very basic web browser demo-version of <span class="sc">lympha</span> for making medical work-flowcharts. To use it do as follows
 
  1. Download the files from [here](https://github.com/RickardHultgren/lympha/tree/JavaScript).
