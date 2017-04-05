@@ -10,4 +10,3 @@ Perhaps you can this web-browser-version tool for making of medical work-flowcha
  <li>Downloads viz.js from here <a href="https://github.com/mdaines/viz.js/releases">here</a>.</li>
  <li>Open the downloaded index.html in a web browser.</li>
 </ol>
-
