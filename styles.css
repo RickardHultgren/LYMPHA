@@ -92,8 +92,8 @@ margin-right:25vw;
 }
 
 
-ul ul,
-ol ol {
+li ul,
+li ol {
 position:relative;
 	width:auto;
 margin-left:-15vw;
