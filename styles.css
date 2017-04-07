@@ -84,16 +84,16 @@ z-index:1;position:relative;
 .markdown-body ul, .markdown-body ol,
 ul, ol
  {
-position:relative;
+position:static;
 	width:auto;
-margin-left:25vw;
-margin-right:25vw;
+margin-left:5vw;
+margin-right:5vw;
 }
 
 
 li ul,
 li ol {
-position:relative;
+position:static;
 	width:auto;
 margin-left:5vw;
 margin-right:0vw;
