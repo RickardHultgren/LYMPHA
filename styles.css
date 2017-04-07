@@ -84,13 +84,22 @@ z-index:1;position:relative;
 
 .markdown-body ul, .markdown-body ol,
 ul, ol,
-ul > ul,
-ol > ol {
+ {
 position:relative;
 	width:auto;
 margin-left:25vw;
 margin-right:25vw;
 }
+
+
+ul > ul,
+ol > ol {
+position:relative;
+	width:auto;
+margin-left:5vw;
+margin-right:0vw;
+}
+
 
 ul > li , ol > li ,
 ul > ul > li ,
@@ -98,8 +107,6 @@ ol > ol > li {
 position:relative;
 text-align:justify;
 width:auto;
-margin-left:10vw;
-margin-right:0vw;
 }
 
 a {
