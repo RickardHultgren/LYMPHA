@@ -105,7 +105,7 @@ border:0em;
 
 ul > li ,
 ol > li {
-position:absolute;
+position:relative;
 font-size:32pt;	
 text-align:justify;
 width:auto;
@@ -265,7 +265,7 @@ font-size:1.5vw;
 	
 ul > li ,
 ol > li {
-position:absolute;
+position:relative;
 font-size:1.5vw;
 }
 	
