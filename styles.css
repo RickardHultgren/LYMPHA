@@ -88,8 +88,8 @@ ul > ul,
 ol > ol {
 position:relative;
 	width:auto;
-margin-left:5vw;
-margin-right:5vw;
+margin-left:25vw;
+margin-right:25vw;
 }
 
 ul > li , ol > li ,
