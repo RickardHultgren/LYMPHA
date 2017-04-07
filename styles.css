@@ -96,8 +96,8 @@ li ul,
 li ol {
 position:relative;
 	width:auto;
-margin-left:-15vw;
-margin-right:-25vw;
+margin-left:2em;
+margin-right:0vw;
 }
 
 
