@@ -101,7 +101,13 @@ margin-right:-25vw;
 }
 
 
-ul > li , ol > li ,
+ul > li , ol > li
+{
+position:relative;
+text-align:justify;
+width:auto;
+}
+
 ul > ul > li ,
 ol > ol > li {
 position:relative;
