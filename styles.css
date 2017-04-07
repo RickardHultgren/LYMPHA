@@ -83,17 +83,25 @@ z-index:1;position:relative;
 
 ul {
 font-size:initial;
-position:relative;
+position:absolute;
 	width:auto;
 margin-left:5vw;
 margin-right:5vw;
 
 width:auto;
+	
+
+width:auto;
+left:20vw;
+right:20vw;
+border:0em;
+font-size:inherit;
+text-align:center;
 }
 
 ol {
 font-size:initial;
-position:relative;
+position:absolute;
 	width:auto;
 margin-left:5vw;
 margin-right:5vw;
@@ -108,8 +116,6 @@ text-align:center;
 
 ul > li ,
 ol > li {
-font-size:initial;
-position:static;
 text-align:justify;
 width:auto;
 }
