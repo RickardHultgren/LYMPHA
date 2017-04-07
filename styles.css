@@ -81,7 +81,16 @@ z-index:1;position:relative;
 
 }
 
-ul,
+ul {
+font-size:initial;
+position:relative;
+	width:auto;
+margin-left:5vw;
+margin-right:5vw;
+
+width:auto;
+}
+
 ol {
 font-size:initial;
 position:relative;
