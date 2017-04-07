@@ -81,23 +81,16 @@ z-index:1;position:relative;
 
 }
 
-ul, ol
- {
+ul,
+ol {
 position:static;
 	width:auto;
 margin-left:5vw;
 margin-right:5vw;
 }
 
-ul > li , ol > li
-{
-position:relative;
-text-align:justify;
-width:auto;
-}
-
-ul > ul > li ,
-ol > ol > li {
+ul > li ,
+ol > li {
 position:relative;
 text-align:justify;
 width:auto;
