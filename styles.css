@@ -98,6 +98,8 @@ ol > ol > li {
 position:relative;
 text-align:justify;
 width:auto;
+margin-left:30vw;
+margin-right:25vw;
 }
 
 a {
