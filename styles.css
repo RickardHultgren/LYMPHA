@@ -87,7 +87,7 @@ position:relative;
 width:auto;
 margin-left:5vw;
 margin-right:5vw;
-width:auto;
+width:50vw;
 left:20vw;
 right:20vw;
 border:0em;
@@ -99,7 +99,7 @@ position:relative;
 width:auto;
 margin-left:5vw;
 margin-right:5vw;
-width:auto;
+width:50vw;
 left:20vw;
 right:20vw;
 border:0em;
@@ -270,6 +270,8 @@ position:relative;
 width:auto;
 margin-left:5vw;
 margin-right:5vw;
+left:0vw;
+right:0vw;
 width:auto;
 border:0em;
 }
@@ -336,7 +338,6 @@ position:relative;
 display:inline-block;
 padding-top:0.25em;
 padding-bottom:0em;
-tex
 }
 
 
