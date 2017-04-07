@@ -88,6 +88,8 @@ width:auto;
 margin-left:5vw;
 margin-right:5vw;
 width:auto;
+left:20vw;
+right:20vw;
 border:0em;
 }
 
@@ -260,6 +262,28 @@ body {
 
 .container{
 font-size:1.5vw;
+}
+
+ul {
+font-size:initial;
+position:relative;
+width:auto;
+margin-left:5vw;
+margin-right:5vw;
+width:auto;
+border:0em;
+}
+
+ol {
+font-size:initial;
+position:relative;
+width:auto;
+margin-left:5vw;
+margin-right:5vw;
+width:auto;
+left:20vw;
+right:20vw;
+border:0em;
 }
 
 	
