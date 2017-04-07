@@ -83,20 +83,22 @@ z-index:1;position:relative;
 
 ul,
 ol {
-	
-	left:initial;
-	right:initial;
 font-size:initial;
 position:static;
 	width:auto;
 margin-left:5vw;
 margin-right:5vw;
+
+width:auto;
+left:1vw;
+right:1vw;
+border:0em;
+font-size:inherit;
+text-align:center;
 }
 
 ul > li ,
 ol > li {
-	left:initial;
-	right:initial;
 font-size:initial;
 position:static;
 text-align:justify;
@@ -255,6 +257,8 @@ font-size:1.5vw;
 	
 }
 
+	
+	
 .subhead {
 font: bold 130% 'Signika Negative';color:#000000;
 }
