@@ -83,7 +83,7 @@ z-index:1;position:relative;
 
 ul,
 ol {
-display:static;
+display:inline-block;
 font-size:inherit;
 position:static;
 	width:auto;
@@ -93,9 +93,9 @@ margin-right:5vw;
 
 ul > li ,
 ol > li {
-display:static;
+display:inline-block;
 font-size:inherit;
-position:relative;
+position:static;
 text-align:justify;
 width:auto;
 }
