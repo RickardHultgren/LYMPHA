@@ -84,8 +84,8 @@ z-index:1;position:relative;
 ul,
 ol {
 	
-	left:inherit;
-	right:inherit;
+	left:initial;
+	right:initial;
 font-size:initial;
 position:static;
 	width:auto;
@@ -95,8 +95,8 @@ margin-right:5vw;
 
 ul > li ,
 ol > li {
-	left:inherit;
-	right:inherit;
+	left:initial;
+	right:initial;
 font-size:initial;
 position:static;
 text-align:justify;
