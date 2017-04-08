@@ -83,8 +83,8 @@ ul {
 font-size:initial;
 position:static;
 width:auto;
-margin-left:1em;
-margin-right:1em;
+margin-left:3em;
+margin-right:3em;
 width:auto;
 border:0em;
 }
@@ -93,8 +93,8 @@ ol {
 font-size:initial;
 position:static;
 width:auto;
-margin-left:5vw;
-margin-right:5vw;
+margin-left:3vw;
+margin-right:3vw;
 width:auto;
 border:0em;
 }
