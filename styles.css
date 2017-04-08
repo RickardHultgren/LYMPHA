@@ -341,11 +341,11 @@ width:auto;
 }
 
 p {
-padding:0pt 3em 0pt 3em;
+padding:0pt 5vw 0pt 5vw;
 font-size:1.5vw;
 margin:0vw 0vw 0vw 0vw ;
 text-align:justify;
-width:100%;
+width:50vw;
 }
 
 #footer {
