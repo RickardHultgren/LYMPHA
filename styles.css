@@ -243,15 +243,11 @@ font-family:"Share Tech Mono","Lucida Console",Monospace,"DejaVu Sans Mono","Cou
 @media only all and (min-width: 981px) {
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-
-
 body {
-	width:100vw;
-	font-size:1.5vw;
-	padding:0vw;
-	margin-left:20vw;
-	margin=right:20vw;
-	}
+width:100vw;
+font-size:1.5vw;
+padding:0vw 20vw 0vw 20vw;
+}
 
 .container{
 font-size:1.5vw;
