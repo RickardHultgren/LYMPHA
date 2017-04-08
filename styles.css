@@ -80,7 +80,7 @@ overflow-x: hidden;
 
 ul {
 font-size:initial;
-position:relative;
+position:static;
 width:auto;
 margin-left:5vw;
 margin-right:5vw;
@@ -90,7 +90,7 @@ border:0em;
 
 ol {
 font-size:initial;
-position:relative;
+position:static;
 width:auto;
 margin-left:5vw;
 margin-right:5vw;
