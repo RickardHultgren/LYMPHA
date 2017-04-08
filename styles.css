@@ -85,8 +85,6 @@ width:auto;
 margin-left:5vw;
 margin-right:5vw;
 width:50vw;
-left:20vw;
-right:20vw;
 border:0em;
 }
 
@@ -97,8 +95,6 @@ width:auto;
 margin-left:5vw;
 margin-right:5vw;
 width:50vw;
-left:20vw;
-right:20vw;
 border:0em;
 }
 
@@ -132,7 +128,6 @@ overflow-x: hidden;
 #thetop{
 width:100%;
 height:auto;
-#margin: 0em auto 0em auto;
 }
 
 
@@ -168,7 +163,6 @@ text-align:justify;
 
 div {
 text-align:left;
-#margin:0em 0em 0em 0em;
 }
 
 h1 {
@@ -279,8 +273,6 @@ width:auto;
 margin-left:5vw;
 margin-right:5vw;
 width:auto;
-left:20vw;
-right:20vw;
 border:0em;
 }
 
@@ -348,9 +340,7 @@ padding-bottom:0em;
 }    
 
 ul li {
-#max-width:50em;
 font-size:1.5vw;
-margin:0vw 20vw 0vw 20vw ;
 text-align:justify;
 width:auto;
 #margin:0em;
@@ -368,7 +358,7 @@ left:0px;
 
 #footer {
 font-size:1vw;
-margin:0vw 20vw 0vw 20vw ;
+margin:0vw;
 width:60vw;
 }
 
