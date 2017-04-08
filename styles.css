@@ -75,7 +75,7 @@ max-width:50em;
 padding:0pt 1em 0pt 1em;
 text-align:justify;
 width:auto;
-z-index:0;position:static;
+z-index:1;position:static;
 }
 
 ul {
