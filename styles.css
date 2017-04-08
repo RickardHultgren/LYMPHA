@@ -71,11 +71,11 @@ height:auto;margin-bottom:0.5em;text-align:center;color:#998855;font-style:itali
 }
 
 p {
+max-width:50em;
 padding:0pt 1em 0pt 1em;
 text-align:justify;
 width:auto;
 z-index:1;position:static;
-overflow-x: hidden;
 }
 
 ul {
@@ -339,13 +339,11 @@ ul li {
 font-size:1.5vw;
 text-align:justify;
 width:auto;
-#margin:0em;
 }
 
 p {
 padding:0pt 3em 0pt 3em;
 font-size:1.5vw;
-max-width:50em;
 margin:0vw 0vw 0vw 0vw ;
 text-align:justify;
 width:auto;
