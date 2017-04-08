@@ -32,7 +32,6 @@ body {
 	overflow-x: hidden;
 	font-family:'Signika+Negative';
 	width:auto;
-left:1vw;right:1vw;
 	margin:0em 0em 0em 0em;
 	background-color:#ffffff;
 	color: #000000;
@@ -258,7 +257,7 @@ font-family:"Share Tech Mono","Lucida Console",Monospace,"DejaVu Sans Mono","Cou
 
 body {
 	width:100vw;
-	font-size:1.5vw;
+	font-size:1.5vw;padding:0vw 20vw 0vw 20vw ;
 	}
 
 .container{
@@ -364,7 +363,7 @@ width:auto;
 p {
 #max-width:50em;
 font-size:1.5vw;
-margin:0vw 20vw 0vw 20vw ;
+margin:0vw 0vw 0vw 0vw ;
 text-align:justify;
 width:auto;
 left:0px;
