@@ -131,6 +131,7 @@ right:1vw;
 border:0em;
 font-size:inherit;
 text-align:center;
+overflow-x: hidden;
 }
 
 #thetop{
