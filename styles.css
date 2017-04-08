@@ -71,7 +71,7 @@ height:auto;margin-bottom:0.5em;text-align:center;color:#998855;font-style:itali
 }
 
 p {
-padding:0pt 3em 0pt 3em;
+padding:0pt 1em 0pt 1em;
 text-align:justify;
 width:auto;
 z-index:1;position:relative;
@@ -247,7 +247,8 @@ font-family:"Share Tech Mono","Lucida Console",Monospace,"DejaVu Sans Mono","Cou
 
 body {
 	width:100vw;
-	font-size:1.5vw;padding:0vw 20vw 0vw 20vw ;
+	font-size:1.5vw;
+	padding:0vw 20vw 0vw 20vw ;
 	}
 
 .container{
@@ -347,13 +348,12 @@ width:auto;
 }
 
 p {
-#max-width:50em;
+padding:0pt 3em 0pt 3em;
 font-size:1.5vw;
 margin:0vw 0vw 0vw 0vw ;
 text-align:justify;
 width:auto;
 left:0px;
-#margin:0em;
 }
 
 #footer {
