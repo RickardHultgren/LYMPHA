@@ -74,7 +74,7 @@ p {
 padding:0pt 1em 0pt 1em;
 text-align:justify;
 width:auto;
-z-index:1;position:relative;
+z-index:1;position:static;
 overflow-x: hidden;
 }
 
@@ -100,7 +100,7 @@ border:0em;
 
 ul > li ,
 ol > li {
-position:relative;
+position:static;
 font-size:32pt;	
 text-align:justify;
 width:auto;
@@ -234,8 +234,6 @@ text-align:right;
 border: #bfa98f dotted 1px;
 background-color:#676165;
 color:#ffc946;
-#margin:0.25em 0em 0.25em 0em;
-#padding:0.75em;
 font-family:"Share Tech Mono","Lucida Console",Monospace,"DejaVu Sans Mono","Courier New",MiscFixed;
 }
 
@@ -254,7 +252,7 @@ font-size:1.5vw;
 
 ul {
 font-size:initial;
-position:relative;
+position:static;
 width:auto;
 margin-left:5vw;
 margin-right:5vw;
@@ -266,7 +264,7 @@ border:0em;
 
 ol {
 font-size:initial;
-position:relative;
+position:static;
 width:auto;
 margin-left:5vw;
 margin-right:5vw;
@@ -277,7 +275,7 @@ border:0em;
 	
 ul > li ,
 ol > li {
-position:relative;
+position:static;
 font-size:1.5vw;
 }
 	
@@ -308,7 +306,7 @@ font-size:.75em;
 width:13.5vw;
 background-color:#eeeeee;
 z-index:2;
-position:relative;
+position:static;
 display:inline-block;
 padding-top:0.25em;
 padding-bottom:0em;
@@ -320,7 +318,7 @@ font-size:.75em;
 width:13.5vw;
 background-color:#EFAB00;
 z-index:2;
-position:relative;
+position:static;
 display:inline-block;
 padding-top:0.25em;
 padding-bottom:0em;
