@@ -185,7 +185,7 @@ text-align:center;
 font-weight:bold;
 letter-spacing:2px;
 height:2em;
-padding-top:20px;
+padding:0.5em 0em 0.5em 0em;
 }
 
 .menu2active {
@@ -201,7 +201,7 @@ letter-spacing:2px;
 text-align:center;
 background-color:#EFAB00;
 height:2em;
-padding-top:20px;
+padding:0.5em 0em 0.5em 0em;
 }
 
 
