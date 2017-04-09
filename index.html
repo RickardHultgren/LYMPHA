@@ -108,7 +108,22 @@ function bar(){
 	//}
 	for (var i = 0; i < prearray.length; i++){
 		if (prearray[i]!=""){
-			listarray.push(prearray[i])
+			var check = 0;
+			for(var j = 0; j< prearray.length; j++) {
+				if (prearray[i]==prearray[j] && i<j){
+						check = 1;
+				}
+			}
+			if (check==0){
+				listarray.push(prearray[i])
+			}else{
+				subsub = prearray[i].split(";");
+				for(var k = 0; k< subsub.length; k++) {
+					if(k!=0){
+						listarray[j+1] = prearray[j] + subsub[k];
+					}
+				}
+			}
 		}
 	}
 	reloading();
@@ -131,11 +146,11 @@ abc -> def ;
 			for (var j = 0; j < subarray.length; j++) {
 				if (j!=0){
 					if(subarray[j]){
-						document.write(listarray[i]+" -> "+subarray[j]+" ;<br>");
+						document.write(subarray[0]+" -> "+subarray[j]+" ;<br>");
 					}
 					
 				}else{
-					document.write(listarray[i]+" ;<br>");
+					document.write(subarray[0]+" ;<br>");
 				}			
 			}
 		}
