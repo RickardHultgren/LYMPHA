@@ -173,6 +173,7 @@ font: normal 200% 'Signika Negative';color:#555555;
 
 
 .menu2 {
+font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif, Helvetica, Arial;
 display:block;
 z-index:3;
 background-color:#cccccc;
@@ -188,6 +189,7 @@ padding-top:20px;
 }
 
 .menu2active {
+font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif, Helvetica, Arial;	
 color:#222222;
 border-color:#222222;
 display:block;
