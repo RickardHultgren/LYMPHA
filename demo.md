@@ -7,7 +7,7 @@ Perhaps you can improve someone’s health with the help of this web-browser-ver
 <ol>
 <li>Download the files from <a href="https://github.com/RickardHultgren/lympha/tree/JavaScript">here</a>.</li>
 <li>Downloads viz.js from <a href="https://github.com/mdaines/viz.js/releases">here</a>.</li>
-<li>Open the downloaded ```index.html``` in a web browser.</li>
+<li>Open the downloaded <span style="font-style:italic">index.html</span> in a web browser.</li>
 </ol>
 
 
