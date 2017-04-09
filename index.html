@@ -85,19 +85,31 @@ var presubarray = [] ;
 function bar(){
 	listarray = ["head"] ;
     baz = document.getElementById('foo').value;
-	prearray = baz.split(";");
-	for (var i = 0; i < prearray.length; i++) {
-		presubarray = prearray[i].split("->");
-		var prestring = "" ;
-		for (var j = 0; j < presubarray.length; j++) {
-			if (j!=0){
-				prestring = ";" + presubarray[j] ;	
-			}else{
-				prestring = presubarray[0] ;	
-			}
+    baz = baz.replace(/(\r\n|\n|\r)/gm,"");
+	baz = baz.split(";").join(".");
+	baz = baz.split("->").join(";");
+	prearray = baz.split(".");
+	//for (var i = 0; i < prearray.length; i++) {
+		//presubarray = prearray[i].split("->");
+		//var prestring = "" ;
+		//for (var j = 0; j < presubarray.length; j++) {
+			//if (j!=0){
+				//prestring = ";" + presubarray[j] ;	
+			//}else{
+				//prestring = presubarray[0] ;	
+			//}
+		
+		//prearray[i] = prearray[i].replace(/(\s?*\->\s?*)/gm,",");
+		
+		//prearray[i] = prearray[i].replace("->",",");
 			
+		//}
+		//listarray.push(prestring) ;
+	//}
+	for (var i = 0; i < prearray.length; i++){
+		if (prearray[i]!=""){
+			listarray.push(prearray[i])
 		}
-		listarray.push(prestring) ;
 	}
 	reloading();
 }
