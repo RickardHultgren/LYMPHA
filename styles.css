@@ -30,7 +30,7 @@ font-size:32pt; 	font-size:32pt;
 body {
 	font-size:32pt;
 	overflow-x: hidden;
-	font-family:'Signika+Negative';
+	font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 	width:auto;
 	padding:0em 5vw 0em 5vw;
 	background-color:#ffffff;
@@ -42,7 +42,7 @@ body {
 
 .button {
 text-decoration:none;
-height:auto;margin-bottom:0.5em;text-align:center;color:#998855;font-style:italic;;font-size:1em;padding:0.25em;display:inline-block; border: 0.1em solid #998855;background-color:#ffffff;font-family:'Signika Negative';font-size:0.9em;letter-spacing:0.15em;
+height:auto;margin-bottom:0.5em;text-align:center;color:#998855;font-style:italic;;font-size:1em;padding:0.25em;display:inline-block; border: 0.1em solid #998855;background-color:#ffffff;font-size:0.9em;letter-spacing:0.15em;
 }
 
 .inputing{
