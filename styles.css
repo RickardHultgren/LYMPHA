@@ -303,6 +303,7 @@ font: bold 120% 'Signika Negative';color:#333333; text-align:justify;
 }
 
 .menu2 {
+font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif, Helvetica, Arial;
 height:auto;margin-bottom:0.5em;text-align:center;color:#998855;font-style:italic;font-size:1em;padding:0.25em;display:inline-block; border: 0.1em solid #998855;background-color:#ffffff;font-family:'Signika Negative';font-size:0.9em;letter-spacing:0.15em;
 font-size:.75em;
 width:13.5vw;
@@ -315,6 +316,7 @@ padding-bottom:0em;
 }
 
 .menu2active {
+font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif, Helvetica, Arial;
 height:auto;margin-bottom:0.5em;text-align:center;color:#998855;font-style:italic;;font-size:1em;padding:0.25em;display:inline-block; border: 0.1em solid #998855;background-color:#ffffff;font-family:'Signika Negative';font-size:0.9em;letter-spacing:0.15em;
 font-size:.75em;
 width:13.5vw;
