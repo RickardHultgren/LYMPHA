@@ -309,7 +309,7 @@ background-color:#eeeeee;
 z-index:2;
 position:static;
 display:inline-block;
-padding:0.5em 0em 0.5em 0em;
+padding:0.125em 0em 0.125em 0em;
 }
 
 .menu2active {
@@ -321,7 +321,7 @@ background-color:#EFAB00;
 z-index:2;
 position:static;
 display:inline-block;
-padding:0.25em 0em 0.25em 0em;
+padding:0.125em 0em 0.125em 0em;
 color:#ffffff;
 border-color:#222222;
 }
