@@ -110,40 +110,44 @@ function bar(){
 		if (prearray[i]!=""){
 			prearray[i] = prearray[i].replace(" ", "");
 			var check = 0;
-			
+			var prolong = "";
+			//var scripted = 0
 			for(var j = 0; j< prearray.length; j++) {
-				if (prearray[j]!="" && i>j){
-					var check = 0;
-					var prolong = prearray[j];
-					var subsub = prearray[i].split(";");
-					var subpre = prearray[j].split(";");
+				var subsub = prearray[i].split(";");
+				var subpre = prearray[j].split(";");				
+				if (prearray[j] != "" && i >= j){
 					for(var k = 0; k< subsub.length; k++) {
-						alert(subsub[0]);
-						alert(subpre[0]);
-						if (subsub[0]==subpre[0]){
-							alert("hej");
-							check=1;
+						//alert(subsub[0]);
+						//alert(subpre[0]);
+						if (subsub.length !=1 && subsub[0]==subpre[0]){
+							check = check+1;
+							prolong = subsub[0];
 						}
-						if(k!=0 && check==1){
+						if(k!=0 && check!=0){
+							
 							prolong = prolong + ";" + subsub[k];
 							
 						}
-					}
-					if(check==1){
-						listarray[j+1] = prolong;
-					}
-					if(check==0){
-						listarray.push(prearray[i])
-
-					}
+					}	
 				}
+				if(i >= j){
+						if(check!=0){
+							listarray[j+1] = prolong;
+							alert("listarray:"+listarray[j+1]);
+						}
+				}
+				if(i == (prearray.length - 1)){
+						alert("new:"+prearray[i]);
+						listarray.push(prearray[i]);
+					}
+				check=0;
 			}
 		}
 	}
 	reloading();
 }
 </script>
-<form><textarea id="foo" name="foo" cols="86" rows ="20">
+<form><textarea id="foo" name="foo" cols="50" rows ="15">
 abc -> def ;
 </textarea>
 <input class="button" type="submit" value='import' onclick="bar();" />
