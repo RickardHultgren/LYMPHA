@@ -201,7 +201,6 @@ letter-spacing:2px;
 text-align:center;
 background-color:#EFAB00;
 height:2em;
-padding:0.5em 0em 0.5em 0em;
 }
 
 
@@ -324,8 +323,7 @@ background-color:#EFAB00;
 z-index:2;
 position:static;
 display:inline-block;
-padding-top:0.25em;
-padding-bottom:0em;
+padding:0.25em 0em 0.25em 0em;
 color:#ffffff;
 border-color:#222222;
 }
