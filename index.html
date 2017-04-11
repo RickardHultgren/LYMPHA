@@ -106,43 +106,31 @@ function bar(){
 		//}
 		//listarray.push(prestring) ;
 	//}
+	var scripted = 0;
 	for (var i = 0; i < prearray.length; i++){
 		if (prearray[i]!=""){
-			prearray[i] = prearray[i].replace(" ", "");
-			var check = 0;
-			var prolong = "";
-			//var scripted = 0
-			for(var j = 0; j< prearray.length; j++) {
+			prearray[i] = prearray[i].replace(" ", "");			
+			for(var j = 0; j< listarray.length; j++) {
+				var subpre = listarray[j].split(";");				
 				var subsub = prearray[i].split(";");
-				var subpre = prearray[j].split(";");				
-				if (prearray[j] != "" && i >= j){
-					for(var k = 0; k< subsub.length; k++) {
-						//alert(subsub[0]);
-						//alert(subpre[0]);
-						if (subsub.length !=1 && subsub[0]==subpre[0]){
-							check = check+1;
-							prolong = subsub[0];
-						}
-						if(k!=0 && check!=0){
-							
-							prolong = prolong + ";" + subsub[k];
-							
-						}
-					}	
-				}
-				if(i >= j){
-						if(check!=0){
-							listarray[j+1] = prolong;
-							alert("listarray:"+listarray[j+1]);
-						}
-				}
-				if(i == (prearray.length - 1)){
-						alert("new:"+prearray[i]);
-						listarray.push(prearray[i]);
+				var prolong = listarray[j];
+				for(var k = 1; k< subsub.length; k++) {
+					if(subsub[0]==subpre[0]){
+						prolong = prolong + ";" + subsub[k];
 					}
-				check=0;
+				}
+				if (subsub[0]==subpre[0] ){
+					listarray[j] = prolong;
+					scripted = 1;
+				}
 			}
 		}
+		
+		if(scripted==0 && prearray[i]!=""){
+			listarray.push(prearray[i]);
+			scripted = 1 ;
+		}
+		scripted=0;
 	}
 	reloading();
 }
