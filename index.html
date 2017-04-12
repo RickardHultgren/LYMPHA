@@ -40,6 +40,7 @@ function storageAvailable(type) {
     }
 }
 var listarray = ["head"];
+var toPrint = "";
 if (storageAvailable('localStorage')) {
     // Yippee! We can use localStorage awesomeness
     var listdot = JSON.parse(localStorage.getItem("listdot"));
@@ -76,9 +77,9 @@ function New(){
 </script>
 	
 </head> 
-<body style="font-family:Signika Negative">
+<body>
 
-<div id="Import" class="modal"><div class="modal-content" ><div class="close" onclick="getElementById('Import').style.display = 'none';">[ x ]</div><div class="modal-contcont" >
+<div id="Editor" class="modal"><div class="modal-content" ><div class="close" onclick="getElementById('Editor').style.display = 'none';">[ x ]</div><div class="modal-contcont" id="theEditor">
 <script>
 var prearray = [] ;
 var presubarray = [] ;
@@ -106,45 +107,48 @@ function bar(){
 		//}
 		//listarray.push(prestring) ;
 	//}
-	var scripted = 0;
 	for (var i = 0; i < prearray.length; i++){
 		if (prearray[i]!=""){
-			prearray[i] = prearray[i].replace(" ", "");			
-			for(var j = 0; j< listarray.length; j++) {
-				var subpre = listarray[j].split(";");				
+			prearray[i] = prearray[i].replace(" ", "");
+			var check = 0;
+			var prolong = "";
+			//var scripted = 0
+			for(var j = 0; j< prearray.length; j++) {
 				var subsub = prearray[i].split(";");
-				var prolong = listarray[j];
-				for(var k = 1; k< subsub.length; k++) {
-					if(subsub[0]==subpre[0]){
-						prolong = prolong + ";" + subsub[k];
+				var subpre = prearray[j].split(";");				
+				if (prearray[j] != "" && i >= j){
+					for(var k = 0; k< subsub.length; k++) {
+						//alert(subsub[0]);
+						//alert(subpre[0]);
+						if (subsub.length !=1 && subsub[0]==subpre[0]){
+							check = check+1;
+							prolong = subsub[0];
+						}
+						if(k!=0 && check!=0){
+							
+							prolong = prolong + ";" + subsub[k];
+							
+						}
+					}	
+				}
+				if(i >= j){
+						if(check!=0){
+							listarray[j+1] = prolong;
+							alert("listarray:"+listarray[j+1]);
+						}
+				}
+				if(i == (prearray.length - 1)){
+						alert("new:"+prearray[i]);
+						listarray.push(prearray[i]);
 					}
-				}
-				if (subsub[0]==subpre[0] ){
-					listarray[j] = prolong;
-					scripted = 1;
-				}
+				check=0;
 			}
 		}
-		
-		if(scripted==0 && prearray[i]!=""){
-			listarray.push(prearray[i]);
-			scripted = 1 ;
-		}
-		scripted=0;
 	}
 	reloading();
 }
 </script>
-<form><textarea id="foo" name="foo" cols="50" rows ="15">
-abc -> def ;
-</textarea>
-<input class="button" type="submit" value='import' onclick="bar();" />
-</form>
-
-</i></div></div></div>
-
-<div id="Export" class="modal"><div class="modal-content" ><div class="close" onclick="getElementById('Export').style.display = 'none';">[ x ]</div><div class="modal-contcont" >
-<span style="code">
+<form>
 <script>
 	for (var i = 0; i < listarray.length; i++) {
 		subarray=listarray[i].split(";");
@@ -152,42 +156,36 @@ abc -> def ;
 			for (var j = 0; j < subarray.length; j++) {
 				if (j!=0){
 					if(subarray[j]){
-						document.write(subarray[0]+" -> "+subarray[j]+" ;<br>");
+						toPrint = toPrint + subarray[0]+" -> "+subarray[j]+" ;\n";
 					}
 					
 				}else{
-					document.write(subarray[0]+" ;<br>");
+					toPrint = toPrint +subarray[0]+" ;\n";
 				}			
 			}
 		}
 	}
+document.getElementById("theEditor").innerHTML =   '<form><textarea id="foo" name="foo" cols="50" rows ="15">'+toPrint+'</textarea>' + '<button></button><input class="button" type="submit" value="import" onclick="bar();" /></form>';
 </script>
-</span>
 </div></div></div>
-
 
 	<div class="container">
 <p style="text-align:left;border-bottom: 0.1em solid #aaaaaa;height:auto;margin-top:0.5em;">
 <a href="http://rickardhultgren.github.io/lympha/"><img src="logo.png" alt="LYMPHA" style="height:auto;min-width:80pt;width:5vw;margin-right:2.5em;max-width:150pt;"></a>
-<span style="float:right;font-size:0.75em;letter-spacing:0em;color:#6400EF;font-weight:bold;padding-top:.66em;">BUILDING VALUE IN MEDICAL REASONING</span>
+<span style="float:right;font-size:0.75em;letter-spacing:0em;font-weight:bold;padding-top:.66em;"><span class="sc"><a href="http://rickardhultgren.github.io/lympha/">Lympha</a></span> javascript demo</span>
 </p>
-<p style="text-align:left;">
-	<span class="sc">Lympha</span> javascript demo:<br>
-</p>
-<p class="button" onclick="New();" style="margin-bottom:1.75em;">
+<p class="button" onclick="New();" style="margin:.5em 0em 1.75em 0em;">
 new algorithm
 </p>
-<p class="button" onclick="getElementById('Import').style.display = 'block';" style="margin-bottom:1.75em;">
-import <span class="sc">lympha</span>-script
-</p>
+
 <p>
 <form id="myForm" action="#" method="post" style="margin:0 0 .25em 0;">
             <input class="inputing" type='text' id="id" name='id' value='enter_node_name' />&nbsp;
             <input class="button" type='submit' name='submit' value='add node' onclick='addParam()' />
         </form>
 </p>
-<p class="button" onclick="getElementById('Export').style.display = 'block';" style="margin-bottom:1.75em;">
-export <span class="sc">lympha</span>-script
+<p class="button" onclick="getElementById('Editor').style.display = 'block';" style="margin-bottom:1.75em;">
+<span class="sc">lympha</span> editor
 </p>
 <p style="border:0.1em solid #cccccc;padding:0.5em;">
 	List of nodes:<br>
