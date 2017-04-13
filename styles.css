@@ -1,50 +1,48 @@
-@import url('https://fonts.googleapis.com/css?family=Signika+Negative');
-
-#EventForm {
-    display: table;
-}
-
-#FactorForm {
-    display: table;
-}
-.divtr {
-
-}
-.divtd {
-    display: table-cell;
-    padding-top: 10px;
-}
-#Factor_1 {
-    display: table-row!important;
-}
-
-#Event_1 {
-    display: table-row!important;
-}
-
-######
 html{
-font-size:32pt;
+font-size:32pt; 	font-size:32pt;
 }
 
 body {
 	font-size:32pt;
-	font-family:'Signika+Negative';
-	width:100vw;
-	margin:0em 0em 0em 0em;
+	overflow-x: hidden;
+	font-family:sans-serif, Helvetica, Arial;
+	margin:0px;
+	width:90vw;
+	padding:0em 5vw 0em 5vw;
 	background-color:#ffffff;
 	color: #000000;
 	text-align:center;
-	
+	position: static;
+
 }
 
 .button {
-text-decoration:none;
-height:auto;margin-bottom:0.5em;text-align:center;color:#998855;font-style:italic;;font-size:1em;padding:0.25em;display:inline-block; border: 0.1em solid #998855;background-color:#ffffff;font-family:'Signika Negative';font-size:0.9em;letter-spacing:0.15em;
+	text-decoration:none;
+	height:auto;
+	margin-bottom:0.5em;
+	text-align:center;
+	color:#998855;
+	font-style:italic;
+	font-size:1em;
+	padding:0.25em;
+	display:block;
+	position:static;
+	border: 0.1em solid #998855;
+	background-color:#ffffff;
+	font-size:0.9em;
+	letter-spacing:0.15em;
+	width:auto;
 }
 
 .inputing{
-background-color:#334455;color:#EFAB00;font-family:'Signika Negative';font-style:normal;font-size:1.025em;border:0.1em solid #998855;font-weight:bold;padding:0.25em;margin:0em -.33em 0em 0em;
+background-color:#737066;
+color:#ffcc00;font-style:normal;font-size:1em;font-weight:normal;font-family: Consolas, monaco, "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+border:0vw solid #998855;
+padding:0vw;
+margin:0vw;
+width:90vw;
+display:block;
+position:static;
 }
 
 .button:hover,
@@ -55,10 +53,11 @@ background-color:#334455;color:#EFAB00;font-family:'Signika Negative';font-style
     }
     
 p {
+max-width:50em;
+padding:0pt 1em 0pt 1em;
 text-align:justify;
-width:95vw;
-left:2.5vw;
-z-index:1;position:relative;
+width:auto;
+z-index:2;position: relative;
 }
 
 a {
@@ -73,14 +72,11 @@ a:focus {
     }
 
 .container{
-width:100%;
+width:auto;
 border:0em;
 font-size:inherit;
-#margin:0.5em 0.5em 0.5em 0.5em ;
-#padding:0pt 0pt 0pt 0pt;
 text-align:center;
 }
-
 .sc {
     font-variant: small-caps;
     -ms-font-feature-settings: "smcp";
@@ -96,63 +92,62 @@ text-align:center;
 
 div {
 text-align:left;
-#margin:0em 0em 0em 0em;
 }
+
+
+
+
 
 #logopic{
 width:20vw;
 text-align:left;
 }
 
-.code {
-border: #bfa98f dotted 1px;
-background-color:#676165;
-color:#ffc946;
-#margin:0.25em 0em 0.25em 0em;
-#padding:0.75em;
-font-family:"Share Tech Mono","Lucida Console",Monospace,"DejaVu Sans Mono","Courier New",MiscFixed;
-}
 
+.code {
+background-color:#737066;
+color:#ffcc00;font-style:normal;font-size:1em;font-weight:normal;font-family: Consolas, monaco, "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+height:40vh;
+width:98%;
+overflow: auto;
+resize: none;
+}
 
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    //position: static; 
     z-index: 5; /* Sit on top */
     left: 0%;
     top: 0%;
-    //width: 100%; /* Full width */
-    //height: 100%; /* Full height */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
     width: 100vw; /* Full width */
     height: 100vh; /* Full height */
-    //overflow: auto; /* Enable scroll if needed */
-    //overflow: scroll; 
+    overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
-    left: 0%;
-    top: 0%;
+    left: 6.7vw;
+    right:6.7vw;
+    top: 6.7hv;
+    bottom:6.7hv;
 	z-index: 6;
 	position:fixed;
-	//font-size:4hv;
-	//overflow:none;
-    background-color: #FFFDD0;
-    //background: url(cream-paper.png) repeat #bfbea6;
-    //background: url(maze-white.png) repeat #806644;
-    margin: 10vh 10vw 10vh 10vw ; /* 15% from the top and centered */
-    //margin: 2em auto; 
-    padding: 1% 1% 1% 2%;
-    border: 1px solid #ffffff;
+	overflow:none;
+    background-color: #ffffff;
+    margin: 10vw 10vw 10vw 10vw ; /* 15% from the top and centered */
+    margin: 2em auto; 
+    padding: 1vw 1vw 1vw 1vw;
     width: 80vw; /* Could be more or less, depending on screen size */
-    height:70vh;
+    height:80vh;
 }
 
 .modal-contcont {
-	border:thin solid rgba(0,0,0,0.4);
+	border:0px solid rgba(0,0,0,0.4);
 	position:static;
 	overflow:auto;
 	z-index: 7;
@@ -163,55 +158,81 @@ font-family:"Share Tech Mono","Lucida Console",Monospace,"DejaVu Sans Mono","Cou
 
 /* The Close Button */
 .close {
-    width:100%;
-	//background: url(cream-paper.png) repeat #806644;
-	background: url(maze-white.png) repeat #553355;
-    color: #ffffff;
+	right:2vw;
+	left:2vw;
+    width:auto;
+	background-color: #bbbbbb;
     text-align:right;
     float: right;
     padding:1%;
-    ////font-size: 28px;
     font-weight: normal;
-    font-family:'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
-	color:#ffffff;
+    font-family:sans-serif, Helvetica, Arial;
+	color:#333333;
     text-decoration: none;
     cursor: pointer;
     
-  //position: absolute;
-  //left: 50px;
-  //top: 50px;
-  //width: 200px;
-  //height: 200px;
-  //border-radius: 20px;  
-  //box-shadow: 0px 0px 1em 1em rgba(255,253,208,0.1) inset, 0px 0px 4px 10px rgba(255,253,208,0.1);
-  text-shadow: -0.1em 0.1em 0.5em  #de22de, 0.1em -0.1em 0.5em #991199;
-    
+  position: absolute;
+  height: 1.5em;
+   
 }
 
 
+#foo {
+font-size:32pt;	
+}
+
+#myForm {
+width:auto;
+display:block;position:static;
+width:auto;
+}
 
 @media only all and (min-width: 981px) {
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-
 
 body {
-	width:100vw;
-	font-size:1.5vw;
-	}
+width:100vw;
+font-size:1.5vw;
+padding:0vw 20vw 0vw 20vw;
+}
 
 .container{
 font-size:1.5vw;
-	
-}
-
-.code span{
 }
 
 p {
+padding:0pt 5vw 0pt 5vw;
 font-size:1.5vw;
-margin:0vw 20vw 0vw 20vw ;
+margin:0vw 0vw 0vw 0vw ;
 text-align:justify;
-width:auto;
+width:50vw;
 }
+
+.button {
+text-decoration:none;
+height:auto;
+text-align:center;
+color:#998855;
+font-style:italic;
+font-size:1em;
+padding:0.25em;
+display:block;
+border: 0.1em solid #998855;
+background-color:#ffffff;
+font-size:0.9em;
+letter-spacing:0.15em;
+padding:0pt 5vw 0pt 5vw;
+font-size:1.5vw;
+margin:0vw 0vw 0vw 0vw ;
+text-align:justify;
+width:50vw;
+padding:0pt 5vw 0pt 5vw;
+font-size:1.5vw;
+margin:0vw 0vw 0vw 0vw ;
+}
+
+
+#foo {
+font-size:1.5vw;	
+}
+
 } 		

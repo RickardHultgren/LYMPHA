@@ -24,6 +24,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 	<link rel="shortcut icon" href="lympha.ico">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Signika+Negative:300,400,600,700&amp;lang=en" />	
 <script>
+
 </script>
 <script>
 
@@ -134,12 +135,12 @@ function bar(){
 				if(i >= j){
 						if(check!=0){
 							listarray[j+1] = prolong;
-							alert("listarray:"+listarray[j+1]);
+							//alert("listarray:"+listarray[j+1]);
 						}
 				}
 				if(i == (prearray.length - 1)){
 						alert("new:"+prearray[i]);
-						listarray.push(prearray[i]);
+						//listarray.push(prearray[i]);
 					}
 				check=0;
 			}
@@ -165,25 +166,25 @@ function bar(){
 			}
 		}
 	}
-document.getElementById("theEditor").innerHTML =   '<form><textarea id="foo" name="foo" cols="50" rows ="15">'+toPrint+'</textarea>' + '<button></button><input class="button" type="submit" value="import" onclick="bar();" /></form>';
+document.getElementById("theEditor").innerHTML =   '<form><div id="lineCountColumn"></div><textarea id="foo" name="foo" class="code">'+toPrint+'</textarea>' + '<input class="button" type="submit" value="import" onclick="bar();" style="font-family:sans-serif, Helvetica, Arial;"/></form>';
 </script>
 </div></div></div>
 
-	<div class="container">
-<p style="text-align:left;border-bottom: 0.1em solid #aaaaaa;height:auto;margin-top:0.5em;">
-<a href="http://rickardhultgren.github.io/lympha/"><img src="logo.png" alt="LYMPHA" style="height:auto;min-width:80pt;width:5vw;margin-right:2.5em;max-width:150pt;"></a>
-<span style="float:right;font-size:0.75em;letter-spacing:0em;font-weight:bold;padding-top:.66em;"><span class="sc"><a href="http://rickardhultgren.github.io/lympha/">Lympha</a></span> javascript demo</span>
-</p>
-<p class="button" onclick="New();" style="margin:.5em 0em 1.75em 0em;">
-new algorithm
+
+<p class="container" style="width:auto;text-align:left;border-bottom: 0.1em solid #aaaaaa;height:auto;margin-top:0.5em;">
+<a href="http://rickardhultgren.github.io/lympha/"><img src="logo.png" alt="LYMPHA" style="height:auto;min-width:80pt;width:5vw;margin-right:4vw;max-width:150pt;"></a>
+<div style="float:right;font-size:0.75em;letter-spacing:0em;font-weight:bold;padding-top:0em;position:absolute;margin-left:30vw;z-index:2;top:15pt;"><span class="sc"><a href="http://rickardhultgren.github.io/lympha/">Lympha</a></span> javascript demo</div>
 </p>
 
-<p>
-<form id="myForm" action="#" method="post" style="margin:0 0 .25em 0;">
-            <input class="inputing" type='text' id="id" name='id' value='enter_node_name' />&nbsp;
-            <input class="button" type='submit' name='submit' value='add node' onclick='addParam()' />
-        </form>
-</p>
+<p class="button" onclick="New();" style="margin:.5em 0em 1.75em 0em;">
+new algorithm</p>
+
+
+<form id="myForm" action="#" method="post">
+            <input class="inputing" type='text' id="id" name='id' value='enter_node_name' />
+            <input class="button" type='submit' name='submit' value='add node' onclick='addParam()' style="width:90vw;"/>
+</form>
+
 <p class="button" onclick="getElementById('Editor').style.display = 'block';" style="margin-bottom:1.75em;">
 <span class="sc">lympha</span> editor
 </p>
@@ -231,7 +232,7 @@ for (var i = 0; i < listarray.length; i++) {
 			}
 		}
 		showSub(i);
-		newdiv.innerHTML = '<div style="padding:0.5em;background-color:#cccccc;width:97.5%;margin-bottom:0.66em;">' + theName + ' &nbsp;<div class="button" style="" onclick="showhide(\'arrowright'+i+'\');showhide(\'arrowdown'+i+'\');showhide(\'inputSub'+i+'\');showhide(\'input2Sub'+i+'\');">pointing to nodes&nbsp;&nbsp;<span id="arrowright'+i+'" style="font-style:normal;font-weight:bold;">&gt;</span><span id="arrowdown'+i+'" style="font-style:normal;font-weight:bold;display:none;">v</span></div><div class="button" style="float:right" href="javascript:void(0);" title="delete" onclick="listarray.splice('+i+', '+i+');reloading();">delete</div><br><div id="inputSub'+i+'" style="display:none;border:0.1em solid #777777; padding:0.25em;">' + subs + '<form style="display:style="display:inline-block;" action="#" method="post"><input class="inputing" type="text" id="id'+i+'" name="id'+i+'" value="enter_node_name" />&nbsp;&nbsp;<input type="submit" name="submit" class="button" value="add new connection" onclick="addSub('+i+',\'id'+i+'\')" /></form></div></div>';
+		newdiv.innerHTML = '<div style="padding:1%;background-color:#cccccc;width:98%;margin-bottom:0.66em;padding-bottom:1em;">' + theName + ' &nbsp;<div class="button" style="" onclick="showhide(\'arrowright'+i+'\');showhide(\'arrowdown'+i+'\');showhide(\'inputSub'+i+'\');showhide(\'input2Sub'+i+'\');">pointing to nodes&nbsp;&nbsp;<span id="arrowright'+i+'" style="font-style:normal;font-weight:bold;">&gt;</span><span id="arrowdown'+i+'" style="font-style:normal;font-weight:bold;display:none;">v</span></div><div class="button" style="float:right" href="javascript:void(0);" title="delete" onclick="listarray.splice('+i+', '+i+');reloading();">delete</div><br><div id="inputSub'+i+'" style="display:none;border:0.1em solid #777777; padding:2%;width:94%;">' + subs + '<form style="display:style="display:inline-block;" action="#" method="post"><input class="inputing" type="text" id="id'+i+'" name="id'+i+'" value="enter_node_name" style="width:100%" />&nbsp;&nbsp;<input type="submit" name="submit" class="button" value="add new connection" onclick="addSub('+i+',\'id'+i+'\')" style="width:auto;"/></form></div></div>';
 		document.getElementById('status').appendChild(newdiv);
 	}
 }		
@@ -251,7 +252,7 @@ function showhide(k){
 <p style="text-align:center;margin-top:.75em;">
 flow-chart representation:
 </p>
-<p id="status2" style="text-align:center;border:0.2em solid #cccccc;margin:0em 20.5vw 0.5em 20.5vw;"></p>
+<p id="status2" style="text-align:center;border:0.2em solid #cccccc;margin:0em;"></p>
 
 
     <script src="./viz.js"></script>
