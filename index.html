@@ -82,7 +82,7 @@ function New(){
 <div class="container">
 <div id="Editor" class="modal"><div class="modal-content" ><div class="close"
 
-<div class="close"><span style="float:left;"></span><span class="sc"></span> editor</span><span class="sc" style="background-color:#ffffff;float:right;cursor: pointer;width:1em;height:1em;text-align:center;font-weight:bold;color:#777777" onclick="getElementById('Editor').style.display = 'none';">X</span></div><div class="modal-contcont" id="theEditor">
+<div class="close"><span style="float:left;"></span><span class="sc"></span> editor</span><span class="sc" style="background-color:#ffffff;float:right;cursor: pointer;width:1em;height:1em;text-align:center;font-weight:bold;color:998855;border:0.1em solid #998855;" onclick="getElementById('Editor').style.display = 'none';">X</span></div><div class="modal-contcont" id="theEditor">
 <script>
 var prearray = [] ;
 var presubarray = [] ;
@@ -210,7 +210,7 @@ new algorithm</p>
 		for (var j = 0; j < subarray.length; j++) {
 			if (j!=0){
 				if(subarray[j]){
-					subs = subs +'<div style="position:relative;display:block;height:auto;min-height:2em;border-bottom:0.1em solid #777777;margin:0em 0em 0em 0em;width:100%;padding:.25em 0em .25em 0em;"><span style="float:left;position:relative;width:80%;">' + '&nbsp;&nbsp;&nbsp;' + subarray[j] + '</span><span class="button" href="javascript:void(0);" title="delete" onclick="subarray=listarray['+i+'].split(\';\');subarray.splice('+j+', '+j+');listarray['+i+']=subarray.join(\';\');reloading();" style="float:right;display:inline-block;position:static;z-index:3;width:4em;">delete</span></div>';
+					subs = subs +'<div style="position:static;display:block;height:auto;min-height:2.5em;margin:0em 0em 0em 0em;width:100%;padding:.25em 0em .25em 0em;border-bottom:0.1em solid #777777;"><div style="float:left;position:relative;display:block;width:auto;max-width:60%;word-wrap: break-word;">' + subarray[j] + '</div><span class="button" href="javascript:void(0);" title="delete" onclick="subarray=listarray['+i+'].split(\';\');subarray.splice('+j+', '+j+');listarray['+i+']=subarray.join(\';\');reloading();" style="display:block;position:relative;z-index:3;width:7em;height:2em;line-height:1em;float:right;margin-left:0.5em;">delete connection</span></div>';
 				}
 			}
 			
@@ -233,7 +233,7 @@ for (var i = 0; i < listarray.length; i++) {
 			}
 		}
 		showSub(i);
-		newdiv.innerHTML = '<div style="padding:1%;background-color:#cccccc;width:98%;margin-bottom:0.66em;padding-bottom:1em;">' + theName + '<div class="button" style="float:right;position:reltive;z-index:3;margin:-1.33em 0em 0em 55vw;width:4em;" href="javascript:void(0);" title="delete" onclick="listarray.splice('+i+', '+i+');reloading();">delete</div><div class="button" style="margin:0.5em 0em 0em 0em;width:auto;position:relative;" onclick="showhide(\'arrowright'+i+'\');showhide(\'arrowdown'+i+'\');showhide(\'inputSub'+i+'\');showhide(\'input2Sub'+i+'\');"><span style="float:left;">pointing to nodes</span>&nbsp;&nbsp;<span id="arrowright'+i+'" style="font-style:normal;font-weight:bold;float:right;">&gt;</span><span id="arrowdown'+i+'" style="font-style:normal;font-weight:bold;float:right;display:none;">v</span></div><div id="inputSub'+i+'" style="display:none;border:0.1em solid #777777; padding:2%;width:94%;"><form style="display:style="display:inline-block;" action="#" method="post"><input class="inputing" type="text" id="id'+i+'" name="id'+i+'" value="enter_node_name" style="width:100%" /><input style="width:100%" type="submit" name="submit" class="button" value="add new connection" onclick="addSub('+i+',\'id'+i+'\')" style="width:auto;"/></form>' + subs + '</div></div>';
+		newdiv.innerHTML = '<div style="vertical-align:text-top;padding:1%;background-color:#cccccc;width:97%;margin-bottom:0.66em;padding-bottom:1em;"><div style="position:relative;width:auto;max-width:50%;word-wrap: break-word;">' + theName + '</div><div class="button" style="float:right;display:inline-block;position:reltive;z-index:3;margin:-1.25em 0em .25em 0vw;width:9em;vertical-align:text-top;" href="javascript:void(0);" title="delete" onclick="listarray.splice('+i+', '+i+');reloading();">delete node</div><div class="button" style="margin:0.5em 0em 0em 0em;width:auto;position:relative;" onclick="showhide(\'arrowright'+i+'\');showhide(\'arrowdown'+i+'\');showhide(\'inputSub'+i+'\');showhide(\'input2Sub'+i+'\');"><span style="float:left;">pointing to nodes</span>&nbsp;&nbsp;<span id="arrowright'+i+'" style="font-style:normal;font-weight:bold;float:right;">&gt;</span><span id="arrowdown'+i+'" style="font-style:normal;font-weight:bold;float:right;display:none;">v</span></div><div id="inputSub'+i+'" style="display:none;border:0.1em solid #777777; padding:2%;width:94%;"><form style="display:inline-block;" action="#" method="post"><input class="inputing" type="text" id="id'+i+'" name="id'+i+'" value="enter_node_name" style="width:100%" /><input style="width:100%" type="submit" name="submit" class="button" value="add new connection" onclick="addSub('+i+',\'id'+i+'\')" style="width:auto;"/></form>' + subs + '</div></div>';
 		document.getElementById('status').appendChild(newdiv);
 	}
 }		

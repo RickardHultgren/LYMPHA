@@ -158,15 +158,16 @@ resize: none;
 
 /* The Close Button */
 .close {
+	border-bottom:0.1em solid #998855;
+	padding-bottom:0.25em;
 	right:2vw;
 	left:2vw;
     width:auto;
-	background-color: #777777;
+	background-color: #ffffff;
     text-align:left;
-    padding:1%;
     font-weight: normal;
     font-family:sans-serif, Helvetica, Arial;
-	color:#ffffff;
+	color:#998855;
     text-decoration: none;
     
   position: absolute;
