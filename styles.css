@@ -47,13 +47,13 @@ position:static;
 
 .button:hover,
 .button:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-    }
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
     
 p {
-max-width:50em;
+max-width:60em;
 padding:0pt 1em 0pt 1em;
 text-align:justify;
 width:auto;
@@ -161,18 +161,17 @@ resize: none;
 	right:2vw;
 	left:2vw;
     width:auto;
-	background-color: #bbbbbb;
-    text-align:right;
-    float: right;
+	background-color: #777777;
+    text-align:left;
     padding:1%;
     font-weight: normal;
     font-family:sans-serif, Helvetica, Arial;
-	color:#333333;
+	color:#ffffff;
     text-decoration: none;
-    cursor: pointer;
     
   position: absolute;
-  height: 1.5em;
+  height: 1em;
+  vertical-align:middle;
    
 }
 
@@ -182,9 +181,13 @@ font-size:32pt;
 }
 
 #myForm {
-width:auto;
 display:block;position:static;
-width:auto;
+width:100%;margin:0em;padding:0em;
+}
+
+#press{
+width:100%;margin:0em;padding:0em;
+width:90vw;
 }
 
 @media only all and (min-width: 981px) {
@@ -195,44 +198,33 @@ font-size:1.5vw;
 padding:0vw 20vw 0vw 20vw;
 }
 
-.container{
-font-size:1.5vw;
-}
-
-p {
-padding:0pt 5vw 0pt 5vw;
+p, .button, .container{
 font-size:1.5vw;
 margin:0vw 0vw 0vw 0vw ;
 text-align:justify;
-width:50vw;
-}
-
-.button {
-text-decoration:none;
-height:auto;
-text-align:center;
-color:#998855;
-font-style:italic;
-font-size:1em;
-padding:0.25em;
+width:60vw;
+position:relative;
 display:block;
-border: 0.1em solid #998855;
-background-color:#ffffff;
-font-size:0.9em;
-letter-spacing:0.15em;
-padding:0pt 5vw 0pt 5vw;
-font-size:1.5vw;
-margin:0vw 0vw 0vw 0vw ;
-text-align:justify;
-width:50vw;
-padding:0pt 5vw 0pt 5vw;
-font-size:1.5vw;
-margin:0vw 0vw 0vw 0vw ;
+padding:0pt 1em 0pt 1em;
+z-index:2;position: relative;
+
+}
+
+#myForm{
+display:block;position:static;
+width:63.5vw;
+}
+
+.inputing{
+padding:0vw;
+margin:0vw;
+width:63.5vw;
 }
 
 
-#foo {
-font-size:1.5vw;	
+#press{
+display:block;position:static;
+width:63.5vw;
 }
 
 } 		
