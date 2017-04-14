@@ -202,7 +202,7 @@ width:90vw;
 }
 
 
-@media only all and (min-device-width: 736px) and (max-device-width: 980px) { 
+@media only all and (min-width: 736px) and (max-width: 980px) { 
     body {font-size:42pt;}
 }
 
