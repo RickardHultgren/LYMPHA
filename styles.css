@@ -1,5 +1,5 @@
 html{
-font-size:32pt; 	font-size:32pt;
+font-size:32pt;
 }
 
 body {
@@ -158,7 +158,7 @@ resize: none;
 
 /* The Close Button */
 .close {
-	border-bottom:0.1em solid #998855;
+	border-bottom:0.1em solid #888888;
 	padding-bottom:0.25em;
 	right:2vw;
 	left:2vw;
@@ -167,7 +167,7 @@ resize: none;
     text-align:left;
     font-weight: normal;
     font-family:sans-serif, Helvetica, Arial;
-	color:#998855;
+	color:#888888;
     text-decoration: none;
     
   position: absolute;
@@ -189,6 +189,11 @@ width:100%;margin:0em;padding:0em;
 #press{
 width:100%;margin:0em;padding:0em;
 width:90vw;
+}
+
+
+@media only all and (min-device-width: 736px) and (max-device-width: 980px) { 
+    body {font-size:38pt;}
 }
 
 @media only all and (min-width: 981px) {
@@ -219,13 +224,17 @@ width:63.5vw;
 .inputing{
 padding:0vw;
 margin:0vw;
-width:63.5vw;
+width:63.25vw;
 }
 
 
 #press{
 display:block;position:static;
-width:63.5vw;
+width:63.25vw;
+}
+
+#thelist{
+width:61.5vw;
 }
 
 } 		
