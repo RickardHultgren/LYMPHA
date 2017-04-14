@@ -82,7 +82,7 @@ function New(){
 <div class="container">
 <div id="Editor" class="modal"><div class="modal-content" ><div class="close"
 
-<div class="close"><span style="float:left;color:#888888;"></span><span class="sc"></span> editor</span><span class="sc" style="background-color:#ffffff;float:right;cursor: pointer;width:1em;height:1em;text-align:center;font-weight:normal;color:998855;border:0.1em solid #888888;" onclick="getElementById('Editor').style.display = 'none';">X</span></div><div class="modal-contcont" id="theEditor">
+<div class="close"><span style="float:left;color:#888888;"></span><span class="sc"></span> editor</span><span class="sc" style="background-color:#ffffff;float:right;cursor: pointer;width:1em;height:1em;text-align:center;font-weight:normal;color:998855;border:0.1em solid #888888;font-family: Consolas, monaco, 'Lucida Sans Typewriter', 'Lucida Console', Monaco, 'Bitstream Vera Sans Mono', monospace;background-color:none;border:none;" onclick="getElementById('Editor').style.display = 'none';">X</span></div><div class="modal-contcont" id="theEditor">
 <script>
 var prearray = [] ;
 var presubarray = [] ;
@@ -168,7 +168,7 @@ function bar(){
 			}
 		}
 	}
-document.getElementById("theEditor").innerHTML =   '<form><div id="lineCountColumn"></div><textarea id="foo" name="foo" class="code">'+toPrint+'</textarea>' + '<input class="button" type="submit" value="import" onclick="bar();" style="font-family:sans-serif, Helvetica, Arial;"/></form>';
+document.getElementById("theEditor").innerHTML =   '<form><div id="lineCountColumn"></div><textarea id="foo" name="foo" class="code">'+toPrint+'</textarea>' + '<input class="button" type="submit" value="import" onclick="bar();" style="font-family: Georgia, serif;"/></form>';
 </script>
 </div></div></div>
 
@@ -232,8 +232,8 @@ flow-chart
 </p>
 
 <form id="myForm" action="#" method="post" style="margin:.25em 0em .25em 0em;">
-            <input class="inputing" type='text' id="id" name='id' value='enter_node_name' />
-            <input id="press" class="button" type='submit' name='submit' value='add node' onclick='addParam()' />
+            <input type='text' id="id" name='id' value='enter_node_name' />
+            <input id="press" class="button" type='submit' name='submit' style="font-family: Georgia, serif;" value='add node' onclick='addParam()' />
 </form>
 
 <p id="thelist" style="border:0.1em solid #bbbbbb;padding:0.5em;margin:.25em 0em 0em 0em;">
@@ -257,7 +257,7 @@ flow-chart
 		for (var j = 0; j < subarray.length; j++) {
 			if (j!=0){
 				if(subarray[j]){
-					subs = subs +'<div style="position:static;display:block;height:auto;min-height:2.5em;margin:0em 0em 0em 0em;width:100%;padding:.25em 0em .25em 0em;border-bottom:0.1em solid #777777;"><div style="float:left;position:relative;display:block;width:auto;max-width:60%;word-wrap: break-word;">' + subarray[j] + '</div><span class="button" href="javascript:void(0);" title="delete" onclick="subarray=listarray['+i+'].split(\';\');subarray.splice('+j+', '+j+');listarray['+i+']=subarray.join(\';\');reloading();" style="display:block;position:relative;z-index:3;width:7em;height:2em;line-height:1em;float:right;margin-left:0.5em;">delete connection</span></div>';
+					subs = subs +'<div style="position:static;display:block;height:auto;min-height:2.5em;margin:0em 0em 0em 0em;width:100%;padding:.25em 0em .25em 0em;border-bottom:0.1em solid #777777;"><div style="float:left;position:relative;display:block;width:auto;max-width:60%;word-wrap: break-word;font-family: Consolas, monaco, \'Lucida Sans Typewriter\', \'Lucida Console\', Monaco, \'Bitstream Vera Sans Mono\', monospace;background-color:none;border:none;">' + subarray[j] + '</div><span class="button" href="javascript:void(0);" title="delete" onclick="subarray=listarray['+i+'].split(\';\');subarray.splice('+j+', '+j+');listarray['+i+']=subarray.join(\';\');reloading();" style="display:block;position:relative;z-index:3;width:7em;height:2em;line-height:1em;float:right;margin-left:0.5em;">delete connection</span></div>';
 				}
 			}
 			
@@ -280,7 +280,7 @@ for (var i = 0; i < listarray.length; i++) {
 			}
 		}
 		showSub(i);
-		newdiv.innerHTML = '<div style="vertical-align:text-top;padding:1%;background-color:#cccccc;width:97%;margin-bottom:0.66em;padding-bottom:1em;"><div style="position:relative;width:auto;max-width:50%;word-wrap: break-word;">' + theName + '</div><div class="button" style="float:right;display:inline-block;position:reltive;z-index:3;margin:-1.25em 0em .25em 0vw;width:9em;vertical-align:text-top;" href="javascript:void(0);" title="delete" onclick="listarray.splice('+i+', '+i+');reloading();">delete node</div><div class="button" style="margin:0.5em 0em 0em 0em;width:auto;position:relative;" onclick="showhide(\'arrowright'+i+'\');showhide(\'arrowdown'+i+'\');showhide(\'inputSub'+i+'\');showhide(\'input2Sub'+i+'\');"><span style="float:left;">pointing to nodes</span>&nbsp;&nbsp;<span id="arrowright'+i+'" style="font-style:normal;font-weight:normal;float:right;position:absolute;background-color:#ffffff;color:#888888;">&gt;</span><span id="arrowdown'+i+'" style="font-style:normal;font-weight:normal;float:right;display:none;position:absolute;color:#888888;background-color:#ffffff;">v</span></div><div id="inputSub'+i+'" style="display:none;border:0em solid #777777; padding:2%;width:94%;"><form style="display:inline-block;margin:0.5em 0em .75em 0em;" action="#" method="post"><input class="inputing" type="text" id="id'+i+'" name="id'+i+'" value="enter_node_name" style="width:100%" /><input style="width:100%" type="submit" name="submit" class="button" value="add new connection" onclick="addSub('+i+',\'id'+i+'\')" style="width:auto;"/></form>' + subs + '</div></div>';
+		newdiv.innerHTML = '<div style="vertical-align:text-top;padding:1%;background-color:#cccccc;width:97%;margin-bottom:0.66em;padding-bottom:1em;"><div style="position:relative;width:auto;max-width:50%;word-wrap: break-word;font-family: Consolas, monaco, \'Lucida Sans Typewriter\', \'Lucida Console\', Monaco, \'Bitstream Vera Sans Mono\', monospace;background-color:none;border:none;">' + theName + '</div><div class="button" style="float:right;display:inline-block;position:reltive;z-index:3;margin:-1.25em 0em .25em 0vw;width:9em;vertical-align:text-top;" href="javascript:void(0);" title="delete" onclick="listarray.splice('+i+', '+i+');reloading();">delete node</div><div class="button" style="margin:0.5em 0em 0em 0em;width:auto;position:relative;" onclick="showhide(\'arrowright'+i+'\');showhide(\'arrowdown'+i+'\');showhide(\'inputSub'+i+'\');showhide(\'input2Sub'+i+'\');"><div style="float:left;line-height:1em;;">pointing to nodes</div>&nbsp;&nbsp;<span id="arrowright'+i+'" style="font-style:normal;font-weight:normal;float:right;position:absolute;background-color:#ffffff;color:#888888;font-family: Consolas, monaco, \'Lucida Sans Typewriter\', \'Lucida Console\', Monaco, \'Bitstream Vera Sans Mono\', monospace;background-color:none;border:none;line-height:1em">&gt;</span><span id="arrowdown'+i+'" style="font-style:normal;font-weight:normal;float:right;display:none;position:absolute;color:#888888;background-color:#ffffff;font-family: Consolas, monaco, \'Lucida Sans Typewriter\', \'Lucida Console\', Monaco, \'Bitstream Vera Sans Mono\', monospace;background-color:none;border:none;line-height:1em">v</span></div><div id="inputSub'+i+'" style="display:none;border:0em solid #777777; padding:2%;width:94%;"><form style="display:inline-block;margin:0.5em 0em .75em 0em;" action="#" method="post"><input class="inputing" type="text" id="id'+i+'" name="id'+i+'" value="enter_node_name" style="width:100%" /><input style="width:100%" type="submit" name="submit" class="button" value="add new connection" onclick="addSub('+i+',\'id'+i+'\')" style="width:auto;"/></form>' + subs + '</div></div>';
 		document.getElementById('status').appendChild(newdiv);
 	}
 }		
