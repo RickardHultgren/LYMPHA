@@ -13,8 +13,6 @@ layout: null
     <name><![CDATA[{{ site.author | strip_html }}]]></name>
     {% if site.email %}<email><![CDATA[{{ site.email }}]]></email>{% endif %}
   </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
-
   {% for post in site.posts limit: 20 %}
   <entry>
     <title type="html"><![CDATA[{% if site.titlecase %}{{ post.title | titlecase | cdata_escape }}{% else %}{{ post.title | cdata_escape }}{% endif %}]]></title>
@@ -25,6 +23,8 @@ layout: null
   </entry>
   {% endfor %}
 </feed>
+
+
 
 
 
