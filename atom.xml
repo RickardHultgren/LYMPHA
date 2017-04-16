@@ -20,10 +20,6 @@ layout: nil
     <title>{{ post.title }}</title>
     <published>{{ post.date | date_to_xmlschema }}</published>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
-    <author>
-      <name>Rickard Hultgren</name>
-      <uri>rihu0003@student.umu.se</uri>
-    </author>
     <content type="html">{{ post.content | xml_escape }}</content>
   </entry>
   {% endfor %}
