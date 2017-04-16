@@ -6,13 +6,13 @@ layout: nil
  
 
  <title>LYMPHA blog</title>
- <link href="{{ site.baseurl }}/atom.xml" rel="self"/>
- <link href="{{ site.baseurl }}/"/>
+ <link href="{{ site.url }}/atom.xml" rel="self"/>
+ <link href="{{ site.url }}/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
  <id>{{ site.baseurl }}/</id>
  <author>
-   <name>{{ site.author }}</name>
-   {% if  site.author.email  %}<email>{{ site.author.email }}</email>{% endif %}
+   <name>Rickard Hultgren</name>
+   <email>rihu0003@student.umu.se</email>
  </author>
 
   {% for post in site.posts %}
