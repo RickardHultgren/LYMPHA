@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Senses of Asclepius"
-Author: "Rickard"
+author: "Rickard"
 ---
 **Asclepius, the god of medicine in Greek mythology is well known for his rod. In today's medicine with its modalities, Asclepius has also a lot of senses. It is possible to detect a vast number of parameters. Nevertheless, the senses of the patient is often the most important modalities for a successful treatment.**
 
