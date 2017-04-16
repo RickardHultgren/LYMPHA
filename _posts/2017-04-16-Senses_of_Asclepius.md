@@ -3,7 +3,6 @@ layout: post
 title: "Senses of Asclepius"
 author: "Rickard"
 ---
-#Senses of Asclepius#
 **Asclepius, the god of medicine in Greek mythology is well known for his rod. In today's medicine with its modalities, Asclepius has also a lot of senses. It is possible to detect a vast number of parameters. Nevertheless, the senses of the patient is often the most important modalities for a successful treatment.**
 
 Laboratory analyses, electrophysiological tests, ultrasound, etc. Even though these modalities can give a lot of information, then the most valuable modalities are the senses of the patient. Most often the patient is the first person to recognize that something is wrong or strange within the body. Before further investigations, the patient should be asked about symptoms. If possible those symptoms should then be examined and verified. The patient is also the first person to experience the end result of a treatment.
