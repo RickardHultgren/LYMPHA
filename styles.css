@@ -250,27 +250,22 @@ padding:0vw 20vw 0vw 20vw;
 font-size:1.5vw;
 }
 
-ul {
+ol, ul {
 font-size:initial;
 position:static;
 width:auto;
 margin-left:5vw;
 margin-right:5vw;
+width:auto;
+border:0em;
+max-width:50vw;
+}
+	
+ul {
 left:0vw;
 right:0vw;
-width:auto;
-border:0em;
 }
 
-ol {
-font-size:initial;
-position:static;
-width:auto;
-margin-left:5vw;
-margin-right:5vw;
-width:auto;
-border:0em;
-}
 
 	
 ul > li ,
