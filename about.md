@@ -8,13 +8,13 @@ document.getElementById( "about").className="menu2active";
 <li><a href="https://github.com/RickardHultgren/lympha/tree/master">Pseudocode/REGEX</a></li>
 <li><a href="https://github.com/RickardHultgren/lympha/tree/JavaScript">JavaScript</a></li>
 </ul>
-</p><p>
+
 Planned branches for version 1.0: 
 <ul>
 <li>Python</li>
 <li>gforth</li>
 </ul>
-</p><p>
+
 Tasks in making version 1.0:
 <ul>
 <li><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_syntax.0.1.pdf">Syntax description in REGEX</a>.</li>
