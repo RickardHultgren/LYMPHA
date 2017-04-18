@@ -138,6 +138,9 @@ height:auto;
 	font-size:0.75em;
 }
 
+img{
+overflow-x:auto;	
+}
 
 h1 {
 color:#EFAB00;
