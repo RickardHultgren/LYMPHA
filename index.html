@@ -118,24 +118,19 @@ function bar(){
 			//var scripted = 0
 			for(var j = 0; j< prearray.length; j++) {
 				var subsub = prearray[i].split(";");
-				var subpre = prearray[j].split(";");				
+				var subpre = prearray[j].split(";");
+				prolong=subsub[0];			
 				if (prearray[j] != "" && i >= j){
 					for(var k = 0; k< subsub.length; k++) {
-						//alert(subsub[0]);
-						//alert(subpre[0]);
-						if (subsub.length !=1 && subsub[0]==subpre[0]){
-							
+						if (subsub.length !=1 && subsub[0]==subpre[0]){								
 							for(var l = 0; l< subpre.length; l++) {
-								if(subsub[k]==subpre[l]){
+								if(subsub[k]!=subpre[l] && l!=0 && k==0){
 									prolong = prolong  + ";" + subpre[l];
 									check = check+1;
 								}
-							}
-						}
-						if(k!=0 && check!=0 && subsub[k]!=""){
-							
-							prolong = prolong + ";" + subsub[k];
-							
+							}				
+						}else if(k!=0 && check!=0 && subsub[k]!=""){							
+							prolong = prolong + ";" + subsub[k];							
 						}
 					}	
 				}
