@@ -124,10 +124,15 @@ function bar(){
 						//alert(subsub[0]);
 						//alert(subpre[0]);
 						if (subsub.length !=1 && subsub[0]==subpre[0]){
-							check = check+1;
-							prolong = subsub[0];
+							
+							for(var l = 0; l< subpre.length; l++) {
+								if(subsub[k]==subpre[l]){
+									prolong = prolong  + ";" + subpre[l];
+									check = check+1;
+								}
+							}
 						}
-						if(k!=0 && check!=0){
+						if(k!=0 && check!=0 && subsub[k]!=""){
 							
 							prolong = prolong + ";" + subsub[k];
 							
@@ -141,7 +146,7 @@ function bar(){
 						}
 				}
 				if(i == (prearray.length - 1)){
-						alert("new:"+prearray[i]);
+						//alert("new:"+prearray[i]);
 						//listarray.push(prearray[i]);
 					}
 				check=0;
@@ -302,8 +307,11 @@ function showhide(k){
 window.onclick = function(event) {
     if (event.target == document.getElementById('Editor')) {
         document.getElementById('Editor').style.display = "none";
+    if (event.target == document.getElementById('flow')) {
+		document.getElementById('flow').style.display = "none";
     }
 }
+
 
 document.onkeydown = function(evt) {
     evt = evt || window.event;
@@ -315,6 +323,7 @@ document.onkeydown = function(evt) {
     }
     if (isEscape) {
         document.getElementById('Editor').style.display = "none";
+        document.getElementById('flow').style.display = "none";
     }
 };
 
