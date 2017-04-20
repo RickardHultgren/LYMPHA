@@ -10,7 +10,7 @@ Listed below are the causes of acute-debuted brain symptoms and a flow-chart ske
 - Bleeding
 - Restriction in blood supply (ischemia) of certain parts of the brain; When blood does not reach all parts of the brain, symptoms arise from parts that do not have enough blood supply (ischemia). Symptoms that represent a part of the brain are called focal symptoms. An inadequate blood flow can be caused by an artery being either blocked (embolism) or broken (bleeding). In case of persistent symptoms after 24 hours, the condition is called stroke. If the blood passes the blockade within 24 hours the condition is called TIA. The essense of TIA is that the risk of stroke is about 10% within seven days, sinse more blood clots (also called embolics) can loosen from vessels with severe arteriosclerosis. These embolics travel on to the brain and also to the eye that is supplied by the same arteries as some parts of the brain. Therefore, ischemia in the eye (amarosis fugax) also increases the risk of later stroke. So the deffinition of a TIA is therefore amarosis fugax or focal neurological symptoms dissapearing within 24 hours.
 
-![brain flow chart](/images/brain1.jpg) 
+![brain flow chart](lympha/images/brain1.jpg) 
 LYMPHA-script:
 
 ~~~~
