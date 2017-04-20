@@ -13,7 +13,7 @@ Listed below are the causes of acute-debuted brain symptoms and a flow-chart ske
 ![<img src="http://rickardhultgren.github.io/lympha/images/brain1.jpg">](http://rickardhultgren.github.io/lympha/images/brain1.jpg) 
 </p>
 LYMPHA-script:
-<pre class="dragscroll" style="overflow-x:auto;border:0.2em solid #aaaaaa;max-width:60vw;">
+<pre class="dragscroll">
 cardiac_embolism -> embolus_vertebral ;
 macrovascular_disease -> embolus_vertebral ;
 lacunar_infarction -> embolus_vertebral ;
