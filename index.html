@@ -90,9 +90,9 @@ function bar(){
 	listarray = ["head"] ;
     baz = document.getElementById('foo').value;
     baz = baz.replace(/(\r\n|\n|\r)/gm,"");
-	baz = baz.split(";").join(".");
+	baz = baz.split(";").join("|");
 	baz = baz.split("->").join(";");
-	prearray = baz.split(".");
+	prearray = baz.split("|");
 	//for (var i = 0; i < prearray.length; i++) {
 		//presubarray = prearray[i].split("->");
 		//var prestring = "" ;
