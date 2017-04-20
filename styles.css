@@ -21,8 +21,10 @@
 #Event_1 {
     display: table-row!important;
 }
+.dragscroll{
+cursor:move;
+}
 
-######
 html{
 font-size:32pt; 	font-size:32pt;
 }
