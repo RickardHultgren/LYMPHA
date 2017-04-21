@@ -31,6 +31,8 @@ html{
 font-size:32pt; 	font-size:32pt;
 }
 
+
+
 body {
 	font-size:32pt;
 	overflow-x: hidden;
@@ -41,7 +43,41 @@ body {
 	color: #000000;
 	text-align:center;
 	z-index:2; position: static;
+	scrollbar-face-color: #b46868;
+	::-webkit-scrollbar {
+      width: 15px;
+} /* this targets the default scrollbar (compulsory) */
+::-webkit-scrollbar-track {
+      background-color: #b46868;
+} /* the new scrollbar will have a flat appearance with the set background color */
+ 
+::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2); 
+} /* this will style the thumb, ignoring the track */
+ 
+::-webkit-scrollbar-button {
+      background-color: #7c2929;
+} /* optionally, you can style the top and the bottom buttons (left and right for horizontal bars) */
+ 
+::-webkit-scrollbar-corner {
+      background-color: black;
+} /* if both the vertical and the horizontal bars appear, then perhaps the right bottom corner also needs to be styled */
+	
+}
 
+.jspTrack
+{
+    background: #b46868; /* changed from #dde */
+    position: relative;
+}
+ 
+.jspDrag
+{
+    background: rgba(0,0,0,0.2); /* changed from #bbd */
+    position: relative;
+    top: 0;
+    left: 0;
+    cursor: pointer;
 }
 
 .button {
