@@ -114,29 +114,30 @@ LYMPHA-script:
 
 intracranial_expansiveness -> epileptic_seizure ;
 intracranial_expansiveness -> Papilledema ;
-intracranial_expansiveness -> Increasing_neurological_neurological_deficits_Motor_OR_sensory_OR_doublevision_OR_visual_field_disorder_or_short_sighted_episodes_with_impaired_vision ;
+intracranial_expansiveness -> Increasing_neurological_deficits_Motor_ANDOR_sensory ;
 intracranial_expansiveness -> personality_change ;
 intracranial_expansiveness -> New_headache_with_vomiting ;
-intracranial_expansiveness -> New_headache_that_increases_in_body_exertion_coughing_or_crying ;
-intracranial_expansiveness -> Migraine_like_headache_with_atypical_aura_never_changing_side ;
-intracranial_expansiveness -> Headache_attack_with_double_or_single_sided_pupillation ;
+intracranial_expansiveness -> headache_increasing_when_exertion ;
+vessle_malformation -> intracranial_expansiveness ;
+intracranial_expansiveness -> Migraine_like_headache_atypical_aura_never_changing_side ;
+intracranial_expansiveness -> Headache_attack_AND_pupill_ dillatation ;
 intracranial_expansiveness -> Loss_of_consciousness_in_headache ;
 
-epileptic_seizure -> increased_ICP
-Papilledema -> increased_ICP
-Increasing_neurological_deficits_Motor_OR_sensory_OR_diplopia_OR_or_episodes_of_impaired_vision -> increased_ICP
-personality_change -> increased_ICP
-New_headache_with_vomiting -> increased_ICP
-New_headache_that_increases_in_body_exertion_coughing_or_crying -> increased_ICP
-Migraine_like_headache_with_atypical_aura_never_changing_side -> increased_ICP
-Headache_attack_with_double_or_single_sided_pupillation -> increased_ICP
-Loss_of_consciousness_in_headache -> increased_ICP
+epileptic_seizure -> CT_head ;
+Papilledema -> CT_head ;
+Increasing_neurological_deficits_Motor_ANDOR_sensory -> CT_head ;
+personality_change -> increased_ICP  ;
+New_headache_with_vomiting -> CT_head ;
+headache_increasing_when_exertion -> CT_head ;
+Migraine_like_headache_with_atypical_aura_never_changing_side -> CT_head ;
+Headache_attack_AND_pupill_ dillatation -> CT_head ;
+Loss_of_consciousness_in_headache -> CT_head ;
 
-increased_ICP -> CT_head;
+medications_like_eg_COCP -> sinus_thrombosis ;
 
 sinus_thrombosis -> headache_not_weaken_within_about_3_days ;
 sinus_thrombosis -> Papilledema ;
-medications_like_eg_COCP -> sinus_thrombosis ;
+
 
 headache_not_weaken_within_about_3_days -> CT_head ;
 Papilledema -> CT_head ;
@@ -149,41 +150,33 @@ Subarachnoidal_bleeding -> seizures ;
 Subarachnoidal_bleeding -> vomiting ;
 Subarachnoidal_bleeding -> neck_stiffness ;
 Subarachnoidal_bleeding -> decreased_consciousness ;
-acute_CT_skull -> IF_subarachnoid_bleeding ;
-IF_subarachnoid_bleeding -> angiography ;
 
 confusion -> CT_head ;
 seizures -> CT_head ;
 vomiting -> CT_head ;
 neck_stiffness -> CT_head ;
 decreased_consciousness -> CT_head ;
-CT_skull -> IF_subarachnoid_bleeding 
+CT_head -> IF_subarachnoid_bleeding 
 IF_subarachnoid_bleeding -> angiography ;
 
-CT_skull -> IF_MAYBE_bleeding ;
+CT_head -> IF_MAYBE_bleeding ;
 IF_MAYBE_bleeding -> LP_after_12h ;
 LP_after_12h -> Xanthochromia_OR_high_bilirubin ;
 Xanthochromia_OR_high_bilirubin -> angiography ;
 angiography -> endovascular_coiling_OR_open_clip ;
-endovascular_coiling_OR_open_clip -> tablet_Nimotop2_TO_3_weeks_to_prevent_vasospasm ;
-tablet_Nimotop2_TO_3_weeks_to_prevent_vasospasm -> Rehabilitation ;
-tablet_Nimotop2_TO_3_weeks_to_prevent_vasospasm -> hydrocephalus_control ;
-tablet_Nimotop2_TO_3_weeks_to_prevent_vasospasm -> vitreous_detachment_control ;
 
-Pituitary_region_injury -> Acute_one_sided_facial_pain_with_small_pupil_and_hanging_eyelids ;
-Pituitary_region_injury -> Headache_attack_with_double_vision_or_single_sided_pupill_dillation_is_suspected_expanding_aneurysm ;
-Pituitary_region_injury -> Increased_headache_in_body_exertion_coughing_or_crying_is_aneurysm ;
-Pituitary_region_injury -> Acute_unilateral_ache_in_the_back_of_head ; 
-Pituitary_region_injury -> Signs_of_endocrine_dysfunction_Amenorrhea_acromegaly_delayed_lung_growth  ;
-
-Acute_one_sided_facial_pain_with_small_pupil_and_hanging_eyelids -> MR_brain ;
-Headache_attack_with_double_vision_or_single_sided_pupill_dillation_is_suspected_expanding_aneurysm -> MR_brain ;
-Increased_headache_in_body_exertion_coughing_or_crying_is_aneurysm -> MR_brain ;
+facial_pain_AND_small_pupil_AND_hanging_eyelids -> MR_brain ;
+expanding_aneurysm -> diplopia ;
+expanding_aneurysm -> headache ;
+headache -> MR_brain ;
+diplopia -> MR_brain ;
+aneurysm -> headache_increasing_when_exertion ;
+headache_increasing_when_exertion -> MR_brain ;
 Acute_unilateral_ache_in_the_back_of_head -> MR_brain ; 
 Signs_of_endocrine_dysfunction_Amenorrhea_acromegaly_delayed_lung_growth  -> MR_brain ;
 
 meningitis -> fever_AND_neck_stifness_AND_confusion ;
-CT_skull  -> IF_MAYBE_high_ICP ;
+CT_head  -> IF_MAYBE_high_ICP ;
 IF_MAYBE_high_ICP -> LP ;
 
 Giant_cell_arteritis -> head_ache ;
