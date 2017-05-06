@@ -6,12 +6,12 @@ title: headaches
 Usually a headache passes by itself, but when does a patient need help with that kind of problem? I can see two reasons:
 - The patient cannot manage the pain itself.
 - There are signs that can indicate a serious underlying cause that the patient cannot manage on her own. In the events of following situation you can suspect an underlying cause:
- - After a blow to the head gets headache and becomes sore.
- - A headache that gradually increases over a few days.
- - A headache that is correlated with pain around one eye and vision change.
- - Headache and pain in the temple, chewing pain, fatigue or light fever.
- - Sudden severe headache.
- - A headache while having a fever and being stiff in the neck.
+  - After a blow to the head gets headache and becomes sore.
+  - A headache that gradually increases over a few days.
+  - A headache that is correlated with pain around one eye and vision change.
+  - Headache and pain in the temple, chewing pain, fatigue or light fever.
+  - Sudden severe headache.
+  - A headache while having a fever and being stiff in the neck.
  
  
 *Headache examintion:*
