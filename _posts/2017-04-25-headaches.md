@@ -12,43 +12,21 @@ Usually a headache passes by itself, but when does a patient need help with that
    - Headache and pain in the temple, chewing pain, fatigue or light fever.
    - Sudden severe headache.
    - A headache while having a fever and being stiff in the neck.
- 
-Bellow is a flow-chart and <span class="sc">lympha</span>-script describing symptoms associated with underlying causes of headache.
- 
+
+
+
 *Headache examintion:*
 - eye fundus examination
 - body temperture
 - neurological examination
+- Blood tests in questions are
+   - Complete blood count
+   - electrolytes and creatinine
+   - CRP
+   - ESR
+   - P-­Glucose
 
--Akut DT-­‐hjärna om SAH-­‐misstanke
-- För vidare SAH-­‐handläggning se sid.4
--Lab
-- B-­‐stat
-- El-­‐Krea
-- CRP
-- SR
-- P-­‐Glc
-- Temp
-- U-­‐prov
-
-neck-stiffness
-- Papillödem!
-- body temperture - fever
-- Neurologi?
-- Akut DT-­‐hjärna om SAH-­‐misstanke
-- För vidare SAH-­‐handläggning se sid.4
-- Lab
-- B-­‐stat
-- El-­‐Krea
-- CRP
-- SR
-- P-­‐Glc
-- Temp
-- U-­‐prov
-
-
-
-
+Bellow is a flow-chart and <span class="sc">lympha</span>-script describing symptoms associated with underlying causes of headache.
 
 <p class="dragscroll" style="border:0.2em solid #aaaaaa;">
 ![<img src="http:
@@ -62,7 +40,7 @@ LYMPHA-script:
 
 intracranial_expansiveness -> epileptic_seizure ;
 intracranial_expansiveness -> Papilledema ;
-intracranial_expansiveness -> neurological_deficits_Motor_ANDOR_sensory ;
+intracranial_expansiveness -> neurological_deficits ;
 intracranial_expansiveness -> personality_change ;
 intracranial_expansiveness -> headache_AND_vomiting ;
 intracranial_expansiveness -> headache_increasing_when_exertion ;
@@ -73,9 +51,8 @@ intracranial_expansiveness -> unconscious_OR_confusion ;
 
 epileptic_seizure -> CT_head ;
 Papilledema -> CT_head ;
-neurological_deficits_Motor_ANDOR_sensory -> CT_head ;
+neurological_deficits -> CT_head ;
 headache_AND_vomiting -> CT_head ;
-headache_increasing_when_exertion -> CT_head ;
 never_changing_side_AND_atypical_aura -> CT_head ;
 pupill_dillatation -> CT_head ;
 unconscious_OR_confusion -> CT_head ;
@@ -108,25 +85,25 @@ LP_after_12h -> Xanthochromia_OR_high_bilirubin ;
 Xanthochromia_OR_high_bilirubin -> angiography ;
 angiography -> endovascular_coiling_OR_open_clip ;
 
-facial_pain_AND_small_pupil_AND_hanging_eyelids -> MR_brain ;
+face_pain_OR_small_pupil_OR_hanging_eyelid -> MR_brain ;
 expanding_aneurysm -> diplopia ;
 diplopia -> MR_brain ;
 aneurysm -> headache_increasing_when_exertion ;
 headache_increasing_when_exertion -> MR_brain ;
-Acute_unilateral_ache_in_the_back_of_head -> MR_brain ; 
-Signs_of_endocrine_dysfunction -> MR_brain ;
+ache_in_the_back_of_head -> MR_brain ; 
+endocrine_dysfunction -> MR_brain ;
+MR_brain -> IF_pathology_in_skull_base ;
 
 meningitis -> neck_stiffness ;
 meningitis -> fever ;
 meningitis -> unconscious_OR_confusion ;
-neck_stiffness -> blood_test ;
-fever -> blood_test ;
-unconscious_OR_confusion -> blood_test ;
+neck_stiffness -> blood_AND_test_body_temperature ;
+fever -> blood_AND_test_body_temperature ;
+unconscious_OR_confusion -> blood_AND_test_body_temperature ;
 CT_head  -> IF_MAYBE_high_ICP ;
 IF_MAYBE_high_ICP -> LP ;
-
 Giant_cell_arteritis -> headache_patient_50y_older ;
-headache_patient_50y_older -> blood_test ;
+headache_patient_50y_older -> blood_AND_test_body_temperature ;
 
 </pre>
 
