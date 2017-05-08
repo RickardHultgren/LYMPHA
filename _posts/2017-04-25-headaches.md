@@ -29,12 +29,28 @@ In all cases of secundary headache ununsual symptoms or and event is correlated 
 This should in most cases be followed by imaging diagnostics (CT or MR). I think it could be rather hard to make the process of further diagnostics more effective when it comes to severe underlying causes. Nevertheless a visual presentation of the proceeding can often be valuable for the patient. 
 
 
-When there is no symptoms and findings that can be correlated to severe underlying causes, then the issue is a primar headache. This group of pahthologies are caused by disturbances in either the nervfibers or other parts of the nervous system that are connected to pain. Here are me important pathological entities:
+When there is no symptoms and findings that can be correlated to severe underlying causes, then the issue is a primar headache. This group of pahthologies are caused by disturbances in either the nervfibers or other parts of the nervous system that are connected to pain. Here are the most important pathological entities:
 - Tension Headaches
 - Migraine
 - Idiopathic trigeminus neuralgia
-- Horton's headache
- 
+- Horton's headache/cluster headache
+
+The treatment of all types of primary headache follows this algorithm:
+
+
+Pseudocode:
+<pre>
+IF primary_headache_attack THEN primary_headache_attack_treatment
+ELSE primary_headache_preventiv_treatment
+</pre>
+
+...or to put it in the language of <span class="sc">lympha</span>:
+<pre>
+primary_headache_attack? == 1 -> primary_headache_attack_treatment ;
+primary_headache_attack? == 0 -> primary_headache_preventiv_treatment ;
+</pre>
+
+I can't see much to do in order to effect the treatment in itself. Nevertheless I think there is a big need of communication about the attacks. The problem with attacks is that it disabilitate you from doing what you planned to do. Often that means that you have to put extra effort in announcing your situation. This effort costs energy that you don't have, since you must focus on your attack. It would be much easier to just put a "attack-button" on you cellphone instead of starting a viscious cycle. 
 
 
 Bellow is a flow-chart and <span class="sc">lympha</span>-script describing symptoms associated with underlying causes of headache.
