@@ -13,7 +13,7 @@ Usually a headache passes by itself, but when does a patient need help with that
    - Sudden severe headache.
    - A headache while having a fever and being stiff in the neck.
 
-In all cases of secundary headache ununsual symptoms or and event is correlated to the headache. The patient goes to the physician when those unusual things uccors. The unusual circumstances should indicate more advanced examinations like:
+Secundary headache is often correlated to ununsual symptoms or and event is correlated to the headache. The patient goes to the physician when those unusual things uccors. The unusual circumstances should indicate more advanced examinations like:
 
 *Headache examintion:*
 - eye fundus examination
@@ -24,13 +24,14 @@ In all cases of secundary headache ununsual symptoms or and event is correlated 
    - electrolytes and creatinine
    - CRP
    - ESR
-   - P-­Glucose
+   - P-Glucose
 
 This should in most cases be followed by imaging diagnostics (CT or MR). I think it could be rather hard to make the process of further diagnostics more effective when it comes to severe underlying causes. Nevertheless a visual presentation of the proceeding can often be valuable for the patient. 
 
 
-When there is no symptoms and findings that can be correlated to severe underlying causes, then the issue is a primar headache. This group of pahthologies are caused by disturbances in either the nervfibers or other parts of the nervous system that are connected to pain. Here are the most important pathological entities:
-- Tension Headaches
+When there is no symptoms and findings that can be correlated to severe underlying causes, then the issue is a primar headache. This group of pahthologies are caused by disturbances in either the nervfibers or other parts of the nervous system that are connected to pain. But other symptoms apart from the headache can also occur in primary headache. Sometimes it is exactly the same symptoms as in secundary headache. The difference between primary and secundary headache is in those cases the pattern of symptoms. A case where the pattern was overseen is presented in this (article written in Swedish)[http://www.aftonbladet.se/senastenytt/ttnyheter/inrikes/article24821315.ab]. The patient suffered three months from headaches with correlated nausea, vomiting and declining in body mass. During the period the patient met several GPs and got finally refered to a psychiatric unit wherefrom she was referred to MR. The MR showed a brain tumor. The patient went through an acute surgery and died in a surgical wound infection. Perhaps the patient 
+Here are the most important pathological entities:
+- Tension Headaches. Can occur
 - Migraine
 - Idiopathic trigeminus neuralgia
 - Horton's headache/cluster headache
