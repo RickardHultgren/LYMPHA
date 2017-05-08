@@ -50,8 +50,15 @@ primary_headache_attack? == 1 -> primary_headache_attack_treatment ;
 primary_headache_attack? == 0 -> primary_headache_preventiv_treatment ;
 </pre>
 
-I can't see much to do in order to effect the treatment in itself. Nevertheless I think there is a big need of communication about the attacks. The problem with attacks is that it disabilitate you from doing what you planned to do. Often that means that you have to put extra effort in announcing your situation. This effort costs energy that you don't have, since you must focus on your attack. It would be much easier to just put a "attack-button" on you cellphone instead of starting a viscious cycle. 
+An "headache attack button" on your smartphone could work as a treatment appraisal. Not only the occurrence of attacks can be measured, but also the duration time and optionally the intensity. Depending on the evolution of symptoms the program can recommend different medications in line with medical protocols. The program flow would look something like below:
+<pre class="dragscroll">
+IF headache attack THEN ask for secondary headache symptoms
+   IF secondary headache symptoms THEN recommend getting in touch with health care
+   ELSE
+</pre>
 
+
+I think there is a big need of communication about the attacks.   The problem with attacks is that it disabilitate you from doing what you planned to do. Often that means that you have to put extra effort in announcing your situation. This effort costs energy that you don't have, since you must focus on your attack. It would be much easier to just put a "attack-button" on you cellphone instead of starting a viscious cycle. 
 
 Bellow is a flow-chart and <span class="sc">lympha</span>-script describing symptoms associated with underlying causes of headache.
 
