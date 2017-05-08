@@ -39,13 +39,13 @@ The treatment of all types of primary headache follows this algorithm:
 
 
 Pseudocode:
-<pre>
+<pre class="dragscroll">
 IF primary_headache_attack THEN primary_headache_attack_treatment
 ELSE primary_headache_preventiv_treatment
 </pre>
 
 ...or to put it in the language of <span class="sc">lympha</span>:
-<pre>
+<pre class="dragscroll">
 primary_headache_attack? == 1 -> primary_headache_attack_treatment ;
 primary_headache_attack? == 0 -> primary_headache_preventiv_treatment ;
 </pre>
