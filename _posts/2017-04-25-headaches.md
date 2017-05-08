@@ -54,11 +54,11 @@ An "headache attack button" on your smartphone could work as a treatment apprais
 <pre class="dragscroll">
 IF headache attack THEN ask for secondary headache symptoms
    IF secondary headache symptoms THEN recommend getting in touch with health care
-   ELSE
+   ELSE primary headache recommandations depending on the patient-data
 </pre>
 
 
-I think there is a big need of communication about the attacks.   The problem with attacks is that it disabilitate you from doing what you planned to do. Often that means that you have to put extra effort in announcing your situation. This effort costs energy that you don't have, since you must focus on your attack. It would be much easier to just put a "attack-button" on you cellphone instead of starting a viscious cycle. 
+I think there is a big need of communication about the attacks. The problem with attacks is that it disabilitate you from doing what you planned to do. Often that means that you have to put extra effort in announcing your situation. This effort costs energy that you don't have, since you must focus on your attack. Instead of starting this viscious cycle it would be much easier if the "attack-button" on your smartphone could tell others about your condition. This could be done e.g. by automatic SMS-texting or starting scripts for rewritting calender files (.ics).
 
 Bellow is a flow-chart and <span class="sc">lympha</span>-script describing symptoms associated with underlying causes of headache.
 
