@@ -3,51 +3,55 @@ layout: post
 title: headaches
 ---
 
-**How can a smartphone be used in order to treat migraine?**
 
-There exist already a lot of migraine diary apps. Usualy they such diaries are used in order to understand what triggers an attack. But a "headache attack button" could potentially also be used as a treatment appraisal in both migraine and tension headache. Not only the occurrence of attacks can be measured, but also the duration time and optionally the intensity. Accompanied symptoms can be noted. Depending on the evolution of symptoms the program can recommend different medications and doctor visits in line with medical protocols. I think there is also a big need of communication about the attacks. The problem with attacks is that it disabilitate you from doing what you planned to do. Often that means that you have to put extra effort in announcing your situation. This effort costs energy that you don't have, since you must focus on your attack. Instead of starting this viscious cycle it would be much easier if the "attack-button" on your smartphone could tell others about your condition. This could be done e.g. by automatic SMS-texting or starting scripts for rewritting calender files (.ics).
+*How can a smartphone be used in order to treat a migraine?*
 
-**Medical background**
+There exist already a lot of migraine diary apps. Usually they such diaries are used in order to understand what triggers an attack. But a “headache attack button” could potentially also be used as a treatment appraisal in both migraine and tension headache. Not only the occurrence of attacks can be measured, but also the duration time and optionally the intensity. Accompanied symptoms can be noted. Depending on the evolution of symptoms the program can recommend different medications and doctor visits in line with medical protocols. I think there is also a big need for communication about the attacks. The problem with attacks is that it debilitate you from doing what you planned to do. Often that means that you have to put extra effort in announcing your situation. This effort costs energy that you don’t have since you must focus on your attack. Instead of starting this vicious cycle it would be much easier if the “attack-button” on your smartphone could tell others about your condition. This could be done e.g. by automatic SMS-texting or starting scripts for rewriting calendar files (.ics).
 
-Usually a headache passes by itself, but when does a patient need help with that kind of problem? I can see two reasons:
-- *Primarly headache*; The patient cannot manage the pain itself.
-- *Secundary headache*; There are signs that can indicate a serious underlying cause that the patient cannot manage on her own. In the events of following situation you can suspect an underlying cause:
-   - After a blow to the head gets headache and becomes dizzy.
-   - A headache that gradually increases over a few days.
-   - A headache that is correlated with pain around one eye and vision change.
-   - Headache and pain in the temple, chewing pain, fatigue or light fever.
-   - Sudden severe headache.
-   - A headache while having a fever and being stiff in the neck.
+*Medical background*
 
-Secundary headache is often correlated to ununsual symptoms or and event is correlated to the headache. The patient goes to the physician when those unusual things uccors. The unusual circumstances should indicate more advanced examinations like:
+Usually, a headache passes by itself, but when does a patient need help with that kind of problem? I can see two reasons:
 
-*Headache examintion:*
+- Primary headache; The patient cannot manage the pain itself.
+- Secondary headache; There are signs that can indicate a serious underlying cause that the patient cannot manage on her own. In the events of the following situation you can suspect an underlying cause:
+  - After a blow to the head gets a headache and becomes dizzy.
+  - A headache that gradually increases over a few days.
+  - A headache that is correlated with pain around one eye and vision change.
+  - Headache and pain in the temple, chewing pain, fatigue or light fever.
+  - Sudden severe headache.
+  - A headache while having a fever and being stiff in the neck.
+
+Secondary headache is often correlated to unusual symptoms or and the event is correlated to a headache. The patient goes to the physician when those unusual things occurs. The unusual circumstances should indicate more advanced examinations like:
+
+Headache examination:
+
 - eye fundus examination
-- body temperture
+- body temperature
 - neurological examination
 - Blood tests in questions are
-   - Complete blood count
-   - electrolytes and creatinine
-   - CRP
-   - ESR
-   - P-Glucose
+  - Complete blood count
+  - electrolytes and creatinine
+  - CRP
+  - ESR
+  - P-Glucose
 
-This should in most cases be followed by imaging diagnostics (CT or MR). I think it could be rather hard to make the process of further diagnostics more effective when it comes to severe underlying causes. Nevertheless a visual presentation of the proceeding can often be valuable for the patient. 
+This should in most cases be followed by imaging diagnostics (CT or MR). I think it could be rather hard to make the process of further diagnostics more effective when it comes to severe underlying causes. Nevertheless, a visual presentation of the proceeding can often be valuable for the patient.
 
+When there is no symptoms and findings that can be correlated to severe underlying causes, then the issue is a primary headache. This group of pathologies is caused by disturbances in either the nerve fibers or other parts of the nervous system that are connected to pain. But other symptoms apart from a headache can also occur in a primary headache. Sometimes it is exactly the same symptoms as in a secondary headache. The difference between a primary and secundary headache is in those cases the pattern of symptoms. A case where the pattern was overseen is presented in this article written in Swedish. The patient suffered three months from headaches with correlated nausea, vomiting and declining in body mass. During the period the patient met several GPs and got finally referred to a psychiatric unit (eh???) wherefrom she was referred to MR. The MR showed a brain tumor. The patient went through an acute surgery and died in a surgical wound infection. Perhaps the patient’s life could have been saved if the tumor was found a couple of months earlier. So a good understanding of accompanied symptoms is crucial. Here are the most important pathological primary-headache entities with its accompanied symptoms:
 
-When there is no symptoms and findings that can be correlated to severe underlying causes, then the issue is a primar headache. This group of pahthologies are caused by disturbances in either the nervfibers or other parts of the nervous system that are connected to pain. But other symptoms apart from the headache can also occur in primary headache. Sometimes it is exactly the same symptoms as in secundary headache. The difference between primary and secundary headache is in those cases the pattern of symptoms. A case where the pattern was overseen is presented in this <a href="http://www.aftonbladet.se/senastenytt/ttnyheter/inrikes/article24821315.ab">article written in Swedish</a>. The patient suffered three months from headaches with correlated nausea, vomiting and declining in body mass. During the period the patient met several GPs and got finally refered to a psychiatric unit (eh???) wherefrom she was referred to MR. The MR showed a brain tumor. The patient went through an acute surgery and died in a surgical wound infection. Perhaps the patient's life could have been saved if the tumor was found a couple of months earlier. So a good understanding of accompanied symptoms is crusial. Here are the most important pathological primary-headache entities with its accompanied symptoms:
-- *Tension headaches*; Can be either episodic (hours to days) or chronic. The intensity varies often during an episode.
-- *Migraine*; Occurs in distinct attacks that lasts from four hours to three days. The pain is often increasing during an attack. A visual phenomenen called aura can occur before the headache. Also paresthesias can occur before an attack. Accompanied symptoms can be vomiting, light and sound hypersensitivity. Frequency is about six per month to one per year. As opposed to this frequence, do growing tumors have a increasing frequency.
-- *Idiopathic trigeminus neuralgia*; High intensity during seconds to up to two minutes, many times aday. Starts often after touching trigger points in face or mouth.
-- *Horton's headache/cluster headache*; Intense attacks with a duration between 15 minutes and 3 hours. Frequency up to 8 aday often during a period of about a week per year. Accompanied symptoms in eyes and nose on one side. 
+- Tension headaches; Can be either episodic (hours to days) or chronic. The intensity varies often during an episode.
+- Migraine; Occurs in distinct attacks that last from four hours to three days. The pain is often increasing during an attack. A visual phenomenon called aura can occur before the headache. Also, paresthesias can occur before an attack. Accompanied symptoms can be vomiting, light and sound hypersensitivity. Frequency is about six per month to one per year. As opposed to this frequency, do growing tumors have an increasing frequency.
+- Idiopathic trigeminus neuralgia; High intensity during seconds to up to two minutes, many times a day. Starts often after touching trigger points in face or mouth.
+- Horton’s headache/cluster headache; Intense attacks with a duration between 15 minutes and 3 hours. Frequency up to eight times a day often during a period of about a week per year. Accompanied symptoms in eyes and nose on one side.
 
-The treatments of all types of primary headache follow the principle that there is one regim for preventing an attack, and another regim should be appllied while having an attack.
+The treatments of all types of primary headaches follow the principle that there is one regime for preventing an attack, and another regime should be applied while having an attack.
 
-Bellow is a flow-chart and <span class="sc">lympha</span>-script describing symptoms associated with underlying causes of headache.
+Bellow is a flow-chart and <span class="sc">lympha</span>-script describing symptoms associated with underlying causes of a headache.
+
 
 <p class="dragscroll" style="border:0.2em solid #aaaaaa;">
 ![<img src="http:
-//rickardhultgren.github.io/lympha/images/headache.jpg">](http://rickardhultgren.github.io/lympha/images/headache.jpg)
+//rickardhultgren.github.io/lympha/images/headache.jpg">](http://rickardhultgren.github.io/<span class="sc">lympha</span>/images/headache.jpg)
 </p>
 LYMPHA-script:
 
