@@ -3,6 +3,11 @@ layout: post
 title: headaches
 ---
 
+#####How can a smartphone be used in order to treat migraine?#####
+
+There exist already a lot of migraine diary apps. Usualy they such diaries are used in order to understand what triggers an attack. But a "headache attack button" could potentially also be used as a treatment appraisal in both migraine and tension headache. Not only the occurrence of attacks can be measured, but also the duration time and optionally the intensity. Accompanied symptoms can be noted. Depending on the evolution of symptoms the program can recommend different medications and doctor visits in line with medical protocols. I think there is also a big need of communication about the attacks. The problem with attacks is that it disabilitate you from doing what you planned to do. Often that means that you have to put extra effort in announcing your situation. This effort costs energy that you don't have, since you must focus on your attack. Instead of starting this viscious cycle it would be much easier if the "attack-button" on your smartphone could tell others about your condition. This could be done e.g. by automatic SMS-texting or starting scripts for rewritting calender files (.ics).
+
+#####Medical background#####
 Usually a headache passes by itself, but when does a patient need help with that kind of problem? I can see two reasons:
 - *Primarly headache*; The patient cannot manage the pain itself.
 - *Secundary headache*; There are signs that can indicate a serious underlying cause that the patient cannot manage on her own. In the events of following situation you can suspect an underlying cause:
@@ -35,30 +40,7 @@ When there is no symptoms and findings that can be correlated to severe underlyi
 - *Idiopathic trigeminus neuralgia*; High intensity during seconds to up to two minutes, many times aday. Starts often after touching trigger points in face or mouth.
 - *Horton's headache/cluster headache*; Intense attacks with a duration between 15 minutes and 3 hours. Frequency up to 8 aday often during a period of about a week per year. Accompanied symptoms in eyes and nose on one side. 
 
-The treatment of all types of primary headache follows this algorithm:
-
-
-Pseudocode:
-<pre class="dragscroll">
-IF primary_headache_attack THEN primary_headache_attack_treatment
-ELSE primary_headache_preventiv_treatment
-</pre>
-
-...or to put it in the language of <span class="sc">lympha</span>:
-<pre class="dragscroll">
-primary_headache_attack? == 1 -> primary_headache_attack_treatment ;
-primary_headache_attack? == 0 -> primary_headache_preventiv_treatment ;
-</pre>
-
-An "headache attack button" on your smartphone could work as a treatment appraisal. Not only the occurrence of attacks can be measured, but also the duration time and optionally the intensity. Depending on the evolution of symptoms the program can recommend different medications in line with medical protocols. The program flow would look something like below:
-<pre class="dragscroll">
-IF headache attack THEN ask for secondary headache symptoms
-   IF secondary headache symptoms THEN recommend getting in touch with health care
-   ELSE primary headache recommandations depending on the patient-data
-</pre>
-
-
-I think there is a big need of communication about the attacks. The problem with attacks is that it disabilitate you from doing what you planned to do. Often that means that you have to put extra effort in announcing your situation. This effort costs energy that you don't have, since you must focus on your attack. Instead of starting this viscious cycle it would be much easier if the "attack-button" on your smartphone could tell others about your condition. This could be done e.g. by automatic SMS-texting or starting scripts for rewritting calender files (.ics).
+The treatments of all types of primary headache follow the principle that there is one regim for preventing an attack, and another regim should be appllied while having an attack.
 
 Bellow is a flow-chart and <span class="sc">lympha</span>-script describing symptoms associated with underlying causes of headache.
 
