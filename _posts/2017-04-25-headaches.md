@@ -4,7 +4,7 @@ title: Headaches
 ---
 
 
-*How can a smartphone be used in order to treat a migraine?*
+*How can a smartphone be used in order to manage migraine?*
 
 There already exist a lot of migraine diary apps. Usually such diaries are used in order to understand what triggers an attack. But a “headache attack button” could also be used as a treatment appraisal in both migraine and tension headache. Other data that could be collected are the time duration, the intensity and accompanied symptoms. Depending on the evolution of symptoms the program could perhaps recommend different medications and doctor visits in line with medical protocols. I think there is also a big need for communication about the attacks. The problem with attacks is that it debilitate you from doing what you planned to do. That often means that you have to put extra effort in announcing your situation. This effort costs energy that you don’t have since you must focus on your attack. Instead of starting this vicious cycle it would be much easier if the “attack-button” on your smartphone could tell others about your condition. This could be done e.g. by automatic SMS-texting or starting scripts for rewriting calendar files (.ics).
 
