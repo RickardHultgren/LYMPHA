@@ -1,6 +1,6 @@
 ---
 layout: post
-title: headaches
+title: Headaches
 ---
 
 
