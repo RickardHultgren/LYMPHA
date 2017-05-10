@@ -9,6 +9,7 @@ Perhaps you can improve someone’s health with the help of this web-browser-ver
 <li>Downloads <span style="font-style:italic">viz.js</span> from <a href="https://github.com/mdaines/viz.js/releases">here</a>.</li>
 <li>Open the downloaded <span style="font-style:italic">index.html</span> in a web browser. It should work fine in most web browsers like e.g. Firefox, Chrome, IE.</li>
 </ol>
+Examples of <span class="sc">lympha</span>-scripts and flow-charts can be found in some blog-posts e.g. <a href="http://rickardhultgren.github.io/lympha/2017/04/25/headaches.html">this one</a>.
 
 
 
