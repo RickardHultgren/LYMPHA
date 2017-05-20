@@ -5,16 +5,10 @@ document.getElementById( "about").className="menu2active";
 </script>
 <span class="sc">Lympha</span> is a logical language for formulating and handling medical algorithms. The aim of the project is to provide syntax guide lines as well as structural rules for reading <span class="sc">lympha</span> scripts. Interpreters and compilers are built upon those rules. The <span class="sc">lympha</span> project is open-source, licensed under the <span class="sc">[bsd 2](http://opensource.org/licenses/BSD-2-Clause)</span> license.<br><br>
 Tasks in making version 1.0:
-- [x] <a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_syntax.0.1.pdf">Syntax description in REGEX</a>.
-Make compute algorithms in:
-- [x] <a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_algorithm.0.1.pdf">pseudocode</a><br>The algorithms are completed.
-- [ ] <a href="https://github.com/RickardHultgren/lympha/tree/python">Python</a>
-- [ ] <a href="https://github.com/RickardHultgren/lympha/tree/JavaScript">JavaScript</a>
-
-<ul>
+<ul class="task-list">
 <li class="task-list-item"><input type="checkbox" disabled="" checked="" /><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_syntax.0.1.pdf">Syntax description in REGEX</a>.</li>
 <li>Make compute algorithms in:</li>
-<ul>
+<ul class="task-list">
 <li class="task-list-item"><input type="checkbox" disabled="" checked="" /><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_algorithm.0.1.pdf">pseudocode</a><br>The algorithms are completed.</li>
 <li class="task-list-item"><input type="checkbox" disabled="" /><a href="https://github.com/RickardHultgren/lympha/tree/python">Python</a></li>
 <li class="task-list-item"><input type="checkbox" disabled="" /><a href="https://github.com/RickardHultgren/lympha/tree/JavaScript">JavaScript</a></li>
