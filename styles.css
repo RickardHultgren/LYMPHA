@@ -9,8 +9,6 @@
   vertical-align: middle;
 }
 
-If custom check box icons are desired, custom styles can be used to give a unique look to the check marks. Below is a very simple CSS example that creates a light gray square with rounded corners and displays a green Unicode check mark when the control is checked. This can be adapted to use web fonts, images, etc.
-
 .markdown-body .task-list-item {
   list-style-type: none !important;
 }
