@@ -12,12 +12,12 @@ Make compute algorithms in:
 - [ ] <a href="https://github.com/RickardHultgren/lympha/tree/JavaScript">JavaScript</a>
 
 <ul>
-<li><input type="checkbox" disabled="" checked="" /><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_syntax.0.1.pdf">Syntax description in REGEX</a>.</li>
+<li class="task-list-item"><input type="checkbox" disabled="" checked="" /><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_syntax.0.1.pdf">Syntax description in REGEX</a>.</li>
 <li>Make compute algorithms in:</li>
 <ul>
-<li><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_algorithm.0.1.pdf">pseudocode</a><br>The algorithms are completed.</li>
-<li><a href="https://github.com/RickardHultgren/lympha/tree/python">Python</a></li>
-<li><a href="https://github.com/RickardHultgren/lympha/tree/JavaScript">JavaScript</a></li>
+<li class="task-list-item"><input type="checkbox" disabled="" checked="" /><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_algorithm.0.1.pdf">pseudocode</a><br>The algorithms are completed.</li>
+<li class="task-list-item"><input type="checkbox" disabled="" /><a href="https://github.com/RickardHultgren/lympha/tree/python">Python</a></li>
+<li class="task-list-item"><input type="checkbox" disabled="" /><a href="https://github.com/RickardHultgren/lympha/tree/JavaScript">JavaScript</a></li>
 </ul>
 </ul>
 Future plans after version 1.0:
