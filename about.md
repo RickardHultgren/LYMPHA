@@ -20,8 +20,7 @@ Tasks in making version 1.0:
 <li>Computing algorithms in:</li>
 <ul>
 <li><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_syntax.0.1.pdf">pseudocode</a></li>
-<li>python</li>
-<li>javacript</li>
+<li><a href="https://github.com/RickardHultgren/lympha/tree/python">Python</a></li>
+<li><a href="https://github.com/RickardHultgren/lympha/tree/JavaScript">JavaScript</a></li>
 </ul>
-<li>Update javascript version</li>
 </ul>
