@@ -6,7 +6,7 @@ document.getElementById( "indextext").style.color="#000000";
 document.getElementById( "index").className="menu2active";
 </script>
 
-<span style="wieght:bold;">
+<span style="font-weight:bold;">
 What one person considers being good health for her can be very different from what another person thinks. Everyone has the right to define what her concept of health implies. Her health is something that belongs to her. Sometimes the person needs help with leadership in order to take control over her own health. Sometimes the person needs help with managing her health. The aim of  <span class="sc">lympha</span> is to give the patient (health-owner) and health care professionals a transparent digital platform  for building good health, what ever that might be. It is a programming language for formulating medical protocols. With <span class="sc">lympha</span> the computer consolidates different protocols and compare them with data from the patient. It computes what further diagnostics and treatment could be prescribed for the patient.</span>
 
 
