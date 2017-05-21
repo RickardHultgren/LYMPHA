@@ -3,7 +3,7 @@ document.getElementById( "demosmall").style.backgroundColor="#EFAB00";
 document.getElementById( "demotext").style.color="#000000";
 document.getElementById( "demo").className="menu2active";
 </script>
-Perhaps you can improve someone’s health with the help of this web-browser-version tool for making of medical work-flowcharts. To use it do as follows:
+Download and create clinical flow-charts in your web browser with this very basic simplified demo-version. Hope this can help you in improving someone's health. To use it do as follows:
 <ol>
 <li>Download the files from <a href="https://github.com/RickardHultgren/lympha/tree/JavaScript">here</a>.</li>
 <li>Downloads <span style="font-style:italic">viz.js</span> from <a href="https://github.com/mdaines/viz.js/releases">here</a>.</li>
