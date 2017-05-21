@@ -5,7 +5,7 @@ document.getElementById( "about").className="menu2active";
 </script>
 <span class="sc">Lympha</span> is a logical language for formulating and handling medical algorithms. The aim of the project is to provide syntax guide lines as well as structural rules for reading <span class="sc">lympha</span> scripts. Interpreters and compilers are built upon those rules. The <span class="sc">lympha</span> project is open-source, licensed under the <span class="sc">[bsd 2](http://opensource.org/licenses/BSD-2-Clause)</span> license.<br><br>
 <br><br><br>
-<a name="progress" style="font-weight:bold;"></a>
+<a name="progress" style="font-weight:bold;"></a><br>
 <span style="font-style:italic">Progress</span>
 Tasks in making version 1.0:
 <ul class="task-list">
@@ -24,7 +24,7 @@ Future plans after version 1.0:
 <li>Make a <a href="https://www.gnu.org/software/gforth/">GForth</a> branch of the <span class="sc">lympha</span> project. This would enable <span class="sc">lympha</span> to be used in more smaller devices.</li>
 </ul>
 <br><br><br>
-<a name="use" style="font-weight:bold;"></a>
+<a name="use" style="font-weight:bold;"></a><br>
 <span style="font-style:italic"></span>
 The python version should be command based porgram:
 <pre class="dragscroll">
