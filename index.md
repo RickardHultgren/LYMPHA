@@ -9,6 +9,6 @@ A person's health is something that belongs to her. But in order to have a good 
 
 The project is just in its very early stages. <a href="http://rickardhultgren.github.io/lympha/about#use">Read about how I imagine using lympha</a> and <a href="http://rickardhultgren.github.io/lympha/about#progress">follow the progession of the work</a>. The <a href="http://rickardhultgren.github.io/lympha/demo">demo</a>  demonstrates how flowcharts can be produced. It is  based on a simplyfied version of <span class="sc">lympha</span>. Hope the demo can help you improving someone’s health. 
 
-<br><br><br>
+<br><br>
 <a href="https://github.com/RickardHultgren"><img src="https://avatars3.githubusercontent.com/u/16224494?v=3&s=80" style="float:left;margin-left:30vw;" /></a>Sincerely<br><a href="https://github.com/RickardHultgren">Rickard</a>
 <br> <br> <br>
