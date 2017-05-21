@@ -4,7 +4,7 @@ document.getElementById( "abouttext").style.color="#000000";
 document.getElementById( "about").className="menu2active";
 </script>
 <span class="sc">Lympha</span> is a logical language for formulating and handling medical algorithms. The aim of the project is to provide syntax guide lines as well as structural rules for reading <span class="sc">lympha</span> scripts. Interpreters and compilers are built upon those rules. The <span class="sc">lympha</span> project is open-source, licensed under the <span class="sc">[bsd 2](http://opensource.org/licenses/BSD-2-Clause)</span> license.<br><br>
-<br><br><br>
+<br>
 <a name="progress" style="font-weight:bold;"></a>
 <span style="font-style:italic">Progress</span><br>
 Tasks in making version 1.0:
