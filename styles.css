@@ -10,7 +10,7 @@
 list-style: none;	
 }
 
- .box ul li {
+ .box li {
 	padding-left: 1em;
   	text-indent: -1em;
     }
