@@ -2,7 +2,7 @@
 
 
 
-.box:before { content: "◻" ; padding-right:7px; }
+.box li:before { content: "◻" ; padding-right:7px; }
 }
 
 .checked {position:absolute;margin-left:-1em;}
