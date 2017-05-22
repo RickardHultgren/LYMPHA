@@ -1,0 +1,253 @@
+%Copyright (c) 2017, Rickard Verner Hultgren
+%All rights reserved.
+%
+%Redistribution and use in source and binary forms, with or without
+%modification, are permitted provided that the following conditions are met:
+%
+%1. Redistributions of source code must retain the above copyright notice, this
+%   list of conditions and the following disclaimer.
+%2. Redistributions in binary form must reproduce the above copyright notice,
+%   this list of conditions and the following disclaimer in the documentation
+%   and/or other materials provided with the distribution.
+%
+%THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+%ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+%WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+%DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+%ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+%(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+%LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+%ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+%(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+%SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+%
+%The views and conclusions contained in the software and documentation are those
+%of the authors and should not be interpreted as representing official policies,
+%either expressed or implied, of the FreeBSD Project.
+
+\documentclass[15pt,a4paper,oneside]{article}
+\usepackage{textcomp}
+\usepackage{tabularx}
+\usepackage[T1]{fontenc}
+\usepackage[math]{iwona}
+\usepackage{graphicx}
+\usepackage{cclicenses}
+\usepackage[textwidth=11cm]{geometry}
+\usepackage{color}
+\definecolor{orange}{RGB}{230,127,0}
+\definecolor{violet}{RGB}{127, 0, 255}
+\definecolor{grey}{RGB}{127, 127, 127}
+\usepackage{framed}
+\usepackage{textcomp}
+\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+\newcommand{\regex}[1]{{\tiny\\\colorbox{grey}{\textcolor{white}{CODE (REGEX)}\hspace{0.87\textwidth}}}\vspace{-2.2em}\\\begin{framed}\bf{\textcolor{grey}{\vspace{-1.5em}\\\texttt{\small #1}}}\vspace{-0.33em}\end{framed}\vspace{-0.75em}}
+\newcommand{\python}[1]{{\tiny\\\colorbox{grey}{\textcolor{white}{\tiny CODE (PYTHON)}\hspace{0.855\textwidth}}}\vspace{-2.2em}\\\begin{framed}\bf{\textcolor{grey}{\vspace{-1.5em}\\\texttt{\small #1}}}\vspace{-0.33em}\end{framed}\vspace{-0.75em}}
+\newcommand{\code}[1]{{\textcolor{violet}{\texttt{\small #1}}}}
+\newcommand{\comment}[1]{{\textcolor{orange}{\it #1}}}
+\renewcommand\contentsname{\vspace{-1cm}}
+\usepackage[boxed]{algorithm}
+%\usepackage[algonl]{algorithm}
+%\usepackage{algorithm}
+%\usepackage[None]{algorithm}
+\usepackage{algorithmic}
+%\usepackage{caption}
+%\DeclareCaptionLabelFormat{numberless}{\ALG@name#1}
+%\captionsetup[algorithm]{labelformat=numberless} 
+
+%\renewcommand{\algorithmicnot}{\MakeUppercase{\textit{\textbf{not}}}}
+%\renewcommand{\algorithmicif}{\MakeUppercase{\textit{\textbf{if}}}}
+%\renewcommand{\algorithmicthen}{\\ \ \ \ \MakeUppercase{\textit{\textbf{then}}}}
+%\renewcommand{\algorithmicthen}{\\ \ \ \ \ \MakeUppercase{\textit{\textbf{then}\vspace{-1.25em}}}}
+%\renewcommand{\algorithmicor}{\\ \MakeUppercase{\textit{\textbf{or}}}}
+%\renewcommand{\algorithmicand}{\\ \MakeUppercase{\textit{\textbf{and}}}}
+%\renewcommand{\algorithmicand}{\\ \MakeUppercase{\textit{\textbf{\&}}}}
+%\renewcommand{\algorithmicelse}{\MakeUppercase{\textit{\textbf{else}}}}
+%\renewcommand{\algorithmicendif}{\vspace{-1em}\ }
+\renewcommand{\algorithmicensure}[1][$\#$]{\textcolor{orange}{\textit{#1}}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+%\assignpagestyle{\chapter}{fancy}
+
+\chead{\raisebox{-.25cm}{\fontsize{5.5pt}{5.5pt}\selectfont{\sc Lympha} algorithm\hfill{\cc This work by Rickard Verner Hultgren is licensed under a Creative Commons Attribution {\oldstylenums 3.0} Unported License.}}}
+
+\setlength{\parindent}{3em}
+
+\begin{document}
+\title{\vspace{-3cm}
+{\includegraphics[width=0.75\textwidth]{logo.png}}\vspace{-0.6cm}\\ \textcolor{orange}{\large{\sc Language} {that} {\sc Yields Medical Process HAndling}}\vspace{0.3cm}\\{\Huge {\bf ALGORITHM}}}
+\author{\vspace{-0cm}Rickard Verner Hultgren \textit{\textcolor{grey}{rihu0003@student.umu.se}}\\\\
+}
+{\begin{minipage}[t]{\textwidth}
+%\date{\oldstylenums\today}
+\date{\vspace{-2cm}\today}
+\maketitle
+\vspace{0cm}
+\tableofcontents
+\vspace{1cm}
+\textcolor{grey}{\cc This work by Rickard Verner Hultgren is licensed under a Creative Commons Attribution {\oldstylenums 3.0} Unported License. For the code and pseudocode in the document applies this free-{\sc bsd} license:\\
+\fontsize{5pt}{5pt}\selectfont
+\hrule
+\ \\
+Copyright (c) 2017, Rickard Verner Hultgren\\
+All rights reserved.\\
+\\
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:\\
+\\
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.\\
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.\\
+\\
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\\
+\\
+The views and conclusions contained in the software and documentation are those
+of the authors and should not be interpreted as representing official policies,
+either expressed or implied, of the FreeBSD Project.
+\hrule
+\ \\
+}\end{minipage}}
+\newpage
+\ \\
+The process of interpretation {\sc lympha} scripts works as follows:
+\begin{enumerate}
+\item {\it Structurizing}; All the objects are stored into a workig memory.
+\item {\it Recording}; Linking the objects together.
+\item {\it Playing}; The double linked list is gone through.
+\end{enumerate}
+Each of these is coverd below.
+\section{Structurizing}
+The goal of the syntax is to build asignments for the two datatypes. These asignments will then be put into an index list. Below are the node types for the linked list:
+
+\begin{itemize}
+\item Head node.
+\begin{itemize}
+\item {\it node next}
+\end{itemize}
+\item Events; Always end with a full stop (\code{.}).
+\begin{itemize}
+\item {\it string name}
+\item {\it list specifications}
+\item {\it list content}
+\end{itemize}
+\item Factors; Always end with a questionmark (\code{?}).
+\begin{itemize}
+\item {\it string name}
+\item {\it list specifications}
+\item {\it list content}
+\item {\it int tipping point}
+\item {\it int relational operator}
+\end{itemize}
+\end{itemize}
+
+\section{recording}
+
+An index list or data base is made is used in order to store data objects. In the case of an index list this algorithm is used to make the list:
+\begin{algorithm}[H]\begin{algorithmic}
+\ENSURE {\textcolor{orange}{\textit{1.1 Start a list}}}
+\STATE p = ( head-of-object-list$\rightarrow$next-object-list )
+\end{algorithmic}\end{algorithm}
+\begin{algorithm}[H]\begin{algorithmic}
+\ENSURE {\textcolor{orange}{\textit{1.2 Make objects}}}
+\IF{REGEX(object found)}
+\STATE object = malloc(sizeof(struct node))
+\STATE ( p$\rightarrow$next-object-list ) = object
+\STATE p = object
+\ENDIF
+\end{algorithmic}\end{algorithm}
+
+\section{playing}
+In htis part the previously recorded data will be played in one of three moods:
+\begin{itemize}
+\item Execution mode ; This mode will search for nodes/objects to execute
+\item Show mode ; This mode will show all available outcomes
+\item Map mode; A combination of the previous two.
+\end{itemize}
+Algorithms for each mode are presented below.\\\\
+EXE FUNCTION
+\begin{algorithm}[H]\begin{algorithmic}
+\STATE LIST-OF-OBJECTS-TO-EXECUTE
+\FOR{next-object {\bf in} object.next-objects}
+\FOR{list-object {\bf in} object-list}
+\IF{list-object == next-object}
+\STATE pointer to list-object is added to LIST-OF-OBJECTS-TO-EXECUTE 
+\ENDIF
+\ENDFOR
+\ENDFOR
+\FOR{exeobject {\bf in} LIST-OF-OBJECTS-TO-EXECUTE}
+\IF{exeobject.flow==1}
+\STATE execute exeobject
+\FOR{subexeobject {\bf in} exeobject.subobjects}
+\STATE execute subexeobject
+\ENDFOR
+\STATE pointer to list-object is added to PAST-LIST-OF-OBJECTS-TO-EXECUTE 
+\STATE delete exeboject-pointer in LIST-OF-OBJECTS-TO-EXECUTE 
+\ENDIF
+\ENDFOR
+\FOR{pastexeobject {\bf in} PAST-LIST-OF-OBJECTS-TO-EXECUTE}
+\STATE EXECUTE FUNCITON (pastexeobect.next)
+\ENDFOR
+\end{algorithmic}\end{algorithm}
+
+SHOW FUNCTION
+\begin{algorithm}[H]\begin{algorithmic}
+\STATE LIST-OF-OBJECTS-TO-EXECUTE
+\FOR{next-object {\bf in} object.next-objects}
+\FOR{list-object {\bf in} object-list}
+\IF{list-object == next-object}
+\STATE pointer to list-object is added to LIST-OF-OBJECTS-TO-EXECUTE 
+\ENDIF
+\ENDFOR
+\ENDFOR
+\FOR{exeobject {\bf in} LIST-OF-OBJECTS-TO-EXECUTE}
+\STATE execute exeobject
+\FOR{subexeobject {\bf in} exeobject.subobjects}
+\STATE show subexeobject
+\ENDFOR
+\STATE pointer to list-object is added to PAST-LIST-OF-OBJECTS-TO-EXECUTE 
+\STATE delete exeboject-pointer in LIST-OF-OBJECTS-TO-EXECUTE 
+\ENDFOR
+\FOR{pastexeobject {\bf in} PAST-LIST-OF-OBJECTS-TO-EXECUTE}
+\STATE execute exeobject
+\ENDFOR
+\end{algorithmic}\end{algorithm}
+
+MAP FUNCTION
+\begin{algorithm}[H]\begin{algorithmic}
+\STATE LIST-OF-OBJECTS-TO-EXECUTE
+\FOR{next-object {\bf in} object.next-objects}
+\FOR{list-object {\bf in} object-list}
+\IF{list-object == next-object}
+\STATE pointer to list-object is added to LIST-OF-OBJECTS-TO-EXECUTE 
+\ENDIF
+\ENDFOR
+\ENDFOR
+\FOR{exeobject {\bf in} LIST-OF-OBJECTS-TO-EXECUTE}
+\IF{exeobject.flow==1}
+\STATE execute exeobject
+\FOR{subexeobject {\bf in} exeobject.subobjects}
+\STATE map subexeobject
+\ENDFOR
+\ENDIF
+\STATE pointer to list-object is added to PAST-LIST-OF-OBJECTS-TO-EXECUTE 
+\STATE delete exeboject-pointer in LIST-OF-OBJECTS-TO-EXECUTE 
+\ENDFOR
+\FOR{pastexeobject {\bf in} PAST-LIST-OF-OBJECTS-TO-EXECUTE}
+\STATE execute exeobject
+\ENDFOR
+\end{algorithmic}\end{algorithm}
+\end{document}
+
+
