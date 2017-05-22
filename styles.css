@@ -2,8 +2,10 @@
 
 
 
-.box:before { content: " &#x25fb;" ; padding-right:7px; }
+.box:before { content: "◻" ; padding-right:7px; }
 }
+
+.checked {position:absolute;margin-left:-1em;}
 
 #EventForm {
     display: table;
