@@ -8,7 +8,6 @@
 }
 
  .box li {
-        list-style:none;
     }
 
 .checked {display:block;position:absolute;margin-left:-1em;}
