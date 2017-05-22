@@ -2,13 +2,8 @@
 
 
 
-.box  > li::before { content: " &#x25fb;" ; padding-right:7px; }
+.box:before { content: " &#x25fb;" ; padding-right:7px; }
 }
-
-.checked  > li::before { content: " &#10004; "; padding-right:7px; }
-
-}
-
 
 #EventForm {
     display: table;
