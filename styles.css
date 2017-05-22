@@ -3,7 +3,7 @@
 
 
 .box li:before { content: "◻" ;    display:inline-block;  
-	margin-left:1em;
+	margin-left:2em;
 }
 
 .box,
@@ -15,7 +15,7 @@ list-style: none;
 
  .box li {
 	
-	padding-left: 1em;
+	padding-left: 2em;
   	text-indent: -2em;
     }
 
