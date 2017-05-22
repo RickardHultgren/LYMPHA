@@ -7,8 +7,7 @@ document.getElementById( "about").className="menu2active";
 <br>
 <a name="progress" style="font-weight:bold;"></a>
 <span style="font-style:italic">Progress</span><br>
-Tasks in making version 1.0:
-</p>
+Tasks in making version 1.0:</p>
 <p class="box">
 <ul class="box">
 <li> <span class="checked">✔</span><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_syntax.0.9.pdf">Syntax description in REGEX</a>; The syntax is completed.</li>
