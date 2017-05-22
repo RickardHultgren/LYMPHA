@@ -9,10 +9,10 @@ document.getElementById( "about").className="menu2active";
 <span style="font-style:italic">Progress</span><br>
 Tasks in making version 1.0:
 <ul class="task-list">
-<li class="task-list-item"> <label class="task-list-control"><input type="checkbox" disabled="" checked="" /><span class="task-list-indicator"></span><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_syntax.0.1.pdf">Syntax description in REGEX</a>. The syntax is completed.</label></li>
+<li class="task-list-item"> <label class="task-list-control"><input type="checkbox" disabled="" checked="" /><span class="task-list-indicator"></span><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_syntax.0.9.pdf">Syntax description in REGEX</a>. The syntax is completed.</label></li>
 <li>Make algorithms in:</li>
 <ul class="task-list">
-<li class="task-list-item"> <label class="task-list-control"><input type="checkbox" disabled="" checked="" /><span class="task-list-indicator"></span><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_algorithm.0.1.pdf">pseudocode</a><br>The algorithms are completed.</label></li>
+<li class="task-list-item"> <label class="task-list-control"><input type="checkbox" disabled="" checked="" /><span class="task-list-indicator"></span><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_algorithm.0.9.pdf">pseudocode</a><br>The algorithms are completed.</label></li>
 <li class="task-list-item"> <label class="task-list-control"><input type="checkbox" disabled="" /><span class="task-list-indicator"></span><a href="https://github.com/RickardHultgren/lympha/tree/python">Python</a> module. A framework for a python library is built. Now the pseudocode has to be converted into python.</label></li>
 <li class="task-list-item"> <label class="task-list-control"><input type="checkbox" disabled="" /><span class="task-list-indicator"></span><a href="https://github.com/RickardHultgren/lympha/tree/JavaScript">JavaScript</a>. Add computational abilities to the web-browser version.</label></li>
 </ul>
