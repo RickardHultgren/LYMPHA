@@ -13,7 +13,7 @@ Tasks in making version 1.0:
 <ul class="box";>
 <li> <span class="checked">✔</span><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_syntax.0.9.pdf">Syntax description in REGEX</a>; The syntax is completed.</li>
 <li>Make algorithms in:</li>
-<ul class="box">
+<ul>
 <li><span class="checked">✔</span><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_algorithm.0.9.pdf">pseudocode</a>; The algorithms are completed.</li>
 <li><span class="checked">✔</span><a href="https://github.com/RickardHultgren/lympha/tree/python">Python</a> module; A framework for a python library is built. Now the pseudocode has to be converted into python.</li>
 <li><a href="https://github.com/RickardHultgren/lympha/tree/JavaScript">JavaScript</a>; Add computational abilities to the web-browser version.</li>
@@ -21,6 +21,7 @@ Tasks in making version 1.0:
 </ul>
 </p>
 <p>
+
 Future plans after version 1.0:
 <ul>
 <li>Make a <span class="sc">lympha</span>-script client app in <a href="https://kivy.org/">Kivy</a>. This would make <span class="sc">lympha</span> very useful.</li>
