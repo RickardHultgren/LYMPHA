@@ -26,7 +26,7 @@ Future plans after version 1.0:
 <br><br><br>
 <a name="use" style="font-weight:bold;"></a>
 <span style="font-style:italic">Use</span><br>
-The python version should be command based program:
+The finished version is thought to consolidate different protocols and compare them with data from the patient. In this way, it would enable compters to propose what further diagnostics and treatments can be prescribed. In other words, it will be a cdss and a programming language for medical protocols. The python version should be command based program:
 <pre class="dragscroll">
 $> lympha script.lympha steps=5 start="airways"
 </pre>
