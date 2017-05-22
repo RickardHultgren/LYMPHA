@@ -19,7 +19,7 @@ list-style: none;
   	text-indent: -2em;
     }
 
-.checked {display:block;position:absolute; margin-top: -1.25em; color:#6400EF; }
+.checked {display:block;position:absolute; margin-top: -1.25em; color:#6400EF; width:1em; }
 
 #EventForm {
     display: table;
