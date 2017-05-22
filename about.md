@@ -19,6 +19,8 @@ Tasks in making version 1.0:
 <li><a href="https://github.com/RickardHultgren/lympha/tree/JavaScript">JavaScript</a>; Add computational abilities to the web-browser version.</li>
 </ul>
 </ul>
+</p>
+<p>
 Future plans after version 1.0:
 <ul>
 <li>Make a <span class="sc">lympha</span>-script client app in <a href="https://kivy.org/">Kivy</a>. This would make <span class="sc">lympha</span> very useful.</li>
