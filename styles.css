@@ -3,14 +3,17 @@
 
 
 .box li:before { content: "◻" ;    display:inline-block;  width:10px;
-        margin-left:-1em;
+        margin-left:-2em;
 	margin-left:1em;
 }
+.box ul ul,
 .box ul{
 list-style: none;	
 }
 
+
  .box li {
+	
 	padding-left: 1em;
   	text-indent: -1em;
     }
