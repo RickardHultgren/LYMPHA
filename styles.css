@@ -2,8 +2,7 @@
 
 
 
-.box li:before { content: "◻" ;    display:inline-block;  width:10px;
-        margin-left:-2em;
+.box li:before { content: "◻" ;    display:inline-block;  
 	margin-left:1em;
 }
 
@@ -17,10 +16,10 @@ list-style: none;
  .box li {
 	
 	padding-left: 1em;
-  	text-indent: -1em;
+  	text-indent: -2em;
     }
 
-.checked {display:block;position:relative;margin-right:-1em; margin-top: -1.25em; color:#6400EF; }
+.checked {display:block;position:absolute; margin-top: -1.25em; color:#6400EF; }
 
 #EventForm {
     display: table;
