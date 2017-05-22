@@ -9,7 +9,7 @@ document.getElementById( "about").className="menu2active";
 <span style="font-style:italic">Progress</span><br>
 Tasks in making version 1.0:
 <ul>
-<li class="checked"> <a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_syntax.0.9.pdf">Syntax description in REGEX</a>. The syntax is completed.</li>
+<li class="checked"> <a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_syntax.0.9.pdf">Syntax description in REGEX</a>; The syntax is completed.</li>
 <li>Make algorithms in:</li>
 <ul>
 <li class="checked"><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_algorithm.0.9.pdf">pseudocode</a>; The algorithms are completed.</li>
