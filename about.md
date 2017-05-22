@@ -10,7 +10,7 @@ document.getElementById( "about").className="menu2active";
 Tasks in making version 1.0:
 <p class="box">
 <ul class="box">
-<li> <span class="checked">✔</span><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_syntax.0.9.pdf">Syntax description in REGEX</a>; The syntax is completed.</li>
+<li><span class="checked">✔</span><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_syntax.0.9.pdf">Syntax description in REGEX</a>; The syntax is completed.</li>
 <li><span class="checked">&nbsp;</span>Make algorithms in:</li>
 <ul>
 <li><span class="checked">✔</span><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_algorithm.0.9.pdf">Pseudocode</a>; The algorithms are completed.</li>
