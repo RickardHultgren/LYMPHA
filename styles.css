@@ -6,8 +6,13 @@
         margin-left:-1em;
 	margin-left:1em;
 }
+.box ul{
+list-style: none;	
+}
 
  .box li {
+	padding-left: 1em;
+  	text-indent: -1em;
     }
 
 .checked {display:block;position:absolute;margin-left:-1em;}
