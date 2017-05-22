@@ -2,10 +2,10 @@
 
 
 
-.box:before { content: " &#x25fb;" ; padding-right:7px; }
+.box li:before { content: " &#x25fb;" ; padding-right:7px; }
 }
 
-.checked:before { content: " &#10004; "; padding-right:7px; }
+.checked li:before { content: " &#10004; "; padding-right:7px; }
 
 }
 
