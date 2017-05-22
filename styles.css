@@ -16,8 +16,8 @@ list-style: none;
 
  .box li {
 	
-	padding-left: 1em;
-  	text-indent: -1em;
+	padding-left: 0em;
+  	text-indent: -2em;
     }
 
 .checked {display:block;position:absolute;margin-left:-1em;}
