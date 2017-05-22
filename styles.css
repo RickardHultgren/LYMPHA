@@ -20,7 +20,7 @@ list-style: none;
   	text-indent: -1em;
     }
 
-.checked {display:block;position:absolute;margin-left:-0em; margin-top: -1.33em; color:#bfa98f; }
+.checked {display:block;position:absolute;margin-left:-0em; margin-top: -1.25em; color:#6400EF; }
 
 #EventForm {
     display: table;
