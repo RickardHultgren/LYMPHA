@@ -227,6 +227,7 @@ font-weight:bold;
 			-ms-font-feature-settings: 'onum';
 			-webkit-font-feature-settings: 'onum';
 			font-feature-settings: 'onum';
+	font-variant-numeric: oldstyle-nums;
 }
 
 
