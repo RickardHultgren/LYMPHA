@@ -17,10 +17,10 @@ list-style: none;
  .box li {
 	
 	padding-left: 0em;
-  	text-indent: -2em;
+  	text-indent: -1em;
     }
 
-.checked {display:block;position:absolute;margin-left:-1em;}
+.checked {display:block;position:absolute;margin-left:-0em; margin-top: -1em; }
 
 #EventForm {
     display: table;
