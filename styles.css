@@ -15,8 +15,8 @@ list-style: none;
 
  .box li {
 	
-	padding-left: 0em;
-  	text-indent: -2em;
+	padding-left: 2em;
+  	text-indent: -4em;
     }
 
 .checked {display:block;position:absolute; margin-top: -1.25em; color:#6400EF; width:2em; }
