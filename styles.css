@@ -3,7 +3,7 @@
 
 
 .box li:before { content: "◻" ;    display:inline-block;  
-	margin-left:2em;
+	margin-left:0em;
 }
 
 .box,
