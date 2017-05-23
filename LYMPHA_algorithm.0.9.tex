@@ -121,40 +121,42 @@ either expressed or implied, of the FreeBSD Project.
 }\end{minipage}}
 \newpage
 \ \\
-The process of interpretation {\sc lympha} scripts works as follows:
+The process of interpretation {\sc lympha} scripts consists of the following steps:
 \begin{enumerate}
-\item {\it Structurizing}; All the objects are stored into a workig memory.
-\item {\it Recording}; Linking the objects together.
-\item {\it Playing}; The double linked list is gone through.
+\item {\it Initiate}; All the objects are stored into a workig memory.
+\item {\it Recording}; Making an index list.
+\item {\it Playing}; The script is played a given amount of steps from a given start node.
 \end{enumerate}
 Each of these is coverd below.
-\section{Structurizing}
-The goal of the syntax is to build asignments for the two datatypes. These asignments will then be put into an index list. Below are the node types for the linked list:
+\section{Initiate}
+The goal of the syntax is to build asignments for the two datatypes. These asignments will then be put into an index list. Below are the node types for the index list:
 
 \begin{itemize}
 \item Head node.
 \begin{itemize}
-\item {\it node next}
+\item {\it list next}; List of starting nodes
 \end{itemize}
 \item Events; Always end with a full stop (\code{.}).
 \begin{itemize}
 \item {\it string name}
 \item {\it list specifications}
 \item {\it list content}
+\item {\it list next}
 \end{itemize}
 \item Factors; Always end with a questionmark (\code{?}).
 \begin{itemize}
 \item {\it string name}
 \item {\it list specifications}
 \item {\it list content}
+\item {\it list next}
 \item {\it int tipping point}
 \item {\it int relational operator}
 \end{itemize}
 \end{itemize}
 
-\section{recording}
+\section{Recording}
 
-An index list or data base is made is used in order to store data objects. In the case of an index list this algorithm is used to make the list:
+An index list or data base is made in order to store data objects. The algorithm for building an index list:
 \begin{algorithm}[H]\begin{algorithmic}
 \ENSURE {\textcolor{orange}{\textit{1.1 Start a list}}}
 \STATE p = ( head-of-object-list$\rightarrow$next-object-list )
@@ -168,15 +170,16 @@ An index list or data base is made is used in order to store data objects. In th
 \ENDIF
 \end{algorithmic}\end{algorithm}
 
-\section{playing}
-In htis part the previously recorded data will be played in one of three moods:
+\section{Playing}
+During this step the recorded data will be played in one of three modes:
 \begin{itemize}
-\item Execution mode ; This mode will search for nodes/objects to execute
-\item Show mode ; This mode will show all available outcomes
-\item Map mode; A combination of the previous two.
+\item {\it Execution mode}; This mode will search for nodes/objects to execute. During each step the program compares the patient data with the script 
+. In this way the program checks if the step is valid for execution.
+\item {\it Show mode}; This mode will show all available outcomes
+\item {\it Map mode}; A combination of the previous two.
 \end{itemize}
 Algorithms for each mode are presented below.\\\\
-EXE FUNCTION
+EXECUTION FUNCTION\vspace{-2em}\\
 \begin{algorithm}[H]\begin{algorithmic}
 \STATE LIST-OF-OBJECTS-TO-EXECUTE
 \FOR{next-object {\bf in} object.next-objects}
@@ -200,8 +203,9 @@ EXE FUNCTION
 \STATE EXECUTE FUNCITON (pastexeobect.next)
 \ENDFOR
 \end{algorithmic}\end{algorithm}
-
-SHOW FUNCTION
+\ \\
+\ \\
+SHOW FUNCTION\vspace{-2em}\\
 \begin{algorithm}[H]\begin{algorithmic}
 \STATE LIST-OF-OBJECTS-TO-EXECUTE
 \FOR{next-object {\bf in} object.next-objects}
@@ -223,8 +227,8 @@ SHOW FUNCTION
 \STATE execute exeobject
 \ENDFOR
 \end{algorithmic}\end{algorithm}
-
-MAP FUNCTION
+\ \\
+MAP FUNCTION\vspace{-2em}\\
 \begin{algorithm}[H]\begin{algorithmic}
 \STATE LIST-OF-OBJECTS-TO-EXECUTE
 \FOR{next-object {\bf in} object.next-objects}
