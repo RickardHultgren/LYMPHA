@@ -293,6 +293,10 @@ width:auto;
 border:0em;
 max-width:45vw;
 }
+
+ul ul {
+	margin-right:0vw;
+}
 	
 ul {
 left:0vw;
