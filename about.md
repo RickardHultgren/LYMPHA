@@ -10,12 +10,12 @@ document.getElementById( "about").className="menu2active";
 Tasks in making version 1.0:
 <p class="box">
 <ul class="box">
-<li><span class="checked">✔</span><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_syntax.0.9.pdf">Syntax description in REGEX</a>; The syntax is completed.</li>
+<li><span class="checked">✔</span><a style="position:relative; z-index:1;" href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_syntax.0.9.pdf">Syntax description in REGEX</a>; The syntax is completed.</li>
 <li><span class="checked">&nbsp;</span>Make algorithms in:</li>
 <ul>
-<li><span class="checked">✔</span><a href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_algorithm.0.9.pdf">Pseudocode</a>; The algorithms are completed.</li>
-<li><span class="checked">✔</span><a href="https://github.com/RickardHultgren/lympha/tree/python">Python</a> module; A framework for a python library is built. Now the pseudocode has to be converted into python.</li>
-<li><span class="checked">&nbsp;</span><a href="https://github.com/RickardHultgren/lympha/tree/JavaScript">JavaScript</a>; Add computational abilities to the web-browser version.</li>
+<li><span class="checked">✔</span><a style="position:relative; z-index:1;"href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_algorithm.0.9.pdf">Pseudocode</a>; The algorithms are completed.</li>
+<li><span class="checked">✔</span><a style="position:relative; z-index:1;"href="https://github.com/RickardHultgren/lympha/tree/python">Python</a> module; A framework for a python library is built. Now the pseudocode has to be converted into python.</li>
+<li><span class="checked">&nbsp;</span><a style="position:relative; z-index:1;"href="https://github.com/RickardHultgren/lympha/tree/JavaScript">JavaScript</a>; Add computational abilities to the web-browser version.</li>
 </ul></ul></p>
 Future plans after version 1.0:
 <ul>
