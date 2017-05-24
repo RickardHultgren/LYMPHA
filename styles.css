@@ -15,11 +15,11 @@ list-style: none;
 
  .box li {
 	
-	padding-left: 3em;
-  	text-indent: -2em;
+	padding-left: 2em;
+  	text-indent: -1em;
     }
 
-.checked {display:block;position:absolute; margin-left:-2em ; margin-top: -1.25em; color:#6400EF; width:2em; }
+.checked {display:block;position:absolute; margin-left:-1em ; margin-top: -1.25em; color:#6400EF; width:2em; }
 
 #EventForm {
     display: table;
@@ -115,6 +115,10 @@ margin-left:3em;
 margin-right:3em;
 width:auto;
 border:0em;
+}
+
+ul ul {
+	margin-left:0em;
 }
 
 ol {
