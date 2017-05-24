@@ -3,8 +3,8 @@ document.getElementById( "aboutsmall").style.backgroundColor="#EFAB00";
 document.getElementById( "abouttext").style.color="#000000";
 document.getElementById( "about").className="menu2active";
 </script>
-<span class="sc">Lympha</span> is a logical language for formulating and handling medical algorithms. The finished version is thought to consolidate different protocols and compare them with data from the patient. In this way new, more complex protocols and scenarios are built by the program. This differs from most other languages used for medical algorithms (e.g. <a href="https://en.wikipedia.org/wiki/CLIPS" class="sc">clips</a>). In those languages each possible scenario should be described by the programmer.</br>
-</br>
+<span class="sc">Lympha</span> is a logical language for formulating and handling medical algorithms. The finished version is thought to consolidate different protocols and compare them with data from the patient. In this way new, more complex protocols and scenarios are built by the program. This differs from most other languages used for medical algorithms (e.g. <a href="https://en.wikipedia.org/wiki/CLIPS" class="sc">clips</a>). In those languages each possible scenario should be described by the programmer.<br>
+<br>
 The aim of the <span class="sc">lympha</span>-project is to create operating principles for the language, upon which interpreters and compilers are built. The <span class="sc">lympha</span> project is open-source, licensed under the <span class="sc">[bsd 2](http://opensource.org/licenses/BSD-2-Clause)</span> license.<br><br>
 <br>
 <a name="progress" style="font-weight:bold;"></a>
