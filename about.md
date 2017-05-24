@@ -14,7 +14,7 @@ Tasks in making version 1.0:
 <li><span class="checked">&nbsp;</span>Make algorithms in:</li>
 <ul>
 <li><span class="checked">✔</span><a style="position:relative; z-index:1;" href="https://github.com/RickardHultgren/lympha/blob/master/LYMPHA_algorithm.0.9.pdf">Pseudocode</a>; The algorithms are completed.</li>
-<li><span class="checked">&nbsp;</span><a style="position:relative; z-index:1;" href="https://github.com/RickardHultgren/lympha/tree/python">Python</a> module; A framework for a python library is built. Now the pseudocode has to be converted into python.</li>
+<li><span class="checked">&nbsp;</span><a style="position:relative; z-index:1;" href="https://github.com/RickardHultgren/lympha/tree/python">Python</a> module; A framework for a python library is prepared. The next step is to translate the pseudocode  into python.</li>
 </ul></ul></p>
 Future plans after version 1.0:
 <ul>
