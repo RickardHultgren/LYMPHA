@@ -1,7 +1,7 @@
 <script>
-document.getElementById( "demosmall").style.backgroundColor="#EFAB00";
-document.getElementById( "demotext").style.color="#000000";
-document.getElementById( "demo").className="menu2active";
+document.getElementById( "prototypesmall").style.backgroundColor="#EFAB00";
+document.getElementById( "prototypetext").style.color="#000000";
+document.getElementById( "prototype").className="menu2active";
 </script>
 Download and create clinical flow-charts in your web browser with this very basic simplified demo-version. Hope this can help you in improving someone's health. To use it do as follows:
 <ol>
