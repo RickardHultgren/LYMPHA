@@ -26,9 +26,9 @@
   <sodipodi:namedview
      id="base"
      showgrid="false"
-     inkscape:zoom="1.0000001"
-     inkscape:cx="413.16559"
-     inkscape:cy="69.855268"
+     inkscape:zoom="4.0000004"
+     inkscape:cx="595.75332"
+     inkscape:cy="134.55981"
      inkscape:window-width="1440"
      inkscape:window-height="849"
      inkscape:window-x="0"
@@ -68,14 +68,11 @@ Created by potrace 1.10, written by Peter Selinger 2001-2011
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="cccccccccccc" />
   <path
-     inkscape:export-ydpi="90"
-     inkscape:export-xdpi="90"
-     inkscape:export-filename="logo.png"
-     sodipodi:nodetypes="cccsccccc"
-     inkscape:connector-curvature="0"
      style="fill:#ffb400;fill-opacity:1;stroke:none"
+     d="m 475.30012,43.16647 c -8.76009,0.251378 -28.54471,11.791075 -26.45157,19.165625 -9.66561,60.395015 -37.04782,93.745895 -6.54693,72.339595 10.56408,-6.4 30.55564,-13.64925 30.51562,-15.85625 0.0974,-2.39947 -8.93699,0.8117 -12.62969,0.90625 -25.79844,0.6606 -15.36313,-37.019135 -3.4468,-43.627095 9.21082,-4.651801 7.47002,-9.21169 26.28275,67.452095 13.15198,-21.89318 24.48892,-9.91041 23.9328,-20.20937 0,0 4.63877,9.87786 -27.75775,-78.3521 -0.44292,-1.334098 -1.87687,-1.87676 -3.89843,-1.81875 z"
      id="path609"
-     d="m 444.11658,54.611779 c 1.13438,31.19502 -48.08093,116.362961 12.81996,73.356661 2.10647,-1.67753 15.35568,-5.24916 15.31566,-7.45616 0.0974,-2.39947 -8.93769,0.81244 -12.63038,0.90699 -25.79844,0.6606 -15.92908,-46.636611 -4.01275,-53.244571 21.60494,-11.0317 29.51273,50.845361 23.0485,78.268951 13.15199,-21.89318 28.28913,-11.11109 27.73301,-21.41005 -0.22294,-40.126381 -3.52643,-57.737431 -34.52295,-86.567401 -5.76225,-6.31519 -30.32723,7.06921 -27.75105,16.14558 z" />
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="scccsccccs" />
   <path
      sodipodi:nodetypes="cccccccccc"
      inkscape:connector-curvature="0"
@@ -85,13 +82,13 @@ Created by potrace 1.10, written by Peter Selinger 2001-2011
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:26.5474472px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffb400;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     x="477.35394"
-     y="54.744125"
+     x="478.45462"
+     y="62.884579"
      id="text3340"
      sodipodi:linespacing="125%"
      transform="scale(1.0278874,0.9728692)"><tspan
        sodipodi:role="line"
        id="tspan3342"
-       x="477.35394"
-       y="54.744125">TM</tspan></text>
+       x="478.45462"
+       y="62.884579">TM</tspan></text>
 </svg>
