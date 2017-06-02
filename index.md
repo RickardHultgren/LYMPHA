@@ -9,5 +9,5 @@ Each of us sometimes needs help with our health. To assist you managing your own
 <br><br>
 Wishing you good health management
 <br><br>
-<a href="https://github.com/RickardHultgren"><img src="https://avatars3.githubusercontent.com/u/16224494?v=3&s=80" style="float:left;margin-left:30vw;" /></a>Sincerely<br><a href="https://github.com/RickardHultgren">Rickard</a>
+<a href="https://github.com/RickardHultgren"><img src="https://avatars3.githubusercontent.com/u/16224494?v=3&s=80" style="float:left;" /></a>Sincerely<br><a href="https://github.com/RickardHultgren">Rickard</a>
 <br><br>
