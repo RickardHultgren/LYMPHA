@@ -5,7 +5,7 @@ document.getElementById( "indexsmall").style.backgroundColor="#EFAB00";
 document.getElementById( "indextext").style.color="#000000";
 document.getElementById( "index").className="menu2active";
 </script>
-Each of us sometimes needs help with our health. To assist you managing your own health, and help you helping others—that is the goal of the <span class="sc">lympha</span> project. It is a free and transparant digital platform for managing health. The finished computer program is thought to consolidate different medical protocols and compare them with data from the patient. It would enable computers to propose diagnostics and treatments. It would give caregivers more time to care and connect with the patient.
+To assist you managing your own health, and help you helping others—this is the goal of the <span class="sc">lympha</span> project. It is a free and transparant digital platform for managing health. The finished computer program is thought to consolidate different medical protocols and compare them with data from the patient. It would enable computers to propose diagnostics and treatments. It would give caregivers more time to care and connect with the patient.
 <br><br>
 Wishing you good health management
 <br><br>
