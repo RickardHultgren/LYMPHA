@@ -87,12 +87,18 @@ def exe():
 				#execute subexe_object
 				#pass
 			exe_object = []
-		
-def test():
-	statement = Statement("hypovolemia",None,None)
-	object_list.append(statement)
-	for obj in object_list:
-		print("%s" % obj.name)
 
+def new(name, tipoint, operator):
+	statement = Statement(name, tipoint, operator)
+	object_list.append(statement)
+		
+def run():
+	new("hypovolemia",None,None)
+	new("hypervolemia",None,None)
+	for obj in object_list:
+		obj.next_list = ["abc"]
+		print (obj.next_list)
+		print("%s" % obj.name)	
+	
 if __name__=='__main__':
-    test()
+    run()
