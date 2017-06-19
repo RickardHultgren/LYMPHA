@@ -49,7 +49,7 @@ class Event:
 '''
 
 class Statement:
-	def __init__(self, name, tipoint, operator, next_list, spec_list, cont_list):
+	def __init__(self, name, tipoint, operator):
         		
 		#list of next nodes:
 		#next_list = next_list
@@ -67,35 +67,32 @@ class Statement:
 		self.name = name
 		
 		#tipping point
-		self.tipoint = tippoint
+		self.tipoint = tipoint
 		
 		#relational operator
 		self.operator = operator
 
-
-
-
-object_list.append(Event(i))
-object_list.append(Factor(i))
+#object_list.append(Event(i))
+#object_list.append(Factor(i))
 
 def exe():
 	for next_object in next_list:
 		for list_object in object_list:
 			if list_object == next_object:
 				exe_objects.append(list_object)
-	for exeobject in exe_objects:
-		if exeobject.flow==1 :
-			execute exeobject
-			for subexeobject in exeobject.subobjects
-				execute subexeobject
-			#pointer to list-object is added to PAST-LIST-OF-OBJECTS-TO- EXECUTE
-			#delete exeboject-pointer in LIST-OF-OBJECTS-TO-EXECUTE
-	for pastexeobject in PAST-LIST-OF-OBJECTS-TO-EXECUTE:
-			EXECUTE FUNCITON (pastexeobect.next)
+	for exe_object in exe_objects:
+		if exe_object.flow==1 :
+			#execute exe_object
+			#for subexe_object in exe_object.subobjects
+				#execute subexe_object
+				#pass
+			exe_object = []
 		
 def test():
-
-    pass
+	statement = Statement("hypovolemia",None,None)
+	object_list.append(statement)
+	for obj in object_list:
+		print("%s" % obj.name)
 
 if __name__=='__main__':
     test()
