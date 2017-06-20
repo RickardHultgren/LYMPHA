@@ -1,12 +1,24 @@
+import re
+
+filename = test.lympha
+
+textfile = open(filename, 'r')
+filetext = textfile.read()
+textfile.close()
+
 #variable name ( specification) = content
-\regex{($\backslash$w*$[$a-zA-Z]$\backslash$w*$\backslash$.)$\backslash$(\textasciicircum[\textasciicircum$\backslash$)]*?(?=$\backslash$))?$\backslash$s*?=$\backslash$s*?(\textasciicircum[\textasciicircum ;]*?(?=;))}
+spec = r'(\w*[a-zA-Z]\w*\.)\(^[^\)]*?(?=\))?\s*?=\s*?(^[^ ;]*?(?=;))'
+list1=re.findall(statement,filetext)
+
 
 #datatype [ sub-variable name ] = content
-\regex{($\backslash$w*$[$a-zA-Z]$\backslash$w*$\backslash$)$\backslash$[\textasciicircum[\textasciicircum$\backslash$]]*?(?=$\backslash$])?$\backslash$s*?=$\backslash$s*?($\backslash$w*$[$a-zA-Z]$\backslash$w*$\backslash$)}
+cont = r'(\w*[a-zA-Z]\w*\)\[^[^\]]*?(?=\])?\s*?=\s*?(\w*[a-zA-Z]\w*\)'
+list1=re.findall(statement,filetext)
 
 #{ event , factor , event }
 [x.strip() for x in content.split(',')]
 
 #tipping point   relational operator | {  sub-factor , sub-factor} |
-\regex{($\backslash$d)$\backslash$s*?(==|>|<|>=|<=)$\backslash$s*?\{($\backslash$w*$[$a-zA-Z]$\backslash$w*$\backslash$)\}}
+tipoint = r'\regex{(\d)\s*?(==|>|<|>=|<=)\s*?\{(\w*[a-zA-Z]\w*\)\}}'
+list1=re.findall(statement,filetext)
 
