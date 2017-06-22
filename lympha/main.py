@@ -1,5 +1,26 @@
 #!/usr/bin/python3
 # -*- coding: ascii -*-
+import sys
+
+#filename = sys.argv
+
+filename = "test.lympha"
+
+textfile = open(filename, 'r')
+
+filetext = textfile.read()
+
+filetext = filetext.replace('\n', ' ')
+
+filetext = filetext.replace('  ', ' ')
+
+series = []
+series = filetext.split(';')
+substates = []
+nextstates = []
+specs = []
+tipoint = None
+operator = None
 
 object_list = []
 exe_objects = []
@@ -93,12 +114,16 @@ def new(name, tipoint, operator):
 	object_list.append(statement)
 		
 def run():
-	new("hypovolemia",None,None)
-	new("hypervolemia",None,None)
+	for serie in series:
+		manyobj = serie.split('->')
+		for anobj in manyobj:
+			anobj.replace(" ","")
+			if anobj != "":
+				#object_list.append(anobj)
+				new(anobj,None,None)	
 	for obj in object_list:
-		obj.next_list = ["abc"]
-		print (obj.next_list)
+		#obj.next_list = ["abc"]
+		#print (obj.next_list)
 		print("%s" % obj.name)	
-	
 if __name__=='__main__':
     run()
