@@ -114,16 +114,22 @@ def new(name, tipoint, operator):
 	object_list.append(statement)
 		
 def run():
+	global object_list
 	for serie in series:
 		manyobj = serie.split('->')
 		for anobj in manyobj:
 			anobj.replace(" ","")
 			if anobj != "":
-				#object_list.append(anobj)
 				new(anobj,None,None)	
+
+	seen = {}
+	object_list2 = [seen.setdefault(x.name, x) for x in object_list if x.name not in seen]
+	object_list = object_list2
+
 	for obj in object_list:
 		#obj.next_list = ["abc"]
 		#print (obj.next_list)
 		print("%s" % obj.name)	
 if __name__=='__main__':
     run()
+
