@@ -1,24 +1,35 @@
 import re
 
-filename = test.lympha
+filename = "test.lympha"
 
 textfile = open(filename, 'r')
+
 filetext = textfile.read()
-textfile.close()
 
-#variable name ( specification) = content
-spec = r'(\w*[a-zA-Z]\w*\.)\(^[^\)]*?(?=\))?\s*?=\s*?(^[^ ;]*?(?=;))'
-list1=re.findall(statement,filetext)
+filetext = filetext.replace('\n', ' ')
+
+filetext = filetext.replace('  ', ' ')
+
+series = []
+series = filetext.split(';')
 
 
-#datatype [ sub-variable name ] = content
-cont = r'(\w*[a-zA-Z]\w*\)\[^[^\]]*?(?=\])?\s*?=\s*?(\w*[a-zA-Z]\w*\)'
-list1=re.findall(statement,filetext)
+print (series)
 
-#{ event , factor , event }
-[x.strip() for x in content.split(',')]
+states = [] 
+substates = []
+nextstates = []
+specs = []
+tipoint = None
+operator = None
 
-#tipping point   relational operator | {  sub-factor , sub-factor} |
-tipoint = r'\regex{(\d)\s*?(==|>|<|>=|<=)\s*?\{(\w*[a-zA-Z]\w*\)\}}'
-list1=re.findall(statement,filetext)
-
+'''
+		#name
+		self.name = name
+		
+		#tipping point
+		self.tipoint = tipoint
+		
+		#relational operator
+		self.operator = operator
+'''
