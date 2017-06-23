@@ -1,32 +1,19 @@
 #!/usr/bin/python3
 # -*- coding: ascii -*-
 import sys
-#print sys.argv[0] # prints python_script.py
-#print sys.argv[1] # prints var1
-#print sys.argv[2] # prints var2
 precommand = ""
 command = ""
 argvlen = len(sys.argv)
 filename = ""
-for x in range(0, argvlen):
-	if sys.argv[x] == "-f":
-		precommand = sys.argv[x]
-		command = sys.argv[x+1]
-if precommand == "-f":
-	filename = command
 
-#filename = "test.lympha"
-
-textfile = open(filename, 'r')
-
-filetext = textfile.read()
-
-filetext = filetext.replace('\n', ' ')
-
-filetext = filetext.replace('  ', ' ')
-
+filecheck = False
+modeexe = False
+modeshow = False
+modemap = False
+exe_list = []
+show_list = []
+map_list = []
 series = []
-series = filetext.split(';')
 substates = []
 nextstates = []
 specs = []
@@ -107,7 +94,7 @@ class Statement:
 #object_list.append(Event(i))
 #object_list.append(Factor(i))
 
-def exe():
+def exefunc():
 	for next_object in next_list:
 		for list_object in object_list:
 			if list_object == next_object:
@@ -120,10 +107,42 @@ def exe():
 				#pass
 			exe_object = []
 
+def showfunc():
+# Add objects.name to show_list.
+	global object_list
+	for obj in object_list:
+		for next_object in obj.next_list:
+			for list_object in object_list:
+				if list_object == next_object:
+					exe_objects.append(list_object)
+		for exe_object in exe_list:
+			if exe_object.flow==1 :
+				#execute exe_object
+				#for subexe_object in exe_object.subobjects
+					#execute subexe_object
+					#pass
+				exe_object = []
+
+
+def mapfunc():
+	for next_object in next_list:
+		for list_object in object_list:
+			if list_object == next_object:
+				exe_objects.append(list_object)
+	for exe_object in exe_objects:
+		if exe_object.flow==1 :
+			#execute exe_object
+			#for subexe_object in exe_object.subobjects
+				#execute subexe_object
+				#pass
+			exe_object = []
+
+
+
 def new(name, tipoint, operator):
 	statement = Statement(name, tipoint, operator)
 	object_list.append(statement)
-		
+
 def run():
 	global object_list
 	for serie in series:
@@ -132,15 +151,40 @@ def run():
 			anobj.replace(" ","")
 			if anobj != "":
 				new(anobj,None,None)	
-
 	seen = {}
-	object_list2 = [seen.setdefault(x.name, x) for x in object_list if x.name not in seen]
-	object_list = object_list2
-
-	for obj in object_list:
+	object_list = [seen.setdefault(x.name, x) for x in object_list if x.name not in seen]
+	if modeexe == True:
+		exefunc()
+		#for obj in object_list:
 		#obj.next_list = ["abc"]
 		#print (obj.next_list)
-		print("%s" % obj.name)	
+			#print("%s" % obj.name)	
+	if modeexe == True:
+		showfunc()
+	if modeshow == True:
+		showfunc()
+	if modemap == True:
+		mapfunc()
 if __name__=='__main__':
-    run()
-
+	for x in range(0, argvlen):
+		if sys.argv[x] == "-f":
+			precommand = sys.argv[x]
+			command = sys.argv[x+1]
+			filename = command
+			textfile = open(filename, 'r')
+			filetext = textfile.read()
+			filetext = filetext.replace('\n', ' ')
+			filetext = filetext.replace('  ', ' ')
+			series = filetext.split(';')
+			filecheck = True
+		if sys.argv[x] == "-h":
+			print ("-h for help\n-f file")
+		if sys.argv[x] == "-exe":
+			modeexe = True
+		if sys.argv[x] == "-show":
+			modeshow = True
+		if sys.argv[x] == "-map":
+			modemap = True		
+# Execute functions that are connected to the arguments:
+	if filecheck == True:
+		run()
