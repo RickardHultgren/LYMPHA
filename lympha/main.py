@@ -1,10 +1,21 @@
 #!/usr/bin/python3
 # -*- coding: ascii -*-
 import sys
+#print sys.argv[0] # prints python_script.py
+#print sys.argv[1] # prints var1
+#print sys.argv[2] # prints var2
+precommand = ""
+command = ""
+argvlen = len(sys.argv)
+filename = ""
+for x in range(0, argvlen):
+	if sys.argv[x] == "-f":
+		precommand = sys.argv[x]
+		command = sys.argv[x+1]
+if precommand == "-f":
+	filename = command
 
-#filename = sys.argv
-
-filename = "test.lympha"
+#filename = "test.lympha"
 
 textfile = open(filename, 'r')
 
