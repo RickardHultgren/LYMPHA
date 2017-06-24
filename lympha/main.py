@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 # -*- coding: ascii -*-
 import sys
-precommand = ""
-command = ""
+prefilecom = ""
+filecom = ""
 argvlen = len(sys.argv)
 filename = ""
 
+starts = []
+steps = 0
+modestate = False
 filecheck = False
 modeexe = False
 modeshow = False
@@ -95,82 +98,95 @@ class Statement:
 #object_list.append(Factor(i))
 
 def exefunc():
-	for next_object in next_list:
-		for list_object in object_list:
-			if list_object == next_object:
-				exe_objects.append(list_object)
-	for exe_object in exe_objects:
-		if exe_object.flow==1 :
-			#execute exe_object
-			#for subexe_object in exe_object.subobjects
-				#execute subexe_object
-				#pass
-			exe_object = []
+	global object_list
+	global starts
+	global show_list
+	for step in len(steps):
+		for start in starts
+			for obj in object_list
+				if obj.name == start:
+					print ("step %s: %s" % (step, start))
+					for next_object in obj.next_list:
+						nextstates.append(obj.name)
+		starts = nextstates
+		nextstates = []
+	steps = 0
 
 def showfunc():
 # Add objects.name to show_list.
 	global object_list
-	for obj in object_list:
-		for next_object in obj.next_list:
-			for list_object in object_list:
-				if list_object == next_object:
-					exe_objects.append(list_object)
-		for exe_object in exe_list:
-			if exe_object.flow==1 :
-				#execute exe_object
-				#for subexe_object in exe_object.subobjects
-					#execute subexe_object
-					#pass
-				exe_object = []
-
+	global starts
+	global show_list
+	for step in len(steps):
+		for start in starts
+			for obj in object_list
+				if obj.name == start:
+					print ("step %s: %s" % (step, start))
+					for next_object in obj.next_list:
+						nextstates.append(obj.name)
+		starts = nextstates
+		nextstates = []
+	steps = 0
 
 def mapfunc():
-	for next_object in next_list:
-		for list_object in object_list:
-			if list_object == next_object:
-				exe_objects.append(list_object)
-	for exe_object in exe_objects:
-		if exe_object.flow==1 :
-			#execute exe_object
-			#for subexe_object in exe_object.subobjects
-				#execute subexe_object
-				#pass
-			exe_object = []
+	global object_list
+	global starts
+	global show_list
+	for step in len(steps):
+		for start in starts
+			for obj in object_list
+				if obj.name == start:
+					print ("step %s: %s" % (step, start))
+					for next_object in obj.next_list:
+						nextstates.append(obj.name)
+		starts = nextstates
+		nextstates = []
+	steps = 0
+
+def statefunc():
+	global object_list
+	for obj in object_list:
+		print("%s" % obj.name)	
 
 
 
-def new(name, tipoint, operator):
+def new(name, tipoint, operator, next_list, cont_list):
 	statement = Statement(name, tipoint, operator)
 	object_list.append(statement)
+	if next_list != [] :
+		pass
+	if cont_list != [] :
+		pass
 
 def run():
 	global object_list
+	nexts = []
+	conts = []
 	for serie in series:
 		manyobj = serie.split('->')
 		for anobj in manyobj:
 			anobj.replace(" ","")
 			if anobj != "":
-				new(anobj,None,None)	
+				new(anobj,None,None,nexts,conts)
+								
 	seen = {}
 	object_list = [seen.setdefault(x.name, x) for x in object_list if x.name not in seen]
 	if modeexe == True:
-		exefunc()
-		#for obj in object_list:
-		#obj.next_list = ["abc"]
-		#print (obj.next_list)
-			#print("%s" % obj.name)	
+		exefunc()	
 	if modeexe == True:
 		showfunc()
 	if modeshow == True:
 		showfunc()
 	if modemap == True:
 		mapfunc()
+	if modestate == True:
+		statefunc()	
 if __name__=='__main__':
 	for x in range(0, argvlen):
 		if sys.argv[x] == "-f":
-			precommand = sys.argv[x]
-			command = sys.argv[x+1]
-			filename = command
+			prefilecom = sys.argv[x]
+			filecom = sys.argv[x+1]
+			filename = com
 			textfile = open(filename, 'r')
 			filetext = textfile.read()
 			filetext = filetext.replace('\n', ' ')
@@ -185,6 +201,12 @@ if __name__=='__main__':
 			modeshow = True
 		if sys.argv[x] == "-map":
 			modemap = True		
+		if sys.argv[x] == "-statements":
+			modestate = True	
+		if sys.argv[x] == "-steps":
+			step = sys.argv[x+1]
+		if sys.argv[x] == "-start":
+			starts.append(sys.argv[x+1])
 # Execute functions that are connected to the arguments:
 	if filecheck == True:
 		run()
