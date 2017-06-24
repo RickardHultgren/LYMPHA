@@ -180,22 +180,34 @@ def run():
 		manyobj = serie.split('->')
 		count = 0
 		nexts = list()
+		# many nexts vs one
+		for anobj in manyobj:
+			anobj.replace(" ","")
+			new(anobj,None,None,nexts,conts, None)			
+	seen = {}
+	object_list = [seen.setdefault(x.name, x) for x in object_list if x.name not in seen]
+	for serie in series:
+		manyobj = serie.split('->')
+		count = 0
+		nexts = list()
 		conts = list()
+		# many nexts vs one
 		for anobj in manyobj:
 			anobj.replace(" ","")
 			if not anobj == "":
-				try:
-					nexting = manyobj[count+1].replace(" ","")
-					if not nexting == "":
-						nexts.append(nexting)
-				except:
-					pass
-				new(anobj,None,None,nexts,conts, None)
+				for bnobj in object_list:
+					if bnobj.name == anobj:
+						try:
+							nexting = manyobj[count+1].replace(" ","")
+							if not nexting == "":
+								nexts.append(nexting)
+						except:
+							pass
+					bnobj.next_list.append(nexts)
 				count += 1
 			count = 0
-								
-	seen = {}
-	object_list = [seen.setdefault(x.name, x) for x in object_list if x.name not in seen]
+			
+
 	if modeexe == True:
 		exefunc()	
 	if modeexe == True:
