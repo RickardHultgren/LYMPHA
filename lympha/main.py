@@ -134,8 +134,8 @@ def showfunc():
 						
 						nextstates.append(next_object)
 			start = list()			
-			#seen = {}
-			#nextstates = [seen.setdefault(x, x) for x in nextstates if x not in seen]			
+			seen2 = {}
+			nextstates = [seen2.setdefault(x, x) for x in nextstates if x not in seen2]
 			starts = list(nextstates)
 			nextstates = list()
 
