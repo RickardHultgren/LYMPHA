@@ -71,19 +71,19 @@ class Event:
 '''
 
 class Statement:
-	def __init__(self, name, tipoint, operator):
+	def __init__(self, name, tipoint, operator, next_list, cont_list, spec_list):
         		
 		#list of next nodes:
 		#next_list = next_list
-		self.next_list = []
+		self.next_list = list(next_list)
 		
 		#list of specifications:
 		#spec_list = spec_list
-		self.spec_list = []
+		self.spec_list = list()
 
 		#list of contents:
 		#cont_list = cont_list
-		self.cont_list = []
+		self.cont_list = list(cont_list)
 
 		#name
 		self.name = name
@@ -124,13 +124,18 @@ def showfunc():
 	nextstates = []
 	for step in range(0,steps):
 		for start in starts:
+			
 			for obj in object_list:
 				if ("%s" % obj.name) == ("%s" % start):
 					print ("step %s: %s" % (step, start))
 					for next_object in obj.next_list:
 						nextstates.append(next_object)
-		starts = nextstates
-		nextstates = []
+		
+		start = list()				
+		
+		starts = list(nextstates)
+		
+		nextstates = list([])
 	steps = 0
 
 def mapfunc():
@@ -144,10 +149,9 @@ def mapfunc():
 		for start in starts:
 			for obj in object_list:
 				if obj.name == start:
-					print ("step %s: %s" % (step, start))
 					for next_object in obj.next_list:
 						nextstates.append(obj.name)
-		starts = nextstates
+		starts = list(nextstates)
 		nextstates = []
 	steps = 0
 	
@@ -158,13 +162,13 @@ def statefunc():
 
 
 
-def new(name, tipoint, operator, next_list, cont_list):
+def new(name, tipoint, operator, next_list, cont_list, spec_list):
 	name = name.replace(' ', '')
-	statement = Statement(name, tipoint, operator)
-	if next_list != [] :
-		statement.next_list = next_list
-	if cont_list != [] :
-		pass
+	statement = Statement(name, tipoint, operator, next_list, cont_list, spec_list)
+	#if next_list != [] :
+	#	statement.next_list = list(next_list)
+	#if cont_list != [] :
+	#	pass
 	object_list.append(statement)
 
 def run():
@@ -176,16 +180,19 @@ def run():
 		manyobj = serie.split('->')
 		count = 0
 		nexts = list()
-		conts = []
+		conts = list()
 		for anobj in manyobj:
 			anobj.replace(" ","")
 			if not anobj == "":
 				try:
-					nexts.append(manyobj[count+1].replace(" ",""))
+					nexting = manyobj[count+1].replace(" ","")
+					if not nexting == "":
+						nexts.append(nexting)
 				except:
 					pass
-				new(anobj,None,None,nexts,conts)
+				new(anobj,None,None,nexts,conts, None)
 				count += 1
+			count = 0
 								
 	seen = {}
 	object_list = [seen.setdefault(x.name, x) for x in object_list if x.name not in seen]
