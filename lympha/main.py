@@ -107,13 +107,15 @@ def exefunc():
 	for step in range(0,steps):
 		for start in starts:
 			for obj in object_list:
-				if obj.name == start:
+				if ("%s" % obj.name) == ("%s" % start):
 					print ("step %s: %s" % (step, start))
+					
 					for next_object in obj.next_list:
-						nextstates.append(obj.name)
-		starts = nextstates
-		nextstates = []
-	steps = 0
+						
+						nextstates.append(next_object)
+		start = list()				
+		starts = list(nextstates)
+		nextstates = list()
 
 def showfunc():
 # Add objects.name to show_list.
@@ -124,19 +126,18 @@ def showfunc():
 	nextstates = []
 	for step in range(0,steps):
 		for start in starts:
-			
 			for obj in object_list:
 				if ("%s" % obj.name) == ("%s" % start):
 					print ("step %s: %s" % (step, start))
+					
 					for next_object in obj.next_list:
+						
 						nextstates.append(next_object)
-		
-		start = list()				
-		
-		starts = list(nextstates)
-		
-		nextstates = list([])
-	steps = 0
+			start = list()			
+			#seen = {}
+			#nextstates = [seen.setdefault(x, x) for x in nextstates if x not in seen]			
+			starts = list(nextstates)
+			nextstates = list()
 
 def mapfunc():
 # Add objects.name to show_list.
@@ -148,12 +149,16 @@ def mapfunc():
 	for step in range(0,steps):
 		for start in starts:
 			for obj in object_list:
-				if obj.name == start:
+				if ("%s" % obj.name) == ("%s" % start):
+					print ("step %s: %s" % (step, start))
+					
 					for next_object in obj.next_list:
-						nextstates.append(obj.name)
+						
+						nextstates.append(next_object)
+		start = list()				
 		starts = list(nextstates)
-		nextstates = []
-	steps = 0
+		nextstates = list()
+	
 	
 def statefunc():
 	global object_list
@@ -163,8 +168,10 @@ def statefunc():
 
 
 def new(name, tipoint, operator, next_list, cont_list, spec_list):
+	global object_list
 	name = name.replace(' ', '')
 	statement = Statement(name, tipoint, operator, next_list, cont_list, spec_list)
+	#statement = Statement(name, tipoint, operator, list(next_list), cont_list, spec_list)
 	#if next_list != [] :
 	#	statement.next_list = list(next_list)
 	#if cont_list != [] :
@@ -196,17 +203,19 @@ def run():
 			anobj.replace(" ","")
 			if not anobj == "":
 				for bnobj in object_list:
-					if bnobj.name == anobj:
+					#critical:
+					if (" %s " % bnobj.name) == ("%s" % anobj):
 						try:
 							nexting = manyobj[count+1].replace(" ","")
 							if not nexting == "":
 								nexts.append(nexting)
 						except:
 							pass
-					bnobj.next_list.append(nexts)
+						bnobj.next_list += nexts
 				count += 1
 			count = 0
-			
+	#seen = {}
+	#object_list = [seen.setdefault(x.name, x) for x in object_list if x.name not in seen]			
 
 	if modeexe == True:
 		exefunc()	
