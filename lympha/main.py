@@ -113,9 +113,12 @@ def exefunc():
 					for next_object in obj.next_list:
 						
 						nextstates.append(next_object)
-		start = list()				
-		starts = list(nextstates)
-		nextstates = list()
+			start = list()			
+			seen2 = {}
+			nextstates = [seen2.setdefault(x, x) for x in nextstates if x not in seen2]
+			starts = list(nextstates)
+			nextstates = list()
+
 
 def showfunc():
 # Add objects.name to show_list.
@@ -184,29 +187,78 @@ def run():
 	nexts = []
 	conts = []
 	for serie in series:
-		manyobj = serie.split('->')
+		arrowobjs = serie.split('->')
 		count = 0
 		nexts = list()
 		# many nexts vs one
-		for anobj in manyobj:
+		scale = list()
+		for anobj in arrowobjs:
+			try:
+				eqobjs = arrowobjs.split('=')
+				new(eqobjs[0],None,None,nexts,conts, None)
+				break
+
+				try:
+					scale = eqobjs.split('==')
+					operator = "equiv"
+					break
+				except:
+					pass
+				try:
+					scale = eqobjs.split('>=')
+					operator = "geq"
+					break
+				except:
+					pass
+				try:
+					scale = eqobjs.split('<=')
+					operator = "leq"
+					break
+				except:
+					pass
+				try:
+					scale = eqobjs.split('!=')
+					operator = "no"
+					break
+				except:
+					pass
+				try:
+					scale = eqobjs.split('>')
+					operator = "g"
+					break
+				except:
+					pass
+				try:
+					scale = eqobjs.split('<')
+					operator = "l"
+					break
+				except:
+					pass
+				tipoint = scale[0]
+				# delete first two and last two characters in scale[1] by [2:-2]:
+				subs = split.scale[1][2:-2]
+				
+				
+			except:
+				pass
 			anobj.replace(" ","")
 			new(anobj,None,None,nexts,conts, None)			
 	seen = {}
 	object_list = [seen.setdefault(x.name, x) for x in object_list if x.name not in seen]
 	for serie in series:
-		manyobj = serie.split('->')
+		arrowobj = serie.split('->')
 		count = 0
 		nexts = list()
 		conts = list()
 		# many nexts vs one
-		for anobj in manyobj:
+		for anobj in arrowobj:
 			anobj.replace(" ","")
 			if not anobj == "":
 				for bnobj in object_list:
 					#critical:
 					if (" %s " % bnobj.name) == ("%s" % anobj):
 						try:
-							nexting = manyobj[count+1].replace(" ","")
+							nexting = arrowobj[count+1].replace(" ","")
 							if not nexting == "":
 								nexts.append(nexting)
 						except:
