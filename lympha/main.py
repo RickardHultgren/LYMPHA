@@ -72,6 +72,8 @@ class Event:
 
 class Statement:
 	def __init__(self, name, tipoint, operator, next_list, cont_list, spec_list):
+        
+		self.flow = False
         		
 		#list of next nodes:
 		#next_list = next_list
@@ -181,6 +183,54 @@ def new(name, tipoint, operator, next_list, cont_list, spec_list):
 	#	pass
 	object_list.append(statement)
 
+def assasement(eqobjs):
+	#0 = operator
+	#1 = tipping point
+	#2 = content
+	try:
+		scale = eqobjs.split('==')
+		scale.insert(0, "equiv")
+		return eqobjs
+		#break
+	except:
+		pass
+	try:
+		scale = eqobjs.split('>=')
+		scale.insert(0, "geq")
+		return eqobjs
+		#break
+	except:
+		pass
+	try:
+		scale = eqobjs.split('<=')
+		scale.insert(0, "leq")
+		return eqobjs
+		#break
+	except:
+		pass
+	try:
+		scale = eqobjs.split('!=')
+		scale.insert(0, "no")
+		return eqobjs
+		#break
+	except:
+		pass
+	try:
+		scale = eqobjs.split('>')
+		scale.insert(0, "g")
+		return eqobjs
+		#break
+	except:
+		pass
+	try:
+		scale = eqobjs.split('<')
+		scale.insert(0, "l")
+		return eqobjs
+		#break
+	except:
+		pass
+
+
 def run():
 #loop problem in the same serie
 	global object_list
@@ -190,59 +240,59 @@ def run():
 		arrowobjs = serie.split('->')
 		count = 0
 		nexts = list()
+		conts = list()
+		specs = list()
+		tipoint = int()
+		operator = str()
 		# many nexts vs one
 		scale = list()
 		for anobj in arrowobjs:
 			try:
 				eqobjs = arrowobjs.split('=')
-				new(eqobjs[0],None,None,nexts,conts, None)
-				break
-
-				try:
-					scale = eqobjs.split('==')
-					operator = "equiv"
-					break
-				except:
-					pass
-				try:
-					scale = eqobjs.split('>=')
-					operator = "geq"
-					break
-				except:
-					pass
-				try:
-					scale = eqobjs.split('<=')
-					operator = "leq"
-					break
-				except:
-					pass
-				try:
-					scale = eqobjs.split('!=')
-					operator = "no"
-					break
-				except:
-					pass
-				try:
-					scale = eqobjs.split('>')
-					operator = "g"
-					break
-				except:
-					pass
-				try:
-					scale = eqobjs.split('<')
-					operator = "l"
-					break
-				except:
-					pass
-				tipoint = scale[0]
+				scale = assasement(eqobjs)
+				tipoint = scale[1]
 				# delete first two and last two characters in scale[1] by [2:-2]:
-				subs = split.scale[1][2:-2]
+				conts = split.scale[2][2:-2]
 				
-				
+				if scale[0] == "equiv":
+					thesum = subs.count(True)
+					operator = scale[0]
+					tipoint = scale[1]
+					pass
+				if scale[0] == "geq":
+					thesum = subs.count(True)
+					operator = scale[0]
+					tipoint = scale[1]
+					pass
+					
+				if scale[0] == "leq":
+					thesum = subs.count(True)
+					operator = scale[0]
+					tipoint = scale[1]
+					pass
+					
+				if scale[0] == "g":
+					thesum = subs.count(True)
+					operator = scale[0]
+					tipoint = scale[1]
+					pass
+					
+				if scale[0] == "l":
+					thesum = subs.count(True)
+					operator = scale[0]
+					tipoint = scale[1]
+					pass
+					
+				if scale[0] == "no":
+					thesum = subs.count(True)
+					operator = scale[0]
+					tipoint = scale[1]
+					pass
+					
 			except:
 				pass
 			anobj.replace(" ","")
-			new(anobj,None,None,nexts,conts, None)			
+			new(anobj,tipoint, operator,nexts,conts, specs)			
 	seen = {}
 	object_list = [seen.setdefault(x.name, x) for x in object_list if x.name not in seen]
 	for serie in series:
