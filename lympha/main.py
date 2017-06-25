@@ -8,6 +8,7 @@ filename = ""
 
 starts = []
 steps = 0
+modegraph = False
 modestate = False
 filecheck = False
 modeexe = False
@@ -121,7 +122,6 @@ def exefunc():
 			starts = list(nextstates)
 			nextstates = list()
 
-
 def showfunc():
 # Add objects.name to show_list.
 	global object_list
@@ -134,7 +134,8 @@ def showfunc():
 			for obj in object_list:
 				if ("%s" % obj.name) == ("%s" % start):
 					print ("step %s: %s" % (step, start))
-					
+					if modegraph == True:
+						print ("graph")
 					for next_object in obj.next_list:
 						
 						nextstates.append(next_object)
@@ -349,6 +350,8 @@ if __name__=='__main__':
 			modeshow = True
 		if sys.argv[x] == "-map":
 			modemap = True		
+		if sys.argv[x] == "-graph":
+			modegraph = True					
 		if sys.argv[x] == "-statements":
 			modestate = True	
 		if sys.argv[x] == "-steps":
