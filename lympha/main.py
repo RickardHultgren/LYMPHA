@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 # -*- coding: ascii -*-
 import sys
+
+#for the graph function:
+import os
+
 prefilecom = ""
 filecom = ""
 argvlen = len(sys.argv)
@@ -129,21 +133,34 @@ def showfunc():
 	global show_list
 	global steps
 	nextstates = []
+	if modegraph == True:
+		graphstr = 'digraph lympha {\n'
+		graphcount = 0						
 	for step in range(0,steps):
 		for start in starts:
 			for obj in object_list:
 				if ("%s" % obj.name) == ("%s" % start):
 					print ("step %s: %s" % (step, start))
 					if modegraph == True:
-						print ("graph")
+						graphstr += ('%s [label="step %s: %s"] \n' % (start,step,start))
+						graphcount += 1
 					for next_object in obj.next_list:
-						
+						if modegraph == True:
+							graphstr += ('%s->%s  \n' % (start,next_object))
 						nextstates.append(next_object)
 			start = list()			
 			seen2 = {}
 			nextstates = [seen2.setdefault(x, x) for x in nextstates if x not in seen2]
 			starts = list(nextstates)
 			nextstates = list()
+	graphstr += '}'
+	open('lympha.dot', 'w').close()
+	outputfile = open("lympha.dot", "w")
+	outputfile.write(graphstr)
+	outputfile.close()
+	cmd = 'dot lympha.dot -Tps -o lympha.pdf'
+	os.system(cmd)
+
 
 def mapfunc():
 # Add objects.name to show_list.
