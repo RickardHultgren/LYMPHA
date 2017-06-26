@@ -112,10 +112,7 @@ def exefunc() :
 	global steps
 	if modegraph == True:
 		graphstr = 'digraph lympha {\n'	
-	print ("step 1: %s" % (starts[0]))
-	if modegraph == True:
-		graphstr += ('%s [label="step 1: %s"] \n' % (starts[0],starts[0]))
-	for step in range(1,steps):
+	for step in range(0,steps):
 		nextstates = list()
 		###critical:
 		#print("starts:%s" % starts)
@@ -124,14 +121,14 @@ def exefunc() :
 			for obj in object_list:
 				
 				if ("%s" % obj.name) == ("%s" % start) :
+					print ("step %s: %s" % (step+1, start))
+					if modegraph == True:
+						graphstr += ('%s [label="step %s: %s"] \n' % (start,step+1,start))					
 					#print ("\n\nobj%s\n\n"%obj.next_list)
 					#print ("step %s: %s" % (step, start))
 					for next_object in obj.next_list :
-						if obj.name != next_object :
-							print ("step %s: %s" % (step+1, next_object))
-							if modegraph == True and start != next_object :
-								graphstr += ('%s->%s \n' % (start,next_object))
-								graphstr += ('%s [label="step %s: %s"] \n' % (next_object,step+1,next_object))
+						if obj.name != next_object and start != next_object and step != steps-1:
+							graphstr += ('%s->%s \n' % (start,next_object))
 							nextstates.append(next_object)
 		seen2 = {}
 		nextstates = [seen2.setdefault(x, x) for x in nextstates if x not in seen2]
@@ -154,10 +151,7 @@ def showfunc():
 	global steps
 	if modegraph == True:
 		graphstr = 'digraph lympha {\n'	
-	print ("step 1: %s" % (starts[0]))
-	if modegraph == True:
-		graphstr += ('%s [label="step 1: %s"] \n' % (starts[0],starts[0]))
-	for step in range(1,steps):
+	for step in range(0,steps):
 		nextstates = list()
 		###critical:
 		#print("starts:%s" % starts)
@@ -166,14 +160,14 @@ def showfunc():
 			for obj in object_list:
 				
 				if ("%s" % obj.name) == ("%s" % start) :
+					print ("step %s: %s" % (step+1, start))
+					if modegraph == True:
+						graphstr += ('%s [label="step %s: %s"] \n' % (start,step+1,start))					
 					#print ("\n\nobj%s\n\n"%obj.next_list)
 					#print ("step %s: %s" % (step, start))
 					for next_object in obj.next_list :
-						if obj.name != next_object :
-							print ("step %s: %s" % (step+1, next_object))
-							if modegraph == True and start != next_object :
-								graphstr += ('%s->%s \n' % (start,next_object))
-								graphstr += ('%s [label="step %s: %s"] \n' % (next_object,step+1,next_object))
+						if obj.name != next_object and start != next_object and step != steps-1:
+							graphstr += ('%s->%s \n' % (start,next_object))
 							nextstates.append(next_object)
 		seen2 = {}
 		nextstates = [seen2.setdefault(x, x) for x in nextstates if x not in seen2]
@@ -196,10 +190,7 @@ def mapfunc():
 	global steps
 	if modegraph == True:
 		graphstr = 'digraph lympha {\n'	
-	print ("step 1: %s" % (starts[0]))
-	if modegraph == True:
-		graphstr += ('%s [label="step 1: %s"] \n' % (starts[0],starts[0]))
-	for step in range(1,steps):
+	for step in range(0,steps):
 		nextstates = list()
 		###critical:
 		#print("starts:%s" % starts)
@@ -208,14 +199,14 @@ def mapfunc():
 			for obj in object_list:
 				
 				if ("%s" % obj.name) == ("%s" % start) :
+					print ("step %s: %s" % (step+1, start))
+					if modegraph == True:
+						graphstr += ('%s [label="step %s: %s"] \n' % (start,step+1,start))					
 					#print ("\n\nobj%s\n\n"%obj.next_list)
 					#print ("step %s: %s" % (step, start))
 					for next_object in obj.next_list :
-						if obj.name != next_object :
-							print ("step %s: %s" % (step+1, next_object))
-							if modegraph == True and start != next_object :
-								graphstr += ('%s->%s \n' % (start,next_object))
-								graphstr += ('%s [label="step %s: %s"] \n' % (next_object,step+1,next_object))
+						if obj.name != next_object and start != next_object and step != steps-1:
+							graphstr += ('%s->%s \n' % (start,next_object))
 							nextstates.append(next_object)
 		seen2 = {}
 		nextstates = [seen2.setdefault(x, x) for x in nextstates if x not in seen2]
