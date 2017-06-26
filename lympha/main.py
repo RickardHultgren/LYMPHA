@@ -10,7 +10,7 @@ filecom = ""
 argvlen = len(sys.argv)
 filename = ""
 
-starts = []
+starts = list()
 steps = 0
 modegraph = False
 modestate = False
@@ -18,18 +18,18 @@ filecheck = False
 modeexe = False
 modeshow = False
 modemap = False
-exe_list = []
-show_list = []
-map_list = []
-series = []
-substates = []
-nextstates = []
-specs = []
+exe_list = list()
+show_list = list()
+map_list = list()
+series = list()
+substates = list()
+nextstates = list()
+specs = list()
 tipoint = None
 operator = None
 
-object_list = []
-exe_objects = []
+object_list = list()
+exe_objects = list()
 
 '''
 class Factor:
@@ -104,27 +104,27 @@ class Statement:
 #object_list.append(Event(i))
 #object_list.append(Factor(i))
 
-def exefunc():
+def exefunc() :
 # Add objects.name to show_list.
 	global object_list
 	global starts
 	global show_list
 	global steps
-	nextstates = []
-	for step in range(0,steps):
-		for start in starts:
-			for obj in object_list:
-				if ("%s" % obj.name) == ("%s" % start):
+	nextstates = list()
+	for step in range(0,steps) :
+		for start in starts :
+			for obj in object_list :
+				if ("%s" % obj.name) == ("%s" % start) :
 					print ("step %s: %s" % (step, start))
 					
 					for next_object in obj.next_list:
-						
+						obj.next_list
 						nextstates.append(next_object)
-			start = list()			
-			seen2 = {}
-			nextstates = [seen2.setdefault(x, x) for x in nextstates if x not in seen2]
-			starts = list(nextstates)
-			nextstates = list()
+		starts = list()			
+		seen2 = {}
+		nextstates = [seen2.setdefault(x, x) for x in nextstates if x not in seen2]
+		starts = list(nextstates)
+		nextstates = list()
 
 def showfunc():
 # Add objects.name to show_list.
@@ -132,27 +132,34 @@ def showfunc():
 	global starts
 	global show_list
 	global steps
-	nextstates = []
 	if modegraph == True:
-		graphstr = 'digraph lympha {\n'
-		graphcount = 0						
-	for step in range(0,steps):
+		graphstr = 'digraph lympha {\n'	
+	print ("step 1: %s" % (starts[0]))
+	if modegraph == True:
+		graphstr += ('%s [label="step 1: %s"] \n' % (starts[0],starts[0]))
+	for step in range(1,steps):
+		nextstates = list()
+		###critical:
+		#print("starts:%s" % starts)
 		for start in starts:
+			
 			for obj in object_list:
-				if ("%s" % obj.name) == ("%s" % start):
-					print ("step %s: %s" % (step, start))
-					if modegraph == True:
-						graphstr += ('%s [label="step %s: %s"] \n' % (start,step,start))
-						graphcount += 1
-					for next_object in obj.next_list:
-						if modegraph == True:
-							graphstr += ('%s->%s  \n' % (start,next_object))
-						nextstates.append(next_object)
-			start = list()			
-			seen2 = {}
-			nextstates = [seen2.setdefault(x, x) for x in nextstates if x not in seen2]
-			starts = list(nextstates)
-			nextstates = list()
+				
+				if ("%s" % obj.name) == ("%s" % start) :
+					#print ("\n\nobj%s\n\n"%obj.next_list)
+					#print ("step %s: %s" % (step, start))
+					for next_object in obj.next_list :
+						if obj.name != next_object :
+							print ("step %s: %s" % (step+1, next_object))
+							if modegraph == True and start != next_object :
+								graphstr += ('%s->%s \n' % (start,next_object))
+								graphstr += ('%s [label="step %s: %s"] \n' % (next_object,step+1,next_object))
+							nextstates.append(next_object)
+		seen2 = {}
+		nextstates = [seen2.setdefault(x, x) for x in nextstates if x not in seen2]
+		del starts[:]
+		starts = list(nextstates)
+		del nextstates[:]
 	graphstr += '}'
 	open('lympha.dot', 'w').close()
 	outputfile = open("lympha.dot", "w")
@@ -161,28 +168,27 @@ def showfunc():
 	cmd = 'dot lympha.dot -Tps -o lympha.pdf'
 	os.system(cmd)
 
-
 def mapfunc():
 # Add objects.name to show_list.
 	global object_list
 	global starts
 	global show_list
 	global steps
-	nextstates = []
+	nextstates = list()
 	for step in range(0,steps):
 		for start in starts:
+			print("start: %s\n" % start)
 			for obj in object_list:
+				print("start: %s\n" % start)
 				if ("%s" % obj.name) == ("%s" % start):
+					print("start: %s\n" % start)
 					print ("step %s: %s" % (step, start))
-					
 					for next_object in obj.next_list:
-						
 						nextstates.append(next_object)
 		start = list()				
 		starts = list(nextstates)
 		nextstates = list()
-	
-	
+
 def statefunc():
 	global object_list
 	for obj in object_list:
@@ -192,14 +198,19 @@ def statefunc():
 
 def new(name, tipoint, operator, next_list, cont_list, spec_list):
 	global object_list
-	name = name.replace(' ', '')
-	statement = Statement(name, tipoint, operator, next_list, cont_list, spec_list)
-	#statement = Statement(name, tipoint, operator, list(next_list), cont_list, spec_list)
-	#if next_list != [] :
-	#	statement.next_list = list(next_list)
-	#if cont_list != [] :
-	#	pass
-	object_list.append(statement)
+	nameused = False
+	for obj in object_list:
+		if obj.name == name:
+			nameused = True
+	if nameused == False:
+		name = name.replace(' ', '')
+		statement = Statement(name, tipoint, operator, next_list, cont_list, spec_list)
+		#statement = Statement(name, tipoint, operator, list(next_list), cont_list, spec_list)
+		#if next_list != [] :
+		#	statement.next_list = list(next_list)
+		#if cont_list != [] :
+		#	pass
+		object_list.append(statement)
 
 def assasement(eqobjs):
 	#0 = operator
@@ -252,8 +263,8 @@ def assasement(eqobjs):
 def run():
 #loop problem in the same serie
 	global object_list
-	nexts = []
-	conts = []
+	nexts = list()
+	conts = list()
 	for serie in series:
 		arrowobjs = serie.split('->')
 		count = 0
@@ -325,13 +336,22 @@ def run():
 				for bnobj in object_list:
 					#critical:
 					if (" %s " % bnobj.name) == ("%s" % anobj):
+						nexting = ""
 						try:
-							nexting = arrowobj[count+1].replace(" ","")
+							newcount=count+1
+							nexting = arrowobj[newcount].replace(" ","")
 							if not nexting == "":
-								nexts.append(nexting)
+								#nexts.append(nexting)
+								#bnobj.next_list += nexts
+								bnobj.next_list.append(nexting)
+								#print( "obj.next_list:%s" % bnobj.next_list )
+								#nexts = []
+								#nexting = ""
 						except:
 							pass
-						bnobj.next_list += nexts
+					seen3 = {}
+					bnobj.next_list = [seen3.setdefault(x, x) for x in bnobj.next_list if x not in seen3]
+				
 				count += 1
 			count = 0
 	#seen = {}
