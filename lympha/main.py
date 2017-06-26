@@ -110,21 +110,41 @@ def exefunc() :
 	global starts
 	global show_list
 	global steps
-	nextstates = list()
-	for step in range(0,steps) :
-		for start in starts :
-			for obj in object_list :
+	if modegraph == True:
+		graphstr = 'digraph lympha {\n'	
+	print ("step 1: %s" % (starts[0]))
+	if modegraph == True:
+		graphstr += ('%s [label="step 1: %s"] \n' % (starts[0],starts[0]))
+	for step in range(1,steps):
+		nextstates = list()
+		###critical:
+		#print("starts:%s" % starts)
+		for start in starts:
+			
+			for obj in object_list:
+				
 				if ("%s" % obj.name) == ("%s" % start) :
-					print ("step %s: %s" % (step, start))
-					
-					for next_object in obj.next_list:
-						obj.next_list
-						nextstates.append(next_object)
-		starts = list()			
+					#print ("\n\nobj%s\n\n"%obj.next_list)
+					#print ("step %s: %s" % (step, start))
+					for next_object in obj.next_list :
+						if obj.name != next_object :
+							print ("step %s: %s" % (step+1, next_object))
+							if modegraph == True and start != next_object :
+								graphstr += ('%s->%s \n' % (start,next_object))
+								graphstr += ('%s [label="step %s: %s"] \n' % (next_object,step+1,next_object))
+							nextstates.append(next_object)
 		seen2 = {}
 		nextstates = [seen2.setdefault(x, x) for x in nextstates if x not in seen2]
+		del starts[:]
 		starts = list(nextstates)
-		nextstates = list()
+		del nextstates[:]
+	graphstr += '}'
+	open('lympha.dot', 'w').close()
+	outputfile = open("lympha.dot", "w")
+	outputfile.write(graphstr)
+	outputfile.close()
+	cmd = 'dot lympha.dot -Tps -o lympha.pdf'
+	os.system(cmd)
 
 def showfunc():
 # Add objects.name to show_list.
@@ -174,20 +194,41 @@ def mapfunc():
 	global starts
 	global show_list
 	global steps
-	nextstates = list()
-	for step in range(0,steps):
-		for start in starts:
-			print("start: %s\n" % start)
-			for obj in object_list:
-				print("start: %s\n" % start)
-				if ("%s" % obj.name) == ("%s" % start):
-					print("start: %s\n" % start)
-					print ("step %s: %s" % (step, start))
-					for next_object in obj.next_list:
-						nextstates.append(next_object)
-		start = list()				
-		starts = list(nextstates)
+	if modegraph == True:
+		graphstr = 'digraph lympha {\n'	
+	print ("step 1: %s" % (starts[0]))
+	if modegraph == True:
+		graphstr += ('%s [label="step 1: %s"] \n' % (starts[0],starts[0]))
+	for step in range(1,steps):
 		nextstates = list()
+		###critical:
+		#print("starts:%s" % starts)
+		for start in starts:
+			
+			for obj in object_list:
+				
+				if ("%s" % obj.name) == ("%s" % start) :
+					#print ("\n\nobj%s\n\n"%obj.next_list)
+					#print ("step %s: %s" % (step, start))
+					for next_object in obj.next_list :
+						if obj.name != next_object :
+							print ("step %s: %s" % (step+1, next_object))
+							if modegraph == True and start != next_object :
+								graphstr += ('%s->%s \n' % (start,next_object))
+								graphstr += ('%s [label="step %s: %s"] \n' % (next_object,step+1,next_object))
+							nextstates.append(next_object)
+		seen2 = {}
+		nextstates = [seen2.setdefault(x, x) for x in nextstates if x not in seen2]
+		del starts[:]
+		starts = list(nextstates)
+		del nextstates[:]
+	graphstr += '}'
+	open('lympha.dot', 'w').close()
+	outputfile = open("lympha.dot", "w")
+	outputfile.write(graphstr)
+	outputfile.close()
+	cmd = 'dot lympha.dot -Tps -o lympha.pdf'
+	os.system(cmd)
 
 def statefunc():
 	global object_list
