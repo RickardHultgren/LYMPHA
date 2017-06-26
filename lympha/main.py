@@ -27,6 +27,7 @@ nextstates = list()
 specs = list()
 tipoint = None
 operator = None
+value = int()
 
 object_list = list()
 exe_objects = list()
@@ -114,18 +115,23 @@ def exefunc() :
 		graphstr = 'digraph lympha {\n'	
 	for step in range(0,steps):
 		nextstates = list()
-		###critical:
-		#print("starts:%s" % starts)
 		for start in starts:
-			
 			for obj in object_list:
-				
 				if ("%s" % obj.name) == ("%s" % start) :
 					print ("step %s: %s" % (step+1, start))
 					if modegraph == True:
 						graphstr += ('%s [label="step %s: %s"] \n' % (start,step+1,start))					
-					#print ("\n\nobj%s\n\n"%obj.next_list)
-					#print ("step %s: %s" % (step, start))
+					#Sum all content-objs:
+					for cont_object in obj.cont_list :
+						# Critical list of trues???
+						
+						eqobjs = arrowobjs.split('=',1)
+						if eqobjs[2].isdigit() == True :
+							value = int(eqobjs[2])
+
+						conteqs = assasement(cont_object)
+						#equation:
+					
 					for next_object in obj.next_list :
 						if obj.name != next_object and start != next_object and step != steps-1:
 							graphstr += ('%s->%s \n' % (start,next_object))
@@ -153,18 +159,12 @@ def showfunc():
 		graphstr = 'digraph lympha {\n'	
 	for step in range(0,steps):
 		nextstates = list()
-		###critical:
-		#print("starts:%s" % starts)
 		for start in starts:
-			
 			for obj in object_list:
-				
 				if ("%s" % obj.name) == ("%s" % start) :
 					print ("step %s: %s" % (step+1, start))
 					if modegraph == True:
 						graphstr += ('%s [label="step %s: %s"] \n' % (start,step+1,start))					
-					#print ("\n\nobj%s\n\n"%obj.next_list)
-					#print ("step %s: %s" % (step, start))
 					for next_object in obj.next_list :
 						if obj.name != next_object and start != next_object and step != steps-1:
 							graphstr += ('%s->%s \n' % (start,next_object))
@@ -192,18 +192,12 @@ def mapfunc():
 		graphstr = 'digraph lympha {\n'	
 	for step in range(0,steps):
 		nextstates = list()
-		###critical:
-		#print("starts:%s" % starts)
 		for start in starts:
-			
 			for obj in object_list:
-				
 				if ("%s" % obj.name) == ("%s" % start) :
 					print ("step %s: %s" % (step+1, start))
 					if modegraph == True:
 						graphstr += ('%s [label="step %s: %s"] \n' % (start,step+1,start))					
-					#print ("\n\nobj%s\n\n"%obj.next_list)
-					#print ("step %s: %s" % (step, start))
 					for next_object in obj.next_list :
 						if obj.name != next_object and start != next_object and step != steps-1:
 							graphstr += ('%s->%s \n' % (start,next_object))
@@ -228,7 +222,7 @@ def statefunc():
 
 
 
-def new(name, tipoint, operator, next_list, cont_list, spec_list):
+def new(name, tipoint, value, operator, next_list, cont_list, spec_list):
 	global object_list
 	nameused = False
 	for obj in object_list:
@@ -305,55 +299,60 @@ def run():
 		specs = list()
 		tipoint = int()
 		operator = str()
+		value = int()
 		# many nexts vs one
 		scale = list()
 		for anobj in arrowobjs:
 			try:
-				eqobjs = arrowobjs.split('=')
-				scale = assasement(eqobjs)
-				tipoint = scale[1]
-				# delete first two and last two characters in scale[1] by [2:-2]:
-				conts = split.scale[2][2:-2]
-				
-				if scale[0] == "equiv":
-					thesum = subs.count(True)
-					operator = scale[0]
+				#first "=":
+				eqobjs = arrowobjs.split('=',1)
+				if eqobjs[2].isdigit() == True :
+					value = int(eqobjs[2])
+				else:
+					scale = assasement(eqobjs[2])
 					tipoint = scale[1]
-					pass
-				if scale[0] == "geq":
-					thesum = subs.count(True)
-					operator = scale[0]
-					tipoint = scale[1]
-					pass
+					# delete first two and last two characters in scale[1] by [2:-2]:
+					conts = split.scale[2][2:-2]
 					
-				if scale[0] == "leq":
-					thesum = subs.count(True)
-					operator = scale[0]
-					tipoint = scale[1]
-					pass
-					
-				if scale[0] == "g":
-					thesum = subs.count(True)
-					operator = scale[0]
-					tipoint = scale[1]
-					pass
-					
-				if scale[0] == "l":
-					thesum = subs.count(True)
-					operator = scale[0]
-					tipoint = scale[1]
-					pass
-					
-				if scale[0] == "no":
-					thesum = subs.count(True)
-					operator = scale[0]
-					tipoint = scale[1]
-					pass
-					
+					if scale[0] == "equiv":
+						thesum = subs.count(True)
+						operator = scale[0]
+						tipoint = scale[1]
+						pass
+					if scale[0] == "geq":
+						thesum = subs.count(True)
+						operator = scale[0]
+						tipoint = scale[1]
+						pass
+						
+					if scale[0] == "leq":
+						thesum = subs.count(True)
+						operator = scale[0]
+						tipoint = scale[1]
+						pass
+						
+					if scale[0] == "g":
+						thesum = subs.count(True)
+						operator = scale[0]
+						tipoint = scale[1]
+						pass
+						
+					if scale[0] == "l":
+						thesum = subs.count(True)
+						operator = scale[0]
+						tipoint = scale[1]
+						pass
+						
+					if scale[0] == "no":
+						thesum = subs.count(True)
+						operator = scale[0]
+						tipoint = scale[1]
+						pass
+						
 			except:
 				pass
 			anobj.replace(" ","")
-			new(anobj,tipoint, operator,nexts,conts, specs)			
+			new(anobj,tipoint, value, operator,nexts,conts, specs)			
 	seen = {}
 	object_list = [seen.setdefault(x.name, x) for x in object_list if x.name not in seen]
 	for serie in series:
