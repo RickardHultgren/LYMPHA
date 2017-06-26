@@ -112,26 +112,105 @@ def exefunc() :
 	global show_list
 	global steps
 	if modegraph == True:
-		graphstr = 'digraph lympha {\n'	
+		graphstr = 'digraph lympha {\nnode [shape=record];'	
 	for step in range(0,steps):
 		nextstates = list()
 		for start in starts:
 			for obj in object_list:
 				if ("%s" % obj.name) == ("%s" % start) :
-					print ("step %s: %s" % (step+1, start))
-					if modegraph == True:
-						graphstr += ('%s [label="step %s: %s"] \n' % (start,step+1,start))					
+
 					#Sum all content-objs:
 					for cont_object in obj.cont_list :
 						# Critical list of trues???
-						
-						eqobjs = arrowobjs.split('=',1)
-						if eqobjs[2].isdigit() == True :
-							value = int(eqobjs[2])
+						truefalse = True
+						subfactors = list()
+						try:
+							colonobjs = arrowobjs.split(':',1)						
+							if colonobjs[0] == T : truefalse = True
+							if colonobjs[0] == F : truefalse = False
+							subfactors = colonobjs[1].split(",")
+							for subfactor in subfactors:
+								name = name.replace(' ', '')
+								if subfactor != "T" or subfactor != "F" :
+									identities = list(assasement(subfactor))
+									#identities[0]
+									for obj in object_list:
+										if identities[1] == obj.name:
+											try:
+												identities[1]=int(obj.value)
+											except:
+												print("Statement %s has no value." % obj.name)
+										if identities[2] == obj.name:
+											try:
+												identities[2]=int(obj.value)
+											except:
+												print("Statement %s has no value." % obj.name)
+										if identities[0] == "equiv" and identities[1] == identities[2]:
+											subfactor = "T"
+										else:
+											subfactor = "F"
+										if identities[0] == "geq" and identities[1] >= identities[2]:
+											subfactor = "T"
+										else:
+											subfactor = "F"											
+										if identities[0] == "leq" and identities[1] <= identities[2]:
+											subfactor = "T"
+										else:
+											subfactor = "F"											
+										if identities[0] == "no" and identities[1] != identities[2]:
+											subfactor = "T"
+										else:
+											subfactor = "F"											
+										if identities[0] == "g" and identities[1] > identities[2]:
+											subfactor = "T"
+										else:
+											subfactor = "F"											
+										if identities[0] == "l" and identities[1] < identities[2]:
+											subfactor = "T"
+										else:
+											subfactor = "F"
+									if truefalse == True:
+										subfactors.count("T")
+									elif truefalse == False:
+										subfactors.count("F")			
+						except:
+							pass								
+					if obj.operator == "equiv" and identities[1] == subfactors:
+						obj.value = 1
+					else:
+						obj.value = 0
+					if obj.operator == "geq" and identities[1] >= subfactors:
+						obj.value = 1
+					else:
+						obj.value = 0			
+					if obj.operator == "leq" and identities[1] <= subfactors:
+						obj.value = 1
+					else:
+						obj.value = 0			
+					if obj.operator == "no" and identities[1] != subfactors:
+						obj.value = 1
+					else:
+						obj.value = 0			
+					if obj.operator == "g" and identities[1] > subfactors:
+						obj.value = 1
+					else:
+						obj.value = 0			
+					if obj.operator == "l" and identities[1] < subfactors:
+						obj.value = 1
+					else:
+						obj.value = 0		
 
-						conteqs = assasement(cont_object)
-						#equation:
+					if obj.value == 1:
+						print ("step %s: %s; exe" % (step+1, start))
+					else:
+						print ("step %s: %s" % (step+1, start))
 					
+					
+					if modegraph == True:
+						if obj.value == 1:
+							graphstr += ('%s [label="step %s: %s", fillcolor=red] \n' % (start,step+1,start))										
+						else:
+							graphstr += ('%s [label="step %s: %s"] \n' % (start,step+1,start))										
 					for next_object in obj.next_list :
 						if obj.name != next_object and start != next_object and step != steps-1:
 							graphstr += ('%s->%s \n' % (start,next_object))
@@ -156,7 +235,7 @@ def showfunc():
 	global show_list
 	global steps
 	if modegraph == True:
-		graphstr = 'digraph lympha {\n'	
+		graphstr = 'digraph lympha {\nnode [shape=record];'
 	for step in range(0,steps):
 		nextstates = list()
 		for start in starts:
@@ -189,7 +268,7 @@ def mapfunc():
 	global show_list
 	global steps
 	if modegraph == True:
-		graphstr = 'digraph lympha {\n'	
+		graphstr = 'digraph lympha {\nnode [shape=record];'	
 	for step in range(0,steps):
 		nextstates = list()
 		for start in starts:
@@ -390,8 +469,6 @@ def run():
 
 	if modeexe == True:
 		exefunc()	
-	if modeexe == True:
-		showfunc()
 	if modeshow == True:
 		showfunc()
 	if modemap == True:
