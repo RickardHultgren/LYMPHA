@@ -27,7 +27,7 @@ nextstates = list()
 specs = list()
 tipoint = None
 operator = None
-value = int()
+valju = int()
 
 object_list = list()
 exe_objects = list()
@@ -77,7 +77,7 @@ class Event:
 '''
 
 class Statement:
-	def __init__(self, name, tipoint, operator, next_list, cont_list, spec_list):
+	def __init__(self, name, valju, tipoint, operator, next_list, cont_list, spec_list):
         
 		self.flow = False
         		
@@ -102,6 +102,12 @@ class Statement:
 		#relational operator
 		self.operator = operator
 
+		#valju
+		#if valju != 0 :print (valju)
+		if valju == 0 :self.valju = 0
+		else: self.valju = 1
+		#if self.valju != 0 :print ("%s:%s" % (self.name, self.valju))
+
 #object_list.append(Event(i))
 #object_list.append(Factor(i))
 
@@ -116,7 +122,7 @@ def exefunc() :
 	for step in range(0,steps):
 		nextstates = list()
 		for start in starts:
-			for obj in object_list:
+			for index, obj in enumerate(object_list):
 				if ("%s" % obj.name) == ("%s" % start) :
 
 					#Sum all content-objs:
@@ -125,6 +131,7 @@ def exefunc() :
 						truefalse = True
 						subfactors = list()
 						try:
+							arrowobjs = arrowobjs.replace(' ', '')
 							colonobjs = arrowobjs.split(':',1)						
 							if colonobjs[0] == T : truefalse = True
 							if colonobjs[0] == F : truefalse = False
@@ -134,17 +141,17 @@ def exefunc() :
 								if subfactor != "T" or subfactor != "F" :
 									identities = list(assasement(subfactor))
 									#identities[0]
-									for obj in object_list:
-										if identities[1] == obj.name:
+									for obj2 in object_list:
+										if identities[1] == obj2.name:
 											try:
-												identities[1]=int(obj.value)
+												identities[1]=int(obj2.valju)
 											except:
-												print("Statement %s has no value." % obj.name)
-										if identities[2] == obj.name:
+												print("Statement %s has no valju." % obj2.name)
+										if identities[2] == obj2.name:
 											try:
-												identities[2]=int(obj.value)
+												identities[2]=int(obj2.valju)
 											except:
-												print("Statement %s has no value." % obj.name)
+												print("Statement %s has no valju." % obj2.name)
 										if identities[0] == "equiv" and identities[1] == identities[2]:
 											subfactor = "T"
 										else:
@@ -174,45 +181,47 @@ def exefunc() :
 									elif truefalse == False:
 										subfactors.count("F")			
 						except:
-							pass								
-					if obj.operator == "equiv" and identities[1] == subfactors:
-						obj.value = 1
-					else:
-						obj.value = 0
-					if obj.operator == "geq" and identities[1] >= subfactors:
-						obj.value = 1
-					else:
-						obj.value = 0			
-					if obj.operator == "leq" and identities[1] <= subfactors:
-						obj.value = 1
-					else:
-						obj.value = 0			
-					if obj.operator == "no" and identities[1] != subfactors:
-						obj.value = 1
-					else:
-						obj.value = 0			
-					if obj.operator == "g" and identities[1] > subfactors:
-						obj.value = 1
-					else:
-						obj.value = 0			
-					if obj.operator == "l" and identities[1] < subfactors:
-						obj.value = 1
-					else:
-						obj.value = 0		
+							pass
+					#print("operator:%s\n" % obj.operator)
+					if obj.operator == "equiv"	!= None:
+						if obj.operator == "equiv" and identities[1] == subfactors:
+							object_list[index].valju = 1
+						else:
+							object_list[index].valju = 0
+						if obj.operator == "geq" and identities[1] >= subfactors:
+							object_list[index].valju = 1
+						else:
+							object_list[index].valju = 0			
+						if obj.operator == "leq" and identities[1] <= subfactors:
+							object_list[index].valju = 1
+						else:
+							object_list[index].valju = 0			
+						if obj.operator == "no" and identities[1] != subfactors:
+							object_list[index].valju = 1
+						else:
+							object_list[index].valju = 0			
+						if obj.operator == "g" and identities[1] > subfactors:
+							object_list[index].valju = 1
+						else:
+							object_list[index].valju = 0			
+						if obj.operator == "l" and identities[1] < subfactors:
+							object_list[index].valju = 1
+						else:
+							object_list[index].valju = 0		
 
-					if obj.value == 1:
+					if obj.valju == 1:
 						print ("step %s: %s; exe" % (step+1, start))
 					else:
-						print ("step %s: %s" % (step+1, start))
+						print ("step %s: %s"% (step+1, start))
 					
 					
 					if modegraph == True:
-						if obj.value == 1:
-							graphstr += ('%s [label="step %s: %s", fillcolor=red] \n' % (start,step+1,start))										
+						if obj.valju == 1:
+							graphstr += ('%s [label="step %s: %s", fillcolor=yellow, style=filled] \n' % (start,step+1,start))										
 						else:
 							graphstr += ('%s [label="step %s: %s"] \n' % (start,step+1,start))										
-					for next_object in obj.next_list :
-						if obj.name != next_object and start != next_object and step != steps-1:
+					for next_object in object_list[index].next_list :
+						if object_list[index].name != next_object and start != next_object and step != steps-1:
 							graphstr += ('%s->%s \n' % (start,next_object))
 							nextstates.append(next_object)
 		seen2 = {}
@@ -227,6 +236,7 @@ def exefunc() :
 	outputfile.close()
 	cmd = 'dot lympha.dot -Tps -o lympha.pdf'
 	os.system(cmd)
+
 
 def showfunc():
 # Add objects.name to show_list.
@@ -272,7 +282,7 @@ def mapfunc():
 	for step in range(0,steps):
 		nextstates = list()
 		for start in starts:
-			for obj in object_list:
+			for index, obj in enumerate(object_list):
 				if ("%s" % obj.name) == ("%s" % start) :
 
 					#Sum all content-objs:
@@ -281,6 +291,7 @@ def mapfunc():
 						truefalse = True
 						subfactors = list()
 						try:
+							arrowobjs = arrowobjs.replace(' ', '')
 							colonobjs = arrowobjs.split(':',1)						
 							if colonobjs[0] == T : truefalse = True
 							if colonobjs[0] == F : truefalse = False
@@ -290,17 +301,17 @@ def mapfunc():
 								if subfactor != "T" or subfactor != "F" :
 									identities = list(assasement(subfactor))
 									#identities[0]
-									for obj in object_list:
-										if identities[1] == obj.name:
+									for obj2 in object_list:
+										if identities[1] == obj2.name:
 											try:
-												identities[1]=int(obj.value)
+												identities[1]=int(obj2.valju)
 											except:
-												print("Statement %s has no value." % obj.name)
-										if identities[2] == obj.name:
+												print("Statement %s has no valju." % obj2.name)
+										if identities[2] == obj2.name:
 											try:
-												identities[2]=int(obj.value)
+												identities[2]=int(obj2.valju)
 											except:
-												print("Statement %s has no value." % obj.name)
+												print("Statement %s has no valju." % obj2.name)
 										if identities[0] == "equiv" and identities[1] == identities[2]:
 											subfactor = "T"
 										else:
@@ -330,45 +341,47 @@ def mapfunc():
 									elif truefalse == False:
 										subfactors.count("F")			
 						except:
-							pass								
-					if obj.operator == "equiv" and identities[1] == subfactors:
-						obj.value = 1
-					else:
-						obj.value = 0
-					if obj.operator == "geq" and identities[1] >= subfactors:
-						obj.value = 1
-					else:
-						obj.value = 0			
-					if obj.operator == "leq" and identities[1] <= subfactors:
-						obj.value = 1
-					else:
-						obj.value = 0			
-					if obj.operator == "no" and identities[1] != subfactors:
-						obj.value = 1
-					else:
-						obj.value = 0			
-					if obj.operator == "g" and identities[1] > subfactors:
-						obj.value = 1
-					else:
-						obj.value = 0			
-					if obj.operator == "l" and identities[1] < subfactors:
-						obj.value = 1
-					else:
-						obj.value = 0		
+							pass
+					#print("operator:%s\n" % obj.operator)
+					if obj.operator == "equiv"	!= None:
+						if obj.operator == "equiv" and identities[1] == subfactors:
+							object_list[index].valju = 1
+						else:
+							object_list[index].valju = 0
+						if obj.operator == "geq" and identities[1] >= subfactors:
+							object_list[index].valju = 1
+						else:
+							object_list[index].valju = 0			
+						if obj.operator == "leq" and identities[1] <= subfactors:
+							object_list[index].valju = 1
+						else:
+							object_list[index].valju = 0			
+						if obj.operator == "no" and identities[1] != subfactors:
+							object_list[index].valju = 1
+						else:
+							object_list[index].valju = 0			
+						if obj.operator == "g" and identities[1] > subfactors:
+							object_list[index].valju = 1
+						else:
+							object_list[index].valju = 0			
+						if obj.operator == "l" and identities[1] < subfactors:
+							object_list[index].valju = 1
+						else:
+							object_list[index].valju = 0		
 
-					if obj.value == 1:
+					if obj.valju == 1:
 						print ("step %s: %s; exe" % (step+1, start))
 					else:
-						print ("step %s: %s" % (step+1, start))
+						print ("step %s: %s"% (step+1, start))
 					
 					
 					if modegraph == True:
-						if obj.value == 1:
-							graphstr += ('%s [label="step %s: %s", fillcolor=red] \n' % (start,step+1,start))										
+						if obj.valju == 1:
+							graphstr += ('%s [label="step %s: %s", fillcolor=yellow, style=filled] \n' % (start,step+1,start))										
 						else:
 							graphstr += ('%s [label="step %s: %s"] \n' % (start,step+1,start))										
-					for next_object in obj.next_list :
-						if obj.name != next_object and start != next_object and step != steps-1:
+					for next_object in object_list[index].next_list :
+						if object_list[index].name != next_object and start != next_object and step != steps-1:
 							graphstr += ('%s->%s \n' % (start,next_object))
 							nextstates.append(next_object)
 		seen2 = {}
@@ -391,15 +404,36 @@ def statefunc():
 
 
 
-def new(name, tipoint, value, operator, next_list, cont_list, spec_list):
+def new(name, tipoint, valju, operator, next_list, cont_list, spec_list):
+	#if valju != 0:
+	#			print(valju)
+	#print(valju)
 	global object_list
 	nameused = False
-	for obj in object_list:
-		if obj.name == name:
+	for index, obj in enumerate(object_list):
+		
+		if (" %s " % obj.name) == name:
+			#print("| %s |;|%s|" % (obj.name,name))
 			nameused = True
+			if tipoint != None:
+				object_list[index].tipoint == tipoint
+			if valju != None:
+				
+				object_list[index].valju == valju
+				if valju != 0: print("%s:%s\n" % (object_list[index].valju, valju))
+			if operator != None:
+				object_list[index].operator == operator				
+			if next_list != None:
+				object_list[index].next_list == next_list				
+			if cont_list != None:
+				object_list[index].cont_list == cont_list
+			if spec_list != None:
+				object_list[index].spec_list == spec_list								
 	if nameused == False:
+		#if valju != 0: print("%s:%s\n" % (object_list[index].valju, valju))
 		name = name.replace(' ', '')
-		statement = Statement(name, tipoint, operator, next_list, cont_list, spec_list)
+		#if valju !=0 :print(valju)
+		statement = Statement(name, tipoint, valju, operator, next_list, cont_list, spec_list)
 		#statement = Statement(name, tipoint, operator, list(next_list), cont_list, spec_list)
 		#if next_list != [] :
 		#	statement.next_list = list(next_list)
@@ -468,20 +502,24 @@ def run():
 		specs = list()
 		tipoint = int()
 		operator = str()
-		value = int()
+		valju = int()
 		# many nexts vs one
 		scale = list()
 		for anobj in arrowobjs:
+			anobj.replace(" ","")
+			eqobjs = anobj.split('=',1)
 			try:
-				#first "=":
-				eqobjs = arrowobjs.split('=',1)
-				if eqobjs[2].isdigit() == True :
-					value = int(eqobjs[2])
+				anobj.replace(" ","")
+				if eqobjs[1].isdigit() == True :
+					#print(eqobjs[1])
+					valju = int(eqobjs[1])
+					#print(valju)
 				else:
-					scale = assasement(eqobjs[2])
+					scale = list(assasement(eqobjs[1]))
 					tipoint = scale[1]
 					# delete first two and last two characters in scale[1] by [2:-2]:
-					conts = split.scale[2][2:-2]
+					scale = scale[2][2:-2]
+					conts = scale.split(",")
 					
 					if scale[0] == "equiv":
 						thesum = subs.count(True)
@@ -521,7 +559,7 @@ def run():
 			except:
 				pass
 			anobj.replace(" ","")
-			new(anobj,tipoint, value, operator,nexts,conts, specs)			
+			new(eqobjs[0],tipoint, int(valju), operator,nexts,conts, specs)			
 	seen = {}
 	object_list = [seen.setdefault(x.name, x) for x in object_list if x.name not in seen]
 	for serie in series:
