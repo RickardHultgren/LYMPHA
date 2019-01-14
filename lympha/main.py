@@ -306,12 +306,12 @@ def mapfunc():
 											try:
 												identities[1]=int(obj2.valju)
 											except:
-												print("Statement %s has no valju." % obj2.name)
+												print("Statement %s has no value." % obj2.name)
 										if identities[2] == obj2.name:
 											try:
 												identities[2]=int(obj2.valju)
 											except:
-												print("Statement %s has no valju." % obj2.name)
+												print("Statement %s has no value." % obj2.name)
 										if identities[0] == "equiv" and identities[1] == identities[2]:
 											subfactor = "T"
 										else:
