@@ -131,10 +131,11 @@ def exefunc() :
 						truefalse = True
 						subfactors = list()
 						try:
-							arrowobjs = arrowobjs.replace(' ', '')
+							arrowobjs = cont_object.replace(' ', '')
 							colonobjs = arrowobjs.split(':',1)						
-							if colonobjs[0] == T : truefalse = True
-							if colonobjs[0] == F : truefalse = False
+							if colonobjs[0] == "T" : truefalse = True
+							elif colonobjs[0] == "F" : truefalse = False
+							else: print ("error")
 							subfactors = colonobjs[1].split(",")
 							for subfactor in subfactors:
 								name = name.replace(' ', '')
@@ -177,9 +178,9 @@ def exefunc() :
 										else:
 											subfactor = "F"
 									if truefalse == True:
-										subfactors.count("T")
+										subcount = subfactors.count("T")
 									elif truefalse == False:
-										subfactors.count("F")			
+										subcount = subfactors.count("F")			
 						except:
 							pass
 					#print("operator:%s\n" % obj.operator)
@@ -290,13 +291,19 @@ def mapfunc():
 						# Critical list of trues???
 						truefalse = True
 						subfactors = list()
+						arrowobjs = cont_object.replace(' ', '')
+						colonobjs = arrowobjs.split(':',1)	
+						
 						try:
 							arrowobjs = arrowobjs.replace(' ', '')
 							colonobjs = arrowobjs.split(':',1)						
-							if colonobjs[0] == T : truefalse = True
-							if colonobjs[0] == F : truefalse = False
+							if colonobjs[0] == "T" : truefalse = True
+							if colonobjs[0] == "F" : truefalse = False
+							
 							subfactors = colonobjs[1].split(",")
+							
 							for subfactor in subfactors:
+								
 								name = name.replace(' ', '')
 								if subfactor != "T" or subfactor != "F" :
 									identities = list(assasement(subfactor))
@@ -337,9 +344,10 @@ def mapfunc():
 										else:
 											subfactor = "F"
 									if truefalse == True:
-										subfactors.count("T")
+										subcount = subfactors.count("T")
 									elif truefalse == False:
-										subfactors.count("F")			
+										subcount = subfactors.count("F")		
+									
 						except:
 							pass
 					#print("operator:%s\n" % obj.operator)
@@ -634,3 +642,6 @@ if __name__=='__main__':
 # Execute functions that are connected to the arguments:
 	if filecheck == True:
 		run()
+
+
+#Todo tipoint
