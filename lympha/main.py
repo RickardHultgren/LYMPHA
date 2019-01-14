@@ -217,12 +217,12 @@ def exefunc() :
 					
 					if modegraph == True:
 						if obj.valju == 1:
-							graphstr += ('%s [label="step %s: %s", fillcolor=yellow, style=filled] \n' % (start,step+1,start))										
+							graphstr += ('"%s" [label="step %s: %s", fillcolor=yellow, style=filled] \n' % (start,step+1,start))										
 						else:
-							graphstr += ('%s [label="step %s: %s"] \n' % (start,step+1,start))										
+							graphstr += ('"%s" [label="step %s: %s"] \n' % (start,step+1,start))										
 					for next_object in object_list[index].next_list :
 						if object_list[index].name != next_object and start != next_object and step != steps-1:
-							graphstr += ('%s->%s \n' % (start,next_object))
+							graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 							nextstates.append(next_object)
 		seen2 = {}
 		nextstates = [seen2.setdefault(x, x) for x in nextstates if x not in seen2]
@@ -253,10 +253,10 @@ def showfunc():
 				if ("%s" % obj.name) == ("%s" % start) :
 					print ("step %s: %s" % (step+1, start))
 					if modegraph == True:
-						graphstr += ('%s [label="step %s: %s"] \n' % (start,step+1,start))					
+						graphstr += ('"%s" [label="step %s: %s"] \n' % (start,step+1,start))					
 					for next_object in obj.next_list :
 						if obj.name != next_object and start != next_object and step != steps-1:
-							graphstr += ('%s->%s \n' % (start,next_object))
+							graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 							nextstates.append(next_object)
 		seen2 = {}
 		nextstates = [seen2.setdefault(x, x) for x in nextstates if x not in seen2]
@@ -377,12 +377,12 @@ def mapfunc():
 					
 					if modegraph == True:
 						if obj.valju == 1:
-							graphstr += ('%s [label="step %s: %s", fillcolor=yellow, style=filled] \n' % (start,step+1,start))										
+							graphstr += ('"%s" [label="step %s: %s", fillcolor=yellow, style=filled] \n' % (start,step+1,start))										
 						else:
-							graphstr += ('%s [label="step %s: %s"] \n' % (start,step+1,start))										
+							graphstr += ('"%s" [label="step %s: %s"] \n' % (start,step+1,start))										
 					for next_object in object_list[index].next_list :
 						if object_list[index].name != next_object and start != next_object and step != steps-1:
-							graphstr += ('%s->%s \n' % (start,next_object))
+							graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 							nextstates.append(next_object)
 		seen2 = {}
 		nextstates = [seen2.setdefault(x, x) for x in nextstates if x not in seen2]
@@ -616,7 +616,7 @@ if __name__=='__main__':
 			series = filetext.split(';')
 			filecheck = True
 		if sys.argv[x] == "-h":
-			print ("-h for help\n-f file")
+			print ('-h for help\n-f file\n-map OR -show\n-graph\n-start "start node"\n-steps amount of steps')
 		if sys.argv[x] == "-exe":
 			modeexe = True
 		if sys.argv[x] == "-show":
