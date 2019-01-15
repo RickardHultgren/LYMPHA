@@ -285,7 +285,8 @@ def mapfunc():
 		for start in starts:
 			for index, obj in enumerate(object_list):
 				if ("%s" % obj.name) == ("%s" % start) :
-
+					print ("\nobj.valju: %s" % obj.valju)
+					print ("obj.cont_list: %s" % obj.cont_list)
 					#Sum all content-objs:
 					for cont_object in obj.cont_list :
 						# Critical list of trues???
@@ -302,6 +303,7 @@ def mapfunc():
 							
 							subfactors = colonobjs[1].split(",")
 							
+							#What is this?
 							for subfactor in subfactors:
 								
 								name = name.replace(' ', '')
@@ -657,3 +659,4 @@ if __name__=='__main__':
 
 
 #Todo What is colon obj?
+#305
