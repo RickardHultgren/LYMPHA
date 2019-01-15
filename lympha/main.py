@@ -580,6 +580,18 @@ def run():
 			anobj.replace(" ","")
 			if not anobj == "":
 				for bnobj in object_list:
+					#ToDo cutting out tipoint					
+					sides =	anobj.split(' = ')
+					try:
+#					if sides[1] != None:
+						if (sides[1].isdigit()):
+							bnobj.tipoint = sides[1]
+						elif sides[1] == "T":
+							bnobj.valju = 1
+						elif sides[1] == "F":
+							bnobj.valju = 0							
+					except:
+						pass
 					#critical:
 					if (" %s " % bnobj.name) == ("%s" % anobj):
 						nexting = ""
@@ -644,4 +656,4 @@ if __name__=='__main__':
 		run()
 
 
-#Todo tipoint
+#Todo What is colon obj?
