@@ -585,8 +585,8 @@ def run():
 		# many nexts vs one
 		for anobj in arrowobj:
 			anobj.replace(" ","")
-			if not anobj == "":
-				for bnobj in object_list:
+			if not anobj == "" :
+				for bnobj in object_list :
 					#Valju or tipoint					
 					sides =	anobj.split(' = ')
 					try:
@@ -600,7 +600,15 @@ def run():
 					except:
 						pass
 					#check if sides[2] has pattern ]{???}] = cont_list
-					
+					try:
+						parts = sides[1].replace("|{","")
+						parts = parts.replace("}|","")
+						parts = parts.replace(" ","")
+						print ("parts: %s" % parts)
+					except:
+						pass
+
+					#if sides[1] has pattern ]{???}] = cont_list
 					#critical:
 					if (" %s " % bnobj.name) == ("%s" % anobj):
 						nexting = ""
@@ -663,7 +671,4 @@ if __name__=='__main__':
 # Execute functions that are connected to the arguments:
 	if filecheck == True:
 		run()
-
-
-#Todo What is colon obj?
-#305
+		
