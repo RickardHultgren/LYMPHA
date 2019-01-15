@@ -181,34 +181,38 @@ def exefunc() :
 										subcount = subfactors.count("T")
 									elif truefalse == False:
 										subcount = subfactors.count("F")			
+
+
+							#print("operator:%s\n" % obj.operator)
+							if obj.operator == "equiv"	!= None:
+								if obj.operator == "equiv" and identities[1] == subfactors:
+									object_list[index].valju = 1
+								else:
+									object_list[index].valju = 0
+								if obj.operator == "geq" and identities[1] >= subfactors:
+									object_list[index].valju = 1
+								else:
+									object_list[index].valju = 0			
+								if obj.operator == "leq" and identities[1] <= subfactors:
+									object_list[index].valju = 1
+								else:
+									object_list[index].valju = 0			
+								if obj.operator == "no" and identities[1] != subfactors:
+									object_list[index].valju = 1
+								else:
+									object_list[index].valju = 0			
+								if obj.operator == "g" and identities[1] > subfactors:
+									object_list[index].valju = 1
+								else:
+									object_list[index].valju = 0			
+								if obj.operator == "l" and identities[1] < subfactors:
+									object_list[index].valju = 1
+								else:
+									object_list[index].valju = 0	
+
 						except:
 							pass
-					#print("operator:%s\n" % obj.operator)
-					if obj.operator == "equiv"	!= None:
-						if obj.operator == "equiv" and identities[1] == subfactors:
-							object_list[index].valju = 1
-						else:
-							object_list[index].valju = 0
-						if obj.operator == "geq" and identities[1] >= subfactors:
-							object_list[index].valju = 1
-						else:
-							object_list[index].valju = 0			
-						if obj.operator == "leq" and identities[1] <= subfactors:
-							object_list[index].valju = 1
-						else:
-							object_list[index].valju = 0			
-						if obj.operator == "no" and identities[1] != subfactors:
-							object_list[index].valju = 1
-						else:
-							object_list[index].valju = 0			
-						if obj.operator == "g" and identities[1] > subfactors:
-							object_list[index].valju = 1
-						else:
-							object_list[index].valju = 0			
-						if obj.operator == "l" and identities[1] < subfactors:
-							object_list[index].valju = 1
-						else:
-							object_list[index].valju = 0		
+
 
 					if obj.valju == 1:
 						print ("step %s: %s; exe" % (step+1, start))
@@ -288,6 +292,7 @@ def mapfunc():
 					print ("\nobj.valju: %s" % obj.valju)
 					print ("obj.cont_list: %s" % obj.cont_list)
 					#Sum all content-objs:
+
 					for cont_object in obj.cont_list :
 						# Critical list of trues???
 						truefalse = True
@@ -349,36 +354,36 @@ def mapfunc():
 										subcount = subfactors.count("T")
 									elif truefalse == False:
 										subcount = subfactors.count("F")		
-									
+
+							if obj.operator == "equiv"	!= None:
+								if obj.operator == "equiv" and identities[1] == subfactors:
+									object_list[index].valju = 1
+								else:
+									object_list[index].valju = 0
+								if obj.operator == "geq" and identities[1] >= subfactors:
+									object_list[index].valju = 1
+								else:
+									object_list[index].valju = 0			
+								if obj.operator == "leq" and identities[1] <= subfactors:
+									object_list[index].valju = 1
+								else:
+									object_list[index].valju = 0			
+								if obj.operator == "no" and identities[1] != subfactors:
+									object_list[index].valju = 1
+								else:
+									object_list[index].valju = 0			
+								if obj.operator == "g" and identities[1] > subfactors:
+									object_list[index].valju = 1
+								else:
+									object_list[index].valju = 0			
+								if obj.operator == "l" and identities[1] < subfactors:
+									object_list[index].valju = 1
+								else:
+									object_list[index].valju = 0		
+
 						except:
 							pass
 					#print("operator:%s\n" % obj.operator)
-					if obj.operator == "equiv"	!= None:
-						if obj.operator == "equiv" and identities[1] == subfactors:
-							object_list[index].valju = 1
-						else:
-							object_list[index].valju = 0
-						if obj.operator == "geq" and identities[1] >= subfactors:
-							object_list[index].valju = 1
-						else:
-							object_list[index].valju = 0			
-						if obj.operator == "leq" and identities[1] <= subfactors:
-							object_list[index].valju = 1
-						else:
-							object_list[index].valju = 0			
-						if obj.operator == "no" and identities[1] != subfactors:
-							object_list[index].valju = 1
-						else:
-							object_list[index].valju = 0			
-						if obj.operator == "g" and identities[1] > subfactors:
-							object_list[index].valju = 1
-						else:
-							object_list[index].valju = 0			
-						if obj.operator == "l" and identities[1] < subfactors:
-							object_list[index].valju = 1
-						else:
-							object_list[index].valju = 0		
-
 					if obj.valju == 1:
 						print ("step %s: %s; exe" % (step+1, start))
 					else:
@@ -582,7 +587,7 @@ def run():
 			anobj.replace(" ","")
 			if not anobj == "":
 				for bnobj in object_list:
-					#ToDo cutting out tipoint					
+					#Valju or tipoint					
 					sides =	anobj.split(' = ')
 					try:
 #					if sides[1] != None:
@@ -594,6 +599,8 @@ def run():
 							bnobj.valju = 0							
 					except:
 						pass
+					#check if sides[2] has pattern ]{???}] = cont_list
+					
 					#critical:
 					if (" %s " % bnobj.name) == ("%s" % anobj):
 						nexting = ""
