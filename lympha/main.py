@@ -589,26 +589,72 @@ def run():
 				for bnobj in object_list :
 					#Valju or tipoint					
 					sides =	anobj.split(' = ')
-					try:
-#					if sides[1] != None:
-						if (sides[1].isdigit()):
-							bnobj.tipoint = sides[1]
-						elif sides[1] == "T":
-							bnobj.valju = 1
-						elif sides[1] == "F":
-							bnobj.valju = 0							
-					except:
-						pass
+
 					#check if sides[2] has pattern ]{???}] = cont_list
+					parts = ""
 					try:
 						parts = sides[1].replace("|{","")
 						parts = parts.replace("}|","")
+						#parts = parts.replace(" ","")
+					except:
+						pass
+						subfactorings = []
+					try:
+						subfactorings = parts.split("==",1)
+						parts=subfactorings[1]
+						bnobj.operator="equiv"
+					except:
+						pass	
+					try:
+						subfactorings = parts.split("=>",1)
+						parts=subfactorings[1]
+						bnobj.operator="geq"							
+					except:
+						pass	
+					try:
+						subfactorings = parts.split("=<",1)
+						parts=subfactorings[1]
+						bnobj.operator="gleq"
+					except:
+						pass	
+					try:
+						subfactorings = parts.split("!=",1)
+						parts=subfactorings[1]
+						bnobj.operator="no"
+					except:
+						pass								
+					try:
+						subfactorings = parts.split(">",1)
+						parts=subfactorings[1]
+						bnobj.operator="g"
+					except:
+						pass						
+					try:
+						subfactorings = parts.split("<",1)
+						parts=subfactorings[1]
+						bnobj.operator="l"
+					except:
+						pass						
+
+					try:
 						parts = parts.replace(" ","")
-						print ("parts: %s" % parts)
+						if parts == "T":
+							bnobj.valju = 1
+						elif parts == "F":
+							bnobj.valju = 0	
+						else:
+							parts = parts.split(",")
+							print ("subs: %s"  % parts)
+						sidelist = [int(s) for s in sides[1].split() if s.isdigit()]
+						bnobj.tipoint = sidelist[0]								
+							
+						#print ("subs: %s"  % parts)
 					except:
 						pass
 
-					#if sides[1] has pattern ]{???}] = cont_list
+
+					
+							#if sides[1] has pattern ]{???}] = cont_list
 					#critical:
 					if (" %s " % bnobj.name) == ("%s" % anobj):
 						nexting = ""
