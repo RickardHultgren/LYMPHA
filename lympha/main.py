@@ -643,8 +643,12 @@ def run():
 						elif parts == "F":
 							bnobj.valju = 0	
 						else:
-							parts = parts.split(",")
-							print ("subs: %s"  % parts)
+							partlist = parts.split(",")
+							for part in partlist:
+								part = part.replace(" ","")
+								if part != "" or part != " ":
+									bnobj.cont_list.append(part)
+									print ("subs: %s"  % part)
 						sidelist = [int(s) for s in sides[1].split() if s.isdigit()]
 						bnobj.tipoint = sidelist[0]								
 							
