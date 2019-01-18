@@ -132,7 +132,7 @@ def exefunc() :
 						subfactors = list()
 						try:
 							arrowobjs = cont_object.replace(' ', '')
-							colonobjs = arrowobjs.split(':',1)						
+							#colonobjs = arrowobjs.split(':',1)						
 							if colonobjs[0] == "T" : truefalse = True
 							elif colonobjs[0] == "F" : truefalse = False
 							else: print ("error")
@@ -297,16 +297,17 @@ def mapfunc():
 						# Critical list of trues???
 						truefalse = True
 						subfactors = list()
-						arrowobjs = cont_object.replace(' ', '')
-						colonobjs = arrowobjs.split(':',1)	
+						#for future versions:
+						#arrowobjs = cont_object.replace(' ', '')
+						#colonobjs = arrowobjs.split(':',1)	
 						
 						try:
-							arrowobjs = arrowobjs.replace(' ', '')
-							colonobjs = arrowobjs.split(':',1)						
-							if colonobjs[0] == "T" : truefalse = True
-							if colonobjs[0] == "F" : truefalse = False
+							#arrowobjs = arrowobjs.replace(' ', '')
+							#colonobjs = arrowobjs.split(':',1)						
+							#if colonobjs[0] == "T" : truefalse = True
+							#if colonobjs[0] == "F" : truefalse = False
 							
-							subfactors = colonobjs[1].split(",")
+							#subfactors = colonobjs[1].split(",")
 							
 							#What is this?
 							for subfactor in subfactors:
@@ -721,4 +722,6 @@ if __name__=='__main__':
 # Execute functions that are connected to the arguments:
 	if filecheck == True:
 		run()
+		
+#What valju do do the content parts have?
 		
