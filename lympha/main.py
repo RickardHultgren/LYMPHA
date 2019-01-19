@@ -122,8 +122,8 @@ def exefunc() :
 	for step in range(0,steps):
 		nextstates = list()
 		for start in starts:
-			for index, obj in enumerate(object_list):
-				print ("index: %s" % index)
+			#for index, obj in enumerate(object_list):
+			for obj in enumerate(object_list):
 				if ("%s" % obj.name) == ("%s" % start) :
 
 					#Sum all content-objs:
@@ -230,7 +230,7 @@ def exefunc() :
 						else:
 							graphstr += ('"%s" [label="step %s: %s"] \n' % (start,step+1,start))										
 					for next_object in object_list[index].next_list :
-						if object_list[index].name != next_object and start != next_object and step != steps-1:
+						if obj.name != next_object and start != next_object and step != steps-1:
 							graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 							nextstates.append(next_object)
 		seen2 = {}
@@ -291,11 +291,9 @@ def mapfunc():
 	for step in range(0,steps):
 		nextstates = list()
 		for start in starts:
-			for index,obj in enumerate(object_list):
-				print ("index: %s" % obj)
+			#for index,obj in enumerate(object_list):
+			for obj in object_list:
 				if ("%s" % obj.name) == ("%s" % start) :
-					print ("\nobj.valju: %s" % obj.valju)
-					print ("obj.cont_list: %s" % obj.cont_list)
 					for cont_object in obj.cont_list :
 						# Critical list of trues???
 						truefalse = True
@@ -343,7 +341,7 @@ def mapfunc():
 							graphstr += ('"%s" [label="step %s: %s", fillcolor=yellow, style=filled] \n' % (start,step+1,start))										
 						else:
 							graphstr += ('"%s" [label="step %s: %s"] \n' % (start,step+1,start))										
-					for next_object in object_list[index].next_list :
+					for next_object in obj.next_list :
 						if object_list[index].name != next_object and start != next_object and step != steps-1:
 							graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 							nextstates.append(next_object)
@@ -527,6 +525,7 @@ def run():
 	object_list = [seen.setdefault(x.name, x) for x in object_list if x.name not in seen]
 	for serie in series:
 		arrowobj = serie.split('->')
+		print ("arrowobj:%s"%arrowobj)
 		count = 0
 		nexts = list()
 		conts = list()
@@ -596,7 +595,7 @@ def run():
 								part = part.replace(" ","")
 								if part != "" or part != " ":
 									bnobj.cont_list.append(part)
-									print ("subs: %s"  % part)
+									#print ("subs: %s"  % part)
 						sidelist = [int(s) for s in sides[1].split() if s.isdigit()]
 						bnobj.tipoint = sidelist[0]								
 							
