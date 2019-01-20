@@ -298,12 +298,17 @@ def mapfunc():
 						# Critical list of trues???
 						truefalse = True
 						subfactors = list()
+						
 						for item in object_list:
+							print("name: %s ; value: %s"%(item.name, item.valju))
 							if cont_object == item.name :
 								subfactors.append(item.valju)
 						sum1 = subfactors.count(1)
 						sum0 = subfactors.count(0)
-						if obj.operator == "equiv"	!= None:
+						print("sum1:%s"%sum1)
+						print("op:%s"%obj.operator)
+						if obj.operator	!= None:
+							print("????sum1:%s"%sum1)
 							if obj.operator == "equiv" and sum1 == obj.tipoint:
 								obj.valju = 1
 							else:
@@ -456,6 +461,7 @@ def run():
 	global object_list
 	nexts = list()
 	conts = list()
+	#make new nodes in database
 	for serie in series:
 		arrowobjs = serie.split('->')
 		count = 0
@@ -524,6 +530,7 @@ def run():
 			new(eqobjs[0],tipoint, int(valju), operator,nexts,conts, specs)			
 	seen = {}
 	object_list = [seen.setdefault(x.name, x) for x in object_list if x.name not in seen]
+	#Connect the database nodes
 	for serie in series:
 		arrowobj = serie.split('->')
 		count = 0
@@ -545,7 +552,8 @@ def run():
 						#parts = parts.replace(" ","")
 					except:
 						pass
-						subfactorings = []
+						
+					subfactorings = []
 					try:
 						subfactorings = parts.split("==",1)
 						parts=subfactorings[1]
@@ -586,6 +594,7 @@ def run():
 					try:
 						parts = parts.replace(" ","")
 						if parts == "T":
+							print("True")
 							bnobj.valju = 1
 						elif parts == "F":
 							bnobj.valju = 0	
@@ -599,7 +608,7 @@ def run():
 						sidelist = [int(s) for s in sides[1].split() if s.isdigit()]
 						bnobj.tipoint = sidelist[0]								
 							
-						#print ("subs: %s"  % parts)
+						print ("operator: %s"  % bnobj.operator)
 					except:
 						pass
 
