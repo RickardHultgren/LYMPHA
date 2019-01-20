@@ -595,9 +595,10 @@ def run():
 					try:
 						parts = parts.replace(" ","")
 						if parts == "T":
-							print("True")
+							print("%s True"%bnobj.name)
 							bnobj.valju = 1
 						elif parts == "F":
+							print("%s False"%bnobj.name)
 							bnobj.valju = 0	
 						else:
 							partlist = parts.split(",")
