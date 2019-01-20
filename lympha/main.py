@@ -300,15 +300,16 @@ def mapfunc():
 						subfactors = list()
 						
 						for item in object_list:
-							print("name: %s ; value: %s"%(item.name, item.valju))
+							#print("name: %s ; value: %s"%(item.name, item.valju))
 							if cont_object == item.name :
+								print ("item name:%s value:%s"%(item.name, item.valju))
 								subfactors.append(item.valju)
 						sum1 = subfactors.count(1)
 						sum0 = subfactors.count(0)
-						print("sum1:%s"%sum1)
-						print("op:%s"%obj.operator)
+						#print("sum1:%s"%sum1)
+						#print("op:%s"%obj.operator)
 						if obj.operator	!= None:
-							print("????sum1:%s"%sum1)
+							#print("????sum1:%s"%sum1)
 							if obj.operator == "equiv" and sum1 == obj.tipoint:
 								obj.valju = 1
 							else:
@@ -604,7 +605,9 @@ def run():
 								part = part.replace(" ","")
 								if part != "" or part != " ":
 									bnobj.cont_list.append(part)
+									#print("contlist %s"%bnobj.cont_list)
 									#print ("subs: %s"  % part)
+						#print (bnobj.valju)
 						sidelist = [int(s) for s in sides[1].split() if s.isdigit()]
 						bnobj.tipoint = sidelist[0]								
 							
