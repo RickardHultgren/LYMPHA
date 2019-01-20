@@ -229,7 +229,7 @@ def exefunc() :
 							graphstr += ('"%s" [label="step %s: %s", fillcolor=yellow, style=filled] \n' % (start,step+1,start))										
 						else:
 							graphstr += ('"%s" [label="step %s: %s"] \n' % (start,step+1,start))										
-					for next_object in object_list[index].next_list :
+					for next_object in obj.next_list :
 						if obj.name != next_object and start != next_object and step != steps-1:
 							graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 							nextstates.append(next_object)
@@ -342,7 +342,8 @@ def mapfunc():
 						else:
 							graphstr += ('"%s" [label="step %s: %s"] \n' % (start,step+1,start))										
 					for next_object in obj.next_list :
-						if object_list[index].name != next_object and start != next_object and step != steps-1:
+					
+						if obj.name != next_object and start != next_object and step != steps-1:
 							graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 							nextstates.append(next_object)
 		seen2 = {}
@@ -525,7 +526,6 @@ def run():
 	object_list = [seen.setdefault(x.name, x) for x in object_list if x.name not in seen]
 	for serie in series:
 		arrowobj = serie.split('->')
-		print ("arrowobj:%s"%arrowobj)
 		count = 0
 		nexts = list()
 		conts = list()
@@ -611,7 +611,8 @@ def run():
 						nexting = ""
 						try:
 							newcount=count+1
-							nexting = arrowobj[newcount].replace(" ","")
+							#nexting = arrowobj[newcount].replace(" ","")
+							nexting = arrowobj[1].replace(" ","")
 							if not nexting == "":
 								#nexts.append(nexting)
 								#bnobj.next_list += nexts
