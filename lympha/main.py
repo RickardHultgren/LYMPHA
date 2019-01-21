@@ -542,9 +542,44 @@ def run():
 			anobj.replace(" ","")
 			if not anobj == "" :
 				for bnobj in object_list :
-					#Valju or tipoint					
-					sides =	anobj.split(' = ')
 
+
+					
+							#if sides[1] has pattern ]{???}] = cont_list
+					#critical:
+					if (" %s " % bnobj.name) == ("%s" % anobj):
+						nexting = ""
+						try:
+							newcount=count+1
+							#nexting = arrowobj[newcount].replace(" ","")
+							nexting = arrowobj[1].replace(" ","")
+							if not nexting == "":
+								#nexts.append(nexting)
+								#bnobj.next_list += nexts
+								bnobj.next_list.append(nexting)
+								#print( "obj.next_list:%s" % bnobj.next_list )
+								#nexts = []
+								#nexting = ""
+						except:
+							pass
+					seen3 = {}
+					bnobj.next_list = [seen3.setdefault(x, x) for x in bnobj.next_list if x not in seen3]
+				
+				count += 1
+			count = 0
+			
+			
+	for serie in series:
+		count = 0
+		# many nexts vs one
+		anobj = serie
+		if anobj != "" and " = " in anobj:
+			
+			for bnobj in object_list :
+				#Valju or tipoint					
+				sides =	anobj.split(' = ')
+				if sides[0] == bnobj.name :
+					
 					#check if sides[2] has pattern ]{???}] = cont_list
 					parts = ""
 					try:
@@ -602,32 +637,7 @@ def run():
 							
 						print ("operator: %s"  % bnobj.operator)
 					except:
-						pass
-
-
-					
-							#if sides[1] has pattern ]{???}] = cont_list
-					#critical:
-					if (" %s " % bnobj.name) == ("%s" % anobj):
-						nexting = ""
-						try:
-							newcount=count+1
-							#nexting = arrowobj[newcount].replace(" ","")
-							nexting = arrowobj[1].replace(" ","")
-							if not nexting == "":
-								#nexts.append(nexting)
-								#bnobj.next_list += nexts
-								bnobj.next_list.append(nexting)
-								#print( "obj.next_list:%s" % bnobj.next_list )
-								#nexts = []
-								#nexting = ""
-						except:
-							pass
-					seen3 = {}
-					bnobj.next_list = [seen3.setdefault(x, x) for x in bnobj.next_list if x not in seen3]
-				
-				count += 1
-			count = 0
+						pass			
 	#seen = {}
 	#object_list = [seen.setdefault(x.name, x) for x in object_list if x.name not in seen]			
 
