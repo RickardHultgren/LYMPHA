@@ -300,9 +300,11 @@ def mapfunc():
 						subfactors = list()
 						###
 						for item in object_list:
+							
 							if cont_object == item.name :
-								if item.name != "":
-									print("name: %s ; value: %s"%(item.name, item.valju))
+								print ("\n\ncont_object:%s, item.name:%s" % (cont_object, item.name))
+								#if item.name != "":
+								#	print("name: %s ; value: %s"%(item.name, item.valju))
 								subfactors.append(item.valju)
 						sum1 = subfactors.count("1")
 						sum0 = subfactors.count("0")
@@ -622,6 +624,7 @@ def run():
 						if parts == "T":
 							print("%s True"%bnobj.name)
 							bnobj.valju = 1
+							print:"\nT\nT\nT"
 						elif parts == "F":
 							print("%s False"%bnobj.name)
 							bnobj.valju = 0	
