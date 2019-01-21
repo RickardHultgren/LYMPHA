@@ -296,50 +296,52 @@ def mapfunc():
 				if ("%s" % obj.name) == ("%s" % start) :
 					for cont_object in obj.cont_list :
 						# Critical list of trues???
-						truefalse = True
+						#truefalse = True
 						subfactors = list()
 						###
 						for item in object_list:
-							#print("name: %s ; value: %s"%(item.name, item.valju))
 							if cont_object == item.name :
+								if item.name != "":
+									print("name: %s ; value: %s"%(item.name, item.valju))
 								subfactors.append(item.valju)
-						sum1 = subfactors.count(1)
-						sum0 = subfactors.count(0)
-						#print("sum1:%s"%sum1)
-						#print("op:%s"%obj.operator)
+						sum1 = subfactors.count("1")
+						sum0 = subfactors.count("0")
+						print("sum1:%s"%subfactors)
+						print("nanme:%s ; topioint:%s ; operator:%s ; obj.tipoint:%s" %(obj.name, obj.tipoint, obj.operator, obj.tipoint))
 						if obj.operator	!= None:
-							#print("????sum1:%s"%sum1)
-							if obj.operator == "equiv" and sum1 == obj.tipoint:
+							#print("????obj.tipoint:%s"%obj.tipoint)
+							if obj.operator == "equiv" and obj.tipoint == sum1:
 								obj.valju = 1
 							else:
 								obj.valju = 0
-							if obj.operator == "geq" and sum1 >= obj.tipoint:
+							if obj.operator == "geq" and obj.tipoint >= sum1:
 								obj.valju = 1
 							else:
 								obj.valju = 0			
-							if obj.operator == "leq" and sum1 <= obj.tipoint:
+							if obj.operator == "leq" and obj.tipoint <= sum1:
 								obj.valju = 1
 							else:
 								obj.valju = 0			
-							if obj.operator == "no" and sum1 != obj.tipoint:
+							if obj.operator == "no" and obj.tipoint != sum1:
 								obj.valju = 1
 							else:
 								obj.valju = 0			
-							if obj.operator == "g" and sum1 > obj.tipoint:
+							if obj.operator == "g" and obj.tipoint > sum1:
 								obj.valju = 1
 							else:
 								obj.valju = 0			
-							if obj.operator == "l" and sum1 < obj.tipoint:
+							if obj.operator == "l" and obj.tipoint < sum1:
 								obj.valju = 1
 							else:
-								obj.valju = 0		
+								obj.valju = 0	
+						else:
+							obj.valju = 1	
 
-					#print("operator:%s\n" % obj.operator)
+					print("name:%s\nvalue:%s" % (obj.name,obj.valju))
 					if obj.valju == 1:
 						print ("step %s: %s; exe" % (step+1, start))
 					else:
 						print ("step %s: %s"% (step+1, start))
-					
 					
 					if modegraph == True:
 						if obj.valju == 1:
@@ -632,10 +634,10 @@ def run():
 									#print("contlist %s"%bnobj.cont_list)
 									#print ("subs: %s"  % part)
 							#print (bnobj.valju)
-							sidelist = [int(s) for s in sides[1].split() if s.isdigit()]
-							bnobj.tipoint = sidelist[0]								
-							
-						print ("operator: %s"  % bnobj.operator)
+						sidelist = [int(s) for s in sides[1].split() if s.isdigit()]
+						bnobj.tipoint = sidelist[0]								
+						
+						print ("operator: %s ; tippoint %s"  % (bnobj.operator, bnobj.tipoint))
 					except:
 						pass			
 	#seen = {}
@@ -681,5 +683,5 @@ if __name__=='__main__':
 	if filecheck == True:
 		run()
 		
-#What valju do do the content parts have?
+#Check 
 		
