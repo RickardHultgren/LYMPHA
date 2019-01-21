@@ -624,10 +624,11 @@ def run():
 						if parts == "T":
 							print("%s True"%bnobj.name)
 							bnobj.valju = 1
-							print:"\nT\nT\nT"
+							print("\nT\nT\nT")
 						elif parts == "F":
 							print("%s False"%bnobj.name)
 							bnobj.valju = 0	
+							print("\nF\nF\nF")
 						else:
 							partlist = parts.split(",")
 							for part in partlist:
