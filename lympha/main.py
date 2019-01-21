@@ -302,7 +302,6 @@ def mapfunc():
 						for item in object_list:
 							#print("name: %s ; value: %s"%(item.name, item.valju))
 							if cont_object == item.name :
-								print ("item name:%s value:%s"%(item.name, item.valju))
 								subfactors.append(item.valju)
 						sum1 = subfactors.count(1)
 						sum0 = subfactors.count(0)
@@ -578,8 +577,9 @@ def run():
 			for bnobj in object_list :
 				#Valju or tipoint					
 				sides =	anobj.split(' = ')
-				if sides[0] == bnobj.name :
-					
+				side1 = sides[0]
+				side1 = side1.replace(" ","")
+				if side1 == bnobj.name :
 					#check if sides[2] has pattern ]{???}] = cont_list
 					parts = ""
 					try:
