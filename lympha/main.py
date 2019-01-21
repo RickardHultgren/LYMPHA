@@ -298,7 +298,7 @@ def mapfunc():
 						# Critical list of trues???
 						truefalse = True
 						subfactors = list()
-						
+						###
 						for item in object_list:
 							#print("name: %s ; value: %s"%(item.name, item.valju))
 							if cont_object == item.name :
@@ -631,9 +631,9 @@ def run():
 									bnobj.cont_list.append(part)
 									#print("contlist %s"%bnobj.cont_list)
 									#print ("subs: %s"  % part)
-						#print (bnobj.valju)
-						sidelist = [int(s) for s in sides[1].split() if s.isdigit()]
-						bnobj.tipoint = sidelist[0]								
+							#print (bnobj.valju)
+							sidelist = [int(s) for s in sides[1].split() if s.isdigit()]
+							bnobj.tipoint = sidelist[0]								
 							
 						print ("operator: %s"  % bnobj.operator)
 					except:
