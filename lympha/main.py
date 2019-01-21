@@ -553,45 +553,33 @@ def run():
 						#parts = parts.replace(" ","")
 					except:
 						pass
-						
 					subfactorings = []
-					try:
+					if "==" in parts :
 						subfactorings = parts.split("==",1)
 						parts=subfactorings[1]
 						bnobj.operator="equiv"
-					except:
-						pass	
-					try:
+					elif "=>" in parts :
 						subfactorings = parts.split("=>",1)
 						parts=subfactorings[1]
 						bnobj.operator="geq"							
-					except:
-						pass	
-					try:
+					elif "=<" in parts :
 						subfactorings = parts.split("=<",1)
 						parts=subfactorings[1]
 						bnobj.operator="gleq"
-					except:
-						pass	
-					try:
+					elif "!=" in parts :
 						subfactorings = parts.split("!=",1)
 						parts=subfactorings[1]
 						bnobj.operator="no"
-					except:
-						pass								
-					try:
+					elif ">" in parts :
 						subfactorings = parts.split(">",1)
 						parts=subfactorings[1]
 						bnobj.operator="g"
-					except:
-						pass						
-					try:
+					elif "<" in parts :
 						subfactorings = parts.split("<",1)
 						parts=subfactorings[1]
 						bnobj.operator="l"
-					except:
-						pass						
-
+			
+					#print ("parts %s"%parts)
 					try:
 						parts = parts.replace(" ","")
 						if parts == "T":
