@@ -620,14 +620,10 @@ def run():
 					#print ("parts %s"%parts)
 					try:
 						parts = parts.replace(" ","")
-						if parts == "T":
-							print("%s True"%bnobj.name)
+						if parts == "T":				
 							bnobj.valju = 1 
-							print("\nT\nT\nT")
 						elif parts == "F":
-							print("%s False"%bnobj.name)
 							bnobj.valju = 0	
-							print("\nF\nF\nF")
 						else:
 							partlist = parts.split(",")
 							for part in partlist:
@@ -639,8 +635,8 @@ def run():
 							#print (bnobj.valju)
 						sidelist = [int(s) for s in sides[1].split() if s.isdigit()]
 						bnobj.tipoint = sidelist[0]								
-						
-						print ("operator: %s ; tippoint %s"  % (bnobj.operator, bnobj.tipoint))
+						print("%s valju:%s"%(bnobj.name, bnobj.valju))						
+						#print ("operator: %s ; tippoint %s"  % (bnobj.operator, bnobj.tipoint))
 					except:
 						pass			
 	#seen = {}
@@ -687,4 +683,4 @@ if __name__=='__main__':
 		run()
 		
 #Check why valju is changed to 0 after run().
-		
+#why is hospital.valju 1 at the beginning?
