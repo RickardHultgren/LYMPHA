@@ -299,8 +299,7 @@ def mapfunc():
 						#truefalse = True
 						subfactors = list()
 						###
-						for item in object_list:
-							
+						for item in object_list:							
 							if cont_object == item.name :
 								print ("\n\ncont_object:%s, item.name:%s" % (cont_object, item.name))
 								#if item.name != "":
@@ -600,7 +599,7 @@ def run():
 					elif "=>" in parts :
 						subfactorings = parts.split("=>",1)
 						parts=subfactorings[1]
-						bnobj.operator="geq"							
+						bnobj.operator="geq"						
 					elif "=<" in parts :
 						subfactorings = parts.split("=<",1)
 						parts=subfactorings[1]
@@ -623,7 +622,7 @@ def run():
 						parts = parts.replace(" ","")
 						if parts == "T":
 							print("%s True"%bnobj.name)
-							bnobj.valju = 1
+							bnobj.valju = 1 
 							print("\nT\nT\nT")
 						elif parts == "F":
 							print("%s False"%bnobj.name)
@@ -635,7 +634,7 @@ def run():
 								part = part.replace(" ","")
 								if part != "" or part != " ":
 									bnobj.cont_list.append(part)
-									#print("contlist %s"%bnobj.cont_list)
+									print("contlist  ---- %s"%bnobj.cont_list)
 									#print ("subs: %s"  % part)
 							#print (bnobj.valju)
 						sidelist = [int(s) for s in sides[1].split() if s.isdigit()]
@@ -687,5 +686,5 @@ if __name__=='__main__':
 	if filecheck == True:
 		run()
 		
-#Check 
+#Check why valju is changed to 0 after run().
 		
