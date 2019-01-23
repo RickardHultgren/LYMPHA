@@ -286,6 +286,14 @@ def mapfunc():
 	global starts
 	global show_list
 	global steps
+	
+	
+	#Why stopping on XYZ.
+	for obj in object_list :
+		obj.next_list = obj.next_list[1:]
+		print ("NAME %s ;; NEXTLIST %s"%(obj.name, obj.next_list))
+	
+	
 	if modegraph == True:
 		graphstr = 'digraph lympha {\nnode [shape=record];'	
 	for step in range(0,steps):
@@ -293,7 +301,10 @@ def mapfunc():
 		for start in starts:
 			#for index,obj in enumerate(object_list):
 			for obj in object_list:
+				print ("NAME %s"%(obj.name))
+				#Why are factors excluded?
 				if ("%s" % obj.name) == ("%s" % start) :
+					
 					for cont_object in obj.cont_list :
 						# Critical list of trues???
 						#truefalse = True
@@ -338,7 +349,6 @@ def mapfunc():
 						#else:
 							#obj.valju = 1	
 
-					###How to include factors?
 					print("name:%s\nvalue:%s" % (obj.name,obj.valju))
 					if obj.valju == 1:
 						print ("step %s: %s; exe" % (step+1, start))
@@ -463,10 +473,7 @@ def assasement(eqobjs):
 def run():
 #loop problem in the same serie
 	global object_list
-	
-###
-	for obj in object_list:
-		print ("\n\nboj valju:::%s"%(obj.valju))	
+
 	
 	nexts = list()
 	conts = list()
@@ -578,6 +585,8 @@ def run():
 		count = 0
 		# many nexts vs one
 		anobj = serie
+		
+		
 		if anobj != "" and " = " in anobj:
 			
 			for bnobj in object_list :
@@ -687,4 +696,5 @@ if __name__=='__main__':
 		
 #Check why valju is changed to 0 after run().
 #why is hospital.valju 1 at the beginning?
-###341 How to include factors?
+###297 Why are factors excluded?
+#291 #Why stopping on XYZ. #Why end factor always positive?
