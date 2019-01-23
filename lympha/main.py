@@ -309,7 +309,7 @@ def mapfunc():
 						sum0 = subfactors.count("0")
 						print("sum1:%s"%subfactors)
 						print("nanme:%s ; topioint:%s ; operator:%s ; obj.tipoint:%s" %(obj.name, obj.tipoint, obj.operator, obj.tipoint))
-						if obj.operator	!= None:
+						if obj.operator	!= None and obj.valju == None :
 							#print("????obj.tipoint:%s"%obj.tipoint)
 							if obj.operator == "equiv" and obj.tipoint == sum1:
 								obj.valju = 1
@@ -335,9 +335,10 @@ def mapfunc():
 								obj.valju = 1
 							else:
 								obj.valju = 0	
-						else:
-							obj.valju = 1	
+						#else:
+							#obj.valju = 1	
 
+					###How to include factors?
 					print("name:%s\nvalue:%s" % (obj.name,obj.valju))
 					if obj.valju == 1:
 						print ("step %s: %s; exe" % (step+1, start))
@@ -462,6 +463,11 @@ def assasement(eqobjs):
 def run():
 #loop problem in the same serie
 	global object_list
+	
+###
+	for obj in object_list:
+		print ("\n\nboj valju:::%s"%(obj.valju))	
+	
 	nexts = list()
 	conts = list()
 	#make new nodes in database
@@ -544,10 +550,7 @@ def run():
 			anobj.replace(" ","")
 			if not anobj == "" :
 				for bnobj in object_list :
-
-
-					
-							#if sides[1] has pattern ]{???}] = cont_list
+					#if sides[1] has pattern ]{???}] = cont_list
 					#critical:
 					if (" %s " % bnobj.name) == ("%s" % anobj):
 						nexting = ""
@@ -684,3 +687,4 @@ if __name__=='__main__':
 		
 #Check why valju is changed to 0 after run().
 #why is hospital.valju 1 at the beginning?
+###341 How to include factors?
