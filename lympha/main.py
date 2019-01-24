@@ -304,50 +304,38 @@ def mapfunc():
 				print ("NAME %s"%(obj.name))
 				#Why are factors excluded?
 				if ("%s" % obj.name) == ("%s" % start) :
-					
+					subfactors = list()
 					for cont_object in obj.cont_list :
-						# Critical list of trues???
-						#truefalse = True
-						subfactors = list()
-						###
 						for item in object_list:							
 							if cont_object == item.name :
 								print ("\n\ncont_object:%s, item.name:%s" % (cont_object, item.name))
 								#if item.name != "":
 								#	print("name: %s ; value: %s"%(item.name, item.valju))
 								subfactors.append(item.valju)
-						sum1 = subfactors.count("1")
-						sum0 = subfactors.count("0")
-						print("sum1:%s"%subfactors)
-						print("nanme:%s ; topioint:%s ; operator:%s ; obj.tipoint:%s" %(obj.name, obj.tipoint, obj.operator, obj.tipoint))
-						if obj.operator	!= None and obj.valju == None :
-							#print("????obj.tipoint:%s"%obj.tipoint)
-							if obj.operator == "equiv" and obj.tipoint == sum1:
-								obj.valju = 1
-							else:
-								obj.valju = 0
-							if obj.operator == "geq" and obj.tipoint >= sum1:
-								obj.valju = 1
-							else:
-								obj.valju = 0			
-							if obj.operator == "leq" and obj.tipoint <= sum1:
-								obj.valju = 1
-							else:
-								obj.valju = 0			
-							if obj.operator == "no" and obj.tipoint != sum1:
-								obj.valju = 1
-							else:
-								obj.valju = 0			
-							if obj.operator == "g" and obj.tipoint > sum1:
-								obj.valju = 1
-							else:
-								obj.valju = 0			
-							if obj.operator == "l" and obj.tipoint < sum1:
-								obj.valju = 1
-							else:
-								obj.valju = 0	
-						#else:
-							#obj.valju = 1	
+					print("SUBFACTORS: %s"%subfactors)
+					sum1 = subfactors.count(1)
+					sum0 = subfactors.count(0)
+					print("sum1:%s"%subfactors)
+					print("nanme:%s ; topioint:%s ; operator:%s ; obj.tipoint:%s" %(obj.name, obj.tipoint, obj.operator, obj.tipoint))
+					if obj.operator	!= None and obj.valju is None :
+						#print("????obj.tipoint:%s"%obj.tipoint)
+						if obj.operator == "equiv" and obj.tipoint == sum1:
+							obj.valju = 1
+						elif obj.operator == "geq" and obj.tipoint >= sum1:
+							obj.valju = 1
+						elif obj.operator == "leq" and obj.tipoint <= sum1:
+							obj.valju = 1
+						elif obj.operator == "no" and obj.tipoint != sum1:
+							obj.valju = 1
+						elif obj.operator == "g" and obj.tipoint > sum1:
+							obj.valju = 1
+						elif obj.operator == "l" and obj.tipoint < sum1:
+							print (sum1)
+							obj.valju = 1
+						else:
+							obj.valju = 0	
+					#else:
+						#obj.valju = 1	
 
 					print("name:%s\nvalue:%s" % (obj.name,obj.valju))
 					if obj.valju == 1:
@@ -396,9 +384,9 @@ def new(name, tipoint, valju, operator, next_list, cont_list, spec_list):
 		if (" %s " % obj.name) == name:
 			#print("| %s |;|%s|" % (obj.name,name))
 			nameused = True
-			if tipoint != None:
+			if tipoint is None:
 				object_list[index].tipoint == tipoint
-			if valju != None:
+			if valju is None:
 				
 				object_list[index].valju == valju
 				if valju != 0: print("%s:%s\n" % (object_list[index].valju, valju))
@@ -586,9 +574,7 @@ def run():
 		# many nexts vs one
 		anobj = serie
 		
-		
 		if anobj != "" and " = " in anobj:
-			
 			for bnobj in object_list :
 				#Valju or tipoint					
 				sides =	anobj.split(' = ')
@@ -597,60 +583,64 @@ def run():
 				if side1 == bnobj.name :
 					#check if sides[2] has pattern ]{???}] = cont_list
 					parts = ""
-					try:
-						parts = sides[1].replace("|{","")
-						parts = parts.replace("}|","")
-						#parts = parts.replace(" ","")
-					except:
-						pass
-					subfactorings = []
-					if "==" in parts :
-						subfactorings = parts.split("==",1)
-						parts=subfactorings[1]
-						bnobj.operator="equiv"
-					elif "=>" in parts :
-						subfactorings = parts.split("=>",1)
-						parts=subfactorings[1]
-						bnobj.operator="geq"						
-					elif "=<" in parts :
-						subfactorings = parts.split("=<",1)
-						parts=subfactorings[1]
-						bnobj.operator="gleq"
-					elif "!=" in parts :
-						subfactorings = parts.split("!=",1)
-						parts=subfactorings[1]
-						bnobj.operator="no"
-					elif ">" in parts :
-						subfactorings = parts.split(">",1)
-						parts=subfactorings[1]
-						bnobj.operator="g"
-					elif "<" in parts :
-						subfactorings = parts.split("<",1)
-						parts=subfactorings[1]
-						bnobj.operator="l"
-			
-					#print ("parts %s"%parts)
-					try:
-						parts = parts.replace(" ","")
-						if parts == "T":				
-							bnobj.valju = 1 
-						elif parts == "F":
-							bnobj.valju = 0	
-						else:
-							partlist = parts.split(",")
-							for part in partlist:
-								part = part.replace(" ","")
-								if part != "" or part != " ":
-									bnobj.cont_list.append(part)
-									print("contlist  ---- %s"%bnobj.cont_list)
-									#print ("subs: %s"  % part)
+					#try:
+
+					parts = sides[1].replace("|{","")
+					parts = parts.replace("}|","")
+					#parts = parts.replace(" ","")					
+					parts = parts.replace(" ","")
+					print ("PARTS:: %s"%parts)
+					if parts == "T":	
+						print ("TRUE")			
+						bnobj.valju = 1 
+					elif parts == "F":
+						bnobj.valju = 0	
+					else:
+						partlist = parts.split(",")
+						for part in partlist:
+							part = part.replace(" ","")
+							if part != "" or part != " ":
+								bnobj.cont_list.append(part)
+								print("contlist  ---- %s"%bnobj.cont_list)
+								#print ("subs: %s"  % part)
 							#print (bnobj.valju)
-						sidelist = [int(s) for s in sides[1].split() if s.isdigit()]
+							
+							subfactorings = []
+							if "==" in parts :
+								subfactorings = parts.split("==",1)
+								parts=subfactorings[1]
+								bnobj.operator="equiv"
+							elif "=>" in parts :
+								subfactorings = parts.split("=>",1)
+								parts=subfactorings[1]
+								bnobj.operator="geq"						
+							elif "=<" in parts :
+								subfactorings = parts.split("=<",1)
+								parts=subfactorings[1]
+								bnobj.operator="gleq"
+							elif "!=" in parts :
+								subfactorings = parts.split("!=",1)
+								parts=subfactorings[1]
+								bnobj.operator="no"
+							elif ">" in parts :
+								subfactorings = parts.split(">",1)
+								parts=subfactorings[1]
+								bnobj.operator="g"
+							elif "<" in parts :
+								subfactorings = parts.split("<",1)
+								parts=subfactorings[1]
+								bnobj.operator="l"
+						bnobj.valju = None
+							
+					sidelist = [int(s) for s in sides[1].split() if s.isdigit()]
+					try:
 						bnobj.tipoint = sidelist[0]								
 						print("%s valju:%s"%(bnobj.name, bnobj.valju))						
-						#print ("operator: %s ; tippoint %s"  % (bnobj.operator, bnobj.tipoint))
+					#print ("operator: %s ; tippoint %s"  % (bnobj.operator, bnobj.tipoint))
 					except:
-						pass			
+							pass						
+						
+				
 	#seen = {}
 	#object_list = [seen.setdefault(x.name, x) for x in object_list if x.name not in seen]			
 
@@ -693,8 +683,6 @@ if __name__=='__main__':
 # Execute functions that are connected to the arguments:
 	if filecheck == True:
 		run()
-		
-#Check why valju is changed to 0 after run().
-#why is hospital.valju 1 at the beginning?
+
 ###297 Why are factors excluded?
-#291 #Why stopping on XYZ. #Why end factor always positive?
+#291 #Why stopping on XYZ. #Why end factor always positive? False at reading? -- solution -- regex
