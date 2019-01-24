@@ -117,105 +117,57 @@ def exefunc() :
 	global starts
 	global show_list
 	global steps
+	
+	
+	#Why stopping on XYZ.
+	for obj in object_list :
+		obj.next_list = obj.next_list[1:]
+		print ("NAME %s ;; NEXTLIST %s"%(obj.name, obj.next_list))
+	
+	
 	if modegraph == True:
 		graphstr = 'digraph lympha {\nnode [shape=record];'	
 	for step in range(0,steps):
 		nextstates = list()
 		for start in starts:
-			#for index, obj in enumerate(object_list):
-			for obj in enumerate(object_list):
+			#for index,obj in enumerate(object_list):
+			for obj in object_list:
+				print ("NAME %s"%(obj.name))
+				#Why are factors excluded?
 				if ("%s" % obj.name) == ("%s" % start) :
-
-					#Sum all content-objs:
+					subfactors = list()
 					for cont_object in obj.cont_list :
-						# Critical list of trues???
-						truefalse = True
-						subfactors = list()
-						
-						
-						
-						try:
-							arrowobjs = cont_object.replace(' ', '')
-							#colonobjs = arrowobjs.split(':',1)						
-							if colonobjs[0] == "T" : truefalse = True
-							elif colonobjs[0] == "F" : truefalse = False
-							else: print ("error")
-							subfactors = colonobjs[1].split(",")
-							for subfactor in subfactors:
-								name = name.replace(' ', '')
-								if subfactor != "T" or subfactor != "F" :
-									identities = list(assasement(subfactor))
-									#identities[0]
-									for obj2 in object_list:
-										if identities[1] == obj2.name:
-											try:
-												identities[1]=int(obj2.valju)
-											except:
-												print("Statement %s has no valju." % obj2.name)
-										if identities[2] == obj2.name:
-											try:
-												identities[2]=int(obj2.valju)
-											except:
-												print("Statement %s has no valju." % obj2.name)
-										if identities[0] == "equiv" and identities[1] == identities[2]:
-											subfactor = "T"
-										else:
-											subfactor = "F"
-										if identities[0] == "geq" and identities[1] >= identities[2]:
-											subfactor = "T"
-										else:
-											subfactor = "F"											
-										if identities[0] == "leq" and identities[1] <= identities[2]:
-											subfactor = "T"
-										else:
-											subfactor = "F"											
-										if identities[0] == "no" and identities[1] != identities[2]:
-											subfactor = "T"
-										else:
-											subfactor = "F"											
-										if identities[0] == "g" and identities[1] > identities[2]:
-											subfactor = "T"
-										else:
-											subfactor = "F"											
-										if identities[0] == "l" and identities[1] < identities[2]:
-											subfactor = "T"
-										else:
-											subfactor = "F"
-									if truefalse == True:
-										subcount = subfactors.count("T")
-									elif truefalse == False:
-										subcount = subfactors.count("F")			
-
-
-							#print("operator:%s\n" % obj.operator)
-							if obj.operator == "equiv"	!= None:
-								if obj.operator == "equiv" and identities[1] == subfactors:
-									object_list[index].valju = 1
-								else:
-									object_list[index].valju = 0
-								if obj.operator == "geq" and identities[1] >= subfactors:
-									object_list[index].valju = 1
-								else:
-									object_list[index].valju = 0			
-								if obj.operator == "leq" and identities[1] <= subfactors:
-									object_list[index].valju = 1
-								else:
-									object_list[index].valju = 0			
-								if obj.operator == "no" and identities[1] != subfactors:
-									object_list[index].valju = 1
-								else:
-									object_list[index].valju = 0			
-								if obj.operator == "g" and identities[1] > subfactors:
-									object_list[index].valju = 1
-								else:
-									object_list[index].valju = 0			
-								if obj.operator == "l" and identities[1] < subfactors:
-									object_list[index].valju = 1
-								else:
-									object_list[index].valju = 0	
-
-						except:
-							pass
+						for item in object_list:							
+							if cont_object == item.name :
+								print ("\n\ncont_object:%s, item.name:%s" % (cont_object, item.name))
+								#if item.name != "":
+								#	print("name: %s ; value: %s"%(item.name, item.valju))
+								subfactors.append(item.valju)
+					print("SUBFACTORS: %s"%subfactors)
+					sum1 = subfactors.count(1)
+					sum0 = subfactors.count(0)
+					print("sum1:%s"%subfactors)
+					print("nanme:%s ; topioint:%s ; operator:%s ; obj.tipoint:%s" %(obj.name, obj.tipoint, obj.operator, obj.tipoint))
+					if obj.operator	!= None and obj.valju is None :
+						#print("????obj.tipoint:%s"%obj.tipoint)
+						if obj.operator == "equiv" and obj.tipoint == sum1:
+							obj.valju = 1
+						elif obj.operator == "geq" and obj.tipoint >= sum1:
+							obj.valju = 1
+						elif obj.operator == "leq" and obj.tipoint <= sum1:
+							obj.valju = 1
+						elif obj.operator == "no" and obj.tipoint != sum1:
+							obj.valju = 1
+						elif obj.operator == "g" and obj.tipoint > sum1:
+							obj.valju = 1
+						elif obj.operator == "l" and obj.tipoint < sum1:
+							print (sum1)
+							obj.valju = 1
+						else:
+							obj.valju = 0	
+					#else:
+						#obj.valju = 1	
+###connect to funcs
 
 
 					if obj.valju == 1:
