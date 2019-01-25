@@ -122,8 +122,6 @@ def exefunc() :
 	#Why stopping on XYZ.
 	for obj in object_list :
 		obj.next_list = obj.next_list[1:]
-		print ("NAME %s ;; NEXTLIST %s"%(obj.name, obj.next_list))
-	
 	
 	if modegraph == True:
 		graphstr = 'digraph lympha {\nnode [shape=record];'	
@@ -132,16 +130,11 @@ def exefunc() :
 		for start in starts:
 			#for index,obj in enumerate(object_list):
 			for obj in object_list:
-				print ("NAME %s"%(obj.name))
-				#Why are factors excluded?
 				if ("%s" % obj.name) == ("%s" % start) :
 					subfactors = list()
 					for cont_object in obj.cont_list :
 						for item in object_list:							
 							if cont_object == item.name :
-								print ("\n\ncont_object:%s, item.name:%s" % (cont_object, item.name))
-								#if item.name != "":
-								#	print("name: %s ; value: %s"%(item.name, item.valju))
 								subfactors.append(item.valju)
 					print("SUBFACTORS: %s"%subfactors)
 					sum1 = subfactors.count(1)
@@ -149,7 +142,6 @@ def exefunc() :
 					print("sum1:%s"%subfactors)
 					print("nanme:%s ; topioint:%s ; operator:%s ; obj.tipoint:%s" %(obj.name, obj.tipoint, obj.operator, obj.tipoint))
 					if obj.operator	!= None and obj.valju is None :
-						#print("????obj.tipoint:%s"%obj.tipoint)
 						if obj.operator == "equiv" and obj.tipoint == sum1:
 							obj.valju = 1
 						elif obj.operator == "geq" and obj.tipoint >= sum1:
@@ -243,8 +235,6 @@ def mapfunc():
 	#Why stopping on XYZ.
 	for obj in object_list :
 		obj.next_list = obj.next_list[1:]
-		print ("NAME %s ;; NEXTLIST %s"%(obj.name, obj.next_list))
-	
 	
 	if modegraph == True:
 		graphstr = 'digraph lympha {\nnode [shape=record];'	
@@ -253,24 +243,17 @@ def mapfunc():
 		for start in starts:
 			#for index,obj in enumerate(object_list):
 			for obj in object_list:
-				print ("NAME %s"%(obj.name))
-				#Why are factors excluded?
 				if ("%s" % obj.name) == ("%s" % start) :
 					subfactors = list()
 					for cont_object in obj.cont_list :
 						for item in object_list:							
 							if cont_object == item.name :
-								print ("\n\ncont_object:%s, item.name:%s" % (cont_object, item.name))
 								#if item.name != "":
 								#	print("name: %s ; value: %s"%(item.name, item.valju))
 								subfactors.append(item.valju)
-					print("SUBFACTORS: %s"%subfactors)
 					sum1 = subfactors.count(1)
 					sum0 = subfactors.count(0)
-					print("sum1:%s"%subfactors)
-					print("nanme:%s ; topioint:%s ; operator:%s ; obj.tipoint:%s" %(obj.name, obj.tipoint, obj.operator, obj.tipoint))
 					if obj.operator	!= None and obj.valju is None :
-						#print("????obj.tipoint:%s"%obj.tipoint)
 						if obj.operator == "equiv" and obj.tipoint == sum1:
 							obj.valju = 1
 						elif obj.operator == "geq" and obj.tipoint >= sum1:
@@ -497,8 +480,6 @@ def run():
 			anobj.replace(" ","")
 			if not anobj == "" :
 				for bnobj in object_list :
-					#if sides[1] has pattern ]{???}] = cont_list
-					#critical:
 					if (" %s " % bnobj.name) == ("%s" % anobj):
 						nexting = ""
 						try:
@@ -533,17 +514,11 @@ def run():
 				side1 = sides[0]
 				side1 = side1.replace(" ","")
 				if side1 == bnobj.name :
-					#check if sides[2] has pattern ]{???}] = cont_list
 					parts = ""
-					#try:
-
 					parts = sides[1].replace("|{","")
 					parts = parts.replace("}|","")
-					#parts = parts.replace(" ","")					
 					parts = parts.replace(" ","")
-					print ("PARTS:: %s"%parts)
 					if parts == "T":	
-						print ("TRUE")			
 						bnobj.valju = 1 
 					elif parts == "F":
 						bnobj.valju = 0	
@@ -553,7 +528,6 @@ def run():
 							part = part.replace(" ","")
 							if part != "" or part != " ":
 								bnobj.cont_list.append(part)
-								print("contlist  ---- %s"%bnobj.cont_list)
 								#print ("subs: %s"  % part)
 							#print (bnobj.valju)
 							
@@ -615,6 +589,7 @@ if __name__=='__main__':
 			filetext = filetext.replace('\n', ' ')
 			filetext = filetext.replace('  ', ' ')
 			series = filetext.split(';')
+			print("series: %s" % series)
 			filecheck = True
 		if sys.argv[x] == "-h":
 			print ('-h for help\n-f file\n-map OR -show\n-graph\n-start "start node"\n-steps amount of steps')
@@ -636,5 +611,5 @@ if __name__=='__main__':
 	if filecheck == True:
 		run()
 
-###297 Why are factors excluded?
-#291 #Why stopping on XYZ. #Why end factor always positive? False at reading? -- solution -- regex
+#291 #Why stopping on XYZ. #Why end factor always positive?
+#529 replace " = " with regexp
