@@ -5,6 +5,9 @@ import sys
 #for the graph function:
 import os
 
+#regex
+import re
+
 prefilecom = ""
 filecom = ""
 argvlen = len(sys.argv)
@@ -393,11 +396,10 @@ def assasement(eqobjs):
 		pass
 
 
-def run():
+def lexer():
 #loop problem in the same serie
 	global object_list
 
-	
 	nexts = list()
 	conts = list()
 	#make new nodes in database
@@ -410,17 +412,20 @@ def run():
 		tipoint = int()
 		operator = str()
 		valju = int()
-		# many nexts vs one
 		scale = list()
 		for anobj in arrowobjs:
-			anobj.replace(" ","")
-			eqobjs = anobj.split('=',1)
+			#anobj.replace(" ","")
+###
+			#eqobjs = anobj.split(' = ',1)
+			eqobjs = re.compile("[^=|<|>|!]=[^=|<|>|!]").split(anobj)
+			print (eqobjs)
+			if eqobjs == None:
+				print ("Syntax error.")
+				exit()
 			try:
 				anobj.replace(" ","")
 				if eqobjs[1].isdigit() == True :
-					#print(eqobjs[1])
 					valju = int(eqobjs[1])
-					#print(valju)
 				else:
 					scale = list(assasement(eqobjs[1]))
 					tipoint = scale[1]
@@ -561,8 +566,6 @@ def run():
 					sidelist = [int(s) for s in sides[1].split() if s.isdigit()]
 					try:
 						bnobj.tipoint = sidelist[0]								
-						print("%s valju:%s"%(bnobj.name, bnobj.valju))						
-					#print ("operator: %s ; tippoint %s"  % (bnobj.operator, bnobj.tipoint))
 					except:
 							pass						
 						
@@ -589,7 +592,6 @@ if __name__=='__main__':
 			filetext = filetext.replace('\n', ' ')
 			filetext = filetext.replace('  ', ' ')
 			series = filetext.split(';')
-			print("series: %s" % series)
 			filecheck = True
 		if sys.argv[x] == "-h":
 			print ('-h for help\n-f file\n-map OR -show\n-graph\n-start "start node"\n-steps amount of steps')
@@ -609,7 +611,7 @@ if __name__=='__main__':
 			starts.append(sys.argv[x+1])
 # Execute functions that are connected to the arguments:
 	if filecheck == True:
-		run()
+		lexer()
 
 #291 #Why stopping on XYZ. #Why end factor always positive?
 #529 replace " = " with regexp
