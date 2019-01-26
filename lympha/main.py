@@ -414,14 +414,10 @@ def lexer():
 		valju = int()
 		scale = list()
 		for anobj in arrowobjs:
-			#anobj.replace(" ","")
 ###
 			#eqobjs = anobj.split(' = ',1)
+			#anobj.replace(" ","")
 			eqobjs = re.compile("[^=|<|>|!]=[^=|<|>|!]").split(anobj)
-			print (eqobjs)
-			if eqobjs == None:
-				print ("Syntax error.")
-				exit()
 			try:
 				anobj.replace(" ","")
 				if eqobjs[1].isdigit() == True :
@@ -514,8 +510,9 @@ def lexer():
 		
 		if anobj != "" and " = " in anobj:
 			for bnobj in object_list :
-				#Valju or tipoint					
-				sides =	anobj.split(' = ')
+				#Valju or tipoint
+				#sides =	anobj.split(' = ')
+				sides = re.compile("[^=|<|>|!]=[^=|<|>|!]").split(anobj)
 				side1 = sides[0]
 				side1 = side1.replace(" ","")
 				if side1 == bnobj.name :
