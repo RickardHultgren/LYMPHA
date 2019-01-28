@@ -268,7 +268,7 @@ def mapfunc():
 							elif obj.operator1 == "g" and obj.tipoint1 > sum1:
 								obj.valju = str("1")
 							elif obj.operator1 == "l" and obj.tipoint1 < sum1:
-								print (sum1)
+								
 								obj.valju = str("1")
 							else:
 								obj.valju = str("0")
