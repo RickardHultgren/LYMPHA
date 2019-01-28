@@ -145,11 +145,8 @@ def exefunc() :
 						for item in object_list:							
 							if cont_object == item.name :
 								subfactors.append(item.int(valju))
-					print("SUBFACTORS: %s"%subfactors)
 					sum1 = subfactors.count(1)
 					sum0 = subfactors.count(0)
-					print("sum1:%s"%subfactors)
-					print("nanme:%s ; topioint:%s ; operator1:%s ; obj.tipoint1:%s" %(obj.name, obj.tipoint1, obj.operator1, obj.tipoint1))
 					if obj.operator1	!= None and int(obj.valju) is None :
 						if obj.operator1 == "equiv" and obj.tipoint1 == sum1:
 							obj.valju = str("1")
@@ -283,46 +280,47 @@ def mapfunc():
 					else:
 						
 						for algobj in object_list:
-						
-							if  algobj == ("%s" % obj.valju):
-								sum1 = ("%s" % obj.valju)
-						prevalju = "0"		
-						if obj.operator1 != None and obj.valju is None :
-							if obj.operator1 == "equiv" and obj.tipoint1 == sum1:
-								prevalju = "1"
-							elif obj.operator1 == "geq" and obj.tipoint1 >= sum1:
-								prevalju = "1"
-							elif obj.operator1 == "leq" and obj.tipoint1 <= sum1:
-								prevalju = "1"
-							elif obj.operator1 == "no" and obj.tipoint1 != sum1:
-								prevalju = "1"
-							elif obj.operator1 == "g" and obj.tipoint1 > sum1:
-								prevalju = "1"
-							elif obj.operator1 == "l" and obj.tipoint1 < sum1:
-								prevalju = "1"
-							else:
-								prevalju = str("0")	
-							obj.valju = prevalju
-						if obj.operator2 != None and obj.valju is None :
-							if obj.operator2 == "equiv" and obj.tipoint2 == sum1 and prevalju == "1" :
-								prevalju = "1"
-							elif obj.operator2 == "geq" and obj.tipoint2 >= sum1 and prevalju == "1" :
-								prevalju = "1"
-							elif obj.operator2 == "leq" and obj.tipoint2 <= sum1 and prevalju == "1" :
-								prevalju = "1"
-							elif obj.operator2 == "no" and obj.tipoint2 != sum1 and prevalju == "1" :
-								prevalju = "1"
-							elif obj.operator2 == "g" and obj.tipoint2 > sum1 and prevalju == "1" :
-								prevalju = "1"
-							elif obj.operator2 == "l" and obj.tipoint2 < sum1 and prevalju == "1" :
-								prevalju = "1"
-							else:
-								prevalju = str("0")									
-						#else:
-							#obj.valju = str("1")							
-							obj.valju = prevalju
+							prevalju = "0"		
+							if  algobj.name == ("%s" % obj.tipoint1):
+								sum1 = ("%s" % algobj.valju)
+								
+								
+								if obj.operator1 != None and obj.valju != "" :
+									if obj.operator1 == "equiv" and obj.tipoint1 == sum1:
+										prevalju = "1"
+									elif obj.operator1 == "geq" and obj.tipoint1 >= sum1:
+										prevalju = "1"
+									elif obj.operator1 == "leq" and obj.tipoint1 <= sum1:
+										prevalju = "1"
+									elif obj.operator1 == "no" and obj.tipoint1 != sum1:
+										prevalju = "1"
+									elif obj.operator1 == "g" and obj.tipoint1 > sum1:
+										prevalju = "1"
+									elif obj.operator1 == "l" and obj.tipoint1 < sum1:
+										prevalju = "1"
+									else:
+										prevalju = str("0")	
+							if  algobj.name == ("%s" % obj.tipoint2):
+								sum1 = ("%s" % algobj.valju)										
+								if obj.operator2 != None :
+									if obj.operator2 == "equiv" and obj.tipoint2 == sum1 and prevalju == "1" :
+										prevalju = "1"
+									elif obj.operator2 == "geq" and obj.tipoint2 >= sum1 and prevalju == "1" :
+										prevalju = "1"
+									elif obj.operator2 == "leq" and obj.tipoint2 <= sum1 and prevalju == "1" :
+										prevalju = "1"
+									elif obj.operator2 == "no" and obj.tipoint2 != sum1 and prevalju == "1" :
+										prevalju = "1"
+									elif obj.operator2 == "g" and obj.tipoint2 > sum1 and prevalju == "1" :
+										prevalju = "1"
+									elif obj.operator2 == "l" and obj.tipoint2 < sum1 and prevalju == "1" :
+										prevalju = "1"
+									else:
+										prevalju = str("0")									
+								#else:
+									#obj.valju = str("1")							
+								obj.valju = prevalju
 
-					print("name:%s\nvalue:%s" % (obj.name,obj.valju))
 					if obj.valju == str("1"):
 						print ("step %s: %s; exe" % (step+1, start))
 					else:
@@ -565,14 +563,18 @@ def lexer():
 							
 							#valju(bnobj.valju) = [int(s) for s in sides[1].split()][1]
 							
-					sidelist = [int(s) for s in sides[1].split() if s.isdigit()]
+					sidelist = re.compile("[=|<|>|!]=").split(sides[1])
+					#sidelist = [int(s) for s in sides[1].split() if s.isdigit()]
+					#bnobj.tipoint1 = sidelist[0]
 					try:
-						bnobj.tipoint1 = sidelist[0]								
+						bnobj.tipoint1 = (sidelist[1]).replace(" ","")
+						#bnobj.tipoint1 = sidelist[0]	
 					except:
-							pass						
+												pass
 					try:
 						if bnobj.tipoint1 != None :
-							bnobj.tipoint1 = sidelist[0]								
+							bnobj.tipoint2 = (sidelist[1]).replace(" ","")
+							#bnobj.tipoint1 = sidelist[0]								
 					except:
 							pass							
 				
