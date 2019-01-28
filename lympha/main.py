@@ -28,8 +28,10 @@ series = list()
 substates = list()
 nextstates = list()
 specs = list()
-tipoint = None
-operator = None
+tipoint1 = None
+tipoint2 = None
+operator1 = None
+operator2 = None
 valju = str()
 
 object_list = list()
@@ -37,7 +39,7 @@ exe_objects = list()
 
 '''
 class Factor:
-	def __init__(self, name, tipoint, operator, next_list, spec_list, cont_list):
+	def __init__(self, name, tipoint1, operator1, next_list, spec_list, cont_list):
         		
 		#list of next nodes:
 		#next_list = next_list
@@ -55,10 +57,10 @@ class Factor:
 		self.name = name
 		
 		#tipping point
-		self.tipoint = tippoint
+		self.tipoint1 = tippoint
 		
-		#relational operator
-		self.operator = operator
+		#relational operator1
+		self.operator1 = operator1
 
 class Event:
 	def __init__(self, name, next_list, spec_list, cont_list):
@@ -80,7 +82,7 @@ class Event:
 '''
 
 class Statement:
-	def __init__(self, name, valju, tipoint, operator, next_list, cont_list, spec_list):
+	def __init__(self, name, tipoint1, tipoint2, valju, operator1, operator2, next_list, cont_list, spec_list):
         
 		self.flow = False
         		
@@ -100,10 +102,17 @@ class Statement:
 		self.name = name
 		
 		#tipping point
-		self.tipoint = tipoint
+		self.tipoint1 = tipoint1
+
+		#tipping point
+		self.tipoint2 = tipoint2
 		
 		#relational operator
-		self.operator = operator
+		self.operator1 = operator1
+
+		#relational operator
+		self.operator2 = operator2
+
 
 		#valju
 		#if valju != 0 :print (valju)
@@ -140,19 +149,19 @@ def exefunc() :
 					sum1 = subfactors.count(1)
 					sum0 = subfactors.count(0)
 					print("sum1:%s"%subfactors)
-					print("nanme:%s ; topioint:%s ; operator:%s ; obj.tipoint:%s" %(obj.name, obj.tipoint, obj.operator, obj.tipoint))
-					if obj.operator	!= None and int(obj.valju) is None :
-						if obj.operator == "equiv" and obj.tipoint == sum1:
+					print("nanme:%s ; topioint:%s ; operator1:%s ; obj.tipoint1:%s" %(obj.name, obj.tipoint1, obj.operator1, obj.tipoint1))
+					if obj.operator1	!= None and int(obj.valju) is None :
+						if obj.operator1 == "equiv" and obj.tipoint1 == sum1:
 							obj.valju = str("1")
-						elif obj.operator == "geq" and obj.tipoint >= sum1:
+						elif obj.operator1 == "geq" and obj.tipoint1 >= sum1:
 							obj.valju = str("1")
-						elif obj.operator == "leq" and obj.tipoint <= sum1:
+						elif obj.operator1 == "leq" and obj.tipoint1 <= sum1:
 							obj.valju = str("1")
-						elif obj.operator == "no" and obj.tipoint != sum1:
+						elif obj.operator1 == "no" and obj.tipoint1 != sum1:
 							obj.valju = str("1")
-						elif obj.operator == "g" and obj.tipoint > sum1:
+						elif obj.operator1 == "g" and obj.tipoint1 > sum1:
 							obj.valju = str("1")
-						elif obj.operator == "l" and obj.tipoint < sum1:
+						elif obj.operator1 == "l" and obj.tipoint1 < sum1:
 							obj.valju = str("1")
 						else:
 							obj.valju = str("0")	
@@ -250,18 +259,18 @@ def mapfunc():
 									subfactors.append(item.valju)
 						sum1 = subfactors.count("1")
 						sum0 = subfactors.count("0")
-						if obj.operator	!= None and obj.valju is None :
-							if obj.operator == "equiv" and obj.tipoint == sum1:
+						if obj.operator1	!= None and obj.valju is None :
+							if obj.operator1 == "equiv" and obj.tipoint1 == sum1:
 								obj.valju = str("1")
-							elif obj.operator == "geq" and obj.tipoint >= sum1:
+							elif obj.operator1 == "geq" and obj.tipoint1 >= sum1:
 								obj.valju = str("1")
-							elif obj.operator == "leq" and obj.tipoint <= sum1:
+							elif obj.operator1 == "leq" and obj.tipoint1 <= sum1:
 								obj.valju = str("1")
-							elif obj.operator == "no" and obj.tipoint != sum1:
+							elif obj.operator1 == "no" and obj.tipoint1 != sum1:
 								obj.valju = str("1")
-							elif obj.operator == "g" and obj.tipoint > sum1:
+							elif obj.operator1 == "g" and obj.tipoint1 > sum1:
 								obj.valju = str("1")
-							elif obj.operator == "l" and obj.tipoint < sum1:
+							elif obj.operator1 == "l" and obj.tipoint1 < sum1:
 								print (sum1)
 								obj.valju = str("1")
 							else:
@@ -269,6 +278,7 @@ def mapfunc():
 						#else:
 							#obj.valju = str("1")	
 					###
+					###many tipoint1s?
 					#algorithm algebra:
 					else:
 						
@@ -276,25 +286,41 @@ def mapfunc():
 						
 							if  algobj == ("%s" % obj.valju):
 								sum1 = ("%s" % obj.valju)
-						if obj.operator	!= None and obj.valju is None :
-							if obj.operator == "equiv" and obj.tipoint == sum1:
-								obj.valju = str("1")
-							elif obj.operator == "geq" and obj.tipoint >= sum1:
-								obj.valju = str("1")
-							elif obj.operator == "leq" and obj.tipoint <= sum1:
-								obj.valju = str("1")
-							elif obj.operator == "no" and obj.tipoint != sum1:
-								obj.valju = str("1")
-							elif obj.operator == "g" and obj.tipoint > sum1:
-								obj.valju = str("1")
-							elif obj.operator == "l" and obj.tipoint < sum1:
-								print (sum1)
-								obj.valju = str("1")
+						prevalju = "0"		
+						if obj.operator1 != None and obj.valju is None :
+							if obj.operator1 == "equiv" and obj.tipoint1 == sum1:
+								prevalju = "1"
+							elif obj.operator1 == "geq" and obj.tipoint1 >= sum1:
+								prevalju = "1"
+							elif obj.operator1 == "leq" and obj.tipoint1 <= sum1:
+								prevalju = "1"
+							elif obj.operator1 == "no" and obj.tipoint1 != sum1:
+								prevalju = "1"
+							elif obj.operator1 == "g" and obj.tipoint1 > sum1:
+								prevalju = "1"
+							elif obj.operator1 == "l" and obj.tipoint1 < sum1:
+								prevalju = "1"
 							else:
-								obj.valju = str("0")	
+								prevalju = str("0")	
+							obj.valju = prevalju
+						if obj.operator2 != None and obj.valju is None :
+							if obj.operator2 == "equiv" and obj.tipoint2 == sum1 and prevalju == "1" :
+								prevalju = "1"
+							elif obj.operator2 == "geq" and obj.tipoint2 >= sum1 and prevalju == "1" :
+								prevalju = "1"
+							elif obj.operator2 == "leq" and obj.tipoint2 <= sum1 and prevalju == "1" :
+								prevalju = "1"
+							elif obj.operator2 == "no" and obj.tipoint2 != sum1 and prevalju == "1" :
+								prevalju = "1"
+							elif obj.operator2 == "g" and obj.tipoint2 > sum1 and prevalju == "1" :
+								prevalju = "1"
+							elif obj.operator2 == "l" and obj.tipoint2 < sum1 and prevalju == "1" :
+								prevalju = "1"
+							else:
+								prevalju = str("0")									
 						#else:
 							#obj.valju = str("1")							
-
+							obj.valju = prevalju
 
 					print("name:%s\nvalue:%s" % (obj.name,obj.valju))
 					if obj.valju == str("1"):
@@ -332,7 +358,7 @@ def statefunc():
 
 
 
-def new(name, tipoint, valju, operator, next_list, cont_list, spec_list):
+def new(name, tipoint1, tipoint2, valju, operator1,  operator2, next_list, cont_list, spec_list):
 	#if int(valju) != 0:
 	#			print(int(valju))
 	#print(int(valju))
@@ -343,14 +369,14 @@ def new(name, tipoint, valju, operator, next_list, cont_list, spec_list):
 		if (" %s " % obj.name) == name:
 			#print("| %s |;|%s|" % (obj.name,name))
 			nameused = True
-			if tipoint is None:
-				object_list[index].tipoint == tipoint
+			if tipoint1 is None:
+				object_list[index].tipoint1 == tipoint1
 			if valju is None:
 				
 				object_list[index].int(valju) == int(valju)
 				if int(valju) != 0: print("%s:%s\n" % (object_list[index].int(valju), int(valju)))
-			if operator != None:
-				object_list[index].operator == operator				
+			if operator1 != None:
+				object_list[index].operator1 == operator1				
 			if next_list != None:
 				object_list[index].next_list == next_list				
 			if cont_list != None:
@@ -361,8 +387,8 @@ def new(name, tipoint, valju, operator, next_list, cont_list, spec_list):
 		#if int(valju) != 0: print("%s:%s\n" % (object_list[index].int(valju), int(valju)))
 		name = name.replace(' ', '')
 		#if int(valju) !=0 :print(int(valju))
-		statement = Statement(name, tipoint, valju, operator, next_list, cont_list, spec_list)
-		#statement = Statement(name, tipoint, operator, list(next_list), cont_list, spec_list)
+		statement = Statement(name, tipoint1, tipoint2, valju, operator1, operator2, next_list, cont_list, spec_list)
+		#statement = Statement(name, tipoint1, operator1, list(next_list), cont_list, spec_list)
 		#if next_list != [] :
 		#	statement.next_list = list(next_list)
 		#if cont_list != [] :
@@ -370,7 +396,7 @@ def new(name, tipoint, valju, operator, next_list, cont_list, spec_list):
 		object_list.append(statement)
 
 def assasement(eqobjs):
-	#0 = operator
+	#0 = operator1
 	#1 = tipping point
 	#2 = content
 	try:
@@ -430,8 +456,8 @@ def lexer():
 		nexts = list()
 		conts = list()
 		specs = list()
-		tipoint = int()
-		operator = str()
+		tipoint1 = int()
+		operator1 = str()
 		valju = str()
 		scale = list()
 		for anobj in arrowobjs:
@@ -441,7 +467,7 @@ def lexer():
 			eqobjs = re.compile("[^=|<|>|!]=[^=|<|>|!]").split(anobj)
 
 			anobj.replace(" ","")
-			new(eqobjs[0],tipoint, valju, operator,nexts,conts, specs)			
+			new(eqobjs[0],tipoint1, tipoint2, valju, operator1, operator2, nexts,conts, specs)			
 	seen = {}
 	object_list = [seen.setdefault(x.name, x) for x in object_list if x.name not in seen]
 	#Connect the database nodes
@@ -471,7 +497,7 @@ def lexer():
 		
 		if anobj != "" and " = " in anobj:
 			for bnobj in object_list :
-				#int(valju) or tipoint
+				#int(valju) or tipoint1
 				#sides =	anobj.split(' = ')
 				sides = re.compile("[^=|<|>|!]=[^=|<|>|!]").split(anobj)
 				side1 = sides[0]
@@ -484,25 +510,44 @@ def lexer():
 						bnobj.valju = parts
 					else:
 						subfactorings = []
-						if "==" in parts :
-							subfactorings = parts.split("==",1)
-							bnobj.operator="equiv"
-						elif ">=" in parts :
-							subfactorings = parts.split(">=",1)
-							bnobj.operator="geq"						
-						elif "<=" in parts :
-							subfactorings = parts.split("<=",1)
-							bnobj.operator="gleq"
-						elif "!=" in parts :
-							subfactorings = parts.split("!=",1)
-							bnobj.operator="no"
-						elif ">" in parts :
-							subfactorings = parts.split(">",1)
-							bnobj.operator="g"
-						elif "<" in parts :
-							subfactorings = parts.split("<",1)
-							bnobj.operator="l"
-						
+						if bnobj.operator1 != None :
+							if "==" in parts :
+								subfactorings = parts.split("==")
+								bnobj.operator1="equiv"
+							elif ">=" in parts :
+								subfactorings = parts.split(">=")
+								bnobj.operator1="geq"						
+							elif "<=" in parts :
+								subfactorings = parts.split("<=")
+								bnobj.operator1="gleq"
+							elif "!=" in parts :
+								subfactorings = parts.split("!=")
+								bnobj.operator1="no"
+							elif ">" in parts :
+								subfactorings = parts.split(">")
+								bnobj.operator1="g"
+							elif "<" in parts :
+								subfactorings = parts.split("<")
+								bnobj.operator1="l"
+						else:
+							if "==" in parts :
+								subfactorings = parts.split("==")
+								bnobj.operator2="equiv"
+							elif ">=" in parts :
+								subfactorings = parts.split(">=")
+								bnobj.operator2="geq"						
+							elif "<=" in parts :
+								subfactorings = parts.split("<=")
+								bnobj.operator2="gleq"
+							elif "!=" in parts :
+								subfactorings = parts.split("!=")
+								bnobj.operator2="no"
+							elif ">" in parts :
+								subfactorings = parts.split(">")
+								bnobj.operator2="g"
+							elif "<" in parts :
+								subfactorings = parts.split("<")
+								bnobj.operator2="l"
 						parts = parts.replace(" ","")
 						#if re.match(r"\|\{[A-Za-z0-9.,:-_ ?]*\}\|", parts):
 						if "|{" in parts and "}|" in parts :
@@ -522,10 +567,14 @@ def lexer():
 							
 					sidelist = [int(s) for s in sides[1].split() if s.isdigit()]
 					try:
-						bnobj.tipoint = sidelist[0]								
+						bnobj.tipoint1 = sidelist[0]								
 					except:
 							pass						
-						
+					try:
+						if bnobj.tipoint1 != None :
+							bnobj.tipoint1 = sidelist[0]								
+					except:
+							pass							
 				
 	#seen = {}
 	#object_list = [seen.setdefault(x.name, x) for x in object_list if x.name not in seen]			
