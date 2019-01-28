@@ -241,33 +241,61 @@ def mapfunc():
 			#for index,obj in enumerate(object_list):
 			for obj in object_list:
 				if ("%s" % obj.name) == ("%s" % start) :
-					subfactors = list()
-					for cont_object in obj.cont_list :
-						for item in object_list:							
-							if cont_object == item.name :
-								#if item.name != "":
-								#	print("name: %s ; value: %s"%(item.name, item.valju))
-								subfactors.append(item.valju)
-					sum1 = subfactors.count(1)
-					sum0 = subfactors.count(0)
-					if obj.operator	!= None and obj.valju is None :
-						if obj.operator == "equiv" and obj.tipoint == sum1:
-							obj.valju = 1
-						elif obj.operator == "geq" and obj.tipoint >= sum1:
-							obj.valju = 1
-						elif obj.operator == "leq" and obj.tipoint <= sum1:
-							obj.valju = 1
-						elif obj.operator == "no" and obj.tipoint != sum1:
-							obj.valju = 1
-						elif obj.operator == "g" and obj.tipoint > sum1:
-							obj.valju = 1
-						elif obj.operator == "l" and obj.tipoint < sum1:
-							print (sum1)
-							obj.valju = 1
-						else:
-							obj.valju = 0	
-					#else:
-						#obj.valju = 1	
+					if len(obj.cont_list) != 0 :
+						subfactors = list()
+						for cont_object in obj.cont_list :
+							for item in object_list:							
+								if cont_object == item.name :
+									#if item.name != "":
+									#	print("name: %s ; value: %s"%(item.name, item.valju))
+									subfactors.append(item.valju)
+						sum1 = subfactors.count(1)
+						sum0 = subfactors.count(0)
+						if obj.operator	!= None and obj.valju is None :
+							if obj.operator == "equiv" and obj.tipoint == sum1:
+								obj.valju = 1
+							elif obj.operator == "geq" and obj.tipoint >= sum1:
+								obj.valju = 1
+							elif obj.operator == "leq" and obj.tipoint <= sum1:
+								obj.valju = 1
+							elif obj.operator == "no" and obj.tipoint != sum1:
+								obj.valju = 1
+							elif obj.operator == "g" and obj.tipoint > sum1:
+								obj.valju = 1
+							elif obj.operator == "l" and obj.tipoint < sum1:
+								print (sum1)
+								obj.valju = 1
+							else:
+								obj.valju = 0	
+						#else:
+							#obj.valju = 1	
+					###
+					#algorithm algebra:
+					else:
+						
+						for algobj in object_list:
+						
+							if  algobj == ("%s" % obj.valju):
+								sum1 = ("%s" % obj.valju)
+						if obj.operator	!= None and obj.valju is None :
+							if obj.operator == "equiv" and obj.tipoint == sum1:
+								obj.valju = 1
+							elif obj.operator == "geq" and obj.tipoint >= sum1:
+								obj.valju = 1
+							elif obj.operator == "leq" and obj.tipoint <= sum1:
+								obj.valju = 1
+							elif obj.operator == "no" and obj.tipoint != sum1:
+								obj.valju = 1
+							elif obj.operator == "g" and obj.tipoint > sum1:
+								obj.valju = 1
+							elif obj.operator == "l" and obj.tipoint < sum1:
+								print (sum1)
+								obj.valju = 1
+							else:
+								obj.valju = 0	
+						#else:
+							#obj.valju = 1							
+
 
 					print("name:%s\nvalue:%s" % (obj.name,obj.valju))
 					if obj.valju == 1:
@@ -449,48 +477,45 @@ def lexer():
 				sides = re.compile("[^=|<|>|!]=[^=|<|>|!]").split(anobj)
 				side1 = sides[0]
 				side1 = side1.replace(" ","")
+				
 				if side1 == bnobj.name :
-					parts = ""
-					parts = sides[1].replace("|{","")
-					parts = parts.replace("}|","")
+					parts = sides[1]
 					parts = parts.replace(" ","")
 					if parts.isdigit() == True:	
 						bnobj.valju = int(parts)
 					else:
-						partlist = parts.split(",")
-						for part in partlist:
-							part = part.replace(" ","")
-							if part != "" or part != " ":
-								bnobj.cont_list.append(part)
-								#print ("subs: %s"  % part)
-							#print (bnobj.valju)
-							
-							subfactorings = []
-							if "==" in parts :
-								subfactorings = parts.split("==",1)
-								parts=subfactorings[1]
-								bnobj.operator="equiv"
-							elif "=>" in parts :
-								subfactorings = parts.split("=>",1)
-								parts=subfactorings[1]
-								bnobj.operator="geq"						
-							elif "=<" in parts :
-								subfactorings = parts.split("=<",1)
-								parts=subfactorings[1]
-								bnobj.operator="gleq"
-							elif "!=" in parts :
-								subfactorings = parts.split("!=",1)
-								parts=subfactorings[1]
-								bnobj.operator="no"
-							elif ">" in parts :
-								subfactorings = parts.split(">",1)
-								parts=subfactorings[1]
-								bnobj.operator="g"
-							elif "<" in parts :
-								subfactorings = parts.split("<",1)
-								parts=subfactorings[1]
-								bnobj.operator="l"
-						bnobj.valju = None
+						subfactorings = []
+						if "==" in parts :
+							subfactorings = parts.split("==",1)
+							bnobj.operator="equiv"
+						elif "=>" in parts :
+							subfactorings = parts.split("=>",1)
+							bnobj.operator="geq"						
+						elif "=<" in parts :
+							subfactorings = parts.split("=<",1)
+							bnobj.operator="gleq"
+						elif "!=" in parts :
+							subfactorings = parts.split("!=",1)
+							bnobj.operator="no"
+						elif ">" in parts :
+							subfactorings = parts.split(">",1)
+							bnobj.operator="g"
+						elif "<" in parts :
+							subfactorings = parts.split("<",1)
+							bnobj.operator="l"
+						partlist = subfactorings[1].split(",")
+						
+						if re.match(r"\|\{A-Za-z0-9.,:-\s]*\}\|", parts):
+							parts = parts.replace("|{","")
+							parts = parts.replace("}|","")
+							for party in partlist:
+								bnobj.cont_list.append(party)
+								bnobj.valju = None
+						else:
+						#elif len(partlist) == 2 :
+						###
+							print("\n\n\n\n\n%s"%subfactorings[1])
+							bnobj.valju = [str(s) for s in sides[1].split()][1]
 							
 					sidelist = [int(s) for s in sides[1].split() if s.isdigit()]
 					try:
