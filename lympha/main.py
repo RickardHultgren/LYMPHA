@@ -122,9 +122,6 @@ def exefunc() :
 	global steps
 	
 	
-	#Why stopping on XYZ.
-	for obj in object_list :
-		obj.next_list = obj.next_list[1:]
 	
 	if modegraph == True:
 		graphstr = 'digraph lympha {\nnode [shape=record];'	
@@ -235,9 +232,6 @@ def mapfunc():
 	global steps
 	
 	
-	#Why stopping on XYZ.
-	for obj in object_list :
-		obj.next_list = obj.next_list[1:]
 	
 	if modegraph == True:
 		graphstr = 'digraph lympha {\nnode [shape=record];'	
@@ -477,30 +471,17 @@ def lexer():
 		nexts = list()
 		conts = list()
 		# many nexts vs one
-		for anobj in arrowobj:
-			anobj.replace(" ","")
-			if not anobj == "" :
-				for bnobj in object_list :
-					if (" %s " % bnobj.name) == ("%s" % anobj):
-						nexting = ""
-						try:
-							newcount=count+1
-							#nexting = arrowobj[newcount].replace(" ","")
-							nexting = arrowobj[1].replace(" ","")
-							if not nexting == "":
-								#nexts.append(nexting)
-								#bnobj.next_list += nexts
-								bnobj.next_list.append(nexting)
-								#print( "obj.next_list:%s" % bnobj.next_list )
-								#nexts = []
-								#nexting = ""
-						except:
-							pass
-					seen3 = {}
-					bnobj.next_list = [seen3.setdefault(x, x) for x in bnobj.next_list if x not in seen3]
-				
-				count += 1
-			count = 0
+		for i in range(len(arrowobj)):
+		#for anobj in arrowobj:
+			#print (arrowobj[i]):
+			for bnobj in object_list :
+				if i!=0 and (" %s " % bnobj.name) == ("%s" % arrowobj[(i-1)]):
+					nexting = ""
+					nexting = arrowobj[i].replace(" ","")
+					if not nexting == "":
+						bnobj.next_list.append(nexting)
+			seen3 = {}
+			bnobj.next_list = [seen3.setdefault(x, x) for x in bnobj.next_list if x not in seen3]
 			
 			
 	for serie in series:
@@ -520,10 +501,8 @@ def lexer():
 					parts = sides[1].replace("|{","")
 					parts = parts.replace("}|","")
 					parts = parts.replace(" ","")
-					if parts == "T":	
-						bnobj.valju = 1 
-					elif parts == "F":
-						bnobj.valju = 0	
+					if parts.isdigit() == True:	
+						bnobj.valju = int(parts)
 					else:
 						partlist = parts.split(",")
 						for part in partlist:
@@ -612,3 +591,5 @@ if __name__=='__main__':
 
 #291 #Why stopping on XYZ. #Why end factor always positive?
 #529 replace " = " with regexp
+# T F -> 1, 0
+# X -> Y -> Z ;
