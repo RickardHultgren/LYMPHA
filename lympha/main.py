@@ -589,7 +589,5 @@ if __name__=='__main__':
 	if filecheck == True:
 		lexer()
 
-#291 #Why stopping on XYZ. #Why end factor always positive?
-#529 replace " = " with regexp
-# T F -> 1, 0
-# X -> Y -> Z ;
+#423
+#i? = j? = k?
