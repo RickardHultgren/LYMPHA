@@ -412,54 +412,7 @@ def lexer():
 			#eqobjs = anobj.split(' = ',1)
 			#anobj.replace(" ","")
 			eqobjs = re.compile("[^=|<|>|!]=[^=|<|>|!]").split(anobj)
-			try:
-				anobj.replace(" ","")
-				if eqobjs[1].isdigit() == True :
-					valju = int(eqobjs[1])
-				else:
-					scale = list(assasement(eqobjs[1]))
-					tipoint = scale[1]
-					# delete first two and last two characters in scale[1] by [2:-2]:
-					scale = scale[2][2:-2]
-					conts = scale.split(",")
-					
-					if scale[0] == "equiv":
-						thesum = subs.count(True)
-						operator = scale[0]
-						tipoint = scale[1]
-						pass
-					if scale[0] == "geq":
-						thesum = subs.count(True)
-						operator = scale[0]
-						tipoint = scale[1]
-						pass
-						
-					if scale[0] == "leq":
-						thesum = subs.count(True)
-						operator = scale[0]
-						tipoint = scale[1]
-						pass
-						
-					if scale[0] == "g":
-						thesum = subs.count(True)
-						operator = scale[0]
-						tipoint = scale[1]
-						pass
-						
-					if scale[0] == "l":
-						thesum = subs.count(True)
-						operator = scale[0]
-						tipoint = scale[1]
-						pass
-						
-					if scale[0] == "no":
-						thesum = subs.count(True)
-						operator = scale[0]
-						tipoint = scale[1]
-						pass
-						
-			except:
-				pass
+
 			anobj.replace(" ","")
 			new(eqobjs[0],tipoint, int(valju), operator,nexts,conts, specs)			
 	seen = {}
@@ -589,5 +542,4 @@ if __name__=='__main__':
 	if filecheck == True:
 		lexer()
 
-#423
 #i? = j? = k?
