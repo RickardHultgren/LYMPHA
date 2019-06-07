@@ -1,4 +1,20 @@
-<script>
+<!DOCTYPE html>
+<html lang="en" style="font-family:Signika Negative, 'Lucida Sans Unicode', 'Lucida Grande', sans-serif">
+  <head>
+    <!--title>{{ page.title }}</title-->
+    <title>LYMPHA-online</title>
+    <link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Signika+Negative:300,400,600,700&amp;lang=en" />	
+		<script type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.3/brython.min.js">
+		</script>		
+		<script type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.3/brython_stdlib.js">
+		</script>		
+	</head>
+	<body onload="brython()" style="font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;">
+<!--script type="text/javascript>
 function changeMenu() {
 	if (document.getElementById("menuish").style.display == 'block') {
 		document.getElementById("menuish").style.display = 'none'
@@ -6,7 +22,7 @@ function changeMenu() {
 		document.getElementById("menuish").style.display = 'block'
 	}
 }
-</script>
+</script-->
 <div class="container" style="">
 	<div id="menubig" style="overflow:hidden;font-size:1.5vw; text-align:center; " id="thetop">
 		<div style="font-size:1.5vw;margin:0vw ;width:60vw;float:left; margin-bottom:.5em;"><a href="index"><img id="logopic" style="height:2.5em;width:auto;margin:0.66em 0em 0em 1.33em; position: relative;" src="logo.png">
@@ -385,7 +401,7 @@ function changeMenu() {
 							if side1 == bnobj.name :
 								parts = sides[1]
 								parts = parts.replace(" ","")
-
+#								document  <= "test1"
 								#Added in the online version!:
 								if theturn == 1 : 
 									if parts.isdigit() == True or parts == "" or parts == None :
@@ -546,9 +562,9 @@ function changeMenu() {
 			document["zcriptbttn"].bind("click", zcripts)
 				
 		</script>
-		
-		<img src="logo.png" style="width:25vw;">
-		<h1>LYMPHA-online</h1>
+		<p>
+		<!--img src="logo.png" style="width:25vw;">
+		<h1>LYMPHA-online</h1-->
 		
 		<b>Scripts:</b><br>
 		<span style="color:black;">Copy and paste addresses to <i>raw</i> lympha-scripts</span>
@@ -600,8 +616,8 @@ function changeMenu() {
 		<hr>
 		<span style="color:black;"><b>Result:</b><br></span>
 
-
-</p></p>
-<div id="footer" style="border-top:0.2em solid #777777;padding:1em 0em 0em 0em;float:left; margin-top:3em;>
+</p>
+</p></p><div id="footer" style="border-top:0.2em solid #777777;padding:1em 0em 0em 0em;float:left; margin-top:3em;>
 	<a class="linking" rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a> Copyright &copy; Rickard Verner Hultgren<br>This work is licensed under a <a rel="license" class="linking" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.
 </div> 
+</html>
