@@ -320,7 +320,7 @@
 				#make new nodes in database
 				for serie in series:
 					
-					stripComments(serie)
+					
 					
 					arrowobjs = serie.split('->')
 					count = 0
@@ -486,6 +486,7 @@
 
 				for j in urls:
 					filetext = j
+					stripComments(filetext)
 					filetext = filetext.replace('\n', ' ')
 					filetext = filetext.replace('  ', ' ')
 					series.extend(filetext.split(';'))
