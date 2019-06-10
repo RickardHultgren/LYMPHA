@@ -305,6 +305,10 @@
 					statement = Statement(flow, name, tipoint1, tipoint2, valju, operator1, operator2, next_list, cont_list, spec_list)
 					object_list.append(statement)
 			
+			def stripComments(code):
+				code = str(code)
+				return re.sub(r'(?m)^ *#.*\n?', '', code)
+
 			
 			def lexer2():
 				global theturn
@@ -315,6 +319,8 @@
 				conts = list()
 				#make new nodes in database
 				for serie in series:
+					
+					stripComments(serie)
 					
 					arrowobjs = serie.split('->')
 					count = 0
