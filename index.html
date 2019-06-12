@@ -394,38 +394,38 @@
 										if "==" in parts :
 											subfactorings = parts.split("==")
 											bnobj.operator1="equiv"
-										elif ">=" in parts :
+										if ">=" in parts :
 											subfactorings = parts.split(">=")
 											bnobj.operator1="geq"						
-										elif "<=" in parts :
+										if "<=" in parts :
 											subfactorings = parts.split("<=")
 											bnobj.operator1="gleq"
-										elif "!=" in parts :
+										if "!=" in parts :
 											subfactorings = parts.split("!=")
 											bnobj.operator1="no"
-										elif ">" in parts :
+										if ">" in parts :
 											subfactorings = parts.split(">")
 											bnobj.operator1="g"
-										elif "<" in parts :
+										if "<" in parts :
 											subfactorings = parts.split("<")
 											bnobj.operator1="l"
 									else:
 										if "==" in parts :
 											subfactorings = parts.split("==")
 											bnobj.operator2="equiv"
-										elif ">=" in parts :
+										if ">=" in parts :
 											subfactorings = parts.split(">=")
 											bnobj.operator2="geq"						
-										elif "<=" in parts :
+										if "<=" in parts :
 											subfactorings = parts.split("<=")
 											bnobj.operator2="gleq"
-										elif "!=" in parts :
+										if "!=" in parts :
 											subfactorings = parts.split("!=")
 											bnobj.operator2="no"
-										elif ">" in parts :
+										if ">" in parts :
 											subfactorings = parts.split(">")
 											bnobj.operator2="g"
-										elif "<" in parts :
+										if "<" in parts :
 											subfactorings = parts.split("<")
 											bnobj.operator2="l"
 									parts = parts.replace(" ","")
