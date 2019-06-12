@@ -353,7 +353,7 @@
 					# many nexts vs one
 					for i in range(len(arrowobj)):
 						for bnobj in object_list :
-							if i!=0 and (" %s " % bnobj.name) == ("%s" % arrowobj[(i-1)]):
+							if i!=0 and (" %s " % bnobj.name) == ("%s" % arrowobj[(0)]):
 								nexting = ""
 								nexting = arrowobj[i].replace(" ","")
 								if not nexting == "":
@@ -431,7 +431,8 @@
 									parts = parts.replace(" ","")
 									#if re.match(r"\|\{[A-Za-z0-9.,:-_ ?]*\}\|", parts):
 									if "|{" in parts and "}|" in parts :
-										parts = parts.replace("|{","")
+										parts = re.sub(r'.*\|\{', '', parts)
+										#parts = parts.replace("|{","")
 										parts = parts.replace("}|","")
 										partlist = parts.split(",")
 										
@@ -486,7 +487,7 @@
 
 				for j in urls:
 					filetext = j
-					stripComments(filetext)
+					filetext = stripComments(str(filetext))
 					filetext = filetext.replace('\n', ' ')
 					filetext = filetext.replace('  ', ' ')
 					series.extend(filetext.split(';'))
@@ -543,6 +544,7 @@
 
 			document["turn2"].bind("click", turn2func)
 			document["addbttn"].bind("click", add_input)
+			document["addstart"].bind("click", add_start)
 			document["zcriptbttn"].bind("click", zcripts)
 			document["menubttn"].bind("click", changeMenu)
 
