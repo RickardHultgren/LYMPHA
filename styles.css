@@ -23,6 +23,9 @@ list-style: none;
 
 #EventForm {
     display: table;
+}   
+input{
+font-size:32pt; 	font-size:32pt;
 }
 
 #FactorForm {
@@ -49,10 +52,12 @@ cursor:move;
 }
 
 html{
-font-size:32pt; 	font-size:32pt;
+font-size:32pt; 	
 }
 
-
+form{
+font-size:32pt; 	
+}
 
 body {
 	font-size:32pt;
@@ -67,9 +72,20 @@ body {
 	
 }
 
-.button {
+button {
 text-decoration:none;
-height:auto;margin-bottom:0.5em;text-align:center;color:#998855;font-style:italic;;font-size:1em;padding:0.25em;display:inline-block; border: 0.1em solid #998855;background-color:#ffffff;font-size:0.9em;letter-spacing:0.15em;
+height:auto;
+margin-bottom:0.5em;
+text-align:center;
+color:#998855;
+#font-style:italic;
+padding:0.25em;
+display:inline-block;
+border: 0.1em solid #998855;
+background-color:#ffffff;
+font-size:0.9em;
+letter-spacing:0.15em;
+font-size:32pt; 	font-size:32pt;
 }
 
 .inputing{
@@ -277,6 +293,18 @@ text-align:left;
 
 @media only all and (min-width: 981px) {
 
+#EventForm {
+    display: table;
+}   
+input{
+font-size:1.5vw
+}
+
+
+button{
+font-size:1.5vw
+}
+
 body {
 width:100vw;
 font-size:1.5vw;
@@ -397,5 +425,3 @@ width:60vw;
 	}
 
 } 		
-
-
