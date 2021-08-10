@@ -1,0 +1,6 @@
+{
+  "name": "LYMPHAonline",
+  "version": "1",
+  "description": "The LYMPHA language engine",
+  "main": "__taget__/lympha.js",
+}
