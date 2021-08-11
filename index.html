@@ -231,18 +231,8 @@
 			<a class="linking" rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a> Copyright &copy; Rickard Verner Hultgren<br>This work is licensed under a <a rel="license" class="linking" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 4.0 Unported License</a>.
 		</div> 
 
-
-
-<div>
+<div id="graph" style="text-align: center; width: 900px; height: 200px;"></div>`
 	<script id="js">
-    d3.select("#graph")
-    .graphviz()
-    .renderDot('digraph {a -> b}');
+d3.select("#graph").graphviz(useWorker).renderDot('digraph {a -> b}');
+
 	</script>
-</div>
-			
-		
-
-
-	</body>
-</html>
