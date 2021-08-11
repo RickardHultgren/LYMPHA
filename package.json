@@ -4,6 +4,8 @@
   "description": "The LYMPHA language engine",
   "main": "__taget__/lympha.js",
   "author": "Rickard Verner Hultgren",
-  "license": "BSD2",
+  "license": "BSD-2-clause",
+  "dependencies": {
+    "transcrypt": "^3.6.82"
+  }
 }
-
