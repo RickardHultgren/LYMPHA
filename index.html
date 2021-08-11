@@ -242,18 +242,9 @@
 </section>
 
 	<script id="js">
-  var g = new dagreD3.graphlib.Graph().setGraph({});
-  g.setNode("A", {})
-  g.setNode("B", {})
-  g.setEdge("A", "B", {})
-
-  let render = new dagreD3.render()
-
-  onMount( () => {
-    let svg = d3.select("svg")
-    let inner = svg.append("g")
-    render(inner, g);
-  })
+ d3.select("#graph")
+  .graphviz()
+    .renderDot('digraph {a -> b}');
 	</script>
 
 <div class="App">
