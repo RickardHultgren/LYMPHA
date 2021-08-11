@@ -230,9 +230,46 @@
 		<div id="footer" style="border-top:0.2em solid #777777;padding:1em 0em 0em 0em;float:left; margin-top:3em;>
 			<a class="linking" rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a> Copyright &copy; Rickard Verner Hultgren<br>This work is licensed under a <a rel="license" class="linking" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 4.0 Unported License</a>.
 		</div> 
-<br>
-<div id="graph" style="text-align: center; width: 900px; height: 200px;">test graph</div>`
+<br>`
 	<script id="js">
 d3.select("#graph").graphviz(useWorker).renderDot('digraph {a -> b}');
 
-	</script>
+
+
+
+var data = [{
+  "key": "Sales",
+  "values": [
+    { x:1, y: 132 }, 
+    { x:2, y: 121 }, 
+    { x:3, y: 153 }, 
+    { x:4, y: 146 }, 
+    { x:5, y: 163 }, 
+    { x:6, y: 182 }, 
+    { x:7, y: 178 }, 
+    { x:8, y: 179 },
+    { x:9, y: 181 },
+    { x:10, y: 178 }
+  ]
+}]
+
+nv.addGraph(function() {
+  var chart = nv.models.lineChart()
+    .margin({left: 100})
+    .useInteractiveGuideline(true)
+    .transitionDuration(350)
+    .showLegend(true)
+    .showYAxis(true)
+    .showXAxis(true);
+
+
+  chart.xAxis.axisLabel('Month');
+  chart.yAxis.axisLabel('Sales in Milions');
+
+  d3.select('#chart svg').datum(data).call(chart);
+
+  nv.utils.windowResize(chart.update);
+
+  return chart;
+});
+</script>
