@@ -7,775 +7,135 @@
 		<link rel="stylesheet" href="styles.css">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Signika+Negative:300,400,600,700&amp;lang=en" />	
-		<script type="text/javascript"
-			src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.3/brython.min.js">
+	    <meta charset="utf-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	    <script type="module">import * as lympha from './__target__/lympha.js'; window.lympha = lympha;</script>
+		<!--script type="text/javascript"
+			src="https://dagrejs.github.io/project/dagre-d3/latest/dagre-d3.js">
 		</script>		
 		<script type="text/javascript"
-			src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.3/brython_stdlib.js">
-	</script>		
-	</head>
-	<body onload="brython()" style="font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;">
-		<script type="text/python">
-			from browser import document, bind, html ,alert
-			import urllib.request
+			src="https://dagrejs.github.io/project/dagre-d3/latest/dagre-d3.min.js">
+		</script-->		
+
+		<script type="text/javascript">	
 			
+			//# Input variables:
+			//# filenames list <form id="thelist">
+			//# starts list <form id="thestarts">
+			//# steps int <form id="steps">
 			
-						
-			#???			
-			addresses = list()
-			import subprocess
-
-			import sys
-
-			#for the graph function:
-			import os
-
-
-
-			#regex
-			import re
-
-#Web version skip
-#			theturn = 1
-
-			def recursive_parse(node,substitutions):
-				if hasattr(node.left,"id"):
-					if node.left.id in substitutions.keys():
-						node.left = substitutions[node.left.id]
-				else:
-					recursive_parse(node.left,substitutions)
-
-				if hasattr(node.right,"id"):
-					if node.right.id in substitutions.keys():
-						node.right = substitutions[node.right.id]
-				else:
-					recursive_parse(node.right,substitutions)
-
-
-
-			# Variables for " 1. Program call through bash-CLI.".
-			CLI_filename = ""
-			argv_len = len(sys.argv)
-			filenames = list()
-			filename = ""
-			
-
-
-			# List of statements that should be executed during step 0:
-			starts = list()
-
-			# Steps given from the CLI-command:
-			steps = 0
-
-			local_files = True
-
-			# Depending on what the interpreter is supposed to do different modes are used:
-			mode_graph = False
-			mode_state = False
-			mode_exe = False
-			mode_show = False
-			mode_map = False
-
-			# Check if all script files are loaded:
-			filecheck = False
-
-			# Lists of statements:
-			exe_list = list()
-			show_list = list()
-			map_list = list()
-			series = list()
-			substates = list()
-			nextstates = list()
-			specs = list()
-
-			# LYMPHA-langugage grammar:
-			global_relative_variable1 = None
-			global_relative_variable2 = None
-			operator1 = None
-			statement_value = str()
-			statement_flow = int()
-
-			# Objects to be executed:
-			exe_objects = list()
-
-			CLIcom_segment = 0
-
-
-
-			#Construction of the section model of the linked list.
-			class Statement(dict):
-				MARKER = object()
-
-				def __init__(self, value=None):
-					if value is None:
-						pass
-					elif isinstance(value, dict):
-						for key in value:
-							self.__setitem__(key, value[key])
-					else:
-						raise TypeError('expected dict')
-
-				def __setitem__(self, key, value):
-					if isinstance(value, dict) and not isinstance(value, Statement):
-						value = Statement(value)
-					super(Statement, self).__setitem__(key, value)
-
-				def __getitem__(self, key):
-					found = self.get(key, Statement.MARKER)
-					if found is Statement.MARKER:
-						found = Statement()
-						super(Statement, self).__setitem__(key, found)
-					return found
-
-				__setattr__, __getattr__ = __setitem__, __getitem__
-
-
-			# A list of all objects:
-			object_list = dict()
-			object_list = Statement(object_list)
-
-			#class Statement:
-			#    def __init__(self, flow, name, global_relative_variable1, global_relative_variable2, statement_flow, statement_value, operator1, next_list, binary_list, operation, spec_list):
-			#        
-			#        self.flow = int(flow)
-			#                
-			#        #list of next nodes:
-			#        #next_list = next_list
-			#       self.next_list = list(next_list)
-			#        
-			#        #list of specifications:
-			#        #spec_list = spec_list
-			#        self.spec_list = list()#
-			#
-			#        #list of contents:
-			#        #binary_list = binary_list
-			#        self.binary_list = list(binary_list)#
-			#
-			#        #should the binary_list be counted as a sum or an equation?
-			#        #self.summerize = summerize
-			#        self.operation = operation  #This holds the operation that are found in the string (left to right)
-			#        
-			#        #name
-			#        self.name = name
-			#        
-			#        #tipping point
-			#        self.global_relative_variable1 = global_relative_variable1
-			#
-			#        #tipping point
-			#        self.global_relative_variable2 = global_relative_variable2
-			#        
-			#        #relational operator
-			#        self.operator1 = operator1#
-			#
-			#        #statement_flow
-			#        self.statement_flow = statement_flow
-			#        #if statement_flow == 0 :self.statement_flow = 0
-			#        #else: self.statement_flow = 1#
-			#
-			#        #statement_value
-			#        self.statement_value = statement_value
-
-
-			#Function for running the linked list.
-			def mapfunc():
-				#global UI
-				#global CLI_filename 
-				global argv_len 
-				global filename 
-				global filenames 
-				global mode_graph 
-				global mode_state 
-				global filecheck 
-				global mode_exe 
-				global mode_show 
-				global mode_map 
-				global exe_list 
-				#global show_list 
-				global map_list 
-				global series 
-				global substates 
-				global nextstates 
-				global specs 
-				#global global_relative_variable1 
-				global global_relative_variable2 
-				#global operator1 
-				global statement_flow 
-				global statement_value
-				global object_list 
-				global exe_objects 
-
-				global starts
-				global show_list
-				global steps
-				#if mode_graph == True:
-					#graphstr = 'digraph lympha {\nnode [shape=record];'
-#ADDED INT IN INT(STEPS)
-				for step in range(0, int(steps)):
-					nextstates = list()
-					
-					
-					for start in starts:
-						for key in range(0,len(object_list)):
-							endstring = str()
-							strr=str("%s" % object_list[key].name)
-							strr = re.sub("\s+", "", strr.strip())
-							pre_statement_flow = 1
-							if str(start) == strr :
-							
-								document <= ("NAME: %s" % object_list[key].name)
-							
-								#For binaries
-								if object_list[key].datatype == "bina":
-									pass 
-								
-								#For binary evaluation
-								elif object_list[key].datatype == "bineval" and len(object_list[key].binary_list) >= 1:
-									pre_statement_flow = 0
-									subfactors = list()
-									#Convecrting variables into values
-									for binobj in object_list[key].binary_list :
-										 for item in range(0,len(object_list)) :
-											 thename = object_list[item].name
-											 thename = str(thename)
-											 #thename = thename[1:]
-											 #thename = thename[:1]
-											 #thename = re.sub("\s+", "", thename.strip())
-											 #if object_list[item].name == binobj.replace(" ","") :
-											 if thename == ("%s" % binobj.replace(" ","")) :
-												 subfactors.append(int(object_list[item].statement_flow))
-									sum1 = subfactors.count(1)
-									sum0 = subfactors.count(0)
-									if object_list[key].operator1 != None: # and object_list[key].statement_flow == None :
-										if object_list[key].operator1 == "equiv" and int(object_list[key].global_relative_variable1) == int(sum1):
-											pre_statement_flow = 1
-											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
-										elif object_list[key].operator1 == "geq" and int(object_list[key].global_relative_variable1) >= int(sum1):
-											pre_statement_flow = 1
-											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
-										elif object_list[key].operator1 == "leq" and int(object_list[key].global_relative_variable1) <= int(sum1):
-											pre_statement_flow = 1
-											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
-										elif object_list[key].operator1 == "no" and int(object_list[key].global_relative_variable1) != int(sum1):
-											pre_statement_flow = 1
-											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
-										elif object_list[key].operator1 == "g" and int(object_list[key].global_relative_variable1) > int(sum1):
-											pre_statement_flow = 1
-											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
-										elif object_list[key].operator1 == "l" and int(object_list[key].global_relative_variable1) < int(sum1):
-											pre_statement_flow = 1
-											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
-										else:
-											pre_statement_flow = 0
-									object_list[key].statement_flow = int(pre_statement_flow)        
-								#For nonbinar-evaluations
-								if object_list[key].datatype == "nonbineval" :
-											
-											#comp = re.compile(r'(\d*)', re.IGNORECASE)
-											endstring = str()
-											string = (object_list[key].statement_value.replace(" ",""))
-											pattern = re.compile(r'([\=\+\-\/\*\(\)])')
-											iteratorUntouched = re.split(pattern, string)
-											
-											eqlist = list()
-											for varWord in iteratorUntouched:
-												checked = 0
-												for objWord in range(len(object_list)):
-													thename = object_list[objWord].name
-													if thename == varWord:
-														eqlist.append(object_list[objWord].statement_value)
-														checked = 1
-												if checked == 0:
-													eqlist.append(varWord) 
-											endstring = (("").join(eqlist))                             
-											endstring = str(eval(str(endstring)))
-											object_list[key].statement_value = endstring
-											endnum = float()
-											endnum = float(eval(str(endstring)))
-
-											pre_statement_flow = 0
-											try:
-												op = "failed"
-												if object_list[key].operator1 == "equiv" and int(object_list[key].global_relative_variable1) == int(str(endnum)):
-														op = "=="
-														pre_statement_flow = 1
-												elif object_list[key].operator1 == "leq" and int(object_list[key].global_relative_variable1) >= int((endnum)):
-														op = ">="
-														pre_statement_flow = 1
-												elif object_list[key].operator1 == "geq" and (int(object_list[key].global_relative_variable1) <= int(str(endnum))):
-														op = "<="
-														pre_statement_flow = 1
-												elif object_list[key].operator1 == "no" and int(object_list[key].global_relative_variable1) != int(str(endnum)):
-														op = "!="
-														pre_statement_flow = 1
-												elif object_list[key].operator1 == "g" and int(object_list[key].global_relative_variable1) < int(str(endnum)):
-														op = "<"
-														pre_statement_flow = 1
-												elif object_list[key].operator1 == "l" and int(object_list[key].global_relative_variable1) > int(str(endnum)):
-														op = ">"
-														pre_statement_flow = 1
-												else:
-														pre_statement_flow = 0
-												document <= html.BR()
-												document <= str("%s = "%object_list[key].name)
-												
-												document <= html.BR()
-											except:
-												endnum = float(eval(str(endstring)))
-
-												op = "failed"
-												if object_list[key].operator1 == "equiv" and float(object_list[key].global_relative_variable1) == float(str(endnum)):
-														op = "=="
-														pre_statement_flow = 1
-												elif object_list[key].operator1 == "leq" and float(object_list[key].global_relative_variable1) >= float((endnum)):
-														op = ">="
-														pre_statement_flow = 1
-												elif object_list[key].operator1 == "geq" and (float(object_list[key].global_relative_variable1) <= float(str(endnum))):
-														op = "<="
-														pre_statement_flow = 1
-												elif object_list[key].operator1 == "no" and float(object_list[key].global_relative_variable1) != float(str(endnum)):
-														op = "!="
-														pre_statement_flow = 1
-												elif object_list[key].operator1 == "g" and float(object_list[key].global_relative_variable1) < float(str(endnum)):
-														op = "<"
-														pre_statement_flow = 1
-												elif object_list[key].operator1 == "l" and float(object_list[key].global_relative_variable1) > float(str(endnum)):
-														op = ">"
-														pre_statement_flow = 1
-												else:
-														pre_statement_flow = 0
-
-												document <= html.BR()
-												document <= str("%s = "%object_list[key].name)
-												
-												document <= html.BR()
-											object_list[key].statement_flow = int(pre_statement_flow)
-								#For equations
-								if object_list[key].datatype == "valu":
-								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
-
-											#comp = re.compile(r'(\d*)', re.IGNORECASE)
-											endstring = str()
-											string = (object_list[key].statement_value.replace(" ",""))
-											pattern = re.compile(r'([\=\+\-\/\*\(\)])')      
-											iteratorUntouched = re.split(pattern, string)
-											
-											eqlist = list()
-											for varWord in iteratorUntouched:
-												checked = 0
-												for objWord in range(len(object_list)):
-													thename = object_list[objWord].name
-													if thename == varWord:
-														eqlist.append(object_list[objWord].statement_value)
-														checked = 1
-												if checked == 0:
-													eqlist.append(varWord) 
-											endstring = (("").join(eqlist))                             
-											endstring = str(eval(str(endstring)))
-											object_list[key].statement_value = endstring
-
-								if object_list[key].flow == 0 :
-									object_list[key].statement_flow = 0 
-
-#DELTETED GRAPHMODE-IF
-								if object_list[key].statement_flow == 0:
-										graph_string=""
-										if object_list[key].datatype == "bina" :
-											graph_string="0B"
-										if object_list[key].datatype == "bineval" :
-											graph_string=object_list[key].statement_value
-										if object_list[key].datatype == "nonbineval" :
-											graph_string=("score: %s" % (object_list[key].statement_value))
-										if object_list[key].datatype == "valu" :                                
-											graph_string=object_list[key].statement_value
-										graph_string += ('"%s" [label="step %s: %s\\n%s", fillcolor=yellow, style=filled] \n' % (start,step+1,start,str(graph_string)))
-	
-										document <= html.BR()
-										document <= str("%s = "%graph_string)
-										
-										document <= html.BR()
-	
-								if object_list[key].statement_flow == 1:
-										graph_string=""
-										if object_list[key].datatype == "bina" :
-											graph_string="1B"
-										if object_list[key].datatype == "bineval" :
-											graph_string=object_list[key].statement_value
-										if object_list[key].datatype == "nonbineval" :
-											graph_string=("score: %s" % (object_list[key].statement_value))
-										if object_list[key].datatype == "valu" :                                
-											graph_string=object_list[key].statement_value
-										graph_string += ('"%s" [label="step %s: %s\\n%s", fillcolor=yellow, style=filled] \n' % (start,step+1,start,str(graph_string)))
-	
-										document <= html.BR()
-										document <= str("%s = "%graph_string)
-										
-										document <= html.BR()
-								document <= " TEST8 "																				
-								for next_object in object_list[key].next_list :
-									if mode_graph == True:
-										if object_list[key].name != next_object :
-											graphstr += ('"%s" -> "%s" \n' % (start,next_object))
-									nextstates.append(next_object)
-								
-					nextstates = list()
-					
-					for start in starts :
-						for k in range(0,len(object_list)):
-							if object_list[k].name==start:
-								for nexting in object_list[k].next_list :
-									for l in range(0,len(object_list)):  
-										if object_list[l].name == nexting :          
-											nextstates.append(nexting)
-											if object_list[k].flow  == 0 or object_list[k].statement_flow == 0 :
-												object_list[l].flow = 0
-						
-					del starts[:]
-					#starts = list()                           
-					for nexting in nextstates: 
-						if nexting not in starts: 
-							starts.append(nexting) 
-					del nextstates[:]
-				if mode_graph == True:
-					graphstr += '}'
-					open('lympha.dot', 'w').close()
-					outputfile = open("lympha.dot", "w")
-					outputfile.write(graphstr)
-					outputfile.close()
-					cmd = 'dot lympha.dot -Tps -o lympha.pdf'
-					os.system(cmd)
-					
-				CLI_filename = None
-				argv_len = None
-				filename = None
-				filenames = None
-				starts = None
-				steps = None
-				mode_graph = None
-				mode_state = None
-				filecheck = None
-				mode_exe = None
-				mode_show = None
-				mode_map = None
-				exe_list = None
-				show_list = None
-				map_list = None
-				series = None
-				substates = None
-				nextstates = None
-				specs = None
-				global_relative_variable1 = None
-				global_relative_variable2 = None
-				operator1 = None
-				statement_flow = None
-				statement_value = None
-				object_list = None
-				exe_objects = None
-				
-				del CLI_filename, argv_len, filename, filenames, starts, steps, mode_graph, mode_state, filecheck, mode_exe, mode_show, mode_map, exe_list, show_list, map_list, substates, nextstates, specs, global_relative_variable1, global_relative_variable2, operator1, statement_flow, statement_value, exe_objects, object_list,
-
-			def stripComments(code):
-				code = str(code)
-				return re.sub(r'(?m)^ *#.*\n?', '', code)
-
-			def lexer():
-
-				global CLIcom_segment
-				global series
-				global filenames
-				global local_files
-				#Load file content
-
-			######
-				global object_list
-
-				nexts = list()
-				conts = list()
-				#Make new nodes in database
-				for serie in series:
-#					document <= serie
-
-					prearrowobjs = serie.split('->')
-					arrowobjs = list()
-					for anobj in prearrowobjs:
-						almostdone = anobj.split('=')
-						arrowobjs.append(almostdone[0])
-					count = 0
-					oops = str()
-					nexts = list()
-					conts = list()
-					specs = list()
-					flow = int()
-					global_relative_variable1 = float()
-					operator1 = str()
-					statement_flow = int()
-					statement_value = str()
-					scale = list()
-					# Devide the script's line strings into objects:
-					#print(object_list)
-					pre_count = 0
-					count_objs = int()                 
-					for anobj in arrowobjs:
-						anobj = re.sub("\s*", "", anobj) 
-						eqobjs = re.compile(r"((<=)|(>=)|(!=)|(==)(<)|(>))").split(anobj)
-						taken = 0
-						#Check if the object already exists
-						for takenkey in range(0,len(object_list)) :
-							if object_list[takenkey].name == anobj :
-								taken = 1
-						
-							#Avoid number gaps
-							else:
-								#Spin the list to the end
-								pre_count += 1
-						count_objs = pre_count
-						#Add node at the end of the dicts
-						#count_objs -= 1            
-						if (anobj) != "" and taken == 0 :
-							object_list[((count_objs))].name = str(anobj)
-							object_list[((count_objs))].next_list = list()
-							object_list[((count_objs))].binary_list = list()
-							object_list[((count_objs))].operation = str("")
-							object_list[((count_objs))].flow = 1
-							object_list[((count_objs))].statement_flow = 1
-							object_list[((count_objs))].statement_value = str()
-							object_list[((count_objs))].global_relative_variable1 = float()
-							object_list[((count_objs))].datatype = ""
-
-				#Connect the database nodes     
-				for serie in series:
-					arrowobj = serie.split('->')
-					count = 0
-					nexts = list()
-					conts = list()
-					# Connect to the next object
-					for i in range(0,len(arrowobj)):
-						for key in range(0,len(object_list)):
-							thename = str(object_list[key].name)
-							thename = re.sub("\s*", "", thename) 
-							if i != 0 :
-								if thename == arrowobj[(0)].replace(" ",""):
-									nexting = ""
-									nexting = arrowobj[i].replace(" ","")
-									if not nexting == "" :
-										object_list[key].next_list.append(nexting)
-									print(object_list[key].next_list)
-									print(object_list[key].name)
-				#Connect to depending objects:
-				#Types of continuations of the sides[1] string:
-				# 1. Operator + Sum of binaries
-				# 2. Operator + Equation and value
-				# 3. Constant value
-				for serie in series:
-					count = 0
-					anobj = serie
-					
-					#Chop the serie:
-					if anobj != "" and " = " in anobj:
-
-
-						sides = anobj.split(' = ')
-						side1 = sides[0]
-						side2 = sides[1]
-						side1 = side1.replace(" ","")
-						side2 = side2.replace(" ","")
-						for key in range(0,len(object_list)) :
-						#Web version TRY
-
-							try:
-								thename = object_list[key].name
-								thename = thename.replace(" ","")
-
-
-
-
-								if ("%s" % thename) == sides[0].replace(" ", "") :
-									#For binary values
-									if str("1B") in str(sides[1]) :           
-									#elif re.compile(".*1B.*").match(sides[1]) :
-											object_list[key].statement_flow = 1
-											object_list[key].datatype = "bina"
-									elif str("0B") in str(sides[1]) :                 
-									#elif re.compile(".*0B.*").match(sides[1]) :
-											object_list[key].statement_flow = 0   
-											object_list[key].datatype = "bina"
-
-								
-									#For evaluations
-									# Check if operator:
-									elif ("==" in sides[1] or "!=" in sides[1] or "<=" in sides[1] or ">=" in sides[1] or "<" in sides[1] or ">" in sides[1] ) and not "->" in sides[1]:
-									#eval_pattern = re.compile(r"(==)|(!=)|(<)|(>)|(<=)|(>=)")
-									#if eval_pattern.match(sides[1]) :
-			#                            	if re.compile(".*==.*").match(sides[1]) :
-										if "==" in (sides[1]) :
-												object_list[key].operator1="equiv"
-			#                            if re.compile(".*>=.*").match(sides[1]) :
-										if ">=" in (sides[1]) :
-												object_list[key].operator1="geq"
-			#                            if re.compile(".*<=.*").match(sides[1]) :
-										if "<=" in (sides[1]) :
-												object_list[key].operator1="leq"
-			#                            if re.compile(".*(!=).*").match(sides[1]) :
-										if "!=" in (sides[1]) :
-												object_list[key].operator1="no"
-										if re.compile(".*>.*").match(sides[1]) and not re.compile(r"(>=)").match(sides[1]) :
-												object_list[key].operator1="g"
-										if re.compile(".*<.*").match(sides[1]) and not re.compile(r"(<=)").match(sides[1]) :
-												object_list[key].operator1="l"
-										print(object_list[key].operator1)
-										preop = sides[1].replace(" ","")
-										bin_chopped = 0
-										if "\|{" in preop or "|{" in preop :
-										#if "\|{" in preop and "}|" in preop :
-											bin_chopped = 1
-										preop = re.sub(r'(\|{)', ' ', preop)
-										preop = re.sub(r'(}\|)', ' ', preop)                            
-										#preop = preop.replace("}|","")
-										#preop = re.sub("\|{","", preop)
-										chopcompile = re.compile(r"(<=|>=|!=|==|<|>)")
-										operator_chop = re.split(chopcompile, preop)
-										print(operator_chop)
-										#Tipping point
-										zerochop = operator_chop[0].replace(" ","")
-										object_list[key].global_relative_variable1 = zerochop 
-										# chopped into binary list                                
-										if bin_chopped == 1 :
-												binary_sums = list(operator_chop[2].split(','))
-												for binary in binary_sums:
-												   binary = binary.replace(" ","")
-												   if binary != "" :
-														binary = str(binary.replace(" ",""))
-														object_list[key].binary_list.append(str(binary))
-												   object_list[key].datatype = "bineval"
-												#object_list[key].binary_list = list(the_bin_list)<
-										elif bin_chopped == 0 :
-												object_list[key].statement_value = operator_chop[2]
-												object_list[key].datatype = "nonbineval"
-
-								#For non-binary values and equations
-									elif sides[0] != ""  and sides[1] != "" :
-									#if 0 == len(operator_chop) :
-										object_list[key].statement_value = sides[1] 
-										object_list[key].datatype = "valu"     							
-							except:
-								pass
-
-			def zcripts(ev):
-				#Web version --- skip local files
-#Web version
-				theturn = 1
-				global object_list
-				global series
-				global addresses
-				global starts
-				global steps
-				global modegraph
-				global local_files
-				global urls
-
-
-				for an_item in document.select(".theItems"):
-					addresses.append(an_item.value)
-				
-				urls=list()
-				for an_address in addresses:
-					urls.append(urllib.request.urlopen(an_address).read())
-
-				for j in urls:
-					filetext = j
-					filetext = stripComments(str(filetext))
-					filetext = filetext.replace('\n', ' ')
-					filetext = filetext.replace('  ', ' ')
-					series.extend(filetext.split(';'))
-
-				#document <= html.BR()			
-				modegraph = True
-				#document <= html.BR()				
-				modegraph = True
-				temporary_starts = list()
-				for a_step in document.select(".stepNr"):
-					steps = a_step.value
-				for start_item in document.select(".theStarts"):
-					starts.append(start_item.value)
-					temporary_starts.append(start_item.value)
-				lexer()
-				nextstates = list()
-				theturn = 1
-				for step in range(0,int(steps)):				
-					for start in temporary_starts :
-							for k in range(0,len(object_list)):
-								if object_list[k].name==start :
-									if theturn < 3 :
-										theval = str(object_list[k].statement_value)
-										theval = theval.replace(" ","")
-										document <= theval
-										document <= html.BR()
-										if (str(theval).isdigit() and object_list[k].datatype == "valu") or (object_list[k].datatype == "bina") or (object_list[k].datatype == "" and object_list[k].name[-1] == "?") :
-														factorform = document['factorlist']
-														factorform <= str("%s = "% object_list[k].name)
-														factorform <= html.INPUT(type="text", id=object_list[k].name, Class="factorItems")
-														factorform <= html.BR()
-														theturn = 2
-										else:
-														document <= html.BR()
-														factorform = document['factorlist']
-														factorform <= str("%s"%object_list[k].name)
-														factorform <= html.BR()													
-														document <= html.BR()
-										
-									for nexting in object_list[k].next_list :
-										for l in range(0,len(object_list)):  
-											if object_list[l].name == nexting :          
-													nextstates.append(nexting)
-
-							for an_obj in range(0,len(object_list)): 
-								for a_name in document.select(".factorItems"):
-									if a_name.id == object_list[an_obj].name :
-										object_list[k].statement_value  = a_name.value
-					if theturn == 2:
-						theturn = 3
-					del temporary_starts[:]
-                         
-					for nexting in nextstates: 
-						if nexting not in starts: 
-							temporary_starts.append(nexting) 
-					del nextstates[:]
-
-
-			def turn2func(ev) :
-				mapfunc()
-
-			def changeMenu(ev) :
-				if (document.getElementById("menuish").style.display == 'block') :
-					document.getElementById("menuish").style.display = 'none'
-				else :
-					document.getElementById("menuish").style.display = 'block'
-
-
-
-                                                                                                      
-			def add_input(ev):
-				aform = document['thelist']
-				aform <= html.INPUT(type="text", Class="theItems")
-				aform <= html.BR()
-
-
-			def add_start(ev):
-				startform = document['thestarts']
-				startform <= html.INPUT(type="text", Class="theStarts")
-				startaform <= html.BR()
-
-			document["turn2"].bind("click", turn2func)
-			document["addbttn"].bind("click", add_input)
-			document["addstart"].bind("click", add_start)
-			document["zcriptbttn"].bind("click", zcripts)
-			document["menubttn"].bind("click", changeMenu)
-
-			document.getElementById( "index").style.backgroundColor='#EFAB00'
-			document.getElementById( "indexsmall").style.backgroundColor='#EFAB00'
-			document.getElementById( "index").style.color='#ffffff'
-			#document.getElementById( "index").className="index2active"
-	</script> 
+			//# Output variables:
+			//# exe
+			//# graph
+			//# print
 		
+			window.onload = function() {
+			  OnLoading();
+			};
+	
+			function OnLoading() {
+				document.getElementById("index").style.backgroundColor='#EFAB00' ;
+				document.getElementById("indexsmall").style.backgroundColor='#EFAB00' ;
+				document.getElementById("index").style.color='#ffffff' ;
+				//document.getElementById("index").className="index2active"	;	
+			}
+	
+			function changeMenu() {
+			
+			  if (document.getElementById("menuish").style.display == 'block') {
+				document.getElementById("menuish").style.display = 'none';
+				
+			  } else {
+				document.getElementById("menuish").style.display = 'block';
+			  }
+			}
+			
+			function addInput() {
+				var aform = document.createElement("INPUT");
+				aform.setAttribute('type', 'text');
+				aform.setAttribute('Class', "theItems");
+				var theform = document.getElementById("thelist");			
+				theform.appendChild(aform);
+				theform.innerHTML += "<BR>" ;
+			}
+											
+			function addStart() {
+				var aform = document.createElement("INPUT");
+				aform.setAttribute('type', 'text');
+				aform.setAttribute('Class', "theStarts");
+				var theform = document.getElementById("thestarts");			
+				theform.appendChild(aform);
+				theform.innerHTML += "<BR>" ;
+			}		
+		</script>						
+		
+		<script type="text/javascript">		
+				//def turn2func(ev) :
+				//mapfunc()
+			function turn2func(theObject) {
+				mapfunc();
+			}
+		</script> 
+			
+		<script type="text/javascript">	
+			var g = new graphlib.Graph();
+		</script> 
+			
+			
+		<style id="css">
+		.node rect {
+		  stroke: #333;
+		  fill: #fff;
+		}
+		
+		</style>
+		<script type="text/javascript">	
+			function changeMenu() {
+			  if (document.getElementById("menuish").style.display == 'block') {
+				document.getElementById("menuish").style.display = 'none';
+				
+			  } else {
+				document.getElementById("menuish").style.display = 'block';
+			  }
+			}
+		</script>		
+		<!--script type="text/javascript">											
+	
+	//		function preLexer() {
+	//			var steps = document.getElementById("stepNr").value;
+	//			alert(input);
+	//			
+	//			var urls;
+	//			var urlitems = document.getElementsByClassName("theItems");
+	//			for (var i = 0; i < urlitems.length; i++) {
+	//				urls.push(urlitems.item(i));
+	//				console.log(urls);
+	//			}
+	//			for an_item in document.select(".theItems"):
+	//				addresses.append(an_item.value)
+	//			urls=list()
+	//			for an_address in addresses:
+	//				urls.append(urllib.request.urlopen(an_address).read())
+	//			for j in urls:
+	//				filetext = j
+	//				filetext = stripComments(str(filetext))
+	//				filetext = filetext.replace('\n', ' ')
+	//				filetext = filetext.replace('  ', ' ')
+	//				series.extend(filetext.split(';'))
+	
+	//			var starts;
+	//			var startitems = document.getElementsByClassName("theStarts");
+	//			for (var i = 0; i < startitems.length; i++) {
+	//				starts.push(startitems.item(i));
+	//				console.log(starts);
+	//			}
+	
+	//		}				
+		</script--> 		
+	
+	</head>
+	<!--body onload=lympha.preLexer id="bdy" style="font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;"-->
+	<body id="bdy" style="font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;" >
 		<div style="content">
 			<div class="container" style="">
 			
@@ -795,7 +155,7 @@
 		</div>
 		<div id="menusmall" style="text-align:center;">
 			<a style="vertical-align:top;" href="index"><img src="logo.png" alt="LYMPHA" style="height:auto;width:40vw;margin-left:5vw;vertical-align:bottom;float:left;"><div style="float:left;display:block;padding:2em 0.1vw 0em  0.1vw;position:relative;font-size:0.75em;letter-spacing:0em;color:#6400EF;font-weight:bold;text-align:center;z-index:6;">online</div></a><br><br>
-			<div style="width:4em;height:4em;position:absolute;"> </div><button class="menubutton" style="font-style:normal;vertical-align:top;color:#EFAB00;margin-bottom:-0em;font-size:20vw;border:none;display:inline-block;position: absolute;right:-.25em;top:-.38em; z-index:1; " id="menubttn">&#8801;</button><BR>
+			<div style="width:4em;height:4em;position:absolute;"> </div><button class="menubutton" style="font-style:normal;vertical-align:top;color:#EFAB00;margin-bottom:-0em;font-size:20vw;border:none;display:inline-block;position: absolute;right:-.25em;top:-.38em; z-index:1; " id="menubttn" onclick="changeMenu();">&#8801;</button><BR>
 				<div id="menuish" style="width=100%;display:none;position:relative;z-index:1;">
 					<a href="index.htm"><div id="indexsmall" class="menu2">HOME</div></a>
 					<!--a href="demo"><div id="prototypesmall" class="menu2">PROTOTYPE</div></a-->
@@ -808,7 +168,6 @@
 
 		<div style="content">
 			<p class="container" style="">		
-		
 
 				<!--img src="logo.png" style="width:25vw;">
 				<h1>LYMPHA-online</h1-->
@@ -821,7 +180,7 @@
 					
 					<input type="text" class="theItems"/><br>
 				</form>
-				<button id="addbttn" >Add yet another link</button><br>
+				<button id="addbttn" onclick="addInput();">Add yet another link</button><br>
 				
 				<br><br>
 
@@ -839,7 +198,7 @@
 				<form id="thestarts">
 				  <input type="text" class="theStarts"/><br>
 				</form>
-				<button id="addstart" >Add yet another start node</button><br>
+				<button id="addstart" onclick="addStart();">Add yet another start node</button><br>
 				
 				<br>
 				<br>
@@ -853,8 +212,7 @@
 				
 				<br>
 				<br>
-
-				<button id="zcriptbttn">Check for variable factors</button><br>
+				<button id="zcriptbttn" onclick=lympha.preLexer()>Check for variable factors</button><br>
 				
 				<hr style="width:50vw; right:25vw; z-index:1;position:relative; text-align:center;" />
 
@@ -872,5 +230,42 @@
 		<div id="footer" style="border-top:0.2em solid #777777;padding:1em 0em 0em 0em;float:left; margin-top:3em;>
 			<a class="linking" rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a> Copyright &copy; Rickard Verner Hultgren<br>This work is licensed under a <a rel="license" class="linking" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 4.0 Unported License</a>.
 		</div> 
+
+
+
+<h1>Dagre D3 Demo: Arrows</h1>
+
+<svg width=960 height=600><g/></svg>
+
+<section>
+<p>A sample that shows the different arrows available in dagre-d3.
+</section>
+
+	<script id="js">
+  var g = new dagreD3.graphlib.Graph().setGraph({});
+  g.setNode("A", {})
+  g.setNode("B", {})
+  g.setEdge("A", "B", {})
+
+  let render = new dagreD3.render()
+
+  onMount( () => {
+    let svg = d3.select("svg")
+    let inner = svg.append("g")
+    render(inner, g);
+  })
+	</script>
+
+<div class="App">
+  <div>
+    `dagre-d3` example
+  </div>
+
+  <svg width=960 height=600></svg>
+</div>
+			
+		
+
+
 	</body>
 </html>
