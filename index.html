@@ -230,14 +230,20 @@
 		<div id="footer" style="border-top:0.2em solid #777777;padding:1em 0em 0em 0em;float:left; margin-top:3em;>
 			<a class="linking" rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a> Copyright &copy; Rickard Verner Hultgren<br>This work is licensed under a <a rel="license" class="linking" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 4.0 Unported License</a>.
 		</div> 
-<br>`
-<script src="//d3js.org/d3.v5.min.js"></script>
-<script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
-<script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
-<div id="graph" style="text-align: center;"></div>
-<script>
 
-d3.select("#graph").graphviz()
-    .renderDot('digraph  {a -> b}');
+<br>
+<br>
 
-</script>
+<div>
+	<script id="js">
+    var graphstring;
+    graphstring = 'digraph {a -> b}';
+    d3.select("#graph").graphviz().renderDot(graphstring);
+	</script>
+</div>
+			
+		
+<br><br>
+
+	</body>
+</html>
