@@ -510,6 +510,7 @@ def mapfunc():
 			if nexting not in starts: 
 				starts.append(nexting) 
 		del nextstates[:]
+
 	if mode_graph == True:
 		graphstr += '}'
 		open('lympha.dot', 'w').close()
@@ -518,7 +519,20 @@ def mapfunc():
 		outputfile.close()
 		cmd = 'dot lympha.dot -Tpdf -o lympha.pdf'
 		os.system(cmd)
+	else:
+		try:
+			document.log.grphstr = graphstr
+		except:
+			pass
+
 		
+		#__pragma__('skip')
+#__pragma__('noskip')
+	
+
+
+	
+	
 	CLI_filename = None
 	argv_len = None
 	filename = None
