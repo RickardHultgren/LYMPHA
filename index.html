@@ -180,7 +180,7 @@
 					
 					<input type="text" class="theItems"/><br>
 				</form>
-				<button id="addbttn" onclick="addInput();">Add yet another link</button><br>
+				<button id="addbttn" onclick="preLexer();">Add yet another link</button><br>
 				
 				<br><br>
 
@@ -241,7 +241,7 @@
 <div>
 	<script id="js">
     var graphstr;
-    graphstr = 'digraph {a -> c ; a -> b}';
+    //graphstr = 'digraph {a -> c ; a -> b}';
     //d3.select("#graph").graphviz().renderDot('digraph {a -> c}');
     d3.select("#graph").graphviz().renderDot(graphstr);
 	</script>
