@@ -526,8 +526,6 @@ def mapfunc():
 			pass
 
 		
-		#__pragma__('skip')
-#__pragma__('noskip')
 	
 
 
