@@ -15,6 +15,12 @@
 # exe
 # graph
 # print
+
+try:
+  from pyreact import Component, render, element
+except:
+	pass
+
 try:
 	from org.transcrypt.stubs.browser import __pragma__
 except:
