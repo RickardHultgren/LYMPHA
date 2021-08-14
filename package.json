@@ -9,5 +9,13 @@
     "d3-graphviz": "^4.0.0",
     "transcrypt": "^3.6.82",
     "transcrypt-loader": "^1.0.2"
-  }
+  },
+  "devDependencies": {
+    "py-loader": "^0.3.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
 }
