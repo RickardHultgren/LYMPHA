@@ -416,9 +416,9 @@
 										if object_list[key].name != next_object :
 											graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 									nextstates.append(next_object)
-								graphstr = "a -> b"
-								javascript.this('d3.select("#graph").graphviz().renderDot(%s);' % (graphstr))
-					nextstates = list()https://raw.githubusercontent.com/RickardHultgren/LYMPHA-scripts/master/BMI.lympha
+								
+								javascript.this('d3.select("#graph").graphviz().renderDot(%s);' % ( 'a -> b' ))
+					nextstates = list()
 				
 					for start in starts :
 						for k in range(0,len(object_list)):
