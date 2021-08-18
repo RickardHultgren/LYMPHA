@@ -1,244 +1,630 @@
 <!DOCTYPE html>
 <html lang="en" style="font-family:Signika Negative, 'Lucida Sans Unicode', 'Lucida Grande', sans-serif">
-	<head>
-		<!--title>{{ page.title }}</title-->
-		<title>LYMPHAonline</title>
-		<link rel="shortcut icon" href="lympha.ico" />
-		<link rel="stylesheet" href="styles.css">
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Signika+Negative:300,400,600,700&amp;lang=en" />	
-	    <meta charset="utf-8" />
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	    <script type="module">import * as lympha from './__target__/lympha.js'; window.lympha = lympha;</script>
-      <script src="__javascript__/lympha.js"></script>
-		<!--script type="text/javascript"
-			src="https://dagrejs.github.io/project/dagre-d3/latest/dagre-d3.js">
+  <head>
+    <!--title>{{ page.title }}</title-->
+    <title>LYMPHA-online</title>
+    <link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Signika+Negative:300,400,600,700&amp;lang=en" />	
+		<script type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.3/brython.min.js">
 		</script>		
 		<script type="text/javascript"
-			src="https://dagrejs.github.io/project/dagre-d3/latest/dagre-d3.min.js">
-		</script-->		
-
-		<script type="text/javascript">	
-			
-			//# Input variables:
-			//# filenames list <form id="thelist">
-			//# starts list <form id="thestarts">
-			//# steps int <form id="steps">
-			
-			//# Output variables:
-			//# exe
-			//# graph
-			//# print
-		
-			window.onload = function() {
-			  OnLoading();
-			};
-	
-			function OnLoading() {
-				document.getElementById("index").style.backgroundColor='#EFAB00' ;
-				document.getElementById("indexsmall").style.backgroundColor='#EFAB00' ;
-				document.getElementById("index").style.color='#ffffff' ;
-				//document.getElementById("index").className="index2active"	;	
-			}
-	
-			function changeMenu() {
-			
-			  if (document.getElementById("menuish").style.display == 'block') {
-				document.getElementById("menuish").style.display = 'none';
-				
-			  } else {
-				document.getElementById("menuish").style.display = 'block';
-			  }
-			}
-			
-			function addInput() {
-				var aform = document.createElement("INPUT");
-				aform.setAttribute('type', 'text');
-				aform.setAttribute('Class', "theItems");
-				var theform = document.getElementById("thelist");			
-				theform.appendChild(aform);
-				theform.innerHTML += "<BR>" ;
-			}
-											
-			function addStart() {
-				var aform = document.createElement("INPUT");
-				aform.setAttribute('type', 'text');
-				aform.setAttribute('Class', "theStarts");
-				var theform = document.getElementById("thestarts");			
-				theform.appendChild(aform);
-				theform.innerHTML += "<BR>" ;
-			}		
-		</script>						
-		
-		<script type="text/javascript">		
-				//def turn2func(ev) :
-				//mapfunc()
-			function turn2func(theObject) {
-				mapfunc();
-			}
-		</script> 
-			
-		<script type="text/javascript">	
-			var g = new graphlib.Graph();
-		</script> 
-			
-			
-		<style id="css">
-		.node rect {
-		  stroke: #333;
-		  fill: #fff;
-		}
-		
-		</style>
-		<script type="text/javascript">	
-			function changeMenu() {
-			  if (document.getElementById("menuish").style.display == 'block') {
-				document.getElementById("menuish").style.display = 'none';
-				
-			  } else {
-				document.getElementById("menuish").style.display = 'block';
-			  }
-			}
+			src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.3/brython_stdlib.js">
 		</script>		
-		<!--script type="text/javascript">											
-	
-	//		function preLexer() {
-	//			var steps = document.getElementById("stepNr").value;
-	//			alert(input);
-	//			
-	//			var urls;
-	//			var urlitems = document.getElementsByClassName("theItems");
-	//			for (var i = 0; i < urlitems.length; i++) {
-	//				urls.push(urlitems.item(i));
-	//				console.log(urls);
-	//			}
-	//			for an_item in document.select(".theItems"):
-	//				addresses.append(an_item.value)
-	//			urls=list()
-	//			for an_address in addresses:
-	//				urls.append(urllib.request.urlopen(an_address).read())
-	//			for j in urls:
-	//				filetext = j
-	//				filetext = stripComments(str(filetext))
-	//				filetext = filetext.replace('\n', ' ')
-	//				filetext = filetext.replace('  ', ' ')
-	//				series.extend(filetext.split(';'))
-	
-	//			var starts;
-	//			var startitems = document.getElementsByClassName("theStarts");
-	//			for (var i = 0; i < startitems.length; i++) {
-	//				starts.push(startitems.item(i));
-	//				console.log(starts);
-	//			}
-	
-	//		}				
-		</script--> 		
-	
 	</head>
-	<!--body onload=lympha.preLexer id="bdy" style="font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;"-->
-	<body id="bdy" style="font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;" >
-		<div style="content">
-			<div class="container" style="">
+	<body onload="brython()" style="font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;">
+<!--script type="text/javascript>
+function changeMenu() {
+	if (document.getElementById("menuish").style.display == 'block') {
+		document.getElementById("menuish").style.display = 'none'
+	} else {
+		document.getElementById("menuish").style.display = 'block'
+	}
+}
+</script-->
+<div class="container" style="">
+	<div id="menubig" style="overflow:hidden;font-size:1.5vw; text-align:center; " id="thetop">
+		<div style="font-size:1.5vw;margin:0vw ;width:60vw;float:left; margin-bottom:.5em;"><a href="index"><img id="logopic" style="height:2.5em;width:auto;margin:0.66em 0em 0em 1.33em; position: relative;" src="logo.png">
+		</a><span style="float:right;display:block;padding:2em 1.5em 0em  0.5em;font-size:0.75em;letter-spacing:0em;color:#6400EF;font-weight:bold;">LYMPHAonline</span><br>
+	<div style="border-bottom:0.1em solid #cccccc;margin-top:-1em;text-align:center;z-index:3;width:60vw;position:absolute;top:5em;font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif, Helvetica, Arial;">
+		<a id="indextext" href="index"><div class="menu2" id="index" style="font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif, Helvetica, Arial;">HOME</div></a> 
+		<!--a id="prototypetext" href="demo"><div class="menu2" id="prototype" style="font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif, Helvetica, Arial;">PROTOTYPE</div></a-->
+		<!--a id="abouttext" href="about"><div class="menu2" id="about" style="font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif, Helvetica, Arial;">ABOUT</div></a-->
+		<a id="blogtext" href="blog"><div class="menu2" id="blog" style="font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif, Helvetica, Arial;">BLOG</div></a>
+	</div>
+<br><br></div></div></div> 
+<div id="menusmall" style="text-align:center;">
+	<a style="vertical-align:top;" href="index"><img src="logo.png" alt="LYMPHA" style="height:auto;width:60vw;margin-right:4em;vertical-align:bottom;"></a><br><div style="float:center;display:block;padding:2em 1.5em 0em  0.5em;position:relative;font-size:0.75em;letter-spacing:0em;color:#6400EF;font-weight:bold;text-align:center;z-index:6;">LYMPHAonline</div>
+	<div style="width:4em;height:4em;position:absolute;"> </div><div class="menubutton" style="font-style:normal;vertical-align:top;color:#EFAB00;margin-bottom:-0em;font-size:20vw;border:none;display:inline-block;position: absolute;right:-.25em;top:-.38em; z-index:1; " onclick="changeMenu();">&#8801;</div><BR>
+	<div id="menuish" style="width=100%;display:none;position:relative;z-index:1;">
+		<a href="index"><div id="indexsmall" class="menu2">HOME</div></a>
+		<!--a href="demo"><div id="prototypesmall" class="menu2">PROTOTYPE</div></a-->
+		<!--a href="about"><div id="aboutsmall" class="menu2">ABOUT</div></a-->
+		<a href="blog"><div id="blogsmall" class="menu2">BLOG</div></a>
+	</div>
+<hr style="z-index:1;position:relative;" /></div>
+<p class="container">
+<p>
+
+		<script type="text/python">
+			from browser import document, bind, html ,alert
+			import urllib.request
+			#import time
 			
-				<div id="menubig" style="overflow:hidden;font-size:1.5vw; text-align:center; " id="thetop">
-					<div style="font-size:1.5vw;margin:0vw ;width:60vw;float:left; margin-bottom:.5em;"><a href="index"><img id="logopic" style="height:2.5em;width:auto;margin:0.66em 0em 0em 1.33em; position: relative;float:left;" src="logo.png">
-						</a><span style="float:left;display:block;padding:2em 1.5em 0em  0.5em;font-size:0.75em;letter-spacing:0em;color:#6400EF;font-weight:bold;float:left;">online</span><br>
-						<div style="border-bottom:0.1em solid #cccccc;margin-top:-1em;text-align:center;z-index:3;width:60vw;position:absolute;top:5em;font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif, Helvetica, Arial;">
-							<a id="indextext" href="index.html"><div class="menu2" id="index" style="font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif, Helvetica, Arial;">HOME</div></a> 
-							<!--a id="prototypetext" href="demo"><div class="menu2" id="prototype" style="font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif, Helvetica, Arial;">PROTOTYPE</div></a-->
-							<a id="abouttext" href="about"><div class="menu2" id="about" style="font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif, Helvetica, Arial;">ABOUT</div></a>
-							<a id="blogtext" href="https://rickardhultgren.github.io/lymphablog/"><div class="menu2" id="blog" style="font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif, Helvetica, Arial;">BLOG</div></a>
-						</div>
-						<br><br>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="menusmall" style="text-align:center;">
-			<a style="vertical-align:top;" href="index"><img src="logo.png" alt="LYMPHA" style="height:auto;width:40vw;margin-left:5vw;vertical-align:bottom;float:left;"><div style="float:left;display:block;padding:2em 0.1vw 0em  0.1vw;position:relative;font-size:0.75em;letter-spacing:0em;color:#6400EF;font-weight:bold;text-align:center;z-index:6;">online</div></a><br><br>
-			<div style="width:4em;height:4em;position:absolute;"> </div><button class="menubutton" style="font-style:normal;vertical-align:top;color:#EFAB00;margin-bottom:-0em;font-size:20vw;border:none;display:inline-block;position: absolute;right:-.25em;top:-.38em; z-index:1; " id="menubttn" onclick="changeMenu();">&#8801;</button><BR>
-				<div id="menuish" style="width=100%;display:none;position:relative;z-index:1;">
-					<a href="index.htm"><div id="indexsmall" class="menu2">HOME</div></a>
-					<!--a href="demo"><div id="prototypesmall" class="menu2">PROTOTYPE</div></a-->
-					<a href="about"><div id="aboutsmall" class="menu2">ABOUT</div></a>
-					<a href="https://rickardhultgren.github.io/lymphablog/"><div id="blogsmall" class="menu2">BLOG</div></a>
-				</div>
-				<hr style="z-index:1;position:relative;" />
-			</div>
-		</div>
+			#from os.path import join
+			
+			#import sys
+			import sys, os, re
+			import subprocess
+			sys.stdout = document
+			#def install_extra(url):
+			#	sys.path.append(f"http://cors-anywhere.herokuapp.com/{url}")
+			#install_extra("https://gitlab.com/rickardhultgren/lympha-interpreter/raw/master/")
+			#sys.path.append("./")
+			#from lympha import *
+			#import lympha
 
-		<div style="content">
-			<p class="container" style="">		
+			prefilecom = ""
+			filecom = ""
 
-				<!--img src="logo.png" style="width:25vw;">
-				<h1>LYMPHA-online</h1-->
-				<br>
-				<br>
-				<form id="thelist">
-					<b>Scripts:</b><br>
-					<span style="color:black;">Copy and paste addresses to <i>raw</i> lympha-scripts</span>
-					<br>
+			starts = list()
+			steps = 0
+			local_files = True
+			modegraph = False
+			modestate = False
+			filecheck = False
+			modeexe = False
+			modeshow = False
+			modemap = False
+			exe_list = list()
+			show_list = list()
+			map_list = list()
+			series = list()
+			substates = list()
+			nextstates = list()
+			specs = list()
+			tipoint1 = None
+			tipoint2 = None
+			operator1 = None
+			operator2 = None
+			valju = str()
+			
+			object_list = list()
+			exe_objects = list()
+
+			theturn = 1
+
+			class Statement:
+				def __init__(self, flow, name, tipoint1, tipoint2, valju, operator1, operator2, next_list, cont_list, spec_list):
 					
-					<input type="text" class="theItems"/><br>
-				</form>
-				<button id="addbttn" onclick="addInput();">Add yet another link</button><br>
-				
-				<br><br>
+					self.flow = int(flow)
+							
+					#list of next nodes:
+					#next_list = next_list
+					self.next_list = list(next_list)
+					
+					#list of specifications:
+					#spec_list = spec_list
+					self.spec_list = list()
 
-				<!--form>
-					<input type="radio" name="arg" value="" />Let the value of variables decide paths to be shown.<br>
-					<input type="radio" name="arg" value="" />Let all the paths available be shown.<br>
-				</form-->
-				<!--br>
-				<br-->
-				<!--form>
-					<input type="radio" name="out" value="" />Graph output.<br>
-					<input type="radio" name="out" value="" />Step output.<br>
-				</form-->	
-				<b>Start nodes:</b>
-				<form id="thestarts">
-				  <input type="text" class="theStarts"/><br>
-				</form>
-				<button id="addstart" onclick="addStart();">Add yet another start node</button><br>
-				
-				<br>
-				<br>
+					#list of contents:
+					#cont_list = cont_list
+					self.cont_list = list(cont_list)
 
-				<form id="steps">
-				
-				  <b>Number of steps that should be taken:</b><br>
-				  <input type="text" class="stepNr"/><br>
-				
-				</form>
-				
-				<br>
-				<br>
-				<button id="zcriptbttn" onclick="lympha.preLexer()">Check for variable factors</button><br>
-				
-				<hr style="width:50vw; right:25vw; z-index:1;position:relative; text-align:center;" />
+					#name
+					self.name = name
+					
+					#tipping point
+					self.tipoint1 = tipoint1
 
-				<form id="factorlist">
-				  
-				</form>
-				<button id="turn2">Implement variables into script</button><br>
-				<hr style="width:50vw; right:25vw; z-index:1;position:relative; text-align:center;" />
-				<span style="color:black;"><b>Result:</b><br></span>
-				<form id="resultlist">
-				  
-				</form>
-			</p>
-		</div>
-		<div id="footer" style="border-top:0.2em solid #777777;padding:1em 0em 0em 0em;float:left; margin-top:3em;>
-			<a class="linking" rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a> Copyright &copy; Rickard Verner Hultgren<br>This work is licensed under a <a rel="license" class="linking" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 4.0 Unported License</a>.
-		</div> 
+					#tipping point
+					self.tipoint2 = tipoint2
+					
+					#relational operator
+					self.operator1 = operator1
 
-<br>
-<br>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="http://viz-js.com/bower_components/viz.js/viz-lite.js"></script>
-<script src="https://github.com/magjac/d3-graphviz/releases/download/v0.0.4/d3-graphviz.min.js"></script>
-<div id="graph" style="text-align: center;"></div>
-					   
+					#relational operator
+					self.operator2 = operator2
+
+
+					#valju
+					#if valju != 0 :print (valju)
+					if valju == "0" :self.valju = "0"
+					else: self.valju = "1"
+					#if self.int(valju) != 0 :print ("%s:%s" % (self.name, self.int(valju)))
+
+			#object_list.append(Event(i))
+			#object_list.append(Factor(i))
+
+			addresses = []
+
+				
+			def mapfunc2():
+			# Add objects.name to show_list.
+			# Global functions in order to clean the global variables.
+				global prefilecom 
+				global filecom 
+				global argvlen 
+				global filename 
+				global filenames 
+				global starts 
+				global steps 
+				global modegraph 
+				global modestate 
+				global filecheck 
+				global modeexe 
+				global modeshow 
+				global modemap 
+				global exe_list 
+				#global show_list 
+				global map_list 
+				global series 
+				global substates 
+				global nextstates 
+				global specs 
+				global tipoint1 
+				global tipoint2 
+				global operator1 
+				global operator2 
+				global valju 
+				global object_list 
+				global exe_objects 
+
+				global object_list
+				global starts
+				global show_list
+				
+				#EDITED line:
+				for step in range(0,int(steps)):
+					nextstates = list()
+					for start in starts:
+						for obj in object_list:
+							if ("%s" % obj.name) == ("%s" % start) :
+								prevalju = "0"		
+								if len(obj.cont_list) != 0 :
+									subfactors = list()
+									for cont_object in obj.cont_list :
+										for item in object_list:							
+											if cont_object == item.name :
+												subfactors.append(item.valju)
+
+									sum1 = subfactors.count("1")
+									sum0 = subfactors.count("0")
+									document <=  (obj.tipoint1, sum1)
+									if obj.operator1 != None and obj.valju is None :
+										if obj.operator1 == "equiv" and int(obj.tipoint1) == int(sum1):
+											prevalju = str("1")
+										elif obj.operator1 == "geq" and int(obj.tipoint1) >= int(sum1):
+											prevalju = str("1")
+										elif obj.operator1 == "leq" and int(obj.tipoint1) <= int(sum1):
+											prevalju = str("1")
+										elif obj.operator1 == "no" and int(obj.tipoint1) != int(sum1):
+											prevalju = str("1")
+										elif obj.operator1 == "g" and int(obj.tipoint1) > int(sum1):
+											prevalju = str("1")
+										elif obj.operator1 == "l" and int(obj.tipoint1) < int(sum1):
+											
+											prevalju = str("1")
+										else:
+											prevalju = str("0")
+										obj.valju = prevalju
+															
+								elif len(obj.cont_list) < 1 :
+									
+									for algobj in object_list:
+										if  algobj.name == ("%s" % obj.valju):
+											sum1 = ("%s" % algobj.valju)
+											if obj.operator1 != None and obj.valju != "" :
+												if obj.operator1 == "equiv" and int(obj.tipoint1) == int(sum1):
+													
+													prevalju = "1"
+												elif obj.operator1 == "geq" and int(obj.tipoint1) >= int(sum1):
+													
+													prevalju = "1"
+												elif obj.operator1 == "leq" and int(obj.tipoint1) <= int(sum1):
+													
+													document <=  ("PREVALJU: %s"%prevalju)
+													prevalju = "1"
+												elif obj.operator1 == "no" and int(obj.tipoint1) != int(sum1):
+													
+													prevalju = "1"
+												elif obj.operator1 == "g" and int(obj.tipoint1) > int(sum1):
+													
+													prevalju = "1"
+												elif obj.operator1 == "l" and int(obj.tipoint1) < int(sum1):
+													
+													prevalju = "1"
+												else:
+													prevalju = str("0")	
+											if  algobj.name == ("%s" % obj.valju):
+												sum1 = ("%s" % algobj.valju)										
+												if obj.operator2 != None :
+													if obj.operator2 == "equiv" and int(obj.tipoint2) == int(sum1) and prevalju == "1" :
+														prevalju = "1"
+													elif obj.operator2 == "geq" and int(obj.tipoint2) >= int(sum1) and prevalju == "1" :
+														prevalju = "1"
+													elif obj.operator2 == "leq" and int(obj.tipoint2) <= int(sum1) and prevalju == "1" :
+														prevalju = "1"
+													elif obj.operator2 == "no" and int(obj.tipoint2) != int(sum1) and prevalju == "1" :
+														prevalju = "1"
+													elif obj.operator2 == "g" and int(obj.tipoint2) > int(sum1) and prevalju == "1" :
+														prevalju = "1"
+													elif obj.operator2 == "l" and int(obj.tipoint2) < int(sum1) and prevalju == "1" :
+														prevalju = "1"
+													else:
+														prevalju = str("0")									
+											obj.valju = prevalju
+											
+								if len(obj.operator1) < 1 :
+										if obj.flow == 0 :
+											obj.valju = "0"				
+															
+								if obj.valju == str("1"):
+									document <=  ("step %s: %s; exe" % (step+1, start))
+									document <= html.BR()
+								#elif obj.valju == str("0"):
+								else:
+									for k in obj.next_list:
+										for l in object_list:
+											if k==l.name:
+												l.flow = 0
+
+									document <=  ("step %s: %s"% (step+1, start))
+									document <= html.BR()
+								for next_object in obj.next_list :
+									nextstates.append(next_object)
+
+					seen2 = {}
+					nextstates = [seen2.setdefault(x, x) for x in nextstates if x not in seen2]
+					del starts[:]
+					starts = list(nextstates)
+					del nextstates[:]
+					
+				prefilecom = None
+				filecom = None
+				argvlen = None
+				filename = None
+				filenames = None
+				starts = None
+				steps = None
+				modegraph = None
+				modestate = None
+				filecheck = None
+				modeexe = None
+				modeshow = None
+				modemap = None
+				exe_list = None
+				show_list = None
+				map_list = None
+				series = None
+				substates = None
+				nextstates = None
+				specs = None
+				tipoint1 = None
+				tipoint2 = None
+				operator1 = None
+				operator2 = None
+				valju = None
+				object_list = None
+				exe_objects = None
+				
+				del	prefilecom, filecom, argvlen, filename, filenames, starts, steps, modegraph, modestate, filecheck, modeexe, modeshow, modemap, exe_list, show_list, map_list, series, substates, nextstates, specs, tipoint1, tipoint2, operator1, operator2, valju, object_list, exe_objects		
+
+			def new2(name, flow, tipoint1, tipoint2, valju, operator1,  operator2, next_list, cont_list, spec_list):
+				global object_list
+				nameused = False
+				for index, obj in enumerate(object_list):
+					
+					if (" %s " % obj.name) == name:
+						nameused = True
+						if tipoint1 is None:
+							object_list[index].tipoint1 == tipoint1
+						if valju is None:
+							
+							object_list[index].int(valju) == int(valju)
+							if int(valju) != 0: document <= ("%s:%s\n" % (object_list[index].int(valju), int(valju)))
+						if operator1 != None:
+							object_list[index].operator1 == operator1				
+						if next_list != None:
+							object_list[index].next_list == next_list				
+						if cont_list != None:
+							object_list[index].cont_list == cont_list
+						if spec_list != None:
+							object_list[index].spec_list == spec_list								
+				if nameused == False:
+					name = name.replace(' ', '')
+					statement = Statement(flow, name, tipoint1, tipoint2, valju, operator1, operator2, next_list, cont_list, spec_list)
+					object_list.append(statement)
+			
+			
+			def lexer2():
+				global theturn
+				global series
+				global object_list
+
+				nexts = list()
+				conts = list()
+				#make new nodes in database
+				for serie in series:
+					
+					arrowobjs = serie.split('->')
+					count = 0
+					nexts = list()
+					conts = list()
+					specs = list()
+					flow = int()
+					tipoint1 = int()
+					operator1 = str()
+					valju = str()
+					scale = list()
+					for anobj in arrowobjs:
+						eqobjs = re.compile("[^=|<|>|!]=[^=|<|>|!]").split(anobj)
+
+						anobj.replace(" ","")
+					
+						new2(eqobjs[0], flow, tipoint1, tipoint2, valju, operator1, operator2, nexts,conts, specs)			
+				seen = {}
+				object_list = [seen.setdefault(x.name, x) for x in object_list if x.name not in seen]
+				#Connect the database nodes
+				
+				for flowobj in object_list:
+					flowobj.flow = 1
+				
+				for serie in series:
+					arrowobj = serie.split('->')
+					count = 0
+					nexts = list()
+					conts = list()
+					# many nexts vs one
+					for i in range(len(arrowobj)):
+						for bnobj in object_list :
+							if i!=0 and (" %s " % bnobj.name) == ("%s" % arrowobj[(i-1)]):
+								nexting = ""
+								nexting = arrowobj[i].replace(" ","")
+								if not nexting == "":
+									bnobj.next_list.append(nexting)
+						seen3 = {}
+						bnobj.next_list = [seen3.setdefault(x, x) for x in bnobj.next_list if x not in seen3]
+						
+						
+				for serie in series:
+					count = 0
+					# many nexts vs one
+					anobj = serie
+					
+					if anobj != "" and " = " in anobj:
+						for bnobj in object_list :
+							sides = re.compile("[^=|<|>|!]=[^=|<|>|!]").split(anobj)
+							side1 = sides[0]
+							side1 = side1.replace(" ","")
+							if side1 == bnobj.name :
+								parts = sides[1]
+								parts = parts.replace(" ","")
+#								document  <= "test1"
+								#Added in the online version!:
+								if theturn == 1 : 
+									if parts.isdigit() == True or parts == "" or parts == None :
+										if side1[-1] == "?" :
+											document <= html.BR()
+											factorform = document['factorlist']
+											factorform <= str("%s = "%side1)
+											factorform <= html.INPUT(type="text", id=side1, Class="factorItems")
+											factorform <= html.BR()
+
+								elif parts.isdigit() == True:	
+									bnobj.valju = parts
+								else:
+									subfactorings = []
+									if bnobj.operator1 != None :
+										if "==" in parts :
+											subfactorings = parts.split("==")
+											bnobj.operator1="equiv"
+										elif ">=" in parts :
+											subfactorings = parts.split(">=")
+											bnobj.operator1="geq"						
+										elif "<=" in parts :
+											subfactorings = parts.split("<=")
+											bnobj.operator1="gleq"
+										elif "!=" in parts :
+											subfactorings = parts.split("!=")
+											bnobj.operator1="no"
+										elif ">" in parts :
+											subfactorings = parts.split(">")
+											bnobj.operator1="g"
+										elif "<" in parts :
+											subfactorings = parts.split("<")
+											bnobj.operator1="l"
+									else:
+										if "==" in parts :
+											subfactorings = parts.split("==")
+											bnobj.operator2="equiv"
+										elif ">=" in parts :
+											subfactorings = parts.split(">=")
+											bnobj.operator2="geq"						
+										elif "<=" in parts :
+											subfactorings = parts.split("<=")
+											bnobj.operator2="gleq"
+										elif "!=" in parts :
+											subfactorings = parts.split("!=")
+											bnobj.operator2="no"
+										elif ">" in parts :
+											subfactorings = parts.split(">")
+											bnobj.operator2="g"
+										elif "<" in parts :
+											subfactorings = parts.split("<")
+											bnobj.operator2="l"
+									parts = parts.replace(" ","")
+									#if re.match(r"\|\{[A-Za-z0-9.,:-_ ?]*\}\|", parts):
+									if "|{" in parts and "}|" in parts :
+										parts = parts.replace("|{","")
+										parts = parts.replace("}|","")
+										partlist = parts.split(",")
+										
+										for party in partlist:
+											bnobj.cont_list.append(party)
+											bnobj.valju = None
+									else:
+									###
+									#elif len(partlist) == 2 :
+										bnobj.valju = subfactorings[1]
+										
+										#valju(bnobj.valju) = [int(s) for s in sides[1].split()][1]
+								
+								sidelist = re.compile("\=\=|<\=|>\=|\!\=|<|>]").split(sides[1])
+								#sidelist = [int(s) for s in sides[1].split() if s.isdigit()]
+								#bnobj.tipoint1 = sidelist[0]
+								try:
+									bnobj.tipoint1 = (sidelist[0]).replace(" ","")
+									#bnobj.tipoint1 = sidelist[0]	
+								except:
+									pass
+								try:
+									if bnobj.tipoint1 != None :
+										bnobj.tipoint2 = (sidelist[0]).replace(" ","")
+										#bnobj.tipoint1 = sidelist[0]								
+								except:
+										pass							
+				theturn = 2
+			
+			def add_input(ev):
+				aform = document['thelist']
+				aform <= html.INPUT(type="text", Class="theItems")
+				aform <= html.BR()
+
+			def add_start(ev):
+				startform = document['thestarts']
+				startform <= html.INPUT(type="text", Class="theStarts")
+				startaform <= html.BR()
+
+			def zcripts(ev):
+				global object_list
+				global series
+				global addresses
+				#global local_files
+				#for afilename in addresses:
+				for an_item in document.select(".theItems"):
+					addresses.append(an_item.value)
+				
+				urls=[]
+				for an_address in addresses:
+					urls.append(urllib.request.urlopen(an_address).read())
+
+				for j in urls:
+					filetext = j
+					filetext = filetext.replace('\n', ' ')
+					filetext = filetext.replace('  ', ' ')
+					series.extend(filetext.split(';'))
+					
+				global local_files
+				local_files = False
+				global modegraph
+				modegraph = True
+				global steps
+				for a_step in document.select(".stepNr"):
+					steps = a_step.value
+				global starts
+				for start_item in document.select(".theStarts"):
+					starts.append(start_item.value)
+					#document <= start_item.value
+				#for start in starts:
+					#document <= start
+				#l = []
+				#for key, value in locals().items():
+				#	if callable(value) and value.__module__ == __name__:
+				#		l.append(key)
+				#documtn <= l
+
+				#document <= starts
+				#document <= filenames
+				#document <= object_list				
+				
+				#global object_list
+				lexer2()
+				#mapfunc2()
+
+			def turn2func(ev):
+				global theturn
+				global object_list
+				theturn = 2
+				###
+				#Connect variables to func.
+				lexer2()
+				for an_obj in object_list :
+					for a_name in document.select(".factorItems"):
+						if a_name.id == an_obj.name :
+							an_obj.valju = a_name.value
+				mapfunc2()
+
+
+			document["turn2"].bind("click", turn2func)
+			document["addbttn"].bind("click", add_input)
+			document["zcriptbttn"].bind("click", zcripts)
+				
+		</script>
+		<p>
+		<!--img src="logo.png" style="width:25vw;">
+		<h1>LYMPHA-online</h1-->
+		
+		<b>Scripts:</b><br>
+		<span style="color:black;">Copy and paste addresses to <i>raw</i> lympha-scripts</span>
+		
+		<form id="thelist">
+		  <input type="text" class="theItems"/><br>
+		</form>
+		<button id="addbttn" >Add yet another link</button><br>
+		
+		<br><br>
+
+		<!--form>
+			<input type="radio" name="arg" value="" />Let the value of variables decide paths to be shown.<br>
+			<input type="radio" name="arg" value="" />Let all the paths available be shown.<br>
+		</form-->
+		<!--br>
+		<br-->
+		<!--form>
+			<input type="radio" name="out" value="" />Graph output.<br>
+			<input type="radio" name="out" value="" />Step output.<br>
+		</form-->	
+		<b>Start nodes:</b>
+		<form id="thestarts">
+		  <input type="text" class="theStarts"/><br>
+		</form>
+		<button id="addstart" >Add yet another start node</button><br>
+		<br>
+		<br>
+
+		<form id="steps">
+		
+		  <b>Number of steps that should be taken:</b><br>
+		  <input type="text" class="stepNr"/><br>
+		
+		</form>
+		<br>
+		<br>
+
+		<button id="zcriptbttn">Check for variable factors</button><br>
+
+
+		
+		<hr>
+
+		<form id="factorlist">
+		  
+		</form>
+		<button id="turn2">Implement variables into script</button><br>
+		<hr>
+		<span style="color:black;"><b>Result:</b><br></span>
+
+</p>
+</p></p><div id="footer" style="border-top:0.2em solid #777777;padding:1em 0em 0em 0em;float:left; margin-top:3em;>
+	<a class="linking" rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a> Copyright &copy; Rickard Verner Hultgren<br>This work is licensed under a <a rel="license" class="linking" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.
+</div> 
+
+
+
+
+
 <div>
 	<script id="js">
     var graphstr;
