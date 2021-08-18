@@ -416,10 +416,10 @@
 										if object_list[key].name != next_object :
 											graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 									nextstates.append(next_object)
-                graphdiv = document['graphdiv']
-                graphdiv <= str('<script id="js">d3.select("#graph").graphviz().renderDot(%s);</script>' % (graphstr))
+								graphdiv = document['graphdiv']
+								graphdiv <= str('<script id="js">d3.select("#graph").graphviz().renderDot(%s);</script>' % (graphstr) )
 					nextstates = list()
-					
+				
 					for start in starts :
 						for k in range(0,len(object_list)):
 							if object_list[k].name==start:
@@ -889,6 +889,6 @@
 			
 		
 <br><br>
-2
+3
 	</body>
 </html>
