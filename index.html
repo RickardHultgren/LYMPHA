@@ -417,7 +417,7 @@
 											graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 									nextstates.append(next_object)
 								
-								javascript.this('d3.select("#graph").graphviz().renderDot("a -> b")')
+								javascript.this('d3.select("#graph").graphviz().renderDot("digraph {a -> c}");')
 					nextstates = list()
 				
 					for start in starts :
@@ -884,7 +884,7 @@
 
 	<script id="js">
  
-    //d3.select("#graph").graphviz().renderDot('digraph {a -> c}');
+    //d3.select("#graph").graphviz().renderDot("digraph {a -> c}");
     //d3.select("#graph").graphviz().renderDot('digraph {a -> c ; a -> b}');
 	</script>
 
