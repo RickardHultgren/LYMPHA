@@ -416,8 +416,8 @@
 										if object_list[key].name != next_object :
 											graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 									nextstates.append(next_object)
-								graphdiv = document['js']
-								graphdiv <= ('d3.select("#graph").graphviz().renderDot(%s);' % (graphstr) )
+								
+								javascript.ths('d3.select("#graph").graphviz().renderDot(%s);' % (graphstr) ))
 					nextstates = list()
 				
 					for start in starts :
