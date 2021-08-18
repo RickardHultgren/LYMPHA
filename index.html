@@ -408,7 +408,7 @@
 	
 										document <= html.BR()
 										document <= str("%s = "%graph_string)
-										
+										graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 										document <= html.BR()
 								document <= " TEST8 "																				
 								for next_object in object_list[key].next_list :
