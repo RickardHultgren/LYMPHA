@@ -416,7 +416,8 @@
 										if object_list[key].name != next_object :
 											graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 									nextstates.append(next_object)
-								
+                graphdiv = document['graphdiv']
+                graphdiv <= str('<script id="js">d3.select("#graph").graphviz().renderDot(%s);</script>' % (graphstr))
 					nextstates = list()
 					
 					for start in starts :
@@ -877,12 +878,12 @@
 
 
 
-<div>
+<div id="graphdiv">
 	<script id="js">
     var graphstr;
     //graphstr = 'digraph {a -> c ; a -> b}';
     //d3.select("#graph").graphviz().renderDot('digraph {a -> c}');
-    d3.select("#graph").graphviz().renderDot(graphstr);
+    //d3.select("#graph").graphviz().renderDot(graphstr);
 	</script>
 </div>
 			
