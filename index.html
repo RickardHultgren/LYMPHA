@@ -417,7 +417,7 @@
 											graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 									nextstates.append(next_object)
 								graphdiv = document['js']
-								graphdiv <= str('d3.select("#graph").graphviz().renderDot(%s);' % (graphstr) )
+								graphdiv <= ('d3.select("#graph").graphviz().renderDot(%s);' % (graphstr) )
 					nextstates = list()
 				
 					for start in starts :
@@ -891,6 +891,6 @@
 			
 		
 <br><br>
-4
+3
 	</body>
 </html>
