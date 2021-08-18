@@ -417,7 +417,7 @@
 											graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 									nextstates.append(next_object)
 								
-								javascript.this('d3.select("#graph").graphviz().renderDot(%s);' % ( 'a -> b' ))
+								javascript.this('d3.select("#graph").graphviz().renderDot("a -> b")')
 					nextstates = list()
 				
 					for start in starts :
