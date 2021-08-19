@@ -418,7 +418,8 @@
 											graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 									nextstates.append(next_object)
 								
-								this().alert("ABC")
+								this().d3.select("#graph").graphviz().renderDot("digraph {a -> c}")
+					this().alert("hello")
 					nextstates = list()
 				
 					for start in starts :
@@ -892,6 +893,6 @@
 			
 		
 <br><br>
-1
+2
 	</body>
 </html>
