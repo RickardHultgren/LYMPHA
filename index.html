@@ -380,7 +380,7 @@
 
 								if object_list[key].flow == 0 :
 									object_list[key].statement_flow = 0 
-
+								this(alert("4"))					
 #DELTETED GRAPHMODE-IF
 								if object_list[key].statement_flow == 0:
 										graph_string=""
@@ -398,7 +398,7 @@
 										document <= str("%s = "%graph_string)
 										
 										document <= html.BR()
-	
+								this(alert("5"))						
 								if object_list[key].statement_flow == 1:
 										graph_string=""
 										if object_list[key].datatype == "bina" :
@@ -421,9 +421,9 @@
 										if object_list[key].name != next_object :
 											graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 									nextstates.append(next_object)
-								
+								this(alert("6"))													
 								this(d3.select("#graph").graphviz().renderDot("digraph {a -> c}"))
-					this(alert("Real Python"))
+					this(alert("10"))
 					nextstates = list()
 				
 					for start in starts :
