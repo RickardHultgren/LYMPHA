@@ -418,7 +418,7 @@
 											graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 									nextstates.append(next_object)
 								
-								this('d3.select("#graph").graphviz().renderDot("digraph {a -> c}");')
+								py2js('d3.select("#graph").graphviz().renderDot("digraph {a -> c}");')
 					nextstates = list()
 				
 					for start in starts :
@@ -892,6 +892,6 @@
 			
 		
 <br><br>
-2
+1
 	</body>
 </html>
