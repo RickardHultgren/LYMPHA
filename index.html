@@ -17,7 +17,7 @@
 	<body onload="brython()" style="font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;">
 		<script type="text/python">
 			from browser import document, bind, html, alert
-			from javascript import py2js
+			from javascript import this
 			import urllib.request
 			
 			
@@ -418,7 +418,7 @@
 											graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 									nextstates.append(next_object)
 								
-								py2js('d3.select("#graph").graphviz().renderDot("digraph {a -> c}");')
+								this('d3.select("#graph").graphviz().renderDot("digraph {a -> c}");')
 					nextstates = list()
 				
 					for start in starts :
@@ -892,6 +892,6 @@
 			
 		
 <br><br>
-1
+5
 	</body>
 </html>
