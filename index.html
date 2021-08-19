@@ -222,7 +222,8 @@
 							strr=str("%s" % object_list[key].name)
 							strr = re.sub("\s+", "", strr.strip())
 							pre_statement_flow = 1
-							if str(start) == strr :
+							this(alert("1"))					
+              if str(start) == strr :
 							
 								document <= ("NAME: %s" % object_list[key].name)
 							
@@ -270,6 +271,7 @@
 											pre_statement_flow = 0
 									object_list[key].statement_flow = int(pre_statement_flow)        
 								#For nonbinar-evaluations
+                this(alert("2"))					
 								if object_list[key].datatype == "nonbineval" :
 											
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
@@ -352,6 +354,7 @@
 												document <= html.BR()
 											object_list[key].statement_flow = int(pre_statement_flow)
 								#For equations
+                this(alert("3"))					
 								if object_list[key].datatype == "valu":
 								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
 
@@ -894,6 +897,6 @@
 			
 		
 <br><br>
-8
+9
 	</body>
 </html>
