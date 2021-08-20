@@ -413,9 +413,12 @@
 										graph_string += ('"%s" [label="step %s: %s\\n%s", fillcolor=yellow, style=filled] \n' % (start,step+1,start,str(graph_string)))
 										this(alert("5.3"))		
 										document <= html.BR()
-										document <= str("%s = "%graph_string)
-										graphstr += ('"%s" -> "%s" \n' % (start,next_object))
-										document <= html.BR()
+                    try:
+											document <= str("%s = "%graph_string)
+											graphstr += ('"%s" -> "%s" \n' % (start,next_object))
+											document <= html.BR()
+										except:
+											pass
 								this(alert("5.5"))		
 								document <= " TEST8 "																				
 								for next_object in object_list[key].next_list :
