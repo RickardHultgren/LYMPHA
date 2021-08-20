@@ -27,11 +27,7 @@
 			d3 = window.d3
 
 			svg = d3.select("#graph")
-			svg\
-			.attr("width", 340)\
-			.attr("height", 300)\
-			.style("border","1px dotted black")\
-			circles = svg.graphviz().renderDot("digraph {a -> c}")
+			document <= svg.graphviz().renderDot("digraph {a -> c}")
 
 			#document <= html.DIV(id="graph")
 			
