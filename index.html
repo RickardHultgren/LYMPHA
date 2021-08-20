@@ -214,7 +214,7 @@
 				global show_list
 				global steps
 				#if mode_graph == True:
-					#graphstr = 'digraph lympha {\nnode [shape=record];'
+				graphstr = 'digraph lympha {\nnode [shape=record];'
 #ADDED INT IN INT(STEPS)
 				for step in range(0, int(steps)):
 					nextstates = list()
@@ -430,13 +430,14 @@
 											graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 									nextstates.append(next_object)
 
-					try:
+								try:
+									graphstr += "}"
 									d3 = window.d3
 
 									svg = d3.select("#graph")
 									svg.graphviz().renderDot(graphstr)
 
-					except:	
+								except:	
 									pass
 					#this(alert("10"))
 					nextstates = list()
@@ -909,6 +910,6 @@
 			
 		
 <br><br>
-1
+14
 	</body>
 </html>
