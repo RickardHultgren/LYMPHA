@@ -21,11 +21,21 @@
 	<body onload="brython()" style="font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;">
 		<script type="text/python">
 			from browser import document, bind, html, alert
-			from javascript import this
+			#from javascript import this
 			import urllib.request
       
-			document <= html.DIV(id="graph")
-			#this(d3.select("#graph").graphviz().renderDot("digraph {a -> c}"))
+			d3 = window.d3
+
+			svg = d3.select("#graph")
+			svg\
+			.attr("width", 340)\
+			.attr("height", 300)\
+			.style("border","1px dotted black")\
+			circles = svg.graphviz().renderDot("digraph {a -> c}")
+
+			#document <= html.DIV(id="graph")
+			
+      #this(d3.select("#graph").graphviz().renderDot("digraph {a -> c}"))
 			
 						
 			#???			
@@ -894,8 +904,8 @@
 	</body>
 
 
-  <div></div>
-
+  
+<div id="graph" style="width: 300px; height: 300px; border: 1px solid black; backgroundColor:#ff0000"></div>
 
 	<script id="js">
  
@@ -906,6 +916,6 @@
 			
 		
 <br><br>
-14
+13
 	</body>
 </html>
