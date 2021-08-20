@@ -401,7 +401,7 @@
 								this(alert("5"))						
 								if object_list[key].statement_flow == 1:
 										graph_string=""
-								this(alert("5.1"))		
+										this(alert("5.1"))		
 										if object_list[key].datatype == "bina" :
 											graph_string="1B"
 										if object_list[key].datatype == "bineval" :
@@ -411,7 +411,7 @@
 										if object_list[key].datatype == "valu" :                                
 											graph_string=object_list[key].statement_value
 										graph_string += ('"%s" [label="step %s: %s\\n%s", fillcolor=yellow, style=filled] \n' % (start,step+1,start,str(graph_string)))
-									this(alert("5.3"))		
+										this(alert("5.3"))		
 										document <= html.BR()
 										document <= str("%s = "%graph_string)
 										graphstr += ('"%s" -> "%s" \n' % (start,next_object))
