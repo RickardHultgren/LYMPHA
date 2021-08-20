@@ -429,15 +429,7 @@
 											graphstr += ('"%s" -> "%s" ; \n' % (start,next_object))
 									nextstates.append(next_object)
 
-								try:
-									graphstr += "}"
-									d3 = window.d3
 
-									svg = d3.select("#graph")
-									svg.graphviz().renderDot(graphstr)
-
-								except:	
-									pass
 					#this(alert("10"))
 					nextstates = list()
 				
@@ -457,14 +449,23 @@
 						if nexting not in starts: 
 							starts.append(nexting) 
 					del nextstates[:]
-				if mode_graph == True:
-					graphstr += '}'
-					open('lympha.dot', 'w').close()
-					outputfile = open("lympha.dot", "w")
-					outputfile.write(graphstr)
-					outputfile.close()
-					cmd = 'dot lympha.dot -Tps -o lympha.pdf'
-					os.system(cmd)
+#				if mode_graph == True:
+				graphstr += '}'
+				try:
+									graphstr += "}"
+									d3 = window.d3
+
+									svg = d3.select("#graph")
+									svg.graphviz().renderDot(graphstr)
+
+				except:	
+									pass        
+#					open('lympha.dot', 'w').close()
+#					outputfile = open("lympha.dot", "w")
+#					outputfile.write(graphstr)
+#					outputfile.close()
+#					cmd = 'dot lympha.dot -Tps -o lympha.pdf'
+#					os.system(cmd)
 					
 				CLI_filename = None
 				argv_len = None
