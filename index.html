@@ -24,14 +24,7 @@
 			#from javascript import this
 			import urllib.request
       
-			d3 = window.d3
 
-			svg = d3.select("#graph")
-			svg.graphviz().renderDot("digraph {a -> c}")
-
-			#document <= html.DIV(id="graph")
-			
-      #this(d3.select("#graph").graphviz().renderDot("digraph {a -> c}"))
 			
 						
 			#???			
@@ -438,7 +431,13 @@
 									nextstates.append(next_object)
 
 								try:
-									this(d3.select("#graph").graphviz().renderDot("digraph {a -> c}"))
+									d3 = window.d3
+
+									svg = d3.select("#graph")
+									svg.graphviz().renderDot("%s" % (graphstr))
+
+									#document <= html.DIV(id="graph")
+			
 								except:	
 									pass
 					#this(alert("10"))
