@@ -7,6 +7,10 @@
 		<link rel="stylesheet" href="styles.css">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Signika+Negative:300,400,600,700&amp;lang=en" />	
+    <script src="//d3js.org/d3.v5.min.js"></script>
+    <script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
+    <script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
+
 		<script type="text/javascript"
 			src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.3/brython.min.js">
 		</script>		
@@ -222,7 +226,7 @@
 							strr=str("%s" % object_list[key].name)
 							strr = re.sub("\s+", "", strr.strip())
 							pre_statement_flow = 1
-							this(alert("1"))					
+
 							if str(start) == strr :
 							
 								document <= ("NAME: %s" % object_list[key].name)
@@ -271,7 +275,7 @@
 											pre_statement_flow = 0
 									object_list[key].statement_flow = int(pre_statement_flow)        
 								#For nonbinar-evaluations
-								this(alert("2"))					
+
 								if object_list[key].datatype == "nonbineval" :
 											
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
@@ -354,7 +358,7 @@
 												document <= html.BR()
 											object_list[key].statement_flow = int(pre_statement_flow)
 								#For equations
-								this(alert("3"))					
+
 								if object_list[key].datatype == "valu":
 								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
 
@@ -380,7 +384,7 @@
 
 								if object_list[key].flow == 0 :
 									object_list[key].statement_flow = 0 
-								this(alert("4"))					
+
 #DELTETED GRAPHMODE-IF
 								if object_list[key].statement_flow == 0:
 										graph_string=""
@@ -398,10 +402,10 @@
 										document <= str("%s = "%graph_string)
 										
 										document <= html.BR()
-								this(alert("5"))						
+
 								if object_list[key].statement_flow == 1:
 										graph_string=""
-										this(alert("5.1"))		
+
 										if object_list[key].datatype == "bina" :
 											graph_string="1B"
 										if object_list[key].datatype == "bineval" :
@@ -411,7 +415,7 @@
 										if object_list[key].datatype == "valu" :                                
 											graph_string=object_list[key].statement_value
 										graph_string += ('"%s" [label="step %s: %s\\n%s", fillcolor=yellow, style=filled] \n' % (start,step+1,start,str(graph_string)))
-										this(alert("5.3"))		
+
 										document <= html.BR()
 										try:
 											document <= str("%s = "%graph_string)
@@ -419,19 +423,19 @@
 											document <= html.BR()
 										except:
 											pass
-								this(alert("5.5"))		
+	
 								document <= " TEST8 "																				
 								for next_object in object_list[key].next_list :
 									if mode_graph == True:
 										if object_list[key].name != next_object :
 											graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 									nextstates.append(next_object)
-								this(alert("6"))
+
 								try:
 									this(d3.select("#graph").graphviz().renderDot("digraph {a -> c}"))
 								except:	
 									pass
-					this(alert("10"))
+					#this(alert("10"))
 					nextstates = list()
 				
 					for start in starts :
@@ -890,9 +894,6 @@
 	</body>
 
 
-<script src="//d3js.org/d3.v5.min.js"></script>
-<script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
-<script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
   
 <div id="graph" style="width: 300px; height: 300px; border: 1px solid black; backgroundColor:#ff0000"></div>
 
