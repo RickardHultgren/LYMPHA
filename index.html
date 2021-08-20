@@ -413,22 +413,21 @@
 											graph_string=("score: %s" % (object_list[key].statement_value))
 										if object_list[key].datatype == "valu" :                                
 											graph_string=object_list[key].statement_value
-										graph_string += ('"%s" [label="step %s: %s\\n%s", fillcolor=yellow, style=filled] \n' % (start,step+1,start,str(graph_string)))
+										graph_string += ('"%s" [label="step %s: %s\\n%s", fillcolor=yellow, style=filled] ; \n' % (start,step+1,start,str(graph_string)))
 
 										document <= html.BR()
 										try:
 											document <= str("%s = "%graph_string)
-											graphstr += str("%s = "%graph_string)
+											graphstr += str("%s"%graph_string)
 											#graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 											document <= html.BR()
 										except:
 											pass
 	
-								document <= " TEST8 "																				
 								for next_object in object_list[key].next_list :
 									if mode_graph == True:
 										if object_list[key].name != next_object :
-											graphstr += ('"%s" -> "%s" \n' % (start,next_object))
+											graphstr += ('"%s" -> "%s" ; \n' % (start,next_object))
 									nextstates.append(next_object)
 
 								try:
@@ -911,6 +910,6 @@
 			
 		
 <br><br>
-
+2
 	</body>
 </html>
