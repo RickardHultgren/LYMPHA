@@ -413,7 +413,7 @@
 										graph_string += ('"%s" [label="step %s: %s\\n%s", fillcolor=yellow, style=filled] \n' % (start,step+1,start,str(graph_string)))
 										this(alert("5.3"))		
 										document <= html.BR()
-                    try:
+										try:
 											document <= str("%s = "%graph_string)
 											graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 											document <= html.BR()
