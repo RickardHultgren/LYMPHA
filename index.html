@@ -425,8 +425,7 @@
 											pass
 	
 								for next_object in object_list[key].next_list :
-									if mode_graph == True:
-										if object_list[key].name != next_object :
+									if object_list[key].name != next_object :
 											graphstr += ('"%s" -> "%s" ; \n' % (start,next_object))
 									nextstates.append(next_object)
 
