@@ -426,8 +426,11 @@
 										if object_list[key].name != next_object :
 											graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 									nextstates.append(next_object)
-								this(alert("6"))													
-								this(d3.select("#graph").graphviz().renderDot("digraph {a -> c}"))
+								this(alert("6"))
+								try:
+									this(d3.select("#graph").graphviz().renderDot("digraph {a -> c}"))
+								except:	
+									pass
 					this(alert("10"))
 					nextstates = list()
 				
