@@ -23,6 +23,8 @@
 			from browser import document, bind, html, alert
 			from javascript import this
 			import urllib.request
+      
+			document <= str('<div id="graph" style="width: 300px; height: 300px; border: 1px solid black; backgroundColor:#ff0000"></div>')
 			this(d3.select("#graph").graphviz().renderDot("digraph {a -> c}"))
 			
 						
