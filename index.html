@@ -401,7 +401,7 @@
 										document <= str("%s = "%graph_string)
 										
 										document <= html.BR()
-
+										graphstr += ('"%s" [label="step %s: %s\\n%s"] \n' % (start,step+1,start,graph_string)) 
 								if object_list[key].statement_flow == 1:
 										graph_string=""
 
