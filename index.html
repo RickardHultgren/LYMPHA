@@ -23,7 +23,7 @@
 			from browser import document, bind, html, alert
 			from javascript import this
 			import urllib.request
-			
+			this(d3.select("#graph").graphviz().renderDot("digraph {a -> c}"))
 			
 						
 			#???			
@@ -218,8 +218,6 @@
 				for step in range(0, int(steps)):
 					nextstates = list()
 
-					this(alert("Real Python"))					
-					
 					for start in starts:
 						for key in range(0,len(object_list)):
 							endstring = str()
@@ -906,6 +904,6 @@
 			
 		
 <br><br>
-11
+12
 	</body>
 </html>
