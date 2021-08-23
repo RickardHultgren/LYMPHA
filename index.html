@@ -588,19 +588,21 @@
 				# 1. Operator + Sum of binaries
 				# 2. Operator + Equation and value
 				# 3. Constant value
-				for serie in series:
-					count = 0
-					anobj = serie
+				#for serie in series:
+				for sideone in document.select(".factorItems"):
+						count = 0
+          #count = 0
+					#anobj = serie
 					
 					#Chop the serie:
-					if anobj != "" and " = " in anobj:
+					#if anobj != "" and " = " in anobj:
 
 
-						sides = anobj.split(' = ')
-						side1 = sides[0]
-						side2 = sides[1]
-						side1 = side1.replace(" ","")
-						side2 = side2.replace(" ","")
+					#	sides = anobj.split(' = ')
+					#	side1 = sides[0]
+					#	side2 = sides[1]
+					#	side1 = side1.replace(" ","")
+					#	side2 = side2.replace(" ","")
 						for key in range(0,len(object_list)) :
 						#Web version TRY############
 
@@ -611,7 +613,9 @@
 
 
 								#Replace with web input from factorlist
-								if ("%s" % thename) == sides[0].replace(" ", "") :
+								#for a_step in document.select(".factorItems"):
+								if ("%s" % thename) == sideone.replace(" ", "") :
+								#if ("%s" % thename) == sides[0].replace(" ", "") :
 									#For binary values
 									if str("1B") in str(sides[1]) :           
 									#elif re.compile(".*1B.*").match(sides[1]) :
