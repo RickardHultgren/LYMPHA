@@ -395,13 +395,9 @@
 											graph_string=("score: %s" % (object_list[key].statement_value))
 										if object_list[key].datatype == "valu" :                                
 											graph_string=object_list[key].statement_value
-										graph_string += ('"%s" [label="step %s: %s\\n%s", fillcolor=yellow, style=filled] \n' % (start,step+1,start,str(graph_string)))
+											graphstr += ('"%s" [label="step %s: %s\\n%s", fillcolor=yellow, style=filled] \n' % (start,step+1,start,str(graph_string)))
 	
-										document <= html.BR()
-										document <= str("%s = "%graph_string)
-										
-										document <= html.BR()
-										graphstr += ('"%s" [label="step %s: %s\\n%s"] \n' % (start,step+1,start,graph_string)) 
+										#graphstr += ('"%s" [label="step %s: %s\\n%s"] \n' % (start,step+1,start,graph_string)) 
 								if object_list[key].statement_flow == 1:
 									graph_string=""
 									if object_list[key].datatype == "bina" :
@@ -415,7 +411,8 @@
 
 									graphstr += ('"%s" [label="step %s: %s\\n%s", fillcolor=yellow, style=filled] ; \n' % (start,step+1,start,str(graph_string)))
 
-										
+									graphstr += graph_string
+
 									try:
 											document <= str("%s"%graph_string)
 											#graphstr += str("%s"%graph_string)
