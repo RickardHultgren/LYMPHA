@@ -729,9 +729,9 @@
 													nextstates.append(nexting)
 
 
-							#for an_obj in range(0,len(object_list)): 
-								#for object_list[k].in document.select(".factorItems"):
-									#if object_list[k].id == object_list[an_obj].name :
+							for an_obj in range(0,len(object_list)): 
+								for object_list[k].id in document.select(".factorItems"): 
+									if object_list[k].id == object_list[an_obj].name :
 										object_list[k].statement_value  = object_list[k].value
 
 
