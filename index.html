@@ -418,7 +418,7 @@
 											#graphstr += str("%s"%graph_string)
 											#graphstr += ('"%s" -> "%s" \n' % (start,next_object))
 											#document <= html.BR()
-									$except:
+									#except:
 											#pass
 	
 								for next_object in object_list[key].next_list :
@@ -499,6 +499,172 @@
 
 			def lexer():
 				global CLIcom_segment
+				global series
+				global filenames
+				global local_files
+				#Load file content
+
+			######
+				global object_list
+
+				nexts = list()
+				conts = list()
+				#Make new nodes in database
+				for serie in series:
+#					document <= serie
+
+					prearrowobjs = serie.split('->')
+					arrowobjs = list()
+					for anobj in prearrowobjs:
+						almostdone = anobj.split('=')
+						arrowobjs.append(almostdone[0])
+					count = 0
+					oops = str()
+					nexts = list()
+					conts = list()
+					specs = list()
+					flow = int()
+					global_relative_variable1 = float()
+					operator1 = str()
+					statement_flow = int()
+					statement_value = str()
+					scale = list()
+					# Devide the script's line strings into objects:
+					#print(object_list)
+					pre_count = 0
+					count_objs = int()                 
+					for anobj in arrowobjs:
+						anobj = re.sub("\s*", "", anobj) 
+						eqobjs = re.compile(r"((<=)|(>=)|(!=)|(==)(<)|(>))").split(anobj)
+						taken = 0
+						#Check if the object already exists
+						for takenkey in range(0,len(object_list)) :
+							if object_list[takenkey].name == anobj :
+								taken = 1
+						
+							#Avoid number gaps
+							else:
+								#Spin the list to the end
+								pre_count += 1
+						count_objs = pre_count
+						#Add node at the end of the dicts
+						#count_objs -= 1            
+						if (anobj) != "" and taken == 0 :
+							object_list[((count_objs))].name = str(anobj)
+							object_list[((count_objs))].next_list = list()
+							object_list[((count_objs))].binary_list = list()
+							object_list[((count_objs))].operation = str("")
+							object_list[((count_objs))].flow = 1
+							object_list[((count_objs))].statement_flow = 1
+							object_list[((count_objs))].statement_value = str()
+							object_list[((count_objs))].global_relative_variable1 = float()
+							object_list[((count_objs))].datatype = ""
+
+				#Connect the database nodes     
+				for serie in series:
+					arrowobj = serie.split('->')
+					count = 0
+					nexts = list()
+					conts = list()
+					# Connect to the next object
+					for i in range(0,len(arrowobj)):
+						for key in range(0,len(object_list)):
+							thename = str(object_list[key].name)
+							thename = re.sub("\s*", "", thename) 
+							if i != 0 :
+								if thename == arrowobj[(0)].replace(" ",""):
+									nexting = ""
+									nexting = arrowobj[i].replace(" ","")
+									if not nexting == "" :
+										object_list[key].next_list.append(nexting)
+									print(object_list[key].next_list)
+									print(object_list[key].name)
+				#Connect to depending objects:
+				#Types of continuations of the side2 string:
+				# 1. Operator + Sum of binaries
+				# 2. Operator + Equation and value
+				# 3. Constant value
+				
+				for a_name in document.select(".factorItems"):
+				#for serie in series:
+					#count = 0
+
+						#sides = anobj.split(' = ')
+						side1 = str(a_name.id)
+						side2 = str(a_name.value)
+						side1 = side1.replace(" ","")
+						side2 = side2.replace(" ","")
+						for key in range(0,len(object_list)) :
+						#Web version TRY############
+
+							try:
+								thename = object_list[key].name
+								thename = thename.replace(" ","")
+
+
+
+								#Replace with web input from factorlist
+								if ("%s" % thename) == side1.replace(" ", "") :
+									#For binary values
+									if str("1B") in str(side2) :           
+											object_list[key].statement_flow = 1
+											object_list[key].datatype = "bina"
+									elif str("0B") in str(side2) :                 
+											object_list[key].statement_flow = 0   
+											object_list[key].datatype = "bina"
+
+									############
+									#For evaluations
+									# Check if operator:
+									elif ("==" in str(side2) or "!=" in str(side2) or "<=" in str(side2) or ">=" in str(side2) or "<" in str(side2) or ">" in str(side2) ) and not "->" in str(side2):
+										if "==" in (str(side2)) :
+												object_list[key].operator1="equiv"
+										if ">=" in (str(side2)) :
+												object_list[key].operator1="geq"
+										if "<=" in (str(side2)) :
+												object_list[key].operator1="leq"
+										if "!=" in (str(side2)) :
+												object_list[key].operator1="no"
+										if re.compile(".*>.*").match(str(side2)) and not re.compile(r"(>=)").match(str(side2)) :
+												object_list[key].operator1="g"
+										if re.compile(".*<.*").match(str(side2)) and not re.compile(r"(<=)").match(str(side2)) :
+												object_list[key].operator1="l"
+										print(object_list[key].operator1)
+										preop = side2.replace(" ","")
+										bin_chopped = 0
+										if "\|{" in preop or "|{" in preop :
+										#if "\|{" in preop and "}|" in preop :
+											bin_chopped = 1
+										preop = re.sub(r'(\|{)', ' ', preop)
+										preop = re.sub(r'(}\|)', ' ', preop)                            
+										#preop = preop.replace("}|","")
+										#preop = re.sub("\|{","", preop)
+										chopcompile = re.compile(r"(<=|>=|!=|==|<|>)")
+										operator_chop = re.split(chopcompile, preop)
+										print(operator_chop)
+										#Tipping point
+										zerochop = operator_chop[0].replace(" ","")
+										object_list[key].global_relative_variable1 = zerochop 
+										# chopped into binary list                                
+										if bin_chopped == 1 :
+												binary_sums = list(operator_chop[2].split(','))
+												for binary in binary_sums:
+												   binary = binary.replace(" ","")
+												   if binary != "" :
+														binary = str(binary.replace(" ",""))
+														object_list[key].binary_list.append(str(binary))
+												   object_list[key].datatype = "bineval"
+												#object_list[key].binary_list = list(the_bin_list)<
+										elif bin_chopped == 0 :
+												object_list[key].statement_value = operator_chop[2]
+												object_list[key].datatype = "nonbineval"
+
+									#For non-binary values and equations
+									elif side1 != ""  and str(side2) != "" :
+										object_list[key].statement_value = str(side2) 
+										object_list[key].datatype = "valu"     							
+							except:
+								pass
 			
 			def zcripts(ev):
 				#Web version --- skip local files
