@@ -585,13 +585,12 @@
 				# 2. Operator + Equation and value
 				# 3. Constant value
 				
-				for a_name in document.select(".factorItems"):
-				#for serie in series:
+				for serie in series:
 					#count = 0
 
 						#sides = anobj.split(' = ')
-						side1 = str(a_name.id)
-						side2 = str(a_name.value)
+						side1 = str(serie[0])
+						side2 = str(serie[1])
 						side1 = side1.replace(" ","")
 						side2 = side2.replace(" ","")
 						for key in range(0,len(object_list)) :
