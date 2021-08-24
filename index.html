@@ -588,7 +588,7 @@
 				for serie in series:
 					#count = 0
 
-						#sides = anobj.split(' = ')
+						sides = anobj.split(' = ')
 						side1 = str(serie[0])
 						side2 = str(serie[1])
 						side1 = side1.replace(" ","")
@@ -605,17 +605,18 @@
 								#Replace with web input from factorlist
 								if ("%s" % thename) == side1.replace(" ", "") :
 									#For binary values
-									if str("1B") in str(side2) :           
-											object_list[key].statement_flow = 1
-											object_list[key].datatype = "bina"
-									elif str("0B") in str(side2) :                 
-											object_list[key].statement_flow = 0   
-											object_list[key].datatype = "bina"
+									#if str("1B") in str(side2) :           
+									#		object_list[key].statement_flow = 1
+									#		object_list[key].datatype = "bina"
+									#elif str("0B") in str(side2) :                 
+									#		object_list[key].statement_flow = 0   
+									#		object_list[key].datatype = "bina"
 
 									############
 									#For evaluations
 									# Check if operator:
-									elif ("==" in str(side2) or "!=" in str(side2) or "<=" in str(side2) or ">=" in str(side2) or "<" in str(side2) or ">" in str(side2) ) and not "->" in str(side2):
+									#elif ("==" in str(side2) or "!=" in str(side2) or "<=" in str(side2) or ">=" in str(side2) or "<" in str(side2) or ">" in str(side2) ) and not "->" in str(side2):
+                  if ("==" in str(side2) or "!=" in str(side2) or "<=" in str(side2) or ">=" in str(side2) or "<" in str(side2) or ">" in str
 										if "==" in (str(side2)) :
 												object_list[key].operator1="equiv"
 										if ">=" in (str(side2)) :
@@ -659,9 +660,9 @@
 												object_list[key].datatype = "nonbineval"
 
 									#For non-binary values and equations
-									elif side1 != ""  and str(side2) != "" :
-										object_list[key].statement_value = str(side2) 
-										object_list[key].datatype = "valu"     							
+									#elif side1 != ""  and str(side2) != "" :
+										#object_list[key].statement_value = str(side2) 
+										#object_list[key].datatype = "valu"     							
 							except:
 								pass
 			
