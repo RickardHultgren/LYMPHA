@@ -723,35 +723,46 @@
 										document <= html.BR()
 										#if (str(theval).isdigit() and object_list[k].datatype == "valu") or (object_list[k].datatype == "bina") or (object_list[k].datatype == "" and object_list[k].name[-1] == "?") :
 
+									for nexting in object_list[k].next_list :
+										for l in range(0,len(object_list)):  
+											if object_list[l].name == nexting :          
+													nextstates.append(nexting)
+
+
+							for an_obj in range(0,len(object_list)): 
+								for object_list[k].in document.select(".factorItems"):
+									if object_list[k].id == object_list[an_obj].name :
+										object_list[k].statement_value  = object_list[k].value
+
 
 										#Replace with web input from factorlist
 										#For binary values
-										if str("1B") in str(a_name.value):
-													object_list[key].statement_flow = 1
-													object_list[key].datatype = "bina"
-										elif str("0B") in str(a_name.value):
-													object_list[key].statement_flow = 0   
-													object_list[key].datatype = "bina"
+										if str("1B") in str(object_list[k].value):
+													object_list[k].statement_flow = 1
+													object_list[k].datatype = "bina"
+										elif str("0B") in str(object_list[k].value):
+													object_list[k].statement_flow = 0   
+													object_list[k].datatype = "bina"
 
 										############
 										#For evaluations
 										# Check if operator:
-										elif ("==" in str(a_name.value) or "!=" in str(a_name.value) or "<=" in str(a_name.value) or ">=" in str(a_name.value) or "<" in str(a_name.value) or ">" in str(a_name.value) ) and not "->" in str(a_name.value):
-										#if ("==" in str(a_name.value) or "!=" in str(a_name.value) or "<=" in str(a_name.value) or ">=" in str(a_name.value) or "<" in str(a_name.value) or ">" in str(a_name.value) ) and not "->" in str(a_name.value):                  
-											if "==" in (str(a_name.value)) :
+										elif ("==" in str(object_list[k].value) or "!=" in str(object_list[k].value) or "<=" in str(object_list[k].value) or ">=" in str(object_list[k].value) or "<" in str(object_list[k].value) or ">" in str(object_list[k].value) ) and not "->" in str(object_list[k].value):
+										#if ("==" in str(object_list[k].value) or "!=" in str(object_list[k].value) or "<=" in str(object_list[k].value) or ">=" in str(object_list[k].value) or "<" in str(object_list[k].value) or ">" in str(object_list[k].value) ) and not "->" in str(object_list[k].value):                  
+											if "==" in (str(object_list[k].value)) :
 												object_list[key].operator1="equiv"
-											if ">=" in (str(a_name.value)) :
+											if ">=" in (str(object_list[k].value)) :
 												object_list[key].operator1="geq"
-											if "<=" in (str(a_name.value)) :
+											if "<=" in (str(object_list[k].value)) :
 												object_list[key].operator1="leq"
-											if "!=" in (str(a_name.value)) :
+											if "!=" in (str(object_list[k].value)) :
 												object_list[key].operator1="no"
-											if re.compile(".*>.*").match(str(a_name.value)) and not re.compile(r"(>=)").match(str(a_name.value)) :
+											if re.compile(".*>.*").match(str(object_list[k].value)) and not re.compile(r"(>=)").match(str(object_list[k].value)) :
 												object_list[key].operator1="g"
-											if re.compile(".*<.*").match(str(a_name.value)) and not re.compile(r"(<=)").match(str(a_name.value)) :
+											if re.compile(".*<.*").match(str(object_list[k].value)) and not re.compile(r"(<=)").match(str(object_list[k].value)) :
 												object_list[key].operator1="l"
 											print(object_list[key].operator1)
-											preop = a_name.value.replace(" ","")
+											preop = object_list[k].value.replace(" ","")
 											bin_chopped = 0
 											if "\|{" in preop or "|{" in preop :
 											#if "\|{" in preop and "}|" in preop :
@@ -780,15 +791,8 @@
 													object_list[key].statement_value = operator_chop[2]
 													object_list[key].datatype = "nonbineval"
 
-										#For non-binary values and equations
-										elif side1 != "" and str(a_name.value) != "" :#and object_list[key].statement_value != "" :
-											object_list[key].statement_value = str(a_name.value) 
-											object_list[key].datatype = "valu"     							
 
-							for an_obj in range(0,len(object_list)): 
-								for a_name in document.select(".factorItems"):
-									if a_name.id == object_list[an_obj].name :
-										object_list[k].statement_value  = a_name.value
+
 					if theturn == 2:
 						theturn = 3
 					del temporary_starts[:]
