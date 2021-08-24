@@ -581,12 +581,13 @@
 									print(object_list[key].next_list)
 									print(object_list[key].name)
 				#Connect to depending objects:
-				#Types of continuations of the sides[1] string:
+				#Types of continuations of the side2 string:
 				# 1. Operator + Sum of binaries
 				# 2. Operator + Equation and value
 				# 3. Constant value
 			'''
-				for serie in series:
+				for a_name in document.select(".factorItems"):
+				#for serie in series:
 					count = 0
 					anobj = serie
 					
@@ -595,8 +596,8 @@
 
 
 						sides = anobj.split(' = ')
-						side1 = sides[0]
-						side2 = sides[1]
+						side1 = a_name.id
+						side2 = a_name.value
 						side1 = side1.replace(" ","")
 						side2 = side2.replace(" ","")
 						for key in range(0,len(object_list)) :
@@ -609,41 +610,41 @@
 
 
 								#Replace with web input from factorlist
-								if ("%s" % thename) == sides[0].replace(" ", "") :
+								if ("%s" % thename) == side1.replace(" ", "") :
 									#For binary values
-									if str("1B") in str(sides[1]) :           
-									#elif re.compile(".*1B.*").match(sides[1]) :
+									if str("1B") in str(side2) :           
+									#elif re.compile(".*1B.*").match(side2) :
 											object_list[key].statement_flow = 1
 											object_list[key].datatype = "bina"
-									elif str("0B") in str(sides[1]) :                 
-									#elif re.compile(".*0B.*").match(sides[1]) :
+									elif str("0B") in str(side2) :                 
+									#elif re.compile(".*0B.*").match(side2) :
 											object_list[key].statement_flow = 0   
 											object_list[key].datatype = "bina"
 
 								############
 									#For evaluations
 									# Check if operator:
-									elif ("==" in sides[1] or "!=" in sides[1] or "<=" in sides[1] or ">=" in sides[1] or "<" in sides[1] or ">" in sides[1] ) and not "->" in sides[1]:
+									elif ("==" in side2 or "!=" in side2 or "<=" in side2 or ">=" in side2 or "<" in side2 or ">" in side2 ) and not "->" in side2:
 									#eval_pattern = re.compile(r"(==)|(!=)|(<)|(>)|(<=)|(>=)")
-									#if eval_pattern.match(sides[1]) :
-			#                            	if re.compile(".*==.*").match(sides[1]) :
-										if "==" in (sides[1]) :
+									#if eval_pattern.match(side2) :
+			#                            	if re.compile(".*==.*").match(side2) :
+										if "==" in (side2) :
 												object_list[key].operator1="equiv"
-			#                            if re.compile(".*>=.*").match(sides[1]) :
-										if ">=" in (sides[1]) :
+			#                            if re.compile(".*>=.*").match(side2) :
+										if ">=" in (side2) :
 												object_list[key].operator1="geq"
-			#                            if re.compile(".*<=.*").match(sides[1]) :
-										if "<=" in (sides[1]) :
+			#                            if re.compile(".*<=.*").match(side2) :
+										if "<=" in (side2) :
 												object_list[key].operator1="leq"
-			#                            if re.compile(".*(!=).*").match(sides[1]) :
-										if "!=" in (sides[1]) :
+			#                            if re.compile(".*(!=).*").match(side2) :
+										if "!=" in (side2) :
 												object_list[key].operator1="no"
-										if re.compile(".*>.*").match(sides[1]) and not re.compile(r"(>=)").match(sides[1]) :
+										if re.compile(".*>.*").match(side2) and not re.compile(r"(>=)").match(side2) :
 												object_list[key].operator1="g"
-										if re.compile(".*<.*").match(sides[1]) and not re.compile(r"(<=)").match(sides[1]) :
+										if re.compile(".*<.*").match(side2) and not re.compile(r"(<=)").match(side2) :
 												object_list[key].operator1="l"
 										print(object_list[key].operator1)
-										preop = sides[1].replace(" ","")
+										preop = side2.replace(" ","")
 										bin_chopped = 0
 										if "\|{" in preop or "|{" in preop :
 										#if "\|{" in preop and "}|" in preop :
@@ -673,9 +674,9 @@
 												object_list[key].datatype = "nonbineval"
 
 								#For non-binary values and equations
-									elif sides[0] != ""  and sides[1] != "" :
+									elif side1 != ""  and side2 != "" :
 									#if 0 == len(operator_chop) :
-										object_list[key].statement_value = sides[1] 
+										object_list[key].statement_value = side2 
 										object_list[key].datatype = "valu"     							
 							except:
 								pass
