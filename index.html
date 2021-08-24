@@ -381,6 +381,7 @@
 											endstring = str(eval(str(endstring)))
 											object_list[key].statement_value = endstring
 
+								object_list[key].statement_flow = int(pre_statement_flow)        
 								if object_list[key].flow == 0 :
 									object_list[key].statement_flow = 0 
 
@@ -661,7 +662,7 @@
 												object_list[key].datatype = "nonbineval"
 
 									#For non-binary values and equations
-									#elif side1 != ""  and str(side2) != ""  :#and object_list[key].statement_value != "" :
+									#elif side1 != "" and str(side2) != "" :#and object_list[key].statement_value != "" :
 										#object_list[key].statement_value = str(side2) 
 										#object_list[key].datatype = "valu"     							
 							except:
