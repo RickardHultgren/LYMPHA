@@ -599,8 +599,8 @@
 						#sides = anobj.split(' = ')
 						side1 = str(a_name.id)
 						side2 = str(a_name.value)
-						side1 = side1.replace(" ","")
-						side2 = side2.replace(" ","")
+						side1 = str(side1).replace(" ","")
+						side2 = str(side2).replace(" ","")
 						for key in range(0,len(object_list)) :
 						#Web version TRY############
 
@@ -625,27 +625,27 @@
 								############
 									#For evaluations
 									# Check if operator:
-									elif ("==" in side2 or "!=" in side2 or "<=" in side2 or ">=" in side2 or "<" in side2 or ">" in side2 ) and not "->" in side2:
+									elif ("==" in str(side2) or "!=" in str(side2) or "<=" in str(side2) or ">=" in str(side2) or "<" in str(side2) or ">" in str(side2) ) and not "->" in str(side2):
 									#eval_pattern = re.compile(r"(==)|(!=)|(<)|(>)|(<=)|(>=)")
-									#if eval_pattern.match(side2) :
-			#                            	if re.compile(".*==.*").match(side2) :
-										if "==" in (side2) :
+									#if eval_pattern.match(str(side2)) :
+			#                            	if re.compile(".*==.*").match(str(side2)) :
+										if "==" in (str(side2)) :
 												object_list[key].operator1="equiv"
-			#                            if re.compile(".*>=.*").match(side2) :
-										if ">=" in (side2) :
+			#                            if re.compile(".*>=.*").match(str(side2)) :
+										if ">=" in (str(side2)) :
 												object_list[key].operator1="geq"
-			#                            if re.compile(".*<=.*").match(side2) :
-										if "<=" in (side2) :
+			#                            if re.compile(".*<=.*").match(str(side2)) :
+										if "<=" in (str(side2)) :
 												object_list[key].operator1="leq"
-			#                            if re.compile(".*(!=).*").match(side2) :
-										if "!=" in (side2) :
+			#                            if re.compile(".*(!=).*").match(str(side2)) :
+										if "!=" in (str(side2)) :
 												object_list[key].operator1="no"
-										if re.compile(".*>.*").match(side2) and not re.compile(r"(>=)").match(side2) :
+										if re.compile(".*>.*").match(str(side2)) and not re.compile(r"(>=)").match(str(side2)) :
 												object_list[key].operator1="g"
-										if re.compile(".*<.*").match(side2) and not re.compile(r"(<=)").match(side2) :
+										if re.compile(".*<.*").match(str(side2)) and not re.compile(r"(<=)").match(str(side2)) :
 												object_list[key].operator1="l"
 										print(object_list[key].operator1)
-										preop = side2.replace(" ","")
+										preop = str(side2).replace(" ","")
 										bin_chopped = 0
 										if "\|{" in preop or "|{" in preop :
 										#if "\|{" in preop and "}|" in preop :
@@ -675,9 +675,9 @@
 												object_list[key].datatype = "nonbineval"
 
 								#For non-binary values and equations
-									elif side1 != ""  and side2 != "" :
+									elif side1 != ""  and str(side2) != "" :
 									#if 0 == len(operator_chop) :
-										object_list[key].statement_value = side2 
+										object_list[key].statement_value = str(side2) 
 										object_list[key].datatype = "valu"     							
 							except:
 								pass
