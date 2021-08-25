@@ -730,7 +730,7 @@
 						for k in range(0,len(object_list)):
 							if object_list[k].name==start :
 								if object_list[k].name[-1] == "?":
-									pre_statement_flow = 0              
+									object_list[k].flow = 0              
 								if theturn < 3 :
 									theval = str(object_list[k].statement_value)
 									theval = theval.replace(" ","")
