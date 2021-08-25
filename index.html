@@ -712,32 +712,29 @@
 				lexer()
 				nextstates = list()
 				theturn = 1
-				for step in range(0,int(steps)):				
+				for step in range(0,int(steps)):
 					for start in temporary_starts :
-							for k in range(0,len(object_list)):
-								if object_list[k].name==start :
-									if theturn < 3 :
-										theval = str(object_list[k].statement_value)
-										theval = theval.replace(" ","")
-										document <= theval
+						for k in range(0,len(object_list)):
+							if object_list[k].name==start :
+								if theturn < 3 :
+									theval = str(object_list[k].statement_value)
+									theval = theval.replace(" ","")
+									document <= theval
+									document <= html.BR()
+                  if (object_list[k].datatype == "" and object_list[k].name[-1] == "?") :									
+                  #if (str(theval).isdigit() and object_list[k].datatype == "valu") or (object_list[k].datatype == "bina") or (object_list[k].datatype == "" and object_list[k].name[-1] == "?") :
+										factorform = document['factorlist']
+										factorform <= str("%s = "% object_list[k].name)
+										factorform <= html.INPUT(type="text", id=object_list[k].name, Class="factorItems")
+										factorform <= html.BR()
+										theturn = 2
+									else:
 										document <= html.BR()
-										if (str(theval).isdigit() and object_list[k].datatype == "valu") or (object_list[k].datatype == "bina") or (object_list[k].datatype == "" and object_list[k].name[-1] == "?") :
-
-
-
-
-														factorform = document['factorlist']
-														factorform <= str("%s = "% object_list[k].name)
-														factorform <= html.INPUT(type="text", id=object_list[k].name, Class="factorItems")
-														factorform <= html.BR()
-														theturn = 2
-										else:
-														document <= html.BR()
-														factorform = document['factorlist']
-														factorform <= str("%s"%object_list[k].name)
-														factorform <= html.BR()													
-														document <= html.BR()
-										
+										factorform = document['factorlist']
+										factorform <= str("%s"%object_list[k].name)
+										factorform <= html.BR()													
+										document <= html.BR()
+									
 								for nexting in object_list[k].next_list :
 									for l in range(0,len(object_list)):  
 										if object_list[l].name == nexting :          
