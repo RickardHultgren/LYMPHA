@@ -224,7 +224,7 @@
 							endstring = str()
 							strr=str("%s" % object_list[key].name)
 							strr = re.sub("\s+", "", strr.strip())
-							pre_statement_flow = 1
+							pre_statement_flow = 0
 
 							if str(start) == strr :
 							
@@ -328,6 +328,7 @@
 												document <= html.BR()
 											except:
 												endnum = float(eval(str(endstring)))
+
 
 												op = "failed"
 												if object_list[key].operator1 == "equiv" and float(object_list[key].global_relative_variable1) == float(str(endnum)):
@@ -812,9 +813,6 @@
 										elif a_name.id != "" and str(a_name.value) != "" :#and object_list[key].statement_value != "" :
 															object_list[k].statement_value = str(a_name.value) 
 															object_list[k].datatype = "valu"  
-										else :
-    											object_list[key].statement_flow = 0   
-													object_list[key].datatype = "bina"
 
 
 
