@@ -438,7 +438,6 @@
 								for nexting in object_list[k].next_list :
 									for l in range(0,len(object_list)):  
 										if object_list[l].name == nexting :          
-											nextstates.append(nexting)
 											if object_list[k].flow  == 0 or object_list[k].statement_flow == 0 :
 												object_list[l].flow = 0
 												object_list[l].statement_flow = 0
@@ -450,7 +449,13 @@
 											if object_list[k].flow  == 1 or object_list[k].statement_flow == 1 :
 												object_list[l].flow = 1
 												object_list[l].statement_flow = 1
-
+					for start in starts :
+						for k in range(0,len(object_list)):
+							if object_list[k].name==start:
+								for nexting in object_list[k].next_list :
+									for l in range(0,len(object_list)):  
+										if object_list[l].name == nexting :          
+											nextstates.append(nexting)
 					del starts[:]
 					#starts = list()                           
 					for nexting in nextstates: 
