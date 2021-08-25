@@ -388,7 +388,7 @@
 								if object_list[key].flow == 0 :
 									object_list[key].statement_flow = 0 
 
-#DELTETED GRAPHMODE-IF
+									#DELTETED GRAPHMODE-IF
 								if object_list[key].statement_flow == 0:
 										graph_string=""
 										if object_list[key].datatype == "bina" :
@@ -425,15 +425,13 @@
 									#except:
 											#pass
 	
-								for next_object in object_list[key].next_list :
+									for next_object in object_list[key].next_list :
 									if object_list[key].name != next_object :
 											graphstr += ('"%s" -> "%s" ; \n' % (start,next_object))
 									nextstates.append(next_object)
 
 
-					#this(alert("10"))
-					#nextstates = list()
-				
+			
 					for start in starts :
 						for k in range(0,len(object_list)):
 							if object_list[k].name==start:
@@ -443,6 +441,7 @@
 											nextstates.append(nexting)
 											if object_list[k].flow  == 0 or object_list[k].statement_flow == 0 :
 												object_list[l].flow = 0
+												object_list[k].statement_flow = 0
 						
 					del starts[:]
 					#starts = list()                           
