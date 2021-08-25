@@ -237,7 +237,7 @@
 									pass 
 								
 								#For binary evaluation
-								elif object_list[key].datatype == "bineval" and len(object_list[key].binary_list) >= 1:
+								elif (object_list[key].datatype == "bineval" or object_list[key].datatype == "bina") and len(object_list[key].binary_list) >= 1:
 									pre_statement_flow = 0
 									subfactors = list()
 									#Convecrting variables into values
@@ -274,7 +274,8 @@
 											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
 										else:
 											pre_statement_flow = 0
-									object_list[key].statement_flow = int(pre_statement_flow)        
+									object_list[key].statement_flow = int(pre_statement_flow)   
+									object_list[key].flow = int(pre_statement_flow)        
 								#For nonbinar-evaluations
 
 								if object_list[key].datatype == "nonbineval" :
