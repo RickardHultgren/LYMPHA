@@ -686,7 +686,7 @@
 
 			def zcripts(ev):
 				#Web version --- skip local files
-#Web version
+				#Web version
 				theturn = 1
 				global object_list
 				global series
@@ -725,13 +725,18 @@
 				lexer()
 				nextstates = list()
 				theturn = 1
+
+        #Finding objects in starts
 				for step in range(0,int(steps)):
-					for start in temporary_starts :
-						for k in range(0,len(object_list)):
+					for k in range(0,len(object_list)):
+						for start in temporary_starts :
 							if object_list[k].name==start :
+
 								if object_list[k].name[-1] == "?":
 									object_list[k].flow = 0              
-									object_list[k].statement_flow = 0                   
+									object_list[k].statement_flow = 0    
+
+								#Finding the first factors.                 
 								if theturn < 3 :
 									theval = str(object_list[k].statement_value)
 									theval = theval.replace(" ","")
@@ -752,13 +757,14 @@
 										factorform <= str("%s"%object_list[k].name)
 										factorform <= html.BR()													
 										document <= html.BR()
-									
-								for nexting in object_list[k].next_list :
+
+						#Next starts.																	
+						for nexting in object_list[k].next_list :
 									for l in range(0,len(object_list)):  
 										if object_list[l].name == nexting :          
 												nextstates.append(nexting)
 
-							for an_obj in range(0,len(object_list)): 
+						for an_obj in range(0,len(object_list)): 
 								for a_name in document.select(".factorItems"):
 									if a_name.id == object_list[an_obj].name :
 										object_list[k].statement_value  = a_name.value
