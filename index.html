@@ -849,14 +849,14 @@
 
 
 
-					if theturn == 2:
-						theturn = 3
-					del temporary_starts[:]
+						if theturn == 2:
+							theturn = 3
+						del temporary_starts[:]
                          
-					for nexting in nextstates: 
-						if nexting not in starts: 
-							temporary_starts.append(nexting) 
-					del nextstates[:]
+						for nexting in nextstates: 
+							if nexting not in starts: 
+								temporary_starts.append(nexting) 
+						del nextstates[:]
 
 
 			def turn2func(ev) :
