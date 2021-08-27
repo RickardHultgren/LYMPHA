@@ -758,16 +758,17 @@
 										factorform <= html.BR()													
 										document <= html.BR()
 
-          	  #Next starts.																	
+          	  #Loading the next starts from the current starts.
 								for nexting in object_list[k].next_list :
 									for l in range(0,len(object_list)):  
 										if object_list[l].name == nexting :          
 											nextstates.append(nexting)
 
-							for an_obj in range(0,len(object_list)): 
-								for a_name in document.select(".factorItems"):
-									if a_name.id == object_list[an_obj].name :
-										#object_list[k].statement_value  = a_name.value
+							#Function for each start:				
+								for an_obj in range(0,len(object_list)): 
+									for a_name in document.select(".factorItems"):
+										if a_name.id == object_list[an_obj].name :
+											#object_list[k].statement_value  = a_name.value
 
 
 
@@ -775,67 +776,67 @@
 
 
 
-                    #Replace with web input from factorlist
-										#if ("%s" % thename) == side1.replace(" ", "") :
-										#For binary values
-										if str("1B") in str(a_name.value):#  and object_list[key].statement_flow != 1 and object_list[key].statement_flow != 0:        
-													object_list[k].statement_flow = 1
-													object_list[k].datatype = "bina"
-										elif str("0B") in str(a_name.value):#  and object_list[key].statement_flow != 1 and object_list[key].statement_flow != 0:  
-													object_list[key].statement_flow = 0   
-													object_list[key].datatype = "bina"
+                      #Replace with web input from factorlist
+                      #if ("%s" % thename) == side1.replace(" ", "") :
+                      #For binary values
+                      if str("1B") in str(a_name.value):#  and object_list[key].statement_flow != 1 and object_list[key].statement_flow != 0:        
+                            object_list[k].statement_flow = 1
+                            object_list[k].datatype = "bina"
+                      elif str("0B") in str(a_name.value):#  and object_list[key].statement_flow != 1 and object_list[key].statement_flow != 0:  
+                            object_list[key].statement_flow = 0   
+                            object_list[key].datatype = "bina"
 
-                      ############
-                      #For evaluations
-                      # Check if operator:
-                      #elif ("==" in str(side2) or "!=" in str(side2) or "<=" in str(side2) or ">=" in str(side2) or "<" in str(side2) or ">" in str(side2) ) and not "->" in str(side2):
-										#if ("==" in str(side2) or "!=" in str(side2) or "<=" in str(side2) or ">=" in str(side2) or "<" in str(side2) or ">" in str(side2) ) and not "->" in str(side2):                  
-												#if "==" in (str(side2)) :
-													#object_list[key].operator1="equiv"
-												#if ">=" in (str(side2)) :
-													#object_list[key].operator1="geq"
-												#if "<=" in (str(side2)) :
-													#object_list[key].operator1="leq"
-												#if "!=" in (str(side2)) :
-													#object_list[key].operator1="no"
-												#if re.compile(".*>.*").match(str(side2)) and not re.compile(r"(>=)").match(str(side2)) :
-													#object_list[key].operator1="g"
-												#if re.compile(".*<.*").match(str(side2)) and not re.compile(r"(<=)").match(str(side2)) :
-													#object_list[key].operator1="l"
-												#print(object_list[key].operator1)
-												#preop = side2.replace(" ","")
-												#bin_chopped = 0
-												#if "\|{" in preop or "|{" in preop :
-												##if "\|{" in preop and "}|" in preop :
-													#bin_chopped = 1
-												#preop = re.sub(r'(\|{)', ' ', preop)
-												#preop = re.sub(r'(}\|)', ' ', preop)                            
-												##preop = preop.replace("}|","")
-												##preop = re.sub("\|{","", preop)
-												#chopcompile = re.compile(r"(<=|>=|!=|==|<|>)")
-												#operator_chop = re.split(chopcompile, preop)
-												#print(operator_chop)
-												##Tipping point
-												#zerochop = operator_chop[0].replace(" ","")
-												#object_list[key].global_relative_variable1 = zerochop 
-                        ## chopped into binary list                                
-												#if bin_chopped == 1 :
-											#		binary_sums = list(operator_chop[2].split(','))
-										#			for binary in binary_sums:
-									#				binary = binary.replace(" ","")
-								#					if binary != "" :
-								#						binary = str(binary.replace(" ",""))
-							#							object_list[key].binary_list.append(str(binary))
-						#								object_list[key].datatype = "bineval"
-            #                #object_list[key].binary_list = list(the_bin_list)<
-					#							elif bin_chopped == 0 :
-				#									object_list[key].statement_value = operator_chop[2]
-			#										object_list[key].datatype = "nonbineval"
+                        ############
+                        #For evaluations
+                        # Check if operator:
+                        #elif ("==" in str(side2) or "!=" in str(side2) or "<=" in str(side2) or ">=" in str(side2) or "<" in str(side2) or ">" in str(side2) ) and not "->" in str(side2):
+                      #if ("==" in str(side2) or "!=" in str(side2) or "<=" in str(side2) or ">=" in str(side2) or "<" in str(side2) or ">" in str(side2) ) and not "->" in str(side2):                  
+                          #if "==" in (str(side2)) :
+                            #object_list[key].operator1="equiv"
+                          #if ">=" in (str(side2)) :
+                            #object_list[key].operator1="geq"
+                          #if "<=" in (str(side2)) :
+                            #object_list[key].operator1="leq"
+                          #if "!=" in (str(side2)) :
+                            #object_list[key].operator1="no"
+                          #if re.compile(".*>.*").match(str(side2)) and not re.compile(r"(>=)").match(str(side2)) :
+                            #object_list[key].operator1="g"
+                          #if re.compile(".*<.*").match(str(side2)) and not re.compile(r"(<=)").match(str(side2)) :
+                            #object_list[key].operator1="l"
+                          #print(object_list[key].operator1)
+                          #preop = side2.replace(" ","")
+                          #bin_chopped = 0
+                          #if "\|{" in preop or "|{" in preop :
+                          ##if "\|{" in preop and "}|" in preop :
+                            #bin_chopped = 1
+                          #preop = re.sub(r'(\|{)', ' ', preop)
+                          #preop = re.sub(r'(}\|)', ' ', preop)                            
+                          ##preop = preop.replace("}|","")
+                          ##preop = re.sub("\|{","", preop)
+                          #chopcompile = re.compile(r"(<=|>=|!=|==|<|>)")
+                          #operator_chop = re.split(chopcompile, preop)
+                          #print(operator_chop)
+                          ##Tipping point
+                          #zerochop = operator_chop[0].replace(" ","")
+                          #object_list[key].global_relative_variable1 = zerochop 
+                          ## chopped into binary list                                
+                          #if bin_chopped == 1 :
+                        #		binary_sums = list(operator_chop[2].split(','))
+                      #			for binary in binary_sums:
+                    #				binary = binary.replace(" ","")
+                  #					if binary != "" :
+                  #						binary = str(binary.replace(" ",""))
+                #							object_list[key].binary_list.append(str(binary))
+              #								object_list[key].datatype = "bineval"
+              #                #object_list[key].binary_list = list(the_bin_list)<
+            #							elif bin_chopped == 0 :
+          #									object_list[key].statement_value = operator_chop[2]
+        #										object_list[key].datatype = "nonbineval"
 
-                      #For non-binary values and equations
-										elif a_name.id != "" and str(a_name.value) != "" :#and object_list[key].statement_value != "" :
-															object_list[k].statement_value = str(a_name.value) 
-															object_list[k].datatype = "valu"  
+                        #For non-binary values and equations
+                      elif a_name.id != "" and str(a_name.value) != "" :#and object_list[key].statement_value != "" :
+                                object_list[k].statement_value = str(a_name.value) 
+                                object_list[k].datatype = "valu"  
 
 
 
