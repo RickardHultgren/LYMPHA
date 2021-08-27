@@ -846,11 +846,11 @@
 
 
 
-
-							for nexting in nextstates: 
-								if nexting not in starts: 
-										temporary_starts.append(nexting) 
-								del nextstates[:]
+						#Make new starts. Should be done after each starts-loop
+						for nexting in nextstates: 
+							if nexting not in starts: 
+									temporary_starts.append(nexting) 
+						del nextstates[:]
 
 
 
