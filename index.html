@@ -569,6 +569,7 @@
 						#Add node at the end of the dicts
 						#count_objs -= 1            
 						if (anobj) != "" and taken == 0 :
+							alert("61")
 							object_list[((count_objs))].name = str(anobj)
 							object_list[((count_objs))].next_list = list()
 							object_list[((count_objs))].binary_list = list()
@@ -578,6 +579,8 @@
 							object_list[((count_objs))].statement_value = str()
 							object_list[((count_objs))].global_relative_variable1 = float()
 							object_list[((count_objs))].datatype = ""
+							alert("65")
+					alert("70")
 
 				#Connect the database nodes     
 				for serie in series:
@@ -603,7 +606,7 @@
 				# 1. Operator + Sum of binaries
 				# 2. Operator + Equation and value
 				# 3. Constant value
-				
+				alert("80")				
 				for serie in series:
 					count = 0
 					try:
