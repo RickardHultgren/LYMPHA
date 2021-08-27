@@ -668,7 +668,8 @@
 										#Tipping point
 										zerochop = operator_chop[0].replace(" ","")
 										object_list[key].global_relative_variable1 = zerochop 
-										# chopped into binary list                                
+										# chopped into binary list  
+										alert("85")                              
 										if bin_chopped == 1 :
 												binary_sums = list(operator_chop[2].split(','))
 												for binary in binary_sums:
@@ -691,6 +692,7 @@
 					except:
 						pass			
 					count += 1
+				alert("90")
 
 			def zcripts(ev):
 				#Web version --- skip local files
