@@ -728,8 +728,8 @@
 
         #Finding objects in starts
 				for step in range(0,int(steps)):
+					
 					for k in range(0,len(object_list)):
-						theturn = 1
 						for start in temporary_starts :
 							if object_list[k].name==start :
 
@@ -759,13 +759,13 @@
 										factorform <= html.BR()													
 										document <= html.BR()
 
-          	  #Loading the next starts from the current starts.
+          	  	#Loading the next starts from the current starts.
 								for nexting in object_list[k].next_list :
 									for l in range(0,len(object_list)):  
 										if object_list[l].name == nexting :          
 											nextstates.append(nexting)
 
-							#Function for each start:				
+								#Function for each start:				
 								for an_obj in range(0,len(object_list)): 
 									for a_name in document.select(".factorItems"):
 										if a_name.id == object_list[an_obj].name :
@@ -847,18 +847,18 @@
 
 
 
+							for nexting in nextstates: 
+								if nexting not in starts: 
+										temporary_starts.append(nexting) 
+								del nextstates[:]
 
 
 
-
-					if theturn == 2:
-						theturn = 3
-						del temporary_starts[:]
+						if theturn == 2:
+							theturn = 3
+							del temporary_starts[:]
                          
-					for nexting in nextstates: 
-						if nexting not in starts: 
-								temporary_starts.append(nexting) 
-						del nextstates[:]
+
 
 
 			def turn2func(ev) :
