@@ -733,6 +733,7 @@
 					starts.append(start_item.value)
 					temporary_starts.append(start_item.value)
 				lexer()
+				alert("A")
 				nextstates = list()
 				theturn = 1
 
@@ -853,7 +854,8 @@
 
 
 
-						#After each set of start loops a validation of theturn should be done.
+
+						alert("B")						#After each set of start loops a validation of theturn should be done.
 						if theturn == 2:
 							theturn = 3
 
