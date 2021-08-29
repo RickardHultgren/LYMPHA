@@ -743,6 +743,7 @@
 					for k in range(0,len(object_list)):
 						for start in temporary_starts :
 							if object_list[k].name==start :
+								alert("B")
 
 								if object_list[k].name[-1] == "?":
 									object_list[k].flow = 0              
@@ -855,7 +856,7 @@
 
 
 
-						alert("B")						#After each set of start loops a validation of theturn should be done.
+						alert("C")						#After each set of start loops a validation of theturn should be done.
 						if theturn == 2:
 							theturn = 3
 
