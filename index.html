@@ -551,7 +551,7 @@
 
 					pre_count = int(0)
 					count_objs = int()                 
-					alert("60")
+					#alert("60")
 					for anobj in arrowobjs:
 						anobj = re.sub("\s*", "", anobj) 
 						eqobjs = re.compile(r"((<=)|(>=)|(!=)|(==)(<)|(>))").split(anobj)
@@ -569,7 +569,7 @@
 						#Add node at the end of the dicts
 						#count_objs -= 1            
 						if (anobj) != "" and taken == 0 :
-							alert("61")
+							#alert("61")
 							object_list[((count_objs))].name = str(anobj)
 							object_list[((count_objs))].next_list = list()
 							object_list[((count_objs))].binary_list = list()
@@ -579,8 +579,8 @@
 							object_list[((count_objs))].statement_value = str()
 							object_list[((count_objs))].global_relative_variable1 = float()
 							object_list[((count_objs))].datatype = ""
-							alert("65")
-					alert("70")
+							#alert("65")
+					#alert("70")
 
 				#Connect the database nodes     
 				for serie in series:
@@ -606,7 +606,7 @@
 				# 1. Operator + Sum of binaries
 				# 2. Operator + Equation and value
 				# 3. Constant value
-				alert("80")				
+				#alert("80")				
 				for serie in series:
 					count = 0
 					try:
@@ -669,7 +669,7 @@
 										zerochop = operator_chop[0].replace(" ","")
 										object_list[key].global_relative_variable1 = zerochop 
 										# chopped into binary list  
-										alert("85")                              
+										#alert("85")                              
 										if bin_chopped == 1 :
 												binary_sums = list(operator_chop[2].split(','))
 												for binary in binary_sums:
@@ -692,7 +692,7 @@
 					except:
 						pass			
 					count += 1
-				alert("90")
+				#alert("90")
 
 			def zcripts(ev):
 				#Web version --- skip local files
@@ -733,15 +733,15 @@
 					starts.append(start_item.value)
 					temporary_starts.append(start_item.value)
 				lexer()
-				alert("A")
+				#alert("A")
 				nextstates = list()
 				theturn = 1
 
         #Finding objects in starts
 				for step in range(0,int(steps)):
 					
-					for k in range(0,len(object_list)):
-						for start in temporary_starts :
+					for start in temporary_starts :
+						for k in range(0,len(object_list)):
 							if object_list[k].name==start :
 								alert("B")
 
@@ -856,16 +856,17 @@
 
 
 
-						alert("C")						#After each set of start loops a validation of theturn should be done.
-						if theturn == 2:
+					alert("C")
+          #After each set of start loops a validation of theturn should be done.
+					if theturn == 2:
 							theturn = 3
 
-						#Make new starts. Should be done after each starts-loop
-						del temporary_starts[:]
-						for nexting in nextstates: 
-							if nexting not in starts: 
-									temporary_starts.append(nexting) 
-						del nextstates[:]
+					#Make new starts. Should be done after each starts-loop
+					del temporary_starts[:]
+					for nexting in nextstates: 
+						if nexting not in starts: 
+								temporary_starts.append(nexting) 
+					del nextstates[:]
 
 
 
