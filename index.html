@@ -763,9 +763,7 @@
                   #if (str(theval).isdigit() and object_list[k].datatype == "valu") or (object_list[k].datatype == "bina") or (object_list[k].datatype == "" and object_list[k].name[-1] == "?") :
 										factorform = document['factorlist']
 										factorform <= str("%s = "% object_list[k].name)
-										prefactorform = html.INPUT(Type="text")
-										prefactorform = prefactorform(Id=("%s" % object_list[k].name))
-										factorform <= prefactorform(Class="factorItems")
+										factorform <= html.INPUT(type="text", Id=("%s" % (object_list[k].name), Class="factorItems")
 										factorform <= html.BR()
 										theturn = 2
 									else:
@@ -906,15 +904,13 @@
                                                                                                       
 			def add_input(ev):
 				aform = document['thelist']
-				preaform = html.INPUT(type="text")
-				preaform <= preaform(Class="theItems")
+				aform <= html.INPUT(type="text", class="theItems")
 				aform <= html.BR()
 
 
 			def add_start(ev):
 				startform = document['thestarts']
-				prestartform = html.INPUT(Type="text")
-				startform <= prestartform(Class="theStarts")
+				startform <= html.INPUT(type="text", Class="theStarts")
 				startaform <= html.BR()
 
 			document["turn2"].bind("click", turn2func)
