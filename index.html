@@ -882,15 +882,16 @@
 				alert("D")
 
 				global object_list 
-				alert("E")
-				for an_obj in range(0,len(object_list)): 
-						alert("F")        
-            #FIX
-						for a_name in document.select(".factorItems"):
-							if a_name.id == object_list[an_obj].name :
-								object_list[k].statement_value  = a_name.value
-								alert("G broken") 
-
+				try:
+					for an_obj in range(0,len(object_list)): 
+							alert("F")        
+      	      #FIX
+							for a_name in document.select(".factorItems"):
+								if a_name.id == object_list[an_obj].name :
+									object_list[k].statement_value  = a_name.value
+									alert("G broken") 
+				except:
+					pass
 				alert("Z")
 				mapfunc()
 
