@@ -753,11 +753,11 @@
 
 								#Finding the first factors.                 
 								if theturn < 3 :
-									theval = str(object_list[k].statement_value)
-									theval = theval.replace(" ","")
-									document <= theval
-									document <= html.BR()
-									try:
+										theval = str(object_list[k].statement_value)
+										theval = theval.replace(" ","")
+										document <= theval
+										document <= html.BR()
+									#try:
 										factorform = document['factorlist']
 										if (object_list[k].name[-1] == "?") :
                     #if object_list[key].name[-1] == "?":
@@ -776,8 +776,8 @@
 											factorform <= str("%s"%object_list[k].name)
 											factorform <= html.BR()													
                       document <= html.BR()
-									except:
-										pass          	  	
+									#except:
+									#	pass          	  	
                 #Loading the next starts from the current starts.
 								for nexting in object_list[k].next_list :
 									for l in range(0,len(object_list)):  
