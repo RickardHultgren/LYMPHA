@@ -758,22 +758,22 @@
 									document <= theval
 									document <= html.BR()
 									try:
-                    factorform = document.['factorlist']
-                    if (object_list[k].name[-1] == "?") :								#if object_list[key].name[-1] == "?":
-                      object_list[k].statement_flow = 1								
-                      object_list[k].flow = 1						                    
+										factorform = document.['factorlist']
+										if (object_list[k].name[-1] == "?") :								#if object_list[key].name[-1] == "?":
+											object_list[k].statement_flow = 1								
+											object_list[k].flow = 1						                    
                     #if (str(theval).isdigit() and object_list[k].datatype == "valu") or (object_list[k].datatype == "bina") or (object_list[k].datatype == "" and object_list[k].name[-1] == "?") :
                       #factorform = document['factorlist']
-                      factorform <= str("%s = "% object_list[k].name)
-                      nomen = object_list[k].name
-                      factorform <= html.INPUT(Type="text", Id=("%s" % (nomen)), Class="factorItems")
-                      factorform <= html.BR()
-                      theturn = 2
-                    else:
-                      document <= html.BR()
+											factorform <= str("%s = "% object_list[k].name)
+											nomen = object_list[k].name
+											factorform <= html.INPUT(Type="text", Id=("%s" % (nomen)), Class="factorItems")
+											factorform <= html.BR()
+											theturn = 2
+										else:
+											document <= html.BR()
                       #factorform = document['factorlist']
-                      factorform <= str("%s"%object_list[k].name)
-                      factorform <= html.BR()													
+											factorform <= str("%s"%object_list[k].name)
+											factorform <= html.BR()													
                       document <= html.BR()
 									except:
 										pass          	  	
