@@ -913,7 +913,8 @@
 
 			def add_start(ev):
 				startform = document['thestarts']
-				startform <= html.INPUT(type="text", class="theStarts")
+				prestartform = html.INPUT(type="text")
+        startform <= prestartform(class="theStarts")
 				startaform <= html.BR()
 
 			document["turn2"].bind("click", turn2func)
