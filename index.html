@@ -763,14 +763,16 @@
                     #if (str(theval).isdigit() and object_list[k].datatype == "valu") or (object_list[k].datatype == "bina") or (object_list[k].datatype == "" and object_list[k].name[-1] == "?") :
                     #if object_list[key].name[-1] == "?" :
                       #factorform = document['factorlist']
-											object_list[k].statement_flow = 1
-											object_list[k].flow = 1
+											object_list[k].statement_flow = 0
+											object_list[k].flow = 0
 											factorform <= str("%s = "% object_list[k].name)
 											factorform <= html.INPUT(Type="text", Id=(object_list[k].name),Class="factorItems")
 											factorform <= html.BR()
 											theturn = 2
 										else:
                       #factorform = document['factorlist']
+											object_list[k].statement_flow = 1
+											object_list[k].flow = 1
 											document <= html.BR()
 											factorform <= str("%s"%object_list[k].name)
 											factorform <= html.BR()
