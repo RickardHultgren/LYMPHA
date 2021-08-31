@@ -757,7 +757,7 @@
 									theval = theval.replace(" ","")
 									document <= theval
 									document <= html.BR()
-									factorform = document.select('#factorlist') #['factorlist']
+									factorform = document.['factorlist']
 									if (object_list[k].name[-1] == "?") :								#if object_list[key].name[-1] == "?":
 										object_list[k].statement_flow = 1								
 										object_list[k].flow = 1						                    
@@ -1011,7 +1011,7 @@
 				<hr style="width:50vw; right:25vw; z-index:1;position:relative; text-align:center;" />
 
 				<form id="factorlist">
-				  
+				  <input style="hidden" class="factorItems"></input>
 				</form>
 				<button id="turn2">Implement variables into script</button><br>
 				<hr style="width:50vw; right:25vw; z-index:1;position:relative; text-align:center;" />
