@@ -735,6 +735,8 @@
 					starts.append(start_item.value)
 					temporary_starts.append(start_item.value)
 				lexer()
+				#Preview
+				mapfunc()				
 				#alert("A")
 				nextstates = list()
 				theturn = 1
@@ -750,7 +752,7 @@
 								if object_list[k].name[-1] == "?":
 									object_list[k].flow = 0              
 									object_list[k].statement_flow = 0    
-
+#FIX FIX
 								#Finding the first factors.                 
 								if theturn < 3 :
 										theval = str(object_list[k].statement_value)
