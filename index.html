@@ -529,15 +529,16 @@
 				for serie in series:
 #					document <= serie
 # Strategy for splitting:
+# words a-z A-Z 0-9
+# space = - + \s ->
 # 
 # 
-# 
-# 
-					prearrowobjs = serie.split('->')
-					arrowobjs = list()
-					for anobj in prearrowobjs:
-						almostdone = anobj.split('=')
-						arrowobjs.append(almostdone[0])
+					#prearrowobjs = serie.split('->')
+					arrowobjs = re.split('->|=|\+|\-',serie)
+					#arrowobjs = list()
+					#for anobj in prearrowobjs:
+					#	almostdone = anobj.split('=')
+					#	arrowobjs.append(almostdone[0])
 					count = 0
     
 					oops = str()
