@@ -533,15 +533,15 @@
 # space = - + \s ->
 # 
 # 
-					#prearrowobjs = serie.split('->')
-					arrowobjs = re.split('->|=|\+|\-',serie)
-					#arrowobjs = list()
-					#for anobj in prearrowobjs:
-					#	almostdone = anobj.split('=')
-					#	arrowobjs.append(almostdone[0])
+					prearrowobjs = serie.split('->')
+					#arrowobjs = re.split('->|=|\+|\-',serie)
+					arrowobjs = list()
+					for anobj in prearrowobjs:
+						almostdone = anobj.split('=')
+						arrowobjs.append(almostdone[0])
 					count = 0
     
-					oops = str()
+					oops = str() #
 					nexts = list()
 					conts = list()
 					specs = list()
