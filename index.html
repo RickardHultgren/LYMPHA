@@ -181,6 +181,332 @@
 			#        #statement_value
 			#        self.statement_value = statement_value
 
+			def previewfunc():
+			def mapfunc():
+				#global UI
+				#global CLI_filename 
+				global argv_len 
+				global filename 
+				global filenames 
+				global mode_graph 
+				global mode_state 
+				global filecheck 
+				global mode_exe 
+				global mode_show 
+				global mode_map 
+				global exe_list 
+				#global show_list 
+				global map_list 
+				global series 
+				global substates 
+				global nextstates 
+				global specs 
+				#global global_relative_variable1 
+				global global_relative_variable2 
+				#global operator1 
+				global statement_flow 
+				global statement_value
+				global object_list 
+				global exe_objects 
+
+				global starts
+				global show_list
+				global steps
+				#if mode_graph == True:
+				graphstr = 'digraph lympha {\nnode [shape=record];'
+				#ADDED INT IN INT(STEPS)
+				for step in range(0, int(steps)):
+					nextstates = list()
+					#alert("A")
+					for start in starts:
+						for key in range(0,len(object_list)):
+							endstring = str()
+							strr=str("%s" % object_list[key].name)
+							strr = re.sub("\s+", "", strr.strip())
+							pre_statement_flow = 1
+
+
+							if str(start) == strr :
+							
+								document <= ("NAME: %s" % object_list[key].name)
+							
+								#For binaries
+								if object_list[key].datatype == "bina":
+									pass 
+								
+								#For binary evaluation
+								elif (object_list[key].datatype == "bineval" or object_list[key].datatype == "bina") and len(object_list[key].binary_list) >= 1:
+									pre_statement_flow = 0
+									subfactors = list()
+									#Convecrting variables into values
+									for binobj in object_list[key].binary_list :
+										 for item in range(0,len(object_list)) :
+											 thename = object_list[item].name
+											 thename = str(thename)
+											 #thename = thename[1:]
+											 #thename = thename[:1]
+											 #thename = re.sub("\s+", "", thename.strip())
+											 #if object_list[item].name == binobj.replace(" ","") :
+											 if thename == ("%s" % binobj.replace(" ","")) :
+												 subfactors.append(int(object_list[item].statement_flow))
+									sum1 = subfactors.count(1)
+									sum0 = subfactors.count(0)
+									if object_list[key].operator1 != None: # and object_list[key].statement_flow == None :
+										if object_list[key].operator1 == "equiv" and int(object_list[key].global_relative_variable1) == int(sum1):
+											pre_statement_flow = 1
+											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+										elif object_list[key].operator1 == "geq" and int(object_list[key].global_relative_variable1) >= int(sum1):
+											pre_statement_flow = 1
+											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+										elif object_list[key].operator1 == "leq" and int(object_list[key].global_relative_variable1) <= int(sum1):
+											pre_statement_flow = 1
+											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+										elif object_list[key].operator1 == "no" and int(object_list[key].global_relative_variable1) != int(sum1):
+											pre_statement_flow = 1
+											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+										elif object_list[key].operator1 == "g" and int(object_list[key].global_relative_variable1) > int(sum1):
+											pre_statement_flow = 1
+											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+										elif object_list[key].operator1 == "l" and int(object_list[key].global_relative_variable1) < int(sum1):
+											pre_statement_flow = 1
+											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+										else:
+											pre_statement_flow = 0
+									object_list[key].statement_flow = int(pre_statement_flow)   
+									object_list[key].flow = int(pre_statement_flow)        
+								#For nonbinar-evaluations
+
+								if object_list[key].datatype == "nonbineval" :
+											
+											#comp = re.compile(r'(\d*)', re.IGNORECASE)
+											endstring = str()
+											string = (object_list[key].statement_value.replace(" ",""))
+											pattern = re.compile(r'([\=\+\-\/\*\(\)])')
+											iteratorUntouched = re.split(pattern, string)
+											
+											eqlist = list()
+											for varWord in iteratorUntouched:
+												checked = 0
+												for objWord in range(len(object_list)):
+													thename = object_list[objWord].name
+													if thename == varWord:
+														eqlist.append(object_list[objWord].statement_value)
+														checked = 1
+												if checked == 0:
+													eqlist.append(varWord) 
+											endstring = (("").join(eqlist))                             
+											endstring = str(eval(str(endstring)))
+											object_list[key].statement_value = endstring
+											endnum = float()
+											endnum = float(eval(str(endstring)))
+
+											pre_statement_flow = 0
+											try:
+												op = "failed"
+												if object_list[key].operator1 == "equiv" and int(object_list[key].global_relative_variable1) == int(str(endnum)):
+														op = "=="
+														pre_statement_flow = 1
+												elif object_list[key].operator1 == "leq" and int(object_list[key].global_relative_variable1) >= int((endnum)):
+														op = ">="
+														pre_statement_flow = 1
+												elif object_list[key].operator1 == "geq" and (int(object_list[key].global_relative_variable1) <= int(str(endnum))):
+														op = "<="
+														pre_statement_flow = 1
+												elif object_list[key].operator1 == "no" and int(object_list[key].global_relative_variable1) != int(str(endnum)):
+														op = "!="
+														pre_statement_flow = 1
+												elif object_list[key].operator1 == "g" and int(object_list[key].global_relative_variable1) < int(str(endnum)):
+														op = "<"
+														pre_statement_flow = 1
+												elif object_list[key].operator1 == "l" and int(object_list[key].global_relative_variable1) > int(str(endnum)):
+														op = ">"
+														pre_statement_flow = 1
+												else:
+														pre_statement_flow = 0
+												document <= html.BR()
+												document <= str("%s = "%object_list[key].name)
+												
+												document <= html.BR()
+											except:
+												endnum = float(eval(str(endstring)))
+
+
+												op = "failed"
+												if object_list[key].operator1 == "equiv" and float(object_list[key].global_relative_variable1) == float(str(endnum)):
+														op = "=="
+														pre_statement_flow = 1
+												elif object_list[key].operator1 == "leq" and float(object_list[key].global_relative_variable1) >= float((endnum)):
+														op = ">="
+														pre_statement_flow = 1
+												elif object_list[key].operator1 == "geq" and (float(object_list[key].global_relative_variable1) <= float(str(endnum))):
+														op = "<="
+														pre_statement_flow = 1
+												elif object_list[key].operator1 == "no" and float(object_list[key].global_relative_variable1) != float(str(endnum)):
+														op = "!="
+														pre_statement_flow = 1
+												elif object_list[key].operator1 == "g" and float(object_list[key].global_relative_variable1) < float(str(endnum)):
+														op = "<"
+														pre_statement_flow = 1
+												elif object_list[key].operator1 == "l" and float(object_list[key].global_relative_variable1) > float(str(endnum)):
+														op = ">"
+														pre_statement_flow = 1
+												else:
+														pre_statement_flow = 0
+
+												document <= html.BR()
+												document <= str("%s = "%object_list[key].name)
+												
+												document <= html.BR()
+											object_list[key].statement_flow = int(pre_statement_flow)
+
+
+								#For equations
+
+								if object_list[key].datatype == "valu":
+								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
+
+											#comp = re.compile(r'(\d*)', re.IGNORECASE)
+											endstring = str()
+											string = (object_list[key].statement_value.replace(" ",""))
+											pattern = re.compile(r'([\=\+\-\/\*\(\)])')      
+											iteratorUntouched = re.split(pattern, string)
+											
+											eqlist = list()
+											for varWord in iteratorUntouched:
+												checked = 0
+												for objWord in range(len(object_list)):
+													thename = object_list[objWord].name
+													if thename == varWord:
+														eqlist.append(object_list[objWord].statement_value)
+														checked = 1
+												if checked == 0:
+													eqlist.append(varWord) 
+											endstring = (("").join(eqlist))                             
+											endstring = str(eval(str(endstring)))
+											object_list[key].statement_value = endstring
+
+								object_list[key].statement_flow = int(pre_statement_flow)        
+								if object_list[key].flow == 0 :
+									object_list[key].statement_flow = 0 
+
+									#DELTETED GRAPHMODE-IF
+								if object_list[key].statement_flow == 0:
+										graph_string=""
+										if object_list[key].datatype == "bina" :
+											graph_string="0B"
+										if object_list[key].datatype == "bineval" :
+											graph_string=object_list[key].statement_value
+										if object_list[key].datatype == "nonbineval" :
+											graph_string=("score: %s" % (object_list[key].statement_value))
+										if object_list[key].datatype == "valu" :                                
+											graph_string=object_list[key].statement_value
+										graphstr += ('"%s" [label="step %s: %s\\n%s", fillcolor=white, style=filled] ; \n' % (start,step+1,start,str(graph_string)))
+	
+										#graphstr += ('"%s" [label="step %s: %s\\n%s"] \n' % (start,step+1,start,graph_string)) 
+								if object_list[key].statement_flow == 1:
+									graph_string=""
+									if object_list[key].datatype == "bina" :
+										graph_string="1B"
+									if object_list[key].datatype == "bineval" :
+										graph_string=object_list[key].statement_value
+									if object_list[key].datatype == "nonbineval" :
+										graph_string=("score: %s" % (object_list[key].statement_value))
+									if object_list[key].datatype == "valu" :                                
+										graph_string=object_list[key].statement_value
+
+									graphstr += ('"%s" [label="step %s: %s\\n%s", fillcolor=yellow, style=filled] ; \n' % (start,step+1,start,str(graph_string)))
+
+									
+
+									#try:
+											#document <= str("%s"%graph_string)
+											#graphstr += str("%s"%graph_string)
+											#graphstr += ('"%s" -> "%s" \n' % (start,next_object))
+											#document <= html.BR()
+									#except:
+											#pass
+									
+									for next_object in object_list[key].next_list :
+										if object_list[key].name != next_object :
+											graphstr += ('"%s" -> "%s" ; \n' % (start,next_object))
+											nextstates.append(next_object)
+
+					for start in starts :
+						for k in range(0,len(object_list)):
+							if object_list[k].name==start:
+								for nexting in object_list[k].next_list :
+									for l in range(0,len(object_list)):  
+										if object_list[l].name == nexting :          
+											nextstates.append(nexting)									
+						for k in range(0,len(object_list)):
+							if object_list[k].name==start:
+								for nexting in object_list[k].next_list :
+									for l in range(0,len(object_list)):  
+										if object_list[l].name == nexting :          
+											if object_list[k].flow  == 0 or object_list[k].statement_flow == 0 :
+												object_list[l].flow = 0
+												object_list[l].statement_flow = 0
+						for k in range(0,len(object_list)):
+							if object_list[k].name==start:
+								for nexting in object_list[k].next_list :
+									for l in range(0,len(object_list)):  
+										if object_list[l].name == nexting :          
+											if object_list[k].flow  == 1 or object_list[k].statement_flow == 1 :
+												object_list[l].flow = 1
+												object_list[l].statement_flow = 1
+
+					del starts[:]
+					#starts = list()                           
+					for nexting in nextstates: 
+						if nexting not in starts: 
+							starts.append(nexting) 
+					del nextstates[:]
+#				if mode_graph == True:
+				graphstr += '}'
+				try:
+									graphstr += "}"
+									d3 = window.d3
+
+									svg = d3.select("#graph")
+									svg.graphviz().renderDot(graphstr)
+
+				except:	
+									pass        
+#					open('lympha.dot', 'w').close()
+#					outputfile = open("lympha.dot", "w")
+#					outputfile.write(graphstr)
+#					outputfile.close()
+#					cmd = 'dot lympha.dot -Tps -o lympha.pdf'
+#					os.system(cmd)
+					
+				CLI_filename = None
+				argv_len = None
+				filename = None
+				filenames = None
+				starts = None
+				steps = None
+				mode_graph = None
+				mode_state = None
+				filecheck = None
+				mode_exe = None
+				mode_show = None
+				mode_map = None
+				exe_list = None
+				show_list = None
+				map_list = None
+				series = None
+				substates = None
+				nextstates = None
+				specs = None
+				global_relative_variable1 = None
+				global_relative_variable2 = None
+				operator1 = None
+				statement_flow = None
+				statement_value = None
+				object_list = None
+				exe_objects = None
+				
+				del CLI_filename, argv_len, filename, filenames, starts, steps, mode_graph, mode_state, filecheck, mode_exe, mode_show, mode_map, exe_list, show_list, map_list, substates, nextstates, specs, global_relative_variable1, global_relative_variable2, operator1, statement_flow, statement_value, exe_objects, object_list,
 
 			#Function for running the linked list.
 			def mapfunc():
@@ -741,6 +1067,7 @@
 					temporary_starts.append(start_item.value)
 				lexer()
 				#Preview
+				#previewfunc()				        
 				mapfunc()				
 				#alert("A")
 				nextstates = list()
