@@ -402,18 +402,18 @@
 										graphstr += ('"%s" [label="step %s: %s\\n%s", fillcolor=white, style=filled] ; \n' % (start,step+1,start,str(graph_string)))
 	
 										#graphstr += ('"%s" [label="step %s: %s\\n%s"] \n' % (start,step+1,start,graph_string)) 
-								if object_list[key].statement_flow == 1:
-									graph_string=""
-									if object_list[key].datatype == "bina" :
-										graph_string="1B"
-									if object_list[key].datatype == "bineval" :
-										graph_string=object_list[key].statement_value
-									if object_list[key].datatype == "nonbineval" :
-										graph_string=("score: %s" % (object_list[key].statement_value))
-									if object_list[key].datatype == "valu" :                                
-										graph_string=object_list[key].statement_value
+								#if object_list[key].statement_flow == 1:
+								#	graph_string=""
+								#	if object_list[key].datatype == "bina" :
+								#		graph_string="1B"
+								#	if object_list[key].datatype == "bineval" :
+								#		graph_string=object_list[key].statement_value
+								#	if object_list[key].datatype == "nonbineval" :
+								#		graph_string=("score: %s" % (object_list[key].statement_value))
+								#	if object_list[key].datatype == "valu" :                                
+								#		graph_string=object_list[key].statement_value
 
-									graphstr += ('"%s" [label="step %s: %s\\n%s", fillcolor=yellow, style=filled] ; \n' % (start,step+1,start,str(graph_string)))
+								graphstr += ('"%s" [label="step %s: %s\\n%s", fillcolor=white, style=filled] ; \n' % (start,step+1,start,str(graph_string)))
 
 									
 
