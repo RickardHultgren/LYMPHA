@@ -229,7 +229,6 @@
 									if object_list[key].name != next_object :
 										graphstr += ('"%s" -> "%s" ; \n' % (start,next_object))
 										nextstates.append(next_object)
-
 					for start in starts :
 						for k in range(0,len(object_list)):
 							if object_list[k].name==start:
@@ -263,10 +262,10 @@
 #				if mode_graph == True:
 				graphstr += '}'
 				try:
-									graphstr += "}"
+									#graphstr += "}"
 									d3 = window.d3
 
-									svg = d3.select("#graph")
+									svg = d3.select("#graphpreview")
 									svg.graphviz().renderDot(graphstr)
 
 				except:	
@@ -1156,7 +1155,7 @@
 
 
   
-<div id="graph" style="width: 300px; height: 300px; border: 1px solid black; backgroundColor:#ff0000"></div>
+<div id="graphpreview" style="width: 300px; height: 300px; border: 1px solid black; backgroundColor:#ff0000"></div>
 
 	<script id="js">
  
