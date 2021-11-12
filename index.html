@@ -182,8 +182,6 @@
 			#        self.statement_value = statement_value
 
 			def prevwfunc():
-				#global UI
-				#global CLI_filename 
 				global argv_len 
 				global filename 
 				global filenames 
@@ -191,7 +189,7 @@
 				global filecheck 
 
 				global exe_list 
-				#global show_list 
+
 				global map_list 
 				global series 
 				global substates 
@@ -199,7 +197,7 @@
 				global specs 
 				#global global_relative_variable1 
 				global global_relative_variable2 
-				#global operator1 
+
 				global statement_flow 
 				global statement_value
 				global object_list 
@@ -212,7 +210,7 @@
 				#ADDED INT IN INT(STEPS)
 				for step in range(0, int(steps)):
 					nextstates = list()
-					#alert("A")
+
 					for start in starts:
 						for key in range(0,len(object_list)):
 							endstring = str()
@@ -256,6 +254,7 @@
 							starts.append(nexting) 
 					del nextstates[:]
 				graphstr += '}'
+				alert("check")
 				try:
 									#graphstr += "}"
 									d3 = window.d3
