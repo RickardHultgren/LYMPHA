@@ -183,6 +183,7 @@
 
 			def prevwfunc(ev):
 			#def prevwfunc(ev):
+				alert("1")        
 				global argv_len 
 				global filename 
 				global filenames 
@@ -211,9 +212,11 @@
 				#ADDED INT IN INT(STEPS)
 				for step in range(0, int(steps)):
 					nextstates = list()
-
+					alert("2")        
 					for start in starts:
+						alert("3")                  
 						for key in range(0,len(object_list)):
+							alert("4")                  
 							endstring = str()
 							strr=str("%s" % object_list[key].name)
 							strr = re.sub("\s+", "", strr.strip())
@@ -247,7 +250,7 @@
 											if object_list[k].flow  == 1 or object_list[k].statement_flow == 1 :
 												object_list[l].flow = 1
 												object_list[l].statement_flow = 1
-
+					alert("end1")
 					del starts[:]
 					#starts = list()                           
 					for nexting in nextstates: 
@@ -850,9 +853,10 @@
 					starts.append(start_item.value)
 					temporary_starts.append(start_item.value)
 				lexer()
-				alert("A")        
+				alert("begin")        
 				#Preview
 				prevwfunc()				        
+				alert("END")
 				#mapfunc()				
 				#alert("A")
 				nextstates = list()
