@@ -257,7 +257,7 @@
 											if object_list[k].flow  == 1 or object_list[k].statement_flow == 1 :
 												object_list[l].flow = 1
 												object_list[l].statement_flow = 1
-					alert("end1")
+					
 					del starts[:]
 					#starts = list()                           
 					for nexting in nextstates: 
@@ -870,11 +870,11 @@
 
         #Finding objects in starts
 				for step in range(0,int(steps)):
-					
+					alert("B")					
 					for start in temporary_starts :
 						for k in range(0,len(object_list)):
 							if object_list[k].name==start :
-								#alert("B")
+								alert("C")
 
 								if object_list[k].name[-1] == "?":
 									object_list[k].flow = 0              
@@ -909,7 +909,8 @@
 									#except:
 									#	pass
                 #Loading the next starts from the current starts.
-								for nexting in object_list[k].next_list :
+								alert("D")									
+                for nexting in object_list[k].next_list :
 									for l in range(0,len(object_list)):  
 										if object_list[l].name == nexting :          
 											nextstates.append(nexting)
