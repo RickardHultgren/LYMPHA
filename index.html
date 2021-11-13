@@ -183,7 +183,7 @@
 
 			#def prevwfunc(ev):
 			def prevwfunc():
-				alert("1")        
+
 				global argv_len 
 				global filename 
 				global filenames 
@@ -214,9 +214,9 @@
 					nextstates = list()
 
 					for start in starts:
-						alert("3")                  
+
 						for key in range(0,len(object_list)):
-							alert("4")                  
+
 							endstring = str()
 							strr=str("%s" % object_list[key].name)
 							strr = re.sub("\s+", "", strr.strip())
@@ -240,7 +240,7 @@
 										if object_list[l].name == nexting :          
 											nextstates.append(nexting)									
 						for k in range(0,len(object_list)):
-							alert("7")        
+
 							if object_list[k].name==start:
 								for nexting in object_list[k].next_list :
 									for l in range(0,len(object_list)):  
@@ -265,7 +265,7 @@
 							starts.append(nexting) 
 					del nextstates[:]
 				graphstr += '}'
-				alert("check")
+
 				try:
 									#graphstr += "}"
 									d3 = window.d3
@@ -863,7 +863,7 @@
 				alert("begin")        
 				#Preview
 				prevwfunc()				        
-				alert("END")
+
 				#mapfunc()				
 				#alert("A")
 				nextstates = list()
