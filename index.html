@@ -863,18 +863,18 @@
      
 				#Preview
 				prevwfunc()				        
-				alert("A1")
+
 				nextstates = list()
-				alert("A2")
+
 				theturn = 1
-				alert("A3")
+
         #Finding objects in starts
 				for step in range(0,int(steps)):
-					alert("B")					
+
 					for start in temporary_starts :
 						for k in range(0,len(object_list)):
 							if object_list[k].name==start :
-								alert("C")
+
 
 								if object_list[k].name[-1] == "?":
 									object_list[k].flow = 0              
@@ -891,24 +891,33 @@
 										if (object_list[k].name[-1] == "?") :
                     
 											if object_list[key].name[-1] == "?" :
+												alert("a1")		
 												#factorform = document['factorlist']
+												alert("a2")		
 												object_list[k].statement_flow = 0
+												alert("a3")		
 												object_list[k].flow = 0
 												factorform <= str("%s = "% object_list[k].name)
 												factorform <= html.INPUT(Type="text", Id=(object_list[k].name),Class="factorItems")
 												factorform <= html.BR()
 												theturn = 2
+												alert("a4")		                        
 											else:
                      #factorform = document['factorlist']
+												alert("b1")		
 												object_list[k].statement_flow = 1
+												alert("b2")		
 												object_list[k].flow = 1
+												alert("b3")		
 												document <= html.BR()
+												alert("b4")		
 												factorform <= str("%s"%object_list[k].name)
 												factorform <= html.BR()
 												document <= html.BR()
+												alert("b5")		
 									except:
 										pass
-                #Loading the next starts from the current starts.
+								#Loading the next starts from the current starts.
 								alert("D")									
 								for nexting in object_list[k].next_list :
 									for l in range(0,len(object_list)):  
