@@ -898,6 +898,14 @@
 												factorform <= html.INPUT(Type="text", Id=(object_list[k].name),Class="factorItems")
 												factorform <= html.BR()
 												theturn = 2
+											else:
+                     #factorform = document['factorlist']
+												object_list[k].statement_flow = 1
+												object_list[k].flow = 1
+												document <= html.BR()
+												factorform <= str("%s"%object_list[k].name)
+												factorform <= html.BR()
+												document <= html.BR()
 									except:
 										pass
                 #Loading the next starts from the current starts.
