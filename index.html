@@ -886,7 +886,20 @@
 									theval = theval.replace(" ","")
 									document <= theval
 									document <= html.BR()
-
+									try:
+										factorform = document['factorlist']
+										if (object_list[k].name[-1] == "?") :
+                    
+											if object_list[key].name[-1] == "?" :
+												#factorform = document['factorlist']
+												object_list[k].statement_flow = 0
+												object_list[k].flow = 0
+												factorform <= str("%s = "% object_list[k].name)
+												factorform <= html.INPUT(Type="text", Id=(object_list[k].name),Class="factorItems")
+												factorform <= html.BR()
+												theturn = 2
+									except:
+										pass
                 #Loading the next starts from the current starts.
 								alert("D")									
 								for nexting in object_list[k].next_list :
