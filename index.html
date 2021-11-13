@@ -222,12 +222,14 @@
 							strr = re.sub("\s+", "", strr.strip())
 							pre_statement_flow = 1
 							if str(start) == strr :
+								alert("5")        
 								graphstr += ('"%s" [label="step %s: %s\\n%s", fillcolor=white, style=filled] ; \n' % (start,step+1,start,str(graph_string)))
 								for next_object in object_list[key].next_list :
 									if object_list[key].name != next_object :
 										graphstr += ('"%s" -> "%s" ; \n' % (start,next_object))
 										nextstates.append(next_object)
 					for start in starts :
+						alert("6")                  
 						for k in range(0,len(object_list)):
 							if object_list[k].name==start:
 								for nexting in object_list[k].next_list :
@@ -235,6 +237,7 @@
 										if object_list[l].name == nexting :          
 											nextstates.append(nexting)									
 						for k in range(0,len(object_list)):
+							alert("7")        
 							if object_list[k].name==start:
 								for nexting in object_list[k].next_list :
 									for l in range(0,len(object_list)):  
@@ -243,6 +246,7 @@
 												object_list[l].flow = 0
 												object_list[l].statement_flow = 0
 						for k in range(0,len(object_list)):
+							alert("8")        
 							if object_list[k].name==start:
 								for nexting in object_list[k].next_list :
 									for l in range(0,len(object_list)):  
