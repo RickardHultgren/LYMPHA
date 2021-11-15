@@ -867,12 +867,16 @@
 				prevwfunc()				        
 				nextstates = list()
 				theturn = 1
-				alert("begin")        
-        #Finding objects in starts
+				alert("begin")
+				#Finding objects in starts
 				for step in range(0, int(steps)):
+
 					alert("theturn1?")
+
 					for start in temporary_starts :
+
 						alert("theturn2?")
+
 						for k in range(0,len(object_list)):
 							alert("theturn3?")
 							if object_list[k].name==start :
@@ -949,58 +953,11 @@
 												object_list[key].statement_flow = 0   
 												object_list[key].datatype = "bina"
 
-                        ############
-                        #For evaluations
-                        # Check if operator:
-                        #elif ("==" in str(side2) or "!=" in str(side2) or "<=" in str(side2) or ">=" in str(side2) or "<" in str(side2) or ">" in str(side2) ) and not "->" in str(side2):
-                      #if ("==" in str(side2) or "!=" in str(side2) or "<=" in str(side2) or ">=" in str(side2) or "<" in str(side2) or ">" in str(side2) ) and not "->" in str(side2):                  
-                          #if "==" in (str(side2)) :
-                            #object_list[key].operator1="equiv"
-                          #if ">=" in (str(side2)) :
-                            #object_list[key].operator1="geq"
-                          #if "<=" in (str(side2)) :
-                            #object_list[key].operator1="leq"
-                          #if "!=" in (str(side2)) :
-                            #object_list[key].operator1="no"
-                          #if re.compile(".*>.*").match(str(side2)) and not re.compile(r"(>=)").match(str(side2)) :
-                            #object_list[key].operator1="g"
-                          #if re.compile(".*<.*").match(str(side2)) and not re.compile(r"(<=)").match(str(side2)) :
-                            #object_list[key].operator1="l"
-                          #print(object_list[key].operator1)
-                          #preop = side2.replace(" ","")
-                          #bin_chopped = 0
-                          #if "\|{" in preop or "|{" in preop :
-                          ##if "\|{" in preop and "}|" in preop :
-                            #bin_chopped = 1
-                          #preop = re.sub(r'(\|{)', ' ', preop)
-                          #preop = re.sub(r'(}\|)', ' ', preop)                            
-                          ##preop = preop.replace("}|","")
-                          ##preop = re.sub("\|{","", preop)
-                          #chopcompile = re.compile(r"(<=|>=|!=|==|<|>)")
-                          #operator_chop = re.split(chopcompile, preop)
-                          #print(operator_chop)
-                          ##Tipping point
-                          #zerochop = operator_chop[0].replace(" ","")
-                          #object_list[key].global_relative_variable1 = zerochop 
-                          ## chopped into binary list                                
-                          #if bin_chopped == 1 :
-                        #		binary_sums = list(operator_chop[2].split(','))
-                      #			for binary in binary_sums:
-                    #				binary = binary.replace(" ","")
-                  #					if binary != "" :
-                  #						binary = str(binary.replace(" ",""))
-                #							object_list[key].binary_list.append(str(binary))
-              #								object_list[key].datatype = "bineval"
-              #                #object_list[key].binary_list = list(the_bin_list)<
-            #							elif bin_chopped == 0 :
-          #									object_list[key].statement_value = operator_chop[2]
-        #										object_list[key].datatype = "nonbineval"
 
                         #For non-binary values and equations
 											elif a_name.id != "" and str(a_name.value) != "" :#and object_list[key].statement_value != "" :
 												object_list[k].statement_value = str(a_name.value) 
 												object_list[k].datatype = "valu"  
-
 
 					#alert("C")
           #After each set of start loops a validation of theturn should be done.
