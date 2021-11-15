@@ -849,9 +849,11 @@
 
 						for k in range(0,len(object_list)):
 							if object_list[k].name==start :
+								alert("q1")		              
 								if object_list[k].name[-1] == "?":
 									object_list[k].flow = 0              
 									object_list[k].statement_flow = 0    
+									alert("q2")		
 #FIX FIX
 								#Finding the first factors.                 
 								if theturn < 3 :
@@ -860,6 +862,7 @@
 									document <= theval
 									document <= html.BR()
 									factorform = document.select['.factorlist']
+									alert("q3")		
 									try:
 										#factorform = document.select['.factorlist']
 										if (object_list[k].name[-1] == "?") :
