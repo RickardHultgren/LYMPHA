@@ -855,13 +855,13 @@
 				modegraph = True
 				temporary_starts = list()
 				steps = document['stepNr'].value
-				alert(document['stepNr'].value)
 				#for a_step in document.select(".stepNr"):
 					#steps = a_step.value
-				alert(document.select(".theStarts"))
-				for start_item in document.select(".theStarts"):
+				
+				for start_item in document(".theStarts"):
 					starts.append(start_item.value)
 					temporary_starts.append(start_item.value)
+					alert(start_item.value)
 				lexer()
 				#Preview
 				prevwfunc()				        
