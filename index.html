@@ -276,32 +276,7 @@
 				except:	
 									pass        
 
-				CLI_filename = None
-				argv_len = None
-				filename = None
-				filenames = None
-				starts = None
-				steps = None
-
-				filecheck = None
-
-				exe_list = None
-				show_list = None
-				map_list = None
-				series = None
-				substates = None
-				nextstates = None
-				specs = None
-				global_relative_variable1 = None
-				global_relative_variable2 = None
-				operator1 = None
-				statement_flow = None
-				statement_value = None
-				object_list = None
-				exe_objects = None
 				
-				del CLI_filename, argv_len, filename, filenames, starts, steps, filecheck,  exe_list, show_list, map_list, substates, nextstates, specs, global_relative_variable1, global_relative_variable2, operator1, statement_flow, statement_value, exe_objects, object_list,
-
 			#Function for running the linked list.
 			def mapfunc():
 				#global UI
@@ -860,7 +835,6 @@
 					temporary_starts.append(start_item.value)
 					#alert(start_item.value)
 				lexer()
-				alert(steps)
 				#Preview
 				prevwfunc()				        
 				nextstates = list()
@@ -868,10 +842,107 @@
 				alert("begin")
 
 				#Finding objects in starts
-				for step in range(0, int(steps)):
+				for ztep in range(0, int(steps)):
 
 					alert("theturn1?")
 
+					for start in temporary_starts :
+
+						alert("theturn2?")
+
+						for k in range(0,len(object_list)):
+							alert("theturn3?")
+							if object_list[k].name==start :
+
+								alert("theturn4?")
+								if object_list[k].name[-1] == "?":
+									object_list[k].flow = 0              
+									object_list[k].statement_flow = 0    
+#FIX FIX
+								#Finding the first factors.                 
+								if theturn < 3 :
+									alert("theturn?")
+									theval = str(object_list[k].statement_value)
+									theval = theval.replace(" ","")
+									document <= theval
+									document <= html.BR()
+									try:
+										factorform = document['factorlist']
+										if (object_list[k].name[-1] == "?") :
+                    
+											if object_list[key].name[-1] == "?" :
+												alert("a1")		
+												#factorform = document['factorlist']
+												alert("a2")		
+												object_list[k].statement_flow = 0
+												alert("a3")		
+												object_list[k].flow = 0
+												factorform <= str("%s = "% object_list[k].name)
+												factorform <= html.INPUT(Type="text", Id=(object_list[k].name),Class="factorItems")
+												factorform <= html.BR()
+												theturn = 2
+												alert("a4")		                        
+											else:
+                     #factorform = document['factorlist']
+												alert("b1")		
+												object_list[k].statement_flow = 1
+												alert("b2")		
+												object_list[k].flow = 1
+												alert("b3")		
+												document <= html.BR()
+												alert("b4")		
+												factorform <= str("%s"%object_list[k].name)
+												factorform <= html.BR()
+												document <= html.BR()
+												alert("b5")		
+									except:
+										pass
+								#Loading the next starts from the current starts.
+								alert("D")									
+								for nexting in object_list[k].next_list :
+									for l in range(0,len(object_list)):  
+										if object_list[l].name == nexting :          
+											nextstates.append(nexting)
+
+								#Function for each start:				
+								for an_obj in range(0,len(object_list)): 
+									for a_name in document.select(".factorItems"):
+										if a_name.id == object_list[an_obj].name :
+											#object_list[k].statement_value  = a_name.value
+
+
+
+
+
+
+
+                      #Replace with web input from factorlist
+                      #if ("%s" % thename) == side1.replace(" ", "") :
+                      #For binary values
+											if str("1B") in str(a_name.value):#  and object_list[key].statement_flow != 1 and object_list[key].statement_flow != 0:        
+												object_list[k].statement_flow = 1
+												object_list[k].datatype = "bina"
+											elif str("0B") in str(a_name.value):#  and object_list[key].statement_flow != 1 and object_list[key].statement_flow != 0:  
+												object_list[key].statement_flow = 0   
+												object_list[key].datatype = "bina"
+
+
+                        #For non-binary values and equations
+											elif a_name.id != "" and str(a_name.value) != "" :#and object_list[key].statement_value != "" :
+												object_list[k].statement_value = str(a_name.value) 
+												object_list[k].datatype = "valu"  
+
+					#alert("C")
+          #After each set of start loops a validation of theturn should be done.
+					if theturn == 2:
+							theturn = 3
+
+					#Make new starts. Should be done after each starts-loop
+					del temporary_starts[:]
+					for nexting in nextstates: 
+						if nexting not in starts: 
+								temporary_starts.append(nexting) 
+					del nextstates[:]
 				alert("theturn0?")
 
 
