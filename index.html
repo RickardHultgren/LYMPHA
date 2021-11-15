@@ -870,12 +870,14 @@
 
         #Finding objects in starts
 				for step in range(0,int(steps)):
-
+					alert("theturn1?")
 					for start in temporary_starts :
+						alert("theturn2?")
 						for k in range(0,len(object_list)):
+							alert("theturn3?")
 							if object_list[k].name==start :
 
-
+								alert("theturn4?")
 								if object_list[k].name[-1] == "?":
 									object_list[k].flow = 0              
 									object_list[k].statement_flow = 0    
