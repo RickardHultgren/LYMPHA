@@ -854,7 +854,7 @@
 				#document <= html.BR()				
 				modegraph = True
 				temporary_starts = list()
-				steps = document.select(".stepNr")
+				steps = ['stepNr'].value
 				alert(document.select(".stepNr"))
 				#for a_step in document.select(".stepNr"):
 					#steps = a_step.value
@@ -1135,7 +1135,7 @@
 				<form id="steps">
 				
 				  <b>Number of steps that should be taken:</b><br>
-				  <input type="text" class="stepNr"/><br>
+				  <input type="text" id="stepNr" class="stepNr"/><br>
 				
 				</form>
 				
