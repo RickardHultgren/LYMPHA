@@ -839,7 +839,6 @@
 				prevwfunc()				        
 				nextstates = list()
 				theturn = 1
-				alert("begin")
 
 				#Finding objects in starts
 				for ztep in range(0, int(steps)):
@@ -849,27 +848,18 @@
 
 						for k in range(0,len(object_list)):
 							if object_list[k].name==start :
-								alert("q1")		              
 								alert(object_list[k].name)
 								if object_list[k].name[-1] == "?":
-									alert("q2.1")                
 									object_list[k].flow = 0 
-									alert("q2.2")                               
 									object_list[k].statement_flow = 0    
-									alert("q2.3")
 #FIX FIX
 								#Finding the first factors.                 
 								if theturn < 3 :
-									alert("q3.1")		
 									theval = str(object_list[k].statement_value)
-									alert("q3.2")		
 									theval = theval.replace(" ","")
-									alert("q3.3")		
 									document <= theval
-									alert("q3.4")		
 									document <= html.BR()
 									factorform = document['factorlist']
-									alert("q3")		
 									try:
 										#factorform = document['factorlist']
 										if (object_list[k].name[-1] == "?") :
