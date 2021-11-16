@@ -378,10 +378,11 @@
 											endstring = str()
 											string = (object_list[key].statement_value.replace(" ",""))
 											pattern = re.compile(r'([\=\+\-\/\*\(\)])')
-											iteratorUntouched = re.split(pattern, string)
+											iteratorFresh = re.split(pattern, string)
 											
 											eqlist = list()
-											for varWord in iteratorUntouched:
+											for varWord in iteratorFresh:
+												alert(varWord)
 												checked = 0
 												for objWord in range(len(object_list)):
 													thename = object_list[objWord].name
@@ -465,10 +466,10 @@
 											endstring = str()
 											string = (object_list[key].statement_value.replace(" ",""))
 											pattern = re.compile(r'([\=\+\-\/\*\(\)])')      
-											iteratorUntouched = re.split(pattern, string)
+											iteratorFresh = re.split(pattern, string)
 											
 											eqlist = list()
-											for varWord in iteratorUntouched:
+											for varWord in iteratorFresh:
 												checked = 0
 												for objWord in range(len(object_list)):
 													thename = object_list[objWord].name
