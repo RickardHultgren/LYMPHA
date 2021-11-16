@@ -851,6 +851,88 @@
 							if object_list[k].name==start :
 								alert("q1")		              
 								alert(object_list[k].name)
+								if object_list[k].name[-1] == "?":
+									object_list[k].flow = 0              
+									object_list[k].statement_flow = 0    
+									alert("q2")		
+#FIX FIX
+								#Finding the first factors.                 
+								if theturn < 3 :
+									alert("q3.1")		
+									theval = str(object_list[k].statement_value)
+									alert("q3.2")		
+									theval = theval.replace(" ","")
+									alert("q3.3")		
+									document <= theval
+									alert("q3.4")		
+									document <= html.BR()
+									factorform = document.select['.factorlist']
+									alert("q3")		
+									try:
+										#factorform = document.select['.factorlist']
+										if (object_list[k].name[-1] == "?") :
+                    
+											if object_list[key].name[-1] == "?" :
+												alert("a1")		
+												#factorform = document['factorlist']
+												alert("a2")		
+												object_list[k].statement_flow = 0
+												alert("a3")		
+												object_list[k].flow = 0
+												factorform <= str("%s = "% object_list[k].name)
+												factorform <= html.INPUT(Type="text", Id=(object_list[k].name),Class="factorItems")
+												factorform <= html.BR()
+												theturn = 2
+												alert("a4")		                        
+											else:
+                     #factorform = document['factorlist']
+												alert("b1")		
+												object_list[k].statement_flow = 1
+												alert("b2")		
+												object_list[k].flow = 1
+												alert("b3")		
+												document <= html.BR()
+												alert("b4")		
+												factorform <= str("%s"%object_list[k].name)
+												factorform <= html.BR()
+												document <= html.BR()
+												alert("b5")		
+									except:
+										pass
+								#Loading the next starts from the current starts.
+
+								for nexting in object_list[k].next_list :
+									for l in range(0,len(object_list)):  
+										if object_list[l].name == nexting :          
+											nextstates.append(nexting)
+
+								#Function for each start:				
+								for an_obj in range(0,len(object_list)): 
+									for a_name in document.select(".factorItems"):
+										if a_name.id == object_list[an_obj].name :
+											#object_list[k].statement_value  = a_name.value
+
+
+
+
+
+
+
+                      #Replace with web input from factorlist
+                      #if ("%s" % thename) == side1.replace(" ", "") :
+                      #For binary values
+											if str("1B") in str(a_name.value):#  and object_list[key].statement_flow != 1 and object_list[key].statement_flow != 0:        
+												object_list[k].statement_flow = 1
+												object_list[k].datatype = "bina"
+											elif str("0B") in str(a_name.value):#  and object_list[key].statement_flow != 1 and object_list[key].statement_flow != 0:  
+												object_list[key].statement_flow = 0   
+												object_list[key].datatype = "bina"
+
+
+                        #For non-binary values and equations
+											elif a_name.id != "" and str(a_name.value) != "" :#and object_list[key].statement_value != "" :
+												object_list[k].statement_value = str(a_name.value) 
+												object_list[k].datatype = "valu"  
 
 					#alert("C")
           #After each set of start loops a validation of theturn should be done.
