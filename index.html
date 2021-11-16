@@ -677,7 +677,7 @@
 						if (anobj) != "" and taken == 0 :
 							#alert("61")
 							object_list[((count_objs))].name = str(anobj)
-							alert(anobj)
+							#alert(anobj)
 							object_list[((count_objs))].next_list = list()
 							object_list[((count_objs))].binary_list = list()
 							object_list[((count_objs))].operation = str("")
@@ -852,6 +852,7 @@
 					for start in temporary_starts :
 
 						for k in range(0,len(object_list)):
+							alert(object_list[k].name)
 							if object_list[k].name==start :
 								if object_list[k].name[-1] == "?":
 									object_list[k].flow = 0 
