@@ -467,9 +467,10 @@
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
 											endstring = str()
 											string = (object_list[key].statement_value.replace(" ",""))
-											pattern = re.compile(r'([\=\+\-\/\*\(\)])')      
-											iteratorFresh = re.split(pattern, string)
-											
+											#pattern = re.compile(r'([\=\+\-\/\*\(\)])')
+											#iteratorFresh = re.split(pattern, string)
+											iteratorFresh = re.split("(?:(?:[^a-zA-Z])|(?:[^a-zA-Z]+))|(?:[^a-zA-Z]+)", string)
+                      
 											eqlist = list()
 											for varWord in iteratorFresh:
 												checked = 0
