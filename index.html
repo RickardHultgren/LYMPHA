@@ -384,7 +384,7 @@
 											
 											eqlist = list()
 											for varWord in iteratorFresh:
-												alert(varWord)
+												#alert(varWord)
 												checked = 0
 												for objWord in range(len(object_list)):
 													thename = object_list[objWord].name
@@ -853,8 +853,8 @@
 
 						for k in range(0,len(object_list)):
 
-							if object_list[k].name==start :
-								alert(object_list[k].name)
+							if object_list[k].name==start and start!="." and start!="?":
+								#alert(object_list[k].name)
 								if object_list[k].name[-1] == "?":
 									object_list[k].flow = 0 
 									object_list[k].statement_flow = 0    
@@ -866,7 +866,7 @@
 									document <= theval
 									document <= html.BR()
 									factorform = document['factorlist']
-									alert(object_list[k].name[-1])
+									#alert(object_list[k].name[-1])
 									try:
 										#factorform = document['factorlist']
 										if (object_list[k].name[-1] == "?") :
