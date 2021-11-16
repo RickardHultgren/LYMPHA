@@ -470,7 +470,7 @@
 											#pattern = re.compile(r'([\=\+\-\/\*\(\)])')
 											#iteratorFresh = re.split(pattern, string)
 											iteratorFresh = re.split("(?:(?:[^a-zA-Z])|(?:[^a-zA-Z]+))|(?:[^a-zA-Z]+)", string)
-                      
+
 											eqlist = list()
 											for varWord in iteratorFresh:
 												checked = 0
@@ -677,6 +677,7 @@
 						if (anobj) != "" and taken == 0 :
 							#alert("61")
 							object_list[((count_objs))].name = str(anobj)
+							alert(anobj)
 							object_list[((count_objs))].next_list = list()
 							object_list[((count_objs))].binary_list = list()
 							object_list[((count_objs))].operation = str("")
