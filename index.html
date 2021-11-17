@@ -953,7 +953,7 @@
 				global object_list 
 				try:
 					for an_obj in range(0,len(object_list)): 
-							#alert("F")        
+							alert("F")        
       	      #FIX
 							for a_name in document.select(".factorItems"):
 								if a_name.id == object_list[an_obj].name :
@@ -961,7 +961,7 @@
 									alert("G broken") 
 				except:
 					pass
-				#alert("Z")
+				alert("Z")
 				mapfunc()
 
 			def changeMenu(ev) :
