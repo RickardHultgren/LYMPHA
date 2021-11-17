@@ -958,8 +958,10 @@
 							try:
 								for a_name in document['factorItems']:
 								#for a_name in document.select(".factorItems"):
-								alert("FG broken")
-
+									alert("FG broken")
+									if a_name.id == object_list[an_obj].name :
+										object_list[k].statement_value  = a_name.value
+										alert("G broken") 
 							except:
 								pass
 				except:
