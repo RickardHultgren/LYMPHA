@@ -82,6 +82,9 @@
 			mode_show = False
 			mode_map = False
 
+			#Graphviz
+			d3 = window.d3
+
 			# Check if all script files are loaded:
 			filecheck = False
 
@@ -183,7 +186,7 @@
 
 			#def prevwfunc(ev):
 			def prevwfunc():
-
+				global d3
 				global argv_len 
 				global filename 
 				global filenames 
@@ -268,7 +271,7 @@
 
 				try:
 									#graphstr += "}"
-									d3 = window.d3
+									#d3 = window.d3
 
 									svg = d3.select("#graphpreview")
 									svg.graphviz().renderDot(graphstr)
@@ -279,6 +282,7 @@
 				
 			#Function for running the linked list.
 			def mapfunc():
+				global d3
 				#global UI
 				#global CLI_filename 
 				global argv_len 
@@ -566,7 +570,7 @@
 				try:
 									alert("before graph")
 									graphstr += "}"
-									d3 = window.d3
+									#d3 = window.d3
 
 									svg = d3.select("#graph")
 									svg.graphviz().renderDot(graphstr)
