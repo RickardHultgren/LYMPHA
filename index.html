@@ -562,14 +562,15 @@
 					del nextstates[:]
 #				if mode_graph == True:
 				graphstr += '}'
-				alert("before graph")
+				alert("000")
 				try:
+									alert("before graph")
 									graphstr += "}"
 									d3 = window.d3
 
 									svg = d3.select("#graph")
 									svg.graphviz().renderDot(graphstr)
-
+									alert("after graph")
 				except:	
 									pass        
 #					open('lympha.dot', 'w').close()
