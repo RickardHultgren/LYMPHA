@@ -313,7 +313,7 @@
 				#ADDED INT IN INT(STEPS)
 				for step in range(0, int(steps)):
 					nextstates = list()
-					#alert("A")
+					alert("A")
 					for start in starts:
 						for key in range(0,len(object_list)):
 							endstring = str()
@@ -929,7 +929,7 @@
 
 
                         #For non-binary values and equations
-											elif a_name.id != "" and str(a_name.value) != "" :#and object_list[key].statement_value != "" :
+											elif a_name.id != "" and str(a_name.value) != "" :
 												object_list[k].statement_value = str(a_name.value) 
 												object_list[k].datatype = "valu"  
 
@@ -953,12 +953,10 @@
 				global object_list 
 				try:
 					for an_obj in range(0,len(object_list)): 
-							alert("F")        
       	      #FIX
 							try:
 								#for a_name in document['factorItems']:
 								for a_name in document.select(".factorItems"):
-									alert("FG broken")
 									try:
 										if a_name.id == object_list[an_obj].name :
 											object_list[k].statement_value  = a_name.value
@@ -969,7 +967,6 @@
 								pass
 				except:
 					pass
-				alert("Z")
 				mapfunc()
 
 			def changeMenu(ev) :
