@@ -568,11 +568,11 @@
 				graphstr += '}'
 				alert("000")
 				try:
-									alert("before graph")
+									alert(graphstr)
 									graphstr += "}"
 									#d3 = window.d3
 
-									svg2 = d3.select("#graphpreview")
+									svg2 = d3.select("#graph")
 									svg2.graphviz().renderDot(graphstr)
 									alert("after graph")
 				except:	
