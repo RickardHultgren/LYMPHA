@@ -980,12 +980,15 @@
 								pass
 				except:
 					pass
-				del starts[:]          
-				for start_item in document.select(".theStarts"):
-					starts.append(start_item.value)
-					temporary_starts.append(start_item.value)
-				alert(starts)
-				mapfunc()
+				try:
+					del starts[:]          
+					for start_item in document.select(".theStarts"):
+						starts.append(start_item.value)
+						temporary_starts.append(start_item.value)
+					alert(starts)
+				except:
+					pass
+        mapfunc()
 
 			def changeMenu(ev) :
 				if (document.getElementById("menuish").style.display == 'block') :
