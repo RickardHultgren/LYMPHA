@@ -273,8 +273,8 @@
 									#graphstr += "}"
 									#d3 = window.d3
 
-									svg = d3.select("#graphpreview")
-									svg.graphviz().renderDot(graphstr)
+									svg1 = d3.select("#graphpreview")
+									svg1.graphviz().renderDot(graphstr)
 
 				except:	
 									pass        
@@ -572,8 +572,8 @@
 									graphstr += "}"
 									#d3 = window.d3
 
-									svg = d3.select("#graph")
-									svg.graphviz().renderDot(graphstr)
+									svg2 = d3.select("#graph")
+									svg2.graphviz().renderDot(graphstr)
 									alert("after graph")
 				except:	
 									pass        
