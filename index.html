@@ -316,17 +316,20 @@
 				graphstr = 'digraph lympha {\nnode [shape=record];'
 				#ADDED INT IN INT(STEPS)
 				for step in range(0, int(steps)):
+					alert("1...")
 					nextstates = list()
 					for start in starts:
+						alert("2")
 						for key in range(0,len(object_list)):
+							alert("3")
 							endstring = str()
 							strr=str("%s" % object_list[key].name)
 							strr = re.sub("\s+", "", strr.strip())
 							pre_statement_flow = 1
-
+							alert("4...")
 
 							if str(start) == strr :
-							
+								alert("5...")							
 								document <= ("NAME: %s" % object_list[key].name)
 							
 								#For binaries
@@ -374,6 +377,8 @@
 									object_list[key].statement_flow = int(pre_statement_flow)   
 									object_list[key].flow = int(pre_statement_flow)        
 								#For nonbinar-evaluations
+
+								alert("6...")
 
 								if object_list[key].datatype == "nonbineval" :
 											
@@ -432,6 +437,7 @@
 											except:
 												endnum = float(eval(str(endstring)))
 
+												alert("7...")
 
 												op = "failed"
 												if object_list[key].operator1 == "equiv" and float(object_list[key].global_relative_variable1) == float(str(endnum)):
@@ -463,10 +469,10 @@
 
 
 								#For equations
-
+								alert("8...")
 								if object_list[key].datatype == "valu":
 								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
-
+											alert("9...")
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
 											endstring = str()
 											string = (object_list[key].statement_value.replace(" ",""))
@@ -487,13 +493,14 @@
 											endstring = (("").join(eqlist))                             
 											endstring = str(eval(str(endstring)))
 											object_list[key].statement_value = endstring
-
+											alert("10...")
 								object_list[key].statement_flow = int(pre_statement_flow)        
 								if object_list[key].flow == 0 :
 									object_list[key].statement_flow = 0 
 
 									#DELTETED GRAPHMODE-IF
 								if object_list[key].statement_flow == 0:
+										alert("11...")
 										graph_string=""
 										if object_list[key].datatype == "bina" :
 											graph_string="0B"
@@ -507,6 +514,7 @@
 	
 										#graphstr += ('"%s" [label="step %s: %s\\n%s"] \n' % (start,step+1,start,graph_string)) 
 								if object_list[key].statement_flow == 1:
+									alert("12...")
 									graph_string=""
 									if object_list[key].datatype == "bina" :
 										graph_string="1B"
@@ -533,7 +541,7 @@
 										if object_list[key].name != next_object :
 											graphstr += ('"%s" -> "%s" ; \n' % (start,next_object))
 											nextstates.append(next_object)
-
+											alert("13...")
 					for start in starts :
 						for k in range(0,len(object_list)):
 							if object_list[k].name==start:
@@ -557,7 +565,7 @@
 											if object_list[k].flow  == 1 or object_list[k].statement_flow == 1 :
 												object_list[l].flow = 1
 												object_list[l].statement_flow = 1
-
+					alert("14...")
 					del starts[:]
 					#starts = list()                           
 					for nexting in nextstates: 
