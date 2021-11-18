@@ -982,6 +982,9 @@
 					pass
 				try:
 					del starts[:]          
+				except:
+					pass
+				try:
 					for start_item in document.select(".theStarts"):
 						starts.append(start_item.value)
 						temporary_starts.append(start_item.value)
