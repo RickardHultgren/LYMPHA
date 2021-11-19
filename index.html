@@ -386,14 +386,14 @@
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
 											endstring = str()
 											string = (object_list[key].statement_value.replace(" ",""))
-
+											alert("8.1...")				
 											#pattern = re.compile(r'([\=\+\-\/\*\(\)])')
 											#iteratorFresh = re.split(pattern, string)
 											iteratorFresh = re.split("(?:(?:[^a-zA-Z])|(?:[^a-zA-Z]+))|(?:[^a-zA-Z]+)", string)
-											
+											alert("8.2...")															
 											eqlist = list()
 											for varWord in iteratorFresh:
-												#alert(varWord)
+												alert("8.3....")
 												checked = 0
 												for objWord in range(len(object_list)):
 													thename = object_list[objWord].name
@@ -407,7 +407,7 @@
 											object_list[key].statement_value = endstring
 											endnum = float()
 											endnum = float(eval(str(endstring)))
-
+											alert("8.4...")				
 											pre_statement_flow = 0
 											try:
 												op = "failed"
@@ -433,7 +433,7 @@
 														pre_statement_flow = 0
 												document <= html.BR()
 												document <= str("%s = "%object_list[key].name)
-												
+												alert("8.5...")																
 												document <= html.BR()
 											except:
 												endnum = float(eval(str(endstring)))
@@ -465,7 +465,7 @@
 												
 												document <= html.BR()
 											object_list[key].statement_flow = int(pre_statement_flow)
-
+											alert("8.10")
 
 								#For equations
 								if object_list[key].datatype == "valu":
