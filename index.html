@@ -330,19 +330,18 @@
 							if str(start) == strr :
 
 								document <= ("NAME: %s" % object_list[key].name)
-							
+								alert("4....")							
 								#For binaries
 								if object_list[key].datatype == "bina":
 									pass 
 								
 								#For binary evaluation
-								alert("4....")
 								elif (object_list[key].datatype == "bineval" or object_list[key].datatype == "bina") and len(object_list[key].binary_list) >= 1:
 									pre_statement_flow = 0
 									subfactors = list()
 									#Convecrting variables into values
 									for binobj in object_list[key].binary_list :
-										alert("5....")
+											alert("5....")
 											for item in range(0,len(object_list)) :
 												thename = object_list[item].name
 												thename = str(thename)
