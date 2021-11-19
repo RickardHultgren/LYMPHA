@@ -396,15 +396,21 @@
 												alert("8.3....")
 												checked = 0
 												for objWord in range(len(object_list)):
+													alert("8.3.1...")
 													thename = object_list[objWord].name
+													alert("8.3.2...")
 													if thename == varWord:
 														eqlist.append(object_list[objWord].statement_value)
+														alert("8.3.3...")
 														checked = 1
 												if checked == 0:
 													eqlist.append(varWord) 
+													alert("8.3.4...")
 											endstring = (("").join(eqlist))                             
 											endstring = str(eval(str(endstring)))
+											alert("8.3.5...")
 											object_list[key].statement_value = endstring
+											alert("8.3.6...")
 											endnum = float()
 											endnum = float(eval(str(endstring)))
 											alert("8.4...")				
