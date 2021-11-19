@@ -406,8 +406,11 @@
 												if checked == 0:
 													eqlist.append(varWord) 
 													alert("8.3.4...")
-											endstring = (("").join(eqlist))                             
-											endstring = str(eval(str(endstring)))
+											endstring = (("").join(eqlist))                           
+
+											#Bugprone euation line:  
+											#endstring = str(eval(str(endstring)))
+											
 											alert("8.3.5...")
 											object_list[key].statement_value = endstring
 											alert("8.3.6...")
