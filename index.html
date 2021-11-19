@@ -924,7 +924,7 @@
 								for an_obj in range(0,len(object_list)): 
 									for a_name in document.select(".factorItems"):
 										if a_name.id == object_list[an_obj].name :
-											#object_list[k].statement_value  = a_name.value
+											#object_list[k].statement_value = a_name.value
 
 
 
@@ -933,22 +933,16 @@
 
 
                       #Replace with web input from factorlist
-                      #if ("%s" % thename) == side1.replace(" ", "") :
-                      #For binary values
-											if str("1B") in str(a_name.value):#  and object_list[key].statement_flow != 1 and object_list[key].statement_flow != 0:        
-												object_list[k].statement_flow = 1
-												object_list[k].datatype = "bina"
-											elif str("0B") in str(a_name.value):#  and object_list[key].statement_flow != 1 and object_list[key].statement_flow != 0:  
-												object_list[key].statement_flow = 0   
-												object_list[key].datatype = "bina"
-
-
-                        #For non-binary values and equations
-											elif a_name.id != "" and str(a_name.value) != "" :
-												object_list[k].statement_value = str(a_name.value) 
-												object_list[k].datatype = "valu"  
-
-					#alert("C")
+											try:
+												if a_name.id == object_list[an_obj].name :
+													object_list[k].statement_value  = a_name.value
+													alert("G broken")
+													if a_name.value == "1B" or  a_name.value == "0B" : 
+														object_list[k].datatype = "bineval"
+													else:
+														object_list[k].datatype = "nonbineval"
+											except:
+												pass					#alert("C")
           #After each set of start loops a validation of theturn should be done.
 					if theturn == 2:
 							theturn = 3
@@ -975,7 +969,11 @@
 									try:
 										if a_name.id == object_list[an_obj].name :
 											object_list[k].statement_value  = a_name.value
-											alert("G broken") 
+											alert("G broken")
+											if a_name.value == "1B" or  a_name.value == "0B" : 
+												object_list[k].datatype = "bineval"
+											else:
+												object_list[k].datatype = "nonbineval"
 									except:
 										pass
 							except:
