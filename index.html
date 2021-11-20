@@ -330,6 +330,7 @@
 					
                 #For binary evaluation
 								if object_list[key].datatype == "bineval":
+									alert("bineval")
 									pre_statement_flow = 0
 									subfactors = list()
 									#Convecrting variables into values
@@ -401,6 +402,7 @@
 
 								#For binaries
 								elif object_list[key].datatype == "bina":
+										alert("bina")
 										if object_list[key].statement_value == "1B" :
 											pre_statement_flow = 1
 											object_list[key].statement_flow = 1
@@ -414,6 +416,7 @@
 								#if object_list[key].datatype == "nonbineval" :
 								else:
 								#elif object_list[key].datatype != "bineval":# or object_list[key].datatype != "bina" :
+											alert("else")
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
 											endstring = str()
 											string = (object_list[key].statement_value.replace(" ",""))
