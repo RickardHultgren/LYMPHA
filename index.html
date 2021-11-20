@@ -393,7 +393,6 @@
 
 												checked = 0
 												for objWord in range(len(object_list)):
-													alert("8.3.1...")
 													thename = object_list[objWord].name
 
 													if thename == varWord:
@@ -543,13 +542,14 @@
 											#document <= html.BR()
 									#except:
 											#pass
-									
-								for next_object in object_list[key].next_list :
+								try:	
+									for next_object in object_list[key].next_list :
 
-									if object_list[key].name != next_object :
-										graphstr += ('"%s" -> "%s" ; \n' % (start,next_object))
-										nextstates.append(next_object)
-
+										if object_list[key].name != next_object :
+											graphstr += ('"%s" -> "%s" ; \n' % (start,next_object))
+											nextstates.append(next_object)
+								except:
+									pass
 					for start in starts :
 						for k in range(0,len(object_list)):
 							if object_list[k].name==start:
