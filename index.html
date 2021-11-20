@@ -328,14 +328,12 @@
 
 								document <= ("NAME: %s" % object_list[key].name)
 					
-
                 #For binary evaluation
-								if (object_list[key].datatype == "bineval":
+								if object_list[key].datatype == "bineval":
 									pre_statement_flow = 0
 									subfactors = list()
 									#Convecrting variables into values
 									for binobj in object_list[key].binary_list :
-
 											for item in range(0,len(object_list)) :
 												thename = object_list[item].name
 												thename = str(thename)
