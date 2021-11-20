@@ -402,7 +402,7 @@
 											object_list[key].statement_value = endstring
 
 								#For binaries
-								elif object_list[key].datatype == "bina":
+								if object_list[key].datatype == "bina":
 										if object_list[key].statement_value == "1B" :
 											pre_statement_flow = 1
 											object_list[key].statement_flow = 1
@@ -413,8 +413,8 @@
 
 
 
-								#elif object_list[key].datatype == "nonbineval" :
-								else:
+								if object_list[key].datatype == "nonbineval" :
+								#else:
 								#elif object_list[key].datatype != "bineval":# or object_list[key].datatype != "bina" :
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
 											endstring = str()
