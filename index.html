@@ -346,7 +346,7 @@
 									sum1 = subfactors.count(1)
 									sum0 = subfactors.count(0)
 
-									elif object_list[key].operator1 != None: # and object_list[key].statement_flow == None :
+									if object_list[key].operator1 != None: # and object_list[key].statement_flow == None :
 
 										if object_list[key].operator1 == "equiv" and int(object_list[key].global_relative_variable1) == int(sum1):
 											pre_statement_flow = 1
@@ -373,7 +373,7 @@
 								#For nonbinar-evaluations
 
 								#For equations
-								if object_list[key].datatype == "valu":
+								elif object_list[key].datatype == "valu":
 										
 								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
 
