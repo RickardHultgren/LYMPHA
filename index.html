@@ -373,7 +373,7 @@
 								elif object_list[key].datatype == "nonbineval" :
 								#else:
 								#elif object_list[key].datatype != "bineval":# or object_list[key].datatype != "bina" :
-											alert("else")
+											alert("nonbineval")
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
 											endstring = str()
 											string = (object_list[key].statement_value.replace(" ",""))
@@ -995,7 +995,7 @@
 											if a_name.value == "1B" or  a_name.value == "0B" : 
 												object_list[k].datatype = "bineval"
 											else:
-												object_list[k].datatype = "nonbineval"
+												object_list[k].datatype = "valu"
 									except:
 										pass
 							except:
