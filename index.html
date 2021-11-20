@@ -334,27 +334,31 @@
 								if object_list[key].datatype == "valu":
 										
 								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
-											alert("f")
+											alert("f1")
 
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
 											endstring = str()
+											alert("f2")
 											string = (object_list[key].statement_value.replace(" ",""))
 											#pattern = re.compile(r'([\=\+\-\/\*\(\)])')
 											#iteratorFresh = re.split(pattern, string)
 											iteratorFresh = re.split("(?:(?:[^a-zA-Z])|(?:[^a-zA-Z]+))|(?:[^a-zA-Z]+)", string)
-
+											alert("f3")
 											eqlist = list()
 											for varWord in iteratorFresh:
+												alert("f4")
 												checked = 0
 												for objWord in range(len(object_list)):
 													thename = object_list[objWord].name
 													if thename == varWord:
 														eqlist.append(object_list[objWord].statement_value)
+														alert("f5")
 														checked = 1
 												if checked == 0:
 													eqlist.append(varWord) 
 											endstring = (("").join(eqlist))                             
 											endstring = str(eval(str(endstring)))
+											alert("f6")
 											object_list[key].statement_value = endstring
 
 								#For binaries
