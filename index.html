@@ -994,9 +994,10 @@
 									try:
 										if a_name.id == object_list[an_obj].name :
 											object_list[k].statement_value  = a_name.value
+											nomen = a_name.value
 											if a_name.value == "1B" or  a_name.value == "0B" : 
 												object_list[k].datatype = "bineval"
-											elif (a_name.value).isnumeric() == True:
+											elif nomen.isdigit() == True:
 												object_list[k].datatype = "valu"
 									except:
 										pass
