@@ -328,15 +328,7 @@
 
 								document <= ("NAME: %s" % object_list[key].name)
 					
-								#For binaries
-								if object_list[key].datatype == "bina":
-										if object_list[key].statement_value == "1B" :
-											pre_statement_flow = 1
-											object_list[key].statement_flow = 1
-										if object_list[key].statement_value == "0B" :
-											pre_statement_flow = 0
-											object_list[key].statement_flow = 0
-								
+
                 #For binary evaluation
 								elif (object_list[key].datatype == "bineval" or object_list[key].datatype == "bina") and len(object_list[key].binary_list) >= 1:
 									pre_statement_flow = 0
@@ -383,8 +375,8 @@
 								#For nonbinar-evaluations
 
 
-								if object_list[key].datatype == "nonbineval" :
-
+								#if object_list[key].datatype == "nonbineval" :
+								if object_list[key].datatype != "bineval" or object_list[key].datatype != "bina" :
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
 											endstring = str()
 											string = (object_list[key].statement_value.replace(" ",""))
@@ -475,6 +467,7 @@
 												document <= str("%s = "%object_list[key].name)
 												
 												document <= html.BR()
+
 											object_list[key].statement_flow = int(pre_statement_flow)
 
 
@@ -504,6 +497,17 @@
 											endstring = (("").join(eqlist))                             
 											endstring = str(eval(str(endstring)))
 											object_list[key].statement_value = endstring
+
+								#For binaries
+								if object_list[key].datatype == "bina":
+										if object_list[key].statement_value == "1B" :
+											pre_statement_flow = 1
+											object_list[key].statement_flow = 1
+										if object_list[key].statement_value == "0B" :
+											pre_statement_flow = 0
+											object_list[key].statement_flow = 0
+								
+
 
 								object_list[key].statement_flow = int(pre_statement_flow)        
 								if object_list[key].flow == 0 :
