@@ -996,7 +996,7 @@
 											object_list[k].statement_value  = a_name.value
 											if a_name.value == "1B" or  a_name.value == "0B" : 
 												object_list[k].datatype = "bineval"
-											else:
+											elif a_name.value.isnumeric() == True:
 												object_list[k].datatype = "valu"
 									except:
 										pass
