@@ -548,11 +548,11 @@
 									#except:
 											#pass
 									
-									for next_object in object_list[key].next_list :
-										alert("12....")											
-										if object_list[key].name != next_object :
-											graphstr += ('"%s" -> "%s" ; \n' % (start,next_object))
-											nextstates.append(next_object)
+								for next_object in object_list[key].next_list :
+									alert("12....")
+									if object_list[key].name != next_object :
+										graphstr += ('"%s" -> "%s" ; \n' % (start,next_object))
+										nextstates.append(next_object)
 
 					for start in starts :
 						for k in range(0,len(object_list)):
