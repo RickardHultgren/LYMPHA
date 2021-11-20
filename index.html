@@ -331,7 +331,6 @@
 
                 #For binary evaluation
 								if (object_list[key].datatype == "bineval":
-								#if (object_list[key].datatype == "bineval": # or object_list[key].datatype == "bina") and len(object_list[key].binary_list) >= 1:
 									pre_statement_flow = 0
 									subfactors = list()
 									#Convecrting variables into values
@@ -349,7 +348,7 @@
 									sum1 = subfactors.count(1)
 									sum0 = subfactors.count(0)
 
-									if object_list[key].operator1 != None: # and object_list[key].statement_flow == None :
+									elif object_list[key].operator1 != None: # and object_list[key].statement_flow == None :
 
 										if object_list[key].operator1 == "equiv" and int(object_list[key].global_relative_variable1) == int(sum1):
 											pre_statement_flow = 1
@@ -403,7 +402,7 @@
 											object_list[key].statement_value = endstring
 
 								#For binaries
-								if object_list[key].datatype == "bina":
+								elif object_list[key].datatype == "bina":
 										if object_list[key].statement_value == "1B" :
 											pre_statement_flow = 1
 											object_list[key].statement_flow = 1
@@ -414,8 +413,8 @@
 
 
 
-								if object_list[key].datatype == "nonbineval" :
-								#else:
+								#elif object_list[key].datatype == "nonbineval" :
+								else:
 								#elif object_list[key].datatype != "bineval":# or object_list[key].datatype != "bina" :
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
 											endstring = str()
@@ -467,6 +466,7 @@
 														op = "!="
 														pre_statement_flow = 1
 												elif object_list[key].operator1 == "g" and int(object_list[key].global_relative_variable1) < int(str(endnum)):
+
 														op = "<"
 														pre_statement_flow = 1
 												elif object_list[key].operator1 == "l" and int(object_list[key].global_relative_variable1) > int(str(endnum)):
