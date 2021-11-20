@@ -330,7 +330,7 @@
 					
 
                 #For binary evaluation
-								if (object_list[key].datatype == "bineval" or object_list[key].datatype == "bina") and len(object_list[key].binary_list) >= 1:
+								if (object_list[key].datatype == "bineval": # or object_list[key].datatype == "bina") and len(object_list[key].binary_list) >= 1:
 									pre_statement_flow = 0
 									subfactors = list()
 									#Convecrting variables into values
@@ -374,9 +374,48 @@
 									object_list[key].flow = int(pre_statement_flow)        
 								#For nonbinar-evaluations
 
+								#For equations
+								if object_list[key].datatype == "valu":
+										
+								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
+
+
+											#comp = re.compile(r'(\d*)', re.IGNORECASE)
+											endstring = str()
+											string = (object_list[key].statement_value.replace(" ",""))
+											#pattern = re.compile(r'([\=\+\-\/\*\(\)])')
+											#iteratorFresh = re.split(pattern, string)
+											iteratorFresh = re.split("(?:(?:[^a-zA-Z])|(?:[^a-zA-Z]+))|(?:[^a-zA-Z]+)", string)
+
+											eqlist = list()
+											for varWord in iteratorFresh:
+												checked = 0
+												for objWord in range(len(object_list)):
+													thename = object_list[objWord].name
+													if thename == varWord:
+														eqlist.append(object_list[objWord].statement_value)
+														checked = 1
+												if checked == 0:
+													eqlist.append(varWord) 
+											endstring = (("").join(eqlist))                             
+											endstring = str(eval(str(endstring)))
+											object_list[key].statement_value = endstring
+
+								#For binaries
+								elif object_list[key].datatype == "bina":
+										if object_list[key].statement_value == "1B" :
+											pre_statement_flow = 1
+											object_list[key].statement_flow = 1
+										if object_list[key].statement_value == "0B" :
+											pre_statement_flow = 0
+											object_list[key].statement_flow = 0
+
+
+
 
 								#if object_list[key].datatype == "nonbineval" :
-								if object_list[key].datatype != "bineval":# or object_list[key].datatype != "bina" :
+								else:
+								#elif object_list[key].datatype != "bineval":# or object_list[key].datatype != "bina" :
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
 											endstring = str()
 											string = (object_list[key].statement_value.replace(" ",""))
@@ -471,41 +510,6 @@
 											object_list[key].statement_flow = int(pre_statement_flow)
 
 
-								#For equations
-								if object_list[key].datatype == "valu":
-										
-								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
-
-
-											#comp = re.compile(r'(\d*)', re.IGNORECASE)
-											endstring = str()
-											string = (object_list[key].statement_value.replace(" ",""))
-											#pattern = re.compile(r'([\=\+\-\/\*\(\)])')
-											#iteratorFresh = re.split(pattern, string)
-											iteratorFresh = re.split("(?:(?:[^a-zA-Z])|(?:[^a-zA-Z]+))|(?:[^a-zA-Z]+)", string)
-
-											eqlist = list()
-											for varWord in iteratorFresh:
-												checked = 0
-												for objWord in range(len(object_list)):
-													thename = object_list[objWord].name
-													if thename == varWord:
-														eqlist.append(object_list[objWord].statement_value)
-														checked = 1
-												if checked == 0:
-													eqlist.append(varWord) 
-											endstring = (("").join(eqlist))                             
-											endstring = str(eval(str(endstring)))
-											object_list[key].statement_value = endstring
-
-								#For binaries
-								if object_list[key].datatype == "bina":
-										if object_list[key].statement_value == "1B" :
-											pre_statement_flow = 1
-											object_list[key].statement_flow = 1
-										if object_list[key].statement_value == "0B" :
-											pre_statement_flow = 0
-											object_list[key].statement_flow = 0
 								
 
 
