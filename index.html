@@ -328,6 +328,9 @@
 
 							if str(start) == strr :
 
+								if object_list[key].statement_value == "1B" or object_list[key].statement_value == "0B" :
+									object_list[key].datatype = "bina"
+
 								document <= ("NAME: %s" % object_list[key].name)
 					
 								#For nonbinar-evaluations
@@ -992,8 +995,8 @@
 											try:
 												if a_name.id == object_list[an_obj].name :
 													object_list[k].statement_value  = a_name.value
-													if "1B" in a_name.value  or  "0B" in a_name.value : 
-														object_list[k].datatype = "bina"
+													#if "1B" in a_name.value  or  "0B" in a_name.value : 
+														#object_list[k].datatype = "bina"
 													#else:
 														#object_list[k].datatype = "nonbineval"
 														#object_list[k].datatype = "valu"
