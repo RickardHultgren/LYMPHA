@@ -324,6 +324,8 @@
 							strr = re.sub("\s+", "", strr.strip())
 							pre_statement_flow = 1
 
+							alert("A1 name:s% ;\ndatatype:s% ;\nflow:s% ;\nstatement_flow:%s" & (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow )
+
 							if str(start) == strr :
 
 								document <= ("NAME: %s" % object_list[key].name)
@@ -335,12 +337,13 @@
 
 								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
+											alert("A2 name:s% ;\ndatatype:s% ;\nflow:s% ;\nstatement_flow:%s" & (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow )
 											endstring = str()
 
 								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
 											endstring = str()
-
+											alert("A3 name:s% ;\ndatatype:s% ;\nflow:s% ;\nstatement_flow:%s" & (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow )
 											string = (object_list[key].statement_value.replace(" ",""))
 											#pattern = re.compile(r'([\=\+\-\/\*\(\)])')
 											#iteratorFresh = re.split(pattern, string)
@@ -350,16 +353,16 @@
 											for varWord in iteratorFresh:
 
 												checked = 0
-
+												alert("A3 name:s% ;\ndatatype:s% ;\nflow:s% ;\nstatement_flow:%s" & (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow )
 												for objWord in range(len(object_list)):
-
+													alert("A3 name:s% ;\ndatatype:s% ;\nflow:s% ;\nstatement_flow:%s" & (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow )		
 													thename = object_list[objWord].name
 
 													try:
 														if thename == varWord and thename != "" and varWord != "":
 
 															eqlist.append(object_list[objWord].statement_value)
-
+															alert("A4 name:s% ;\ndatatype:s% ;\nflow:s% ;\nstatement_flow:%s" & (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow )	
 															checked = 1
 
 													except:
@@ -394,7 +397,7 @@
 								elif object_list[key].datatype == "nonbineval" :
 								#else:
 								#elif object_list[key].datatype != "bineval":# or object_list[key].datatype != "bina" :
-											alert("nonbineval")
+											alert("A5 name:s% ;\ndatatype:s% ;\nflow:s% ;\nstatement_flow:%s" & (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow )	
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
 											endstring = str()
 											string = (object_list[key].statement_value.replace(" ",""))
@@ -405,7 +408,7 @@
 
 											eqlist = list()
 											for varWord in iteratorFresh:
-
+												alert("A6 name:s% ;\ndatatype:s% ;\nflow:s% ;\nstatement_flow:%s" & (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow )	
 												checked = 0
 												for objWord in range(len(object_list)):
 													thename = object_list[objWord].name
@@ -492,8 +495,7 @@
                 #For binary evaluation
 								#else:
 								if object_list[key].datatype == "bineval":
-									alert("bineval")
-									pre_statement_flow = 0
+									alert("A7 name:s% ;\ndatatype:s% ;\nflow:s% ;\nstatement_flow:%s" & (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow )										pre_statement_flow = 0
 									subfactors = list()
 									#Convecrting variables into values
 									for binobj in object_list[key].binary_list :
@@ -538,7 +540,7 @@
 									#object_list[key].statement_flow = int(pre_statement_flow)   
 									#object_list[key].flow = int(pre_statement_flow)        
 
-								
+								alert("A8 name:s% ;\ndatatype:s% ;\nflow:s% ;\nstatement_flow:%s" & (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow )									
 
 								#if object_list[key].statement_flow == 0 or object_list[key].flow == 0 :    
 								if object_list[key].flow == 0 :    
