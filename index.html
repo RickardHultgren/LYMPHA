@@ -348,12 +348,15 @@
 											for varWord in iteratorFresh:
 												alert("f4")
 												checked = 0
-												for objWord in range(len(object_list)):
+												alert("f4.1")												for objWord in range(len(object_list)):
 													thename = object_list[objWord].name
+													alert("f4.2")
 													if thename == varWord:
+														alert("f4.2.1")
 														eqlist.append(object_list[objWord].statement_value)
-														alert("f5")
+														alert("f4.3")
 														checked = 1
+														alert("f5")
 												if checked == 0:
 													eqlist.append(varWord) 
 											endstring = (("").join(eqlist))                             
