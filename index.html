@@ -348,19 +348,19 @@
 											#pattern = re.compile(r'([\=\+\-\/\*\(\)])')
 											#iteratorFresh = re.split(pattern, string)
 											iteratorFresh = re.split("(?:(?:[^a-zA-Z])|(?:[^a-zA-Z]+))|(?:[^a-zA-Z]+)", string)
-
+											alert("A2.5.1 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
 											eqlist = list()
 											for varWord in iteratorFresh:
-
+												alert("A2.5.2 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
 												checked = 0
 												alert("A3 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
 												for objWord in range(len(object_list)):
 													#alert("A3 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))		
 													thename = object_list[objWord].name
-
+													alert("A2.5.3 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
 													try:
 														if thename == varWord and thename != "" and varWord != "":
-
+															alert("A2.5.4 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
 															eqlist.append(object_list[objWord].statement_value)
 															alert("A4 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))	
 															checked = 1
