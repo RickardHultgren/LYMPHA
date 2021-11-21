@@ -324,7 +324,7 @@
 							strr = re.sub("\s+", "", strr.strip())
 							pre_statement_flow = 1
 
-							#alert("A1 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
+							alert("A1 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
 
 							if str(start) == strr :
 
@@ -343,7 +343,7 @@
 								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
 											endstring = str()
-											#alert("A2.5 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
+											alert("A2.5 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
 											string = (object_list[key].statement_value.replace(" ",""))
 											#pattern = re.compile(r'([\=\+\-\/\*\(\)])')
 											#iteratorFresh = re.split(pattern, string)
@@ -353,7 +353,7 @@
 											for varWord in iteratorFresh:
 
 												checked = 0
-												#alert("A3 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
+												alert("A3 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
 												for objWord in range(len(object_list)):
 													#alert("A3 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))		
 													thename = object_list[objWord].name
@@ -362,7 +362,7 @@
 														if thename == varWord and thename != "" and varWord != "":
 
 															eqlist.append(object_list[objWord].statement_value)
-															#alert("A4 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))	
+															alert("A4 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))	
 															checked = 1
 
 													except:
@@ -383,7 +383,7 @@
 
 								#For binaries
 								elif object_list[key].datatype == "bina":
-										#alert("A4.5 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))	
+										alert("A4.5 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))	
 										if object_list[key].statement_value == "1B" :
 											pre_statement_flow = 1
 											object_list[key].statement_flow = 1
