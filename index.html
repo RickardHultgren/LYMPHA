@@ -355,12 +355,15 @@
 													alert("f4.2")
 													alert("thename:[%s]" % thename)
 													alert("varWord[%s]" % varWord)
-													if thename == varWord and thename != "" and varWord != "":
-														alert("f4.2.1")
-														eqlist.append(object_list[objWord].statement_value)
-														alert("f4.3")
-														checked = 1
-														alert("f5")
+													try:
+														if thename == varWord and thename != "" and varWord != "":
+															alert("f4.2.1")
+															eqlist.append(object_list[objWord].statement_value)
+															alert("f4.3")
+															checked = 1
+															alert("f5")
+													except:
+														pass
 												if checked == 0:
 													eqlist.append(varWord) 
 											endstring = (("").join(eqlist))                             
