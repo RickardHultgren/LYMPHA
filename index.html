@@ -332,7 +332,11 @@
 
 								#For equations
 								if object_list[key].datatype == "valu":
-										
+
+								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
+											#comp = re.compile(r'(\d*)', re.IGNORECASE)
+											endstring = str()
+
 								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
 											endstring = str()
@@ -351,8 +355,6 @@
 
 													thename = object_list[objWord].name
 
-													alert("thename:[%s]" % thename)
-													alert("varWord[%s]" % varWord)
 													try:
 														if thename == varWord and thename != "" and varWord != "":
 
@@ -456,8 +458,8 @@
 
 												document <= html.BR()
 											except:
-												endnum = float(eval(str(endstring)))
-
+												#endnum = float(eval(str(endstring)))
+												endnum = endstring
 												op = "failed"
 												if object_list[key].operator1 == "equiv" and float(object_list[key].global_relative_variable1) == float(str(endnum)):
 														op = "=="
@@ -1001,8 +1003,6 @@
 
 			def turn2func(ev) :
 
-				alert("D")
-
 				global object_list 
 				try:
 					for an_obj in range(0,len(object_list)): 
@@ -1037,7 +1037,7 @@
 					alert(starts)
 				except:
 					pass
-				alert("e")          
+         
 				mapfunc()
 
 			def changeMenu(ev) :
