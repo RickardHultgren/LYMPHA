@@ -337,13 +337,13 @@
 
 								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
-											alert("A2 name:s% ;\ndatatype:s% ;\nflow:s% ;\nstatement_flow:%s" & (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow )
+										#	alert("A2 name:s% ;\ndatatype:s% ;\nflow:s% ;\nstatement_flow:%s" & (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow )
 											endstring = str()
 
 								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
 											endstring = str()
-											alert("A3 name:s% ;\ndatatype:s% ;\nflow:s% ;\nstatement_flow:%s" & (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow )
+										#	alert("A2.5 name:s% ;\ndatatype:s% ;\nflow:s% ;\nstatement_flow:%s" & (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow )
 											string = (object_list[key].statement_value.replace(" ",""))
 											#pattern = re.compile(r'([\=\+\-\/\*\(\)])')
 											#iteratorFresh = re.split(pattern, string)
