@@ -540,7 +540,8 @@
 
 								
 
-								if object_list[key].statement_flow != 1 :    
+								#if object_list[key].statement_flow != 1 or object_list[key].flow != 1 :    
+								if object_list[key].flow != 1 :    
 									object_list[key].flow = 0
 									pre_statement_flow = 0
 
