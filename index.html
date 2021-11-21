@@ -512,28 +512,28 @@
 								else:
 									pre_statement_flow = 1
 
-									if object_list[key].operator1 != None: # and object_list[key].statement_flow == None :
+									#if object_list[key].operator1 != None: # and object_list[key].statement_flow == None :
 
-										if object_list[key].operator1 == "equiv" and int(object_list[key].global_relative_variable1) == int(sum1):
-											pre_statement_flow = 1
-											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
-										elif object_list[key].operator1 == "geq" and int(object_list[key].global_relative_variable1) >= int(sum1):
-											pre_statement_flow = 1
-											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
-										elif object_list[key].operator1 == "leq" and int(object_list[key].global_relative_variable1) <= int(sum1):
-											pre_statement_flow = 1
-											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
-										elif object_list[key].operator1 == "no" and int(object_list[key].global_relative_variable1) != int(sum1):
-											pre_statement_flow = 1
-											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
-										elif object_list[key].operator1 == "g" and int(object_list[key].global_relative_variable1) > int(sum1):
-											pre_statement_flow = 1
-											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
-										elif object_list[key].operator1 == "l" and int(object_list[key].global_relative_variable1) < int(sum1):
-											pre_statement_flow = 1
-											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
-										else:
-											pre_statement_flow = 0
+									#	if object_list[key].operator1 == "equiv" and int(object_list[key].global_relative_variable1) == int(sum1):
+									#		pre_statement_flow = 1
+									#		object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+									#	elif object_list[key].operator1 == "geq" and int(object_list[key].global_relative_variable1) >= int(sum1):
+									#		pre_statement_flow = 1
+									#		object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+									#	elif object_list[key].operator1 == "leq" and int(object_list[key].global_relative_variable1) <= int(sum1):
+									#		pre_statement_flow = 1
+									#		object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+									#	elif object_list[key].operator1 == "no" and int(object_list[key].global_relative_variable1) != int(sum1):
+									#		pre_statement_flow = 1
+									#		object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+									#	elif object_list[key].operator1 == "g" and int(object_list[key].global_relative_variable1) > int(sum1):
+									#		pre_statement_flow = 1
+									#		object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+									#	elif object_list[key].operator1 == "l" and int(object_list[key].global_relative_variable1) < int(sum1):
+									#		pre_statement_flow = 1
+									#		object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+									#	else:
+									#		pre_statement_flow = 0
 									object_list[key].statement_flow = int(pre_statement_flow)   
 									object_list[key].flow = int(pre_statement_flow)        
 
