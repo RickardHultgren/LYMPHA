@@ -408,7 +408,7 @@
 
 											eqlist = list()
 											for varWord in iteratorFresh:
-												alert("A6 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))	
+												#alert("A6 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))	
 												checked = 0
 												for objWord in range(len(object_list)):
 													thename = object_list[objWord].name
@@ -495,7 +495,7 @@
                 #For binary evaluation
 								#else:
 								if object_list[key].datatype == "bineval":
-									alert("A7 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))										pre_statement_flow = 0
+									#alert("A7 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))										pre_statement_flow = 0
 									subfactors = list()
 									#Convecrting variables into values
 									for binobj in object_list[key].binary_list :
@@ -543,7 +543,7 @@
 
 								#if object_list[key].statement_flow == 0 or object_list[key].flow == 0 :    
 								if object_list[key].flow == 0 :    
-									alert("A8 IF 0 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))									
+									#alert("A8 IF 0 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))									
 
 									object_list[key].flow = 0 
 									object_list[key].statement_flow = 0 
