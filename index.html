@@ -1017,13 +1017,11 @@
 
 
 			def turn2func(ev) :
-#The goal is to implement the first step factors int the algorithm.
-			global object_list 
-
-			for an_obj in range(0,len(object_list)): 
+#The goal is to implement the first step factors
+				global object_list 
+				for an_obj in range(0,len(object_list)): 
 								#for a_name in document['factorItems']:
 								for a_name in document.select(".factorItems"):
-
 										if a_name.id == object_list[an_obj].name :
 											object_list[k].statement_value  = a_name.value
 											nomen = a_name.value
@@ -1033,7 +1031,9 @@
 												object_list[k].datatype = "valu"
 											else:
 												object_list[k].datatype = "nonbineval"
-											alert("test)
+
+				except:
+					pass
 				try:
 					del starts[:]          
 				except:
