@@ -1020,7 +1020,7 @@
 #The goal is to implement the first step factors
 				global object_list 
 				for an_obj in range(0,len(object_list)): 
-								for a_name in document['factor']:
+								for a_name in document['factorlist']:
 								#for a_name in document.select(".factorItems"):
 										if a_name.id == object_list[an_obj].name and a_name.id != "" :
 											object_list[k].statement_value  = a_name.value
@@ -1033,7 +1033,7 @@
 												object_list[k].datatype = "nonbineval"
 											alert("slut1")
 										alert("%s slut2" % a_name)
-								alert("%s slut3" % a_name)
+								alert("slut3")
 				alert("slut4")
 
 				try:
@@ -1124,7 +1124,7 @@
 					<span style="color:black;">Copy and paste addresses to <i>raw</i> lympha-scripts</span>
 					<br>
 					
-					<input type="text" class="theItemsParent"/><br>
+					<input type="text" class="theItems"/><br>
 				</form>
 				<button id="addbttn" >Add yet another link</button><br>
 				
@@ -1164,7 +1164,7 @@
 				<hr style="width:50vw; right:25vw; z-index:1;position:relative; text-align:center;" />
 
 				<form id="factorlist">
-				  <input type="text" style="hidden" class="factorItems" id="factorItems"></input>
+				  <input type="text" style="hidden" class="factorItems"></input>
 				</form>
 				<button id="turn2">Implement variables into script</button><br>
 				<hr style="width:50vw; right:25vw; z-index:1;position:relative; text-align:center;" />
