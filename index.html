@@ -1024,6 +1024,7 @@
 								alert("begin2")
 								for a_name in document.select(".factorItems"):
 								#for a_name in document['factorlist']:
+										alert("begin3")
 										alert("a_name.Id:[%s] object_list[an_obj].name:[%s]" % (a_name.Id, object_list[an_obj].name ))
 										if a_name.Id == object_list[an_obj].name and a_name.Id != "" :
 											object_list[k].statement_value  = a_name.value
@@ -1167,7 +1168,7 @@
 				<hr style="width:50vw; right:25vw; z-index:1;position:relative; text-align:center;" />
 
 				<form id="factorlist">
-				  <input type="text" style="hidden" class="factorItems"></input>
+				  <!--input type="text" style="hidden" class="factorItems"></input>
 				</form>
 				<button id="turn2">Implement variables into script</button><br>
 				<hr style="width:50vw; right:25vw; z-index:1;position:relative; text-align:center;" />
