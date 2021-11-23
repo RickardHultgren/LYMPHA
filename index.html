@@ -1021,9 +1021,9 @@
 				global object_list 
 				for an_obj in range(0,len(object_list)): 
 								for a_name in document['factorlist']:
-										alert("a_name.id:[%s] object_list[an_obj].name:[%s]" % (a_name.id, object_list[an_obj].name ))
+										alert("a_name.Id:[%s] object_list[an_obj].name:[%s]" % (a_name.Id, object_list[an_obj].name ))
 								#for a_name in document.select(".factorItems"):
-										if a_name.id == object_list[an_obj].name and a_name.id != "" :
+										if a_name.Id == object_list[an_obj].name and a_name.Id != "" :
 											object_list[k].statement_value  = a_name.value
 											nomen = a_name.value
 											if a_name.value == "1B" or  a_name.value == "0B" : 
