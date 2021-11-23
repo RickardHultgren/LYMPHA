@@ -1021,6 +1021,7 @@
 				global object_list 
 				for an_obj in range(0,len(object_list)): 
 								for a_name in document['factorlist']:
+										alert("a_name.id:[%s] object_list[an_obj].name:[%s]" % (a_name.id, object_list[an_obj].name ))
 								#for a_name in document.select(".factorItems"):
 										if a_name.id == object_list[an_obj].name and a_name.id != "" :
 											object_list[k].statement_value  = a_name.value
