@@ -1021,6 +1021,7 @@
 				global object_list
 				alert("begin1")         
 				for an_obj in range(0,len(object_list)): 
+								alert("begin2")
 								for a_name in document.select(".factorItems"):
 								#for a_name in document['factorlist']:
 										alert("a_name.Id:[%s] object_list[an_obj].name:[%s]" % (a_name.Id, object_list[an_obj].name ))
