@@ -955,7 +955,7 @@
 
 												object_list[k].flow = 0
 												factorform <= str("%s = "% object_list[k].name)
-												factorform <= html.INPUT(Type="text", Id=(object_list[k].name),Class="factorItems")
+												factorform <= html.INPUT(Type="text", Class="factorItems")
 												factorform <= html.BR()
 												theturn = 2
 
@@ -984,7 +984,7 @@
 								#Function for each start:				
 								for an_obj in range(0,len(object_list)): 
 									for a_name in document.select(".factorItems"):
-										if a_name.id == object_list[an_obj].name :
+										if a_name.value == object_list[an_obj].name :
 											#object_list[k].statement_value = a_name.value
 
 
@@ -995,7 +995,7 @@
 
                       #Replace with web input from factorlist
 											try:
-												if a_name.id == object_list[an_obj].name :
+												if a_name.value == object_list[an_obj].name :
 													object_list[k].statement_value  = a_name.value
 													#if "1B" in a_name.value  or  "0B" in a_name.value : 
 														#object_list[k].datatype = "bina"
@@ -1020,9 +1020,10 @@
 #The goal is to implement the first step factors
 				global object_list 
 				for an_obj in range(0,len(object_list)): 
-								for a_name in document['factorlist']:
+								for b_name in document['factorlist']:
+										#for a_name = b_name.value
 								#for a_name in document.select(".factorItems"):
-										if a_name.id == object_list[an_obj].name and a_name.id != "" :
+										if a_name.value == object_list[an_obj].name and a_name.id != "" :
 											object_list[k].statement_value  = a_name.value
 											nomen = a_name.value
 											if a_name.value == "1B" or  a_name.value == "0B" : 
