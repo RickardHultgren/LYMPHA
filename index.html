@@ -343,7 +343,8 @@
 											pre_statement_flow = 0
 											object_list[key].statement_flow = 0
 
-
+								if object_list[an_obj].datatype == "valu" :
+										pass
 
 								#if object_list[key].datatype == "nonbineval" :
 								#elif object_list[key].datatype == "nonbineval" :
@@ -1030,8 +1031,10 @@
 											object_list[an_obj].statement_value  = a_name.value
 											if a_name.value == "1B" or  a_name.value == "0B" : 
 												object_list[an_obj].datatype = "bina"
+												object_list[an_obj].value = a_name.value
 											elif nomen.isdigit() == True:
 												object_list[an_obj].datatype = "valu"
+												object_list[an_obj].value = a_name.value                        
 											#else:
 												#object_list[an_obj].datatype = "nonbineval"
 									except:
