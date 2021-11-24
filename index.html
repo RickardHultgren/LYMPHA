@@ -343,6 +343,7 @@
 								alert("begin B1")
 								#For binary equations:
 								if "==" in object_list[an_obj].value :
+									alert("begin B2")
 									pre_statement_flow = 0
 									subfactors = list()
 									#Convecrting variables into values
@@ -359,7 +360,7 @@
 									sum1 = subfactors.count(1)
 									sum0 = subfactors.count(0)
 									#pre_statement_flow = 1
-
+									alert("begin B3")
 									if object_list[key].operator1 != None: # and object_list[key].statement_flow == None :
 
 										if object_list[key].operator1 == "equiv" and int(object_list[key].global_relative_variable1) == int(sum1):
@@ -382,7 +383,8 @@
 											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
 										else:
 											pre_statement_flow = 0
-									object_list[key].statement_flow = int(pre_statement_flow)   
+									alert("begin B4")
+                  object_list[key].statement_flow = int(pre_statement_flow)   
 									object_list[key].flow = int(pre_statement_flow)        
 
 								alert("begin C1")
