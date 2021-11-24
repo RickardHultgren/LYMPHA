@@ -1022,19 +1022,16 @@
 				for an_obj in range(0,len(object_list)): 
 								#alert("begin2")
 								for a_name in document.select(".factorItems"):
-								#for a_name in document['factorlist']:
 									try:	
 										#alert("a_name.id:[%s] object_list[an_obj].name:[%s] a_name.value:[%s]" % (a_name.id, object_list[an_obj].name, a_name.value ))
-										if a_name.id == object_list[an_obj].name and a_name.Id != "" :
+										if a_name.id == object_list[an_obj].name and a_name.id != "" :
 											object_list[an_obj].statement_value  = a_name.value
-											nomen = a_name.value
 											if a_name.value == "1B" or  a_name.value == "0B" : 
 												object_list[an_obj].datatype = "bina"
 											elif nomen.isdigit() == True:
 												object_list[an_obj].datatype = "valu"
 											#else:
 												#object_list[an_obj].datatype = "nonbineval"
-											object_list[an_obj].statement_value = a_name.value
 									except:
 										pass
 # End results: name, statement_value, datatype:(bina, valu)
