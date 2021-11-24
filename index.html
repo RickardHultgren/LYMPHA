@@ -340,9 +340,10 @@
 										if object_list[key].statement_value == "0B" :
 											pre_statement_flow = 0
 											object_list[key].statement_flow = 0
+
 								alert("begin B1")
 								#For binary equations:
-								if "==" in object_list[an_obj].value :
+								if object_list[key].datatype == "bineval" and len(object_list[key].binary_list) >= 1:
 									alert("begin B2")
 									pre_statement_flow = 0
 									subfactors = list()
