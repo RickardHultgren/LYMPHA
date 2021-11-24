@@ -803,7 +803,7 @@
 
 					pre_count = int(0)
 					count_objs = int()                 
-					#alert("60")
+					alert("60")
 					for anobj in arrowobjs:
 						anobj = re.sub("\s*", "", anobj) 
 						eqobjs = re.compile(r"((<=)|(>=)|(!=)|(==)(<)|(>))").split(anobj)
@@ -833,7 +833,7 @@
 							object_list[((count_objs))].global_relative_variable1 = float()
 							object_list[((count_objs))].datatype = ""
 							#alert("65")
-					#alert("70")
+					alert("70")
 
 				#Connect the database nodes     
 				for serie in series:
@@ -872,8 +872,8 @@
 						for key in range(0,len(object_list)) :
 						#Web version TRY############
 
-							try:
-								alert("try lexer")
+							#try:
+								alert("80")
 								thename = object_list[key].name
 								thename = thename.replace(" ","")
 
@@ -893,6 +893,7 @@
 									#For evaluations
 									# Check if operator:
 									#elif ("==" in str(side2) or "!=" in str(side2) or "<=" in str(side2) or ">=" in str(side2) or "<" in str(side2) or ">" in str(side2) ) and not "->" in str(side2):
+								alert("90")
 								if ("==" in str(side2) or "!=" in str(side2) or "<=" in str(side2) or ">=" in str(side2) or "<" in str(side2) or ">" in str(side2) ) and not "->" in str(side2):                  
 										if "==" in (str(side2)) :
 												object_list[key].operator1="equiv"
@@ -916,6 +917,7 @@
 										preop = re.sub(r'(}\|)', ' ', preop)                            
 										#preop = preop.replace("}|","")
 										#preop = re.sub("\|{","", preop)
+										alert("84")
 										chopcompile = re.compile(r"(<=|>=|!=|==|<|>)")
 										operator_chop = re.split(chopcompile, preop)
 										print(operator_chop)
@@ -942,8 +944,8 @@
 									#elif side1 != "" and str(side2) != "" :#and object_list[key].statement_value != "" :
 										#object_list[key].statement_value = str(side2) 
 										#object_list[key].datatype = "valu"     							
-							except:
-								pass
+							#except:
+								#pass
 					except:
 						pass			
 					count += 1
