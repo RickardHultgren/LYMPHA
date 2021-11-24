@@ -324,7 +324,7 @@
 							strr = re.sub("\s+", "", strr.strip())
 							pre_statement_flow = 1
 
-							alert("A1 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
+							#alert("A1 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
 
 							if str(start) == strr :
 
@@ -1021,11 +1021,11 @@
 				global object_list
 				alert("begin1 %s" % document.select(".factorItems"))         
 				for an_obj in range(0,len(object_list)): 
-								alert("begin2")
+								#alert("begin2")
 								for a_name in document.select(".factorItems"):
 								#for a_name in document['factorlist']:
 									try:	
-										alert("a_name.id:[%s] object_list[an_obj].name:[%s] a_name.value:[%s]" % (a_name.id, object_list[an_obj].name, a_name.value ))
+										#alert("a_name.id:[%s] object_list[an_obj].name:[%s] a_name.value:[%s]" % (a_name.id, object_list[an_obj].name, a_name.value ))
 										if a_name.id == object_list[an_obj].name and a_name.Id != "" :
 											object_list[an_obj].statement_value  = a_name.value
 											nomen = a_name.value
@@ -1035,8 +1035,6 @@
 												object_list[an_obj].datatype = "valu"
 											#else:
 												#object_list[an_obj].datatype = "nonbineval"
-											alert("slut1")
-										alert("%s slut2" % a_name)
 									except:
 										pass
 				alert("slut4")
