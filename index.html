@@ -334,7 +334,6 @@
 					
 								#For binaries
 								if object_list[key].datatype == "bina":
-								#else:
 										alert("A4.5 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))	
 										if object_list[key].statement_value == "1B" :
 											pre_statement_flow = 1
@@ -343,17 +342,8 @@
 											pre_statement_flow = 0
 											object_list[key].statement_flow = 0
 
-								#For dig.value
-								if object_list[an_obj].datatype == "valu" :
-										pass
-
-                #For evaluation
-								if object_list[key].datatype != "bina" or object_list[key].datatype != "valu" :
-                #For binary evaluation
-                #side 0 with Bvalue
-
-
-									alert("A7 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
+								#For binary equations:
+								if "==" in object_list[an_obj].value :
 									pre_statement_flow = 0
 									subfactors = list()
 									#Convecrting variables into values
@@ -369,6 +359,47 @@
 													subfactors.append(int(object_list[item].statement_flow))
 									sum1 = subfactors.count(1)
 									sum0 = subfactors.count(0)
+									#pre_statement_flow = 1
+
+									if object_list[key].operator1 != None: # and object_list[key].statement_flow == None :
+
+										if object_list[key].operator1 == "equiv" and int(object_list[key].global_relative_variable1) == int(sum1):
+											pre_statement_flow = 1
+											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+										elif object_list[key].operator1 == "geq" and int(object_list[key].global_relative_variable1) >= int(sum1):
+											pre_statement_flow = 1
+											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+										elif object_list[key].operator1 == "leq" and int(object_list[key].global_relative_variable1) <= int(sum1):
+											pre_statement_flow = 1
+											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+										elif object_list[key].operator1 == "no" and int(object_list[key].global_relative_variable1) != int(sum1):
+											pre_statement_flow = 1
+											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+										elif object_list[key].operator1 == "g" and int(object_list[key].global_relative_variable1) > int(sum1):
+											pre_statement_flow = 1
+											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+										elif object_list[key].operator1 == "l" and int(object_list[key].global_relative_variable1) < int(sum1):
+											pre_statement_flow = 1
+											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+										else:
+											pre_statement_flow = 0
+									object_list[key].statement_flow = int(pre_statement_flow)   
+									object_list[key].flow = int(pre_statement_flow)        
+
+
+
+
+
+								#For dig.value and equations
+								ifdatatype == "valu" :
+										pass
+
+                #For evaluation
+								if object_list[key].datatype != "bina" or object_list[key].datatype != "valu" :
+                #For binary evaluation
+                #side 0 with Bvalue
+
+
 
 
 								#if object_list[key].datatype == "nonbineval" :
@@ -520,37 +551,6 @@
 											pre_statement_flow = 1
 											object_list[key].statement_flow = 1
 
-
-
-
-#Commented because flowshould be inherited.
-								#else:
-									#pre_statement_flow = 1
-
-									#if object_list[key].operator1 != None: # and object_list[key].statement_flow == None :
-
-									#	if object_list[key].operator1 == "equiv" and int(object_list[key].global_relative_variable1) == int(sum1):
-									#		pre_statement_flow = 1
-									#		object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
-									#	elif object_list[key].operator1 == "geq" and int(object_list[key].global_relative_variable1) >= int(sum1):
-									#		pre_statement_flow = 1
-									#		object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
-									#	elif object_list[key].operator1 == "leq" and int(object_list[key].global_relative_variable1) <= int(sum1):
-									#		pre_statement_flow = 1
-									#		object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
-									#	elif object_list[key].operator1 == "no" and int(object_list[key].global_relative_variable1) != int(sum1):
-									#		pre_statement_flow = 1
-									#		object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
-									#	elif object_list[key].operator1 == "g" and int(object_list[key].global_relative_variable1) > int(sum1):
-									#		pre_statement_flow = 1
-									#		object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
-									#	elif object_list[key].operator1 == "l" and int(object_list[key].global_relative_variable1) < int(sum1):
-									#		pre_statement_flow = 1
-									#		object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
-									#	else:
-									#		pre_statement_flow = 0
-									#object_list[key].statement_flow = int(pre_statement_flow)   
-									#object_list[key].flow = int(pre_statement_flow)        
 
 
 								#if object_list[key].statement_flow == 0 or object_list[key].flow == 0 :    
