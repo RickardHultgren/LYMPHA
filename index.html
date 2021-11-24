@@ -1025,7 +1025,7 @@
 								for a_name in document.select(".factorItems"):
 								#for a_name in document['factorlist']:
 									try:	
-										alert("a_name.id:[%s] object_list[an_obj].name:[%s]" % (a_name.id, object_list[an_obj].name ))
+										alert("a_name.id:[%s] object_list[an_obj].name:[%s] a_name.value:[%s]" % (a_name.id, object_list[an_obj].name, a_name.value ))
 										if a_name.id == object_list[an_obj].name and a_name.Id != "" :
 											object_list[an_obj].statement_value  = a_name.value
 											nomen = a_name.value
