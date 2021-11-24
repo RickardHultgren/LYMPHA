@@ -144,7 +144,7 @@
 			object_list = Statement(object_list)
 
 			#class Statement:
-			#    def __init__(self, flow, name, global_relative_variable1, global_relative_variable2, statement_flow, statement_value, operator1, next_list, nr_list, operation, spec_list):
+			#    def __init__(self, flow, name, global_relative_variable1, global_relative_variable2, statement_flow, statement_value, operator1, next_list, binar_list, operation, spec_list):
 			#        
 			#        self.flow = int(flow)
 			#                
@@ -157,10 +157,10 @@
 			#        self.spec_list = list()#
 			#
 			#        #list of contents:
-			#        #nr_list = nr_list
-			#        self.nr_list = list(nr_list)#
+			#        #binar_list = binar_list
+			#        self.binar_list = list(binar_list)#
 			#
-			#        #should the nr_list be counted as a sum or an equation?
+			#        #should the binar_list be counted as a sum or an equation?
 			#        #self.summerize = summerize
 			#        self.operation = operation  #This holds the operation that are found in the string (left to right)
 			#        
@@ -333,8 +333,7 @@
 								document <= ("NAME: %s" % object_list[key].name)
 					
 								#For binaries
-								if object_list[key].datatype == "bina":
-										alert("A4.5 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))	
+								if object_list[key].datatype == "bina":	
 										if object_list[key].statement_value == "1B" :
 											pre_statement_flow = 1
 											object_list[key].statement_flow = 1
@@ -343,11 +342,11 @@
 											object_list[key].statement_flow = 0
 
 								#For binary equations:
-								elif "==" in object_list[an_obj].value :
+								if "==" in object_list[an_obj].value :
 									pre_statement_flow = 0
 									subfactors = list()
 									#Convecrting variables into values
-									for binobj in object_list[key].nr_list :
+									for binobj in object_list[key].binar_list :
 											for item in range(0,len(object_list)) :
 												thename = object_list[item].name
 												thename = str(thename)
@@ -386,12 +385,36 @@
 									object_list[key].statement_flow = int(pre_statement_flow)   
 									object_list[key].flow = int(pre_statement_flow)        
 
-								#For dig.value
-								elif datatype == "valu" :
-										pass
+
+								#For equations
+								if object_list[key].datatype == "valu":
+								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
+
+											#comp = re.compile(r'(\d*)', re.IGNORECASE)
+											endstring = str()
+											string = (object_list[key].statement_value.replace(" ",""))
+											pattern = re.compile(r'([\=\+\-\/\*\(\)])')      
+											iteratorUntouched = re.split(pattern, string)
+								
+											eqlist = list()
+											for varWord in iteratorUntouched:
+												print(varWord)
+												checked = 0
+												for objWord in range(len(object_list)):
+													thename = object_list[objWord].name
+													if thename == varWord:
+														eqlist.append(object_list[objWord].statement_value)
+														checked = 1
+												if checked == 0:
+													eqlist.append(varWord) 
+											endstring = (("").join(eqlist))                             
+											endstring = str(eval(str(endstring)))
+											object_list[key].statement_value = endstring
+
 
 								#For float equations
-								else:
+								if object_list[key].datatype == "valu" :                
+								#else:
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
 											endstring = str()
 											string = (object_list[key].statement_value.replace(" ",""))
@@ -480,54 +503,79 @@
    
 
 								#For nonbinar-evaluations
-
-								#For equations
-								if object_list[key].datatype == "nonbineva":
-
-								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
-											#comp = re.compile(r'(\d*)', re.IGNORECASE)
-										#	#alert("A2 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
-											endstring = str()
-
-								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
+								if object_list[key].datatype == "nonbineval" :
+								
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
 											endstring = str()
-											alert("A2.5 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
 											string = (object_list[key].statement_value.replace(" ",""))
-											#pattern = re.compile(r'([\=\+\-\/\*\(\)])')
-											#iteratorFresh = re.split(pattern, string)
-											iteratorFresh = re.split("(?:(?:[^a-zA-Z])|(?:[^a-zA-Z]+))|(?:[^a-zA-Z]+)", string)
-											alert("A2.5.1 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
+											pattern = re.compile(r'([\=\+\-\/\*\(\)])')
+											iteratorUntouched = re.split(pattern, string)
+								
 											eqlist = list()
-											for varWord in iteratorFresh:
-												alert("A2.5.2 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
+											for varWord in iteratorUntouched:
+												print(varWord)
 												checked = 0
-												alert("A3 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
 												for objWord in range(len(object_list)):
 													thename = object_list[objWord].name
-													alert(thename)
-													try:
-														if thename == varWord and thename != "" and varWord != "":
-															alert("A2.5.4 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
-															eqlist.append(object_list[objWord].statement_value)
-															alert("A4 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))	
-															checked = 1
-
-													except:
-														pass
-
+													if thename == varWord:
+														eqlist.append(object_list[objWord].statement_value)
+														checked = 1
 												if checked == 0:
 													eqlist.append(varWord) 
-
-											endstring = (("").join(eqlist)) 
-
-											#endstring = str(eval(str(endstring)))
-
-											endstring = endstring
+											endstring = (("").join(eqlist))                             
+											endstring = str(eval(str(endstring)))
 											object_list[key].statement_value = endstring
-											pre_statement_flow = 1
-											object_list[key].statement_flow = 1
+											endnum = float()
+											endnum = float(eval(str(endstring)))
 
+											pre_statement_flow = 0
+											try:
+												if object_list[key].operator1 == "equiv" and int(object_list[key].global_relative_variable1) == int(str(endnum)):
+														print ("%s == %s ; exe" % (int(object_list[key].global_relative_variable1), int(str(endnum))))
+														pre_statement_flow = 1
+												elif object_list[key].operator1 == "leq" and int(object_list[key].global_relative_variable1) >= int((endnum)):
+														print ("%s >= %s ; exe" % (int(object_list[key].global_relative_variable1), int(str(endnum))))
+														pre_statement_flow = 1
+												elif object_list[key].operator1 == "geq" and (int(object_list[key].global_relative_variable1) <= int(str(endnum))):
+														print ("%s <= %s ; exe" % (int(object_list[key].global_relative_variable1), int(str(endnum))))
+														pre_statement_flow = 1
+												elif object_list[key].operator1 == "no" and int(object_list[key].global_relative_variable1) != int(str(endnum)):
+														print ("%s != %s ; exe" % (int(object_list[key].global_relative_variable1), int(str(endnum))))
+														pre_statement_flow = 1
+												elif object_list[key].operator1 == "g" and int(object_list[key].global_relative_variable1) < int(str(endnum)):
+														print ("%s < %s ; exe" % (int(object_list[key].global_relative_variable1), int(str(endnum))))
+														pre_statement_flow = 1
+												elif object_list[key].operator1 == "l" and int(object_list[key].global_relative_variable1) > int(str(endnum)):
+														print ("%s > %s ; exe" % (int(object_list[key].global_relative_variable1), int(str(endnum))))
+														pre_statement_flow = 1
+												else:
+														pre_statement_flow = 0
+
+											except:
+												endnum = float(eval(str(endstring)))
+
+												if object_list[key].operator1 == "equiv" and float(object_list[key].global_relative_variable1) == float(str(endnum)):
+														print ("%s == %s ; exe" % (float(object_list[key].global_relative_variable1), float(str(endnum))))
+														pre_statement_flow = 1
+												elif object_list[key].operator1 == "leq" and float(object_list[key].global_relative_variable1) <= float((endnum)):
+														print ("%s <= %s ; exe" % (float(object_list[key].global_relative_variable1), float(str(endnum))))
+														pre_statement_flow = 1
+												elif object_list[key].operator1 == "geq" and (float(object_list[key].global_relative_variable1) >= float(str(endnum))):
+														print ("%s >= %s ; exe" % (float(object_list[key].global_relative_variable1), float(str(endnum))))
+														pre_statement_flow = 1
+												elif object_list[key].operator1 == "no" and float(object_list[key].global_relative_variable1) != float(str(endnum)):
+														print ("%s != %s ; exe" % (float(object_list[key].global_relative_variable1), float(str(endnum))))
+														pre_statement_flow = 1
+												elif object_list[key].operator1 == "g" and float(object_list[key].global_relative_variable1) < float(str(endnum)):
+														print ("%s < %s ; exe" % (float(object_list[key].global_relative_variable1), float(str(endnum))))
+														pre_statement_flow = 1
+												elif object_list[key].operator1 == "l" and float(object_list[key].global_relative_variable1) > float(str(endnum)):
+														print ("%s > %s ; exe" % (float(object_list[key].global_relative_variable1), float(str(endnum))))
+														pre_statement_flow = 1
+												else:
+														pre_statement_flow = 0
+
+								object_list[key].statement_flow = int(pre_statement_flow)
 
 
 								#if object_list[key].statement_flow == 0 or object_list[key].flow == 0 :    
@@ -739,7 +787,7 @@
 							object_list[((count_objs))].name = str(anobj)
 							#alert(anobj)
 							object_list[((count_objs))].next_list = list()
-							object_list[((count_objs))].nr_list = list()
+							object_list[((count_objs))].binar_list = list()
 							object_list[((count_objs))].operation = str("")
 							object_list[((count_objs))].flow = 1
 							object_list[((count_objs))].statement_flow = 1
@@ -843,9 +891,9 @@
 												   binary = binary.replace(" ","")
 												   if binary != "" :
 														binary = str(binary.replace(" ",""))
-														object_list[key].nr_list.append(str(binary))
+														object_list[key].binar_list.append(str(binary))
 												   object_list[key].datatype = "bineval"
-												#object_list[key].nr_list = list(the_bin_list)<
+												#object_list[key].binar_list = list(the_bin_list)<
 										elif bin_chopped == 0 :
 												object_list[key].statement_value = operator_chop[2]
 												#object_list[key].datatype = "nonbineval"
