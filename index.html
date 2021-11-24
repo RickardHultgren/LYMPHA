@@ -383,8 +383,8 @@
 
 
 								#For binaries
-								#elif object_list[key].datatype == "bina":
-								else:
+								elif object_list[key].datatype == "bina":
+								#else:
 										alert("A4.5 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))	
 										if object_list[key].statement_value == "1B" :
 											pre_statement_flow = 1
@@ -395,9 +395,9 @@
 
 
 
-								if object_list[key].datatype == "nonbineval" :
+								#if object_list[key].datatype == "nonbineval" :
 								#elif object_list[key].datatype == "nonbineval" :
-								#else:
+								else:
 								#elif object_list[key].datatype != "bineval":# or object_list[key].datatype != "bina" :
 											alert("A5 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))	
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
@@ -496,23 +496,23 @@
 
                 #For binary evaluation
 								#else:
-								if object_list[key].datatype == "bineval":
-									alert("A7 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
-									pre_statement_flow = 0
-									subfactors = list()
+								#if object_list[key].datatype == "bineval":
+								#	alert("A7 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
+								#	pre_statement_flow = 0
+								#	subfactors = list()
 									#Convecrting variables into values
-									for binobj in object_list[key].binary_list :
-											for item in range(0,len(object_list)) :
-												thename = object_list[item].name
-												thename = str(thename)
+								#	for binobj in object_list[key].binary_list :
+								#			for item in range(0,len(object_list)) :
+								#				thename = object_list[item].name
+								#				thename = str(thename)
 											 #thename = thename[1:]
 											 #thename = thename[:1]
 											 #thename = re.sub("\s+", "", thename.strip())
 											 #if object_list[item].name == binobj.replace(" ","") :
-												if thename == ("%s" % binobj.replace(" ","")) :
-													subfactors.append(int(object_list[item].statement_flow))
-									sum1 = subfactors.count(1)
-									sum0 = subfactors.count(0)
+								#				if thename == ("%s" % binobj.replace(" ","")) :
+								#					subfactors.append(int(object_list[item].statement_flow))
+								#	sum1 = subfactors.count(1)
+								#	sum0 = subfactors.count(0)
 
 #Commented because flowshould be inherited.
 								#else:
