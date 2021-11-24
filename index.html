@@ -1024,8 +1024,8 @@
 								alert("begin2")
 								for a_name in document.select(".factorItems"):
 								#for a_name in document['factorlist']:
-										alert("a_name.get(Id):[%s] object_list[an_obj].name:[%s]" % (a_name.get(Id), object_list[an_obj].name ))
-										if a_name.get(Id) == object_list[an_obj].name and a_name.Id != "" :
+										alert("a_name.get(Id):[%s] object_list[an_obj].name:[%s]" % (a_name.get(id=id), object_list[an_obj].name ))
+										if a_name.get(id=id) == object_list[an_obj].name and a_name.Id != "" :
 											object_list[k].statement_value  = a_name.value
 											nomen = a_name.value
 											if a_name.value == "1B" or  a_name.value == "0B" : 
