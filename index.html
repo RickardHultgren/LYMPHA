@@ -144,7 +144,7 @@
 			object_list = Statement(object_list)
 
 			#class Statement:
-			#    def __init__(self, flow, name, global_relative_variable1, global_relative_variable2, statement_flow, statement_value, operator1, next_list, binary_list, operation, spec_list):
+			#    def __init__(self, flow, name, global_relative_variable1, global_relative_variable2, statement_flow, statement_value, operator1, next_list, nr_list, operation, spec_list):
 			#        
 			#        self.flow = int(flow)
 			#                
@@ -157,10 +157,10 @@
 			#        self.spec_list = list()#
 			#
 			#        #list of contents:
-			#        #binary_list = binary_list
-			#        self.binary_list = list(binary_list)#
+			#        #nr_list = nr_list
+			#        self.nr_list = list(nr_list)#
 			#
-			#        #should the binary_list be counted as a sum or an equation?
+			#        #should the nr_list be counted as a sum or an equation?
 			#        #self.summerize = summerize
 			#        self.operation = operation  #This holds the operation that are found in the string (left to right)
 			#        
@@ -343,11 +343,11 @@
 											object_list[key].statement_flow = 0
 
 								#For binary equations:
-								if "==" in object_list[an_obj].value :
+								elif "==" in object_list[an_obj].value :
 									pre_statement_flow = 0
 									subfactors = list()
 									#Convecrting variables into values
-									for binobj in object_list[key].binary_list :
+									for binobj in object_list[key].nr_list :
 											for item in range(0,len(object_list)) :
 												thename = object_list[item].name
 												thename = str(thename)
@@ -386,61 +386,38 @@
 									object_list[key].statement_flow = int(pre_statement_flow)   
 									object_list[key].flow = int(pre_statement_flow)        
 
-
-
-
-
-								#For dig.value and equations
-								ifdatatype == "valu" :
+								#For dig.value
+								elif datatype == "valu" :
 										pass
 
-                #For evaluation
-								if object_list[key].datatype != "bina" or object_list[key].datatype != "valu" :
-                #For binary evaluation
-                #side 0 with Bvalue
-
-
-
-
-								#if object_list[key].datatype == "nonbineval" :
-								#elif object_list[key].datatype == "nonbineval" :
-								#else:
-								#elif object_list[key].datatype != "bineval":# or object_list[key].datatype != "bina" :
-											alert("A5 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))	
+								#For float equations
+								else:
 											#comp = re.compile(r'(\d*)', re.IGNORECASE)
 											endstring = str()
 											string = (object_list[key].statement_value.replace(" ",""))
-
+  
 											#pattern = re.compile(r'([\=\+\-\/\*\(\)])')
 											#iteratorFresh = re.split(pattern, string)
 											iteratorFresh = re.split("(?:(?:[^a-zA-Z])|(?:[^a-zA-Z]+))|(?:[^a-zA-Z]+)", string)
 
 											eqlist = list()
 											for varWord in iteratorFresh:
-												alert("A6 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))	
 												checked = 0
 												for objWord in range(len(object_list)):
 													thename = object_list[objWord].name
-
 													if thename == varWord:
 														eqlist.append(object_list[objWord].statement_value)
-
 														checked = 1
 												if checked == 0:
 													eqlist.append(varWord) 
-
-											endstring = (("").join(eqlist))                           
-
+											endstring = (("").join(eqlist))
 											#Bugprone euation line:  
 											#endstring = str(eval(str(endstring)))
 											
-
 											object_list[key].statement_value = endstring
-
 											#endnum = float()
 											#endnum = float(eval(str(endstring)))
 											endnum = endstring
-
 											pre_statement_flow = 0
 											try:
 												op = "failed"
@@ -500,7 +477,7 @@
 												document <= html.BR()
 
 											object_list[key].statement_flow = int(pre_statement_flow)
-
+   
 
 								#For nonbinar-evaluations
 
@@ -762,7 +739,7 @@
 							object_list[((count_objs))].name = str(anobj)
 							#alert(anobj)
 							object_list[((count_objs))].next_list = list()
-							object_list[((count_objs))].binary_list = list()
+							object_list[((count_objs))].nr_list = list()
 							object_list[((count_objs))].operation = str("")
 							object_list[((count_objs))].flow = 1
 							object_list[((count_objs))].statement_flow = 1
@@ -866,9 +843,9 @@
 												   binary = binary.replace(" ","")
 												   if binary != "" :
 														binary = str(binary.replace(" ",""))
-														object_list[key].binary_list.append(str(binary))
+														object_list[key].nr_list.append(str(binary))
 												   object_list[key].datatype = "bineval"
-												#object_list[key].binary_list = list(the_bin_list)<
+												#object_list[key].nr_list = list(the_bin_list)<
 										elif bin_chopped == 0 :
 												object_list[key].statement_value = operator_chop[2]
 												#object_list[key].datatype = "nonbineval"
