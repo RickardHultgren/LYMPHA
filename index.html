@@ -328,7 +328,7 @@
 
 							if str(start) == strr :
 
-
+								alert("begin A1")
 
 								document <= ("NAME: %s" % object_list[key].name)
 					
@@ -340,7 +340,7 @@
 										if object_list[key].statement_value == "0B" :
 											pre_statement_flow = 0
 											object_list[key].statement_flow = 0
-
+								alert("begin B1")
 								#For binary equations:
 								if "==" in object_list[an_obj].value :
 									pre_statement_flow = 0
@@ -385,7 +385,7 @@
 									object_list[key].statement_flow = int(pre_statement_flow)   
 									object_list[key].flow = int(pre_statement_flow)        
 
-
+								alert("begin C1")
 								#For equations
 								if object_list[key].datatype == "valu":
 								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
@@ -501,7 +501,7 @@
 
 											object_list[key].statement_flow = int(pre_statement_flow)
    
-
+								alert("begin D1")
 								#For nonbinar-evaluations
 								if object_list[key].datatype == "nonbineval" :
 								
@@ -577,7 +577,7 @@
 
 								object_list[key].statement_flow = int(pre_statement_flow)
 
-
+								alert("begin E1")
 								#if object_list[key].statement_flow == 0 or object_list[key].flow == 0 :    
 								if object_list[key].flow != 1 :    
 									#alert("A8 IF 0 name:%s  ; datatype:%s  ; flow:%s  ; #statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))									
