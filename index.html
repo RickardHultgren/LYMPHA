@@ -342,24 +342,66 @@
 											object_list[key].statement_flow = 0
 
 								alert("begin B1")
-								#For binary equations:
+								#For binary evaluation
 								if object_list[key].datatype == "bineval" and len(object_list[key].binary_list) >= 1:
-									alert("begin B2")
 									pre_statement_flow = 0
 									subfactors = list()
 									#Convecrting variables into values
-									for binobj in object_list[key].binar_list :
-											for item in range(0,len(object_list)) :
-												thename = object_list[item].name
-												thename = str(thename)
-											 #thename = thename[1:]
-											 #thename = thename[:1]
-											 #thename = re.sub("\s+", "", thename.strip())
-											 #if object_list[item].name == binobj.replace(" ","") :
-												if thename == ("%s" % binobj.replace(" ","")) :
-													subfactors.append(int(object_list[item].statement_flow))
+									for binobj in object_list[key].binary_list :
+										for item in range(0,len(object_list)) :
+											thename = object_list[item].name
+											thename = str(thename)
+											#thename = thename[1:]
+											#thename = thename[:1]
+											#thename = re.sub("\s+", "", thename.strip())
+											#if object_list[item].name == binobj.replace(" ","") :
+											if thename == ("%s" % binobj.replace(" ","")) :
+												subfactors.append(int(object_list[item].statement_flow))
 									sum1 = subfactors.count(1)
 									sum0 = subfactors.count(0)
+									if object_list[key].operator1 != None: # and object_list[key].statement_flow == None :
+										if object_list[key].operator1 == "equiv" and int(object_list[key].global_relative_variable1) == int(sum1):
+											pre_statement_flow = 1
+											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+										elif object_list[key].operator1 == "geq" and int(object_list[key].global_relative_variable1) >= int(sum1):
+											pre_statement_flow = 1
+											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+										elif object_list[key].operator1 == "leq" and int(object_list[key].global_relative_variable1) <= int(sum1):
+											pre_statement_flow = 1
+											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+										elif object_list[key].operator1 == "no" and int(object_list[key].global_relative_variable1) != int(sum1):
+											pre_statement_flow = 1
+											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+										elif object_list[key].operator1 == "g" and int(object_list[key].global_relative_variable1) > int(sum1):
+											pre_statement_flow = 1
+											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+										elif object_list[key].operator1 == "l" and int(object_list[key].global_relative_variable1) < int(sum1):
+											pre_statement_flow = 1
+											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
+										else:
+											pre_statement_flow = 0
+										print(object_list[key].statement_value)
+									object_list[key].statement_flow = int(pre_statement_flow)       
+
+
+								#For binary equations:
+								#if object_list[key].datatype == "bineval" and len(object_list[key].binary_list) >= 1:
+								#	alert("begin B2")
+									#pre_statement_flow = 0
+									#subfactors = list()
+									#Convecrting variables into values
+									#for binobj in object_list[key].binar_list :
+									#		for item in range(0,len(object_list)) :
+									#			thename = object_list[item].name
+									#			thename = str(thename)
+									#		 #thename = thename[1:]
+									#		 #thename = thename[:1]
+									#		 #thename = re.sub("\s+", "", thename.strip())
+									#		 #if object_list[item].name == binobj.replace(" ","") :
+									#			if thename == ("%s" % binobj.replace(" ","")) :
+									#				subfactors.append(int(object_list[item].statement_flow))
+									#sum1 = subfactors.count(1)
+									#sum0 = subfactors.count(0)
 									#pre_statement_flow = 1
 
 									alert("begin B3")
@@ -626,14 +668,6 @@
 									graphstr += ('"%s" [label="step %s: %s\\n%s", fillcolor=yellow, style=filled] ; \n' % (start,step+1,start,str(graph_string)))
 
 									
-
-									#try:
-											#document <= str("%s"%graph_string)
-											#graphstr += str("%s"%graph_string)
-											#graphstr += ('"%s" -> "%s" \n' % (start,next_object))
-											#document <= html.BR()
-									#except:
-											#pass
 								try:	
 									for next_object in object_list[key].next_list :
 
