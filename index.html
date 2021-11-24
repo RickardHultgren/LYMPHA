@@ -361,6 +361,7 @@
 									sum1 = subfactors.count(1)
 									sum0 = subfactors.count(0)
 									#pre_statement_flow = 1
+
 									alert("begin B3")
 									if object_list[key].operator1 != None: # and object_list[key].statement_flow == None :
 
@@ -384,9 +385,9 @@
 											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
 										else:
 											pre_statement_flow = 0
-								alert("begin B4")
-								object_list[key].statement_flow = int(pre_statement_flow)   
-								object_list[key].flow = int(pre_statement_flow)        
+									alert("begin B4")
+									object_list[key].statement_flow = int(pre_statement_flow)   
+									object_list[key].flow = int(pre_statement_flow)        
 
 								alert("begin C1")
 								#For equations
