@@ -1030,11 +1030,11 @@
 											object_list[an_obj].statement_value  = a_name.value
 											nomen = a_name.value
 											if a_name.value == "1B" or  a_name.value == "0B" : 
-												object_list[an_obj].datatype = "bineval"
+												object_list[an_obj].datatype = "bina"
 											elif nomen.isdigit() == True:
 												object_list[an_obj].datatype = "valu"
-											else:
-												object_list[an_obj].datatype = "nonbineval"
+											#else:
+												#object_list[an_obj].datatype = "nonbineval"
 											alert("slut1")
 										alert("%s slut2" % a_name)
 									except:
