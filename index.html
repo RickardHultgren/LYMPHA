@@ -1027,7 +1027,7 @@
 									try:	
 										alert("a_name.id:[%s] object_list[an_obj].name:[%s]" % (a_name.id, object_list[an_obj].name ))
 										if a_name.id == object_list[an_obj].name and a_name.Id != "" :
-											object_list[k].statement_value  = a_name.value
+											object_list[an_obj].statement_value  = a_name.value
 											nomen = a_name.value
 											if a_name.value == "1B" or  a_name.value == "0B" : 
 												object_list[an_obj].datatype = "bineval"
