@@ -873,7 +873,7 @@
 						for key in range(0,len(object_list)) :
 						#Web version TRY############
 
-							#try:
+							try:
 								alert("80")
 								thename = object_list[key].name
 								thename = thename.replace(" ","")
@@ -894,6 +894,7 @@
 									#For evaluations
 									# Check if operator:
 									#elif ("==" in str(side2) or "!=" in str(side2) or "<=" in str(side2) or ">=" in str(side2) or "<" in str(side2) or ">" in str(side2) ) and not "->" in str(side2):
+                  
 								alert("90")
 								if ("==" in str(side2) or "!=" in str(side2) or "<=" in str(side2) or ">=" in str(side2) or "<" in str(side2) or ">" in str(side2) ) and not "->" in str(side2):                  
 										if "==" in (str(side2)) :
@@ -935,7 +936,7 @@
 													if binary != "" :
 														binary = str(binary.replace(" ",""))
 														object_list[key].binar_list.append(str(binary))
-													object_list[key].datatype = "bineval"
+															object_list[key].datatype = "bineval"
 												#object_list[key].binar_list = list(the_bin_list)<
 										elif bin_chopped == 0 :
 												object_list[key].statement_value = operator_chop[2]
@@ -946,8 +947,8 @@
 									#elif side1 != "" and str(side2) != "" :#and object_list[key].statement_value != "" :
 										#object_list[key].statement_value = str(side2) 
 										#object_list[key].datatype = "valu"     							
-							#except:
-								#pass
+							except:
+								pass
 					#except:
 						#pass			
 					#count += 1
