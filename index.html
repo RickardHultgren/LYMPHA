@@ -213,13 +213,14 @@
 				global steps
 				graphstr = 'digraph lympha {\nnode [shape=record];'
 				#ADDED INT IN INT(STEPS)
+				alert("110")
 				for step in range(0, int(steps)):
 					nextstates = list()
 
 					for start in starts:
 
 						for key in range(0,len(object_list)):
-
+							alert("170")
 							endstring = str()
 							strr=str("%s" % object_list[key].name)
 							strr = re.sub("\s+", "", strr.strip())
@@ -233,7 +234,7 @@
 									if object_list[key].name != next_object :
 										graphstr += ('"%s" -> "%s" ; \n' % (start,next_object))
 										nextstates.append(next_object)
-
+					alert("120")
 					for start in starts :
 
 						for k in range(0,len(object_list)):
@@ -260,7 +261,7 @@
 											if object_list[k].flow  == 1 or object_list[k].statement_flow == 1 :
 												object_list[l].flow = 1
 												object_list[l].statement_flow = 1
-					
+					alert("130")					
 					del starts[:]
 					#starts = list()                           
 					for nexting in nextstates: 
@@ -278,7 +279,7 @@
 
 				except:	
 									pass        
-
+				alert("140")
 				
 			#Function for running the linked list.
 			def mapfunc():
