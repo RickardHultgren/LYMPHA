@@ -186,7 +186,7 @@
 
 			#def prevwfunc(ev):
 			def prevwfunc():
-				alert("X1")
+
 				global d3
 				global argv_len 
 				global filename 
@@ -203,26 +203,25 @@
 				global specs 
 				#global global_relative_variable1 
 				global global_relative_variable2 
-				alert("X5")
+				
 				global statement_flow 
 				global statement_value
 				alert("X7")
 				global object_list 
 				global exe_objects 
-				alert("X10")
+				
 				global starts
 				global show_list
 				global steps
 				graphstr = 'digraph lympha {\nnode [shape=record];'
 				#ADDED INT IN INT(STEPS)
-				alert("110")
+				
 				for step in range(0, int(steps)):
 					nextstates = list()
 
 					for start in starts:
 
 						for key in range(0,len(object_list)):
-							alert("170")
 							endstring = str()
 							strr=str("%s" % object_list[key].name)
 							strr = re.sub("\s+", "", strr.strip())
@@ -236,7 +235,6 @@
 									if object_list[key].name != next_object :
 										graphstr += ('"%s" -> "%s" ; \n' % (start,next_object))
 										nextstates.append(next_object)
-					alert("120")
 					for start in starts :
 
 						for k in range(0,len(object_list)):
@@ -263,7 +261,6 @@
 											if object_list[k].flow  == 1 or object_list[k].statement_flow == 1 :
 												object_list[l].flow = 1
 												object_list[l].statement_flow = 1
-					alert("130")					
 					del starts[:]
 					#starts = list()                           
 					for nexting in nextstates: 
@@ -281,7 +278,6 @@
 
 				except:	
 									pass        
-				alert("140")
 				
 			#Function for running the linked list.
 			def mapfunc():
@@ -978,7 +974,7 @@
 
 				#Finding objects in starts
 				for ztep in range(0, int(steps)):
-
+					alert("abc")
 
 					for start in temporary_starts :
 
