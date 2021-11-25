@@ -199,7 +199,6 @@
 				global map_list 
 				global series 
 				global substates 
-				alert("X3")
 				global nextstates 
 				global specs 
 				#global global_relative_variable1 
@@ -880,7 +879,6 @@
 									thename = object_list[key].name
 									thename = thename.replace(" ","")
 
-									alert("90")
 									if ("==" in str(side2) or "!=" in str(side2) or "<=" in str(side2) or ">=" in str(side2) or "<" in str(side2) or ">" in str(side2) ) and not "->" in str(side2):                  
 										if "==" in (str(side2)) :
 												object_list[key].operator1="equiv"
@@ -904,7 +902,6 @@
 										preop = re.sub(r'(}\|)', ' ', preop)                            
 										#preop = preop.replace("}|","")
 										#preop = re.sub("\|{","", preop)
-										alert("84")
 										chopcompile = re.compile(r"(<=|>=|!=|==|<|>)")
 										operator_chop = re.split(chopcompile, preop)
 										print(operator_chop)
@@ -971,7 +968,6 @@
 					#alert(start_item.value)
 				lexer()
 				#Preview
-				alert("10x")
 				prevwfunc()				        
 
 				nextstates = list()
@@ -1059,7 +1055,6 @@
 														#object_list[k].datatype = "valu"
 											except:
 												pass					#alert("C")
-					alert("1300")
           #After each set of start loops a validation of theturn should be done.
 					if theturn == 2:
 							theturn = 3
