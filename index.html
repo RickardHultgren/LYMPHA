@@ -931,11 +931,11 @@
 										if bin_chopped == 1 :
 												binary_sums = list(operator_chop[2].split(','))
 												for binary in binary_sums:
-												   binary = binary.replace(" ","")
-												   if binary != "" :
+													binary = binary.replace(" ","")
+													if binary != "" :
 														binary = str(binary.replace(" ",""))
 														object_list[key].binar_list.append(str(binary))
-												   object_list[key].datatype = "bineval"
+													object_list[key].datatype = "bineval"
 												#object_list[key].binar_list = list(the_bin_list)<
 										elif bin_chopped == 0 :
 												object_list[key].statement_value = operator_chop[2]
