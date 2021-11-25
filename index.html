@@ -680,12 +680,14 @@
 								except:
 									pass
 					for start in starts :
+						alert("-10")
 						for k in range(0,len(object_list)):
 							if object_list[k].name==start:
 								for nexting in object_list[k].next_list :
 									for l in range(0,len(object_list)):  
 										if object_list[l].name == nexting :          
 											nextstates.append(nexting)									
+						alert("-9")
 						for k in range(0,len(object_list)):
 							if object_list[k].name==start:
 								for nexting in object_list[k].next_list :
@@ -694,6 +696,7 @@
 											if object_list[k].flow  == 0 or object_list[k].statement_flow == 0 :
 												object_list[l].flow = 0
 												object_list[l].statement_flow = 0
+						alert("-8")
 						for k in range(0,len(object_list)):
 							if object_list[k].name==start:
 								for nexting in object_list[k].next_list :
