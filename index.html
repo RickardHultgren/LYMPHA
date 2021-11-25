@@ -321,13 +321,16 @@
 							endstring = str()
 							strr=str("%s" % object_list[key].name)
 							strr = re.sub("\s+", "", strr.strip())
-							pre_statement_flow = 1
+
+							if object_list[k].name[-1] == "?":
+								pre_statement_flow = 0
+							else:
+								pre_statement_flow = 1
+
 
 							#alert("A1 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
 
 							if str(start) == strr :
-
-								alert("begin A1")
 
 								document <= ("NAME: %s" % object_list[key].name)
 					
@@ -340,7 +343,6 @@
 											pre_statement_flow = 0
 											object_list[key].statement_flow = 0
 
-								alert("begin B1")
 								#For binary evaluation
 								if object_list[key].datatype == "bineval" and len(object_list[key].binary_list) >= 1:
 									pre_statement_flow = 0
@@ -974,7 +976,6 @@
 
 				#Finding objects in starts
 				for ztep in range(0, int(steps)):
-					alert("abc")
 
 					for start in temporary_starts :
 
