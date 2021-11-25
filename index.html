@@ -874,13 +874,14 @@
 						side2 = str(serie[1])
 						side1 = side1.replace(" ","")
 						side2 = side2.replace(" ","")
-						for key in range(0,len(object_list)) :
+						try:
+								for key in range(0,len(object_list)) :
 						#Web version TRY############
-								thename = object_list[key].name
-								thename = thename.replace(" ","")
+									thename = object_list[key].name
+									thename = thename.replace(" ","")
 
-								alert("90")
-								if ("==" in str(side2) or "!=" in str(side2) or "<=" in str(side2) or ">=" in str(side2) or "<" in str(side2) or ">" in str(side2) ) and not "->" in str(side2):                  
+									alert("90")
+									if ("==" in str(side2) or "!=" in str(side2) or "<=" in str(side2) or ">=" in str(side2) or "<" in str(side2) or ">" in str(side2) ) and not "->" in str(side2):                  
 										if "==" in (str(side2)) :
 												object_list[key].operator1="equiv"
 										if ">=" in (str(side2)) :
@@ -925,8 +926,8 @@
 												object_list[key].statement_value = operator_chop[2]
 												#object_list[key].datatype = "nonbineval"
 												object_list[key].datatype = "valu"
-								alert("100")
-								alert("102")
+						except:
+							pass
 						alert("103")
 						count += 1          
 						alert("104")
