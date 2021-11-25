@@ -206,7 +206,7 @@
 				
 				global statement_flow 
 				global statement_value
-				alert("X7")
+				###alert("x7")
 				global object_list 
 				global exe_objects 
 				
@@ -325,7 +325,7 @@
 							if object_list[key].name[-1] == "?":
 								pre_statement_flow = 0
 							else:
-								if object_list[key].flow != 0:
+								if object_list[key].flow != 0 or object_list[key].statement_flow != 0:
 									pre_statement_flow = 1
 
 
@@ -969,7 +969,7 @@
 					#alert(start_item.value)
 				lexer()
 				#Preview
-				alert("xyz")
+				###alert("xyz")
 				prevwfunc()				        
 
 				nextstates = list()
