@@ -874,9 +874,9 @@
 						side2 = str(serie[1])
 						side1 = side1.replace(" ","")
 						side2 = side2.replace(" ","")
-						try:
-								for key in range(0,len(object_list)) :
+						for key in range(0,len(object_list)) :
 						#Web version TRY############
+							try:
 									thename = object_list[key].name
 									thename = thename.replace(" ","")
 
@@ -926,8 +926,8 @@
 												object_list[key].statement_value = operator_chop[2]
 												#object_list[key].datatype = "nonbineval"
 												object_list[key].datatype = "valu"
-						except:
-							pass
+							except:
+								pass
 						alert("103")
 						count += 1          
 						alert("104")
