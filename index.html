@@ -322,7 +322,7 @@
 							strr=str("%s" % object_list[key].name)
 							strr = re.sub("\s+", "", strr.strip())
 
-							if object_list[k].name[-1] == "?":
+							if object_list[key].name[-1] == "?":
 								pre_statement_flow = 0
 							else:
 								pre_statement_flow = 1
@@ -387,7 +387,7 @@
 
 								#For binary equations:
 								#if object_list[key].datatype == "bineval" and len(object_list[key].binary_list) >= 1:
-								#	alert("begin B2")
+								#	#alert("begin B2")
 									#pre_statement_flow = 0
 									#subfactors = list()
 									#Convecrting variables into values
@@ -405,7 +405,7 @@
 									#sum0 = subfactors.count(0)
 									#pre_statement_flow = 1
 
-									alert("begin B3")
+									#alert("begin B3")
 									if object_list[key].operator1 != None: # and object_list[key].statement_flow == None :
 
 										if object_list[key].operator1 == "equiv" and int(object_list[key].global_relative_variable1) == int(sum1):
@@ -428,11 +428,11 @@
 											object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
 										else:
 											pre_statement_flow = 0
-									alert("begin B4")
+									#alert("begin B4")
 									object_list[key].statement_flow = int(pre_statement_flow)   
 									object_list[key].flow = int(pre_statement_flow)        
 
-								alert("begin C1")
+								#alert("begin C1")
 								#For equations
 								if object_list[key].datatype == "valu":
 								#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
@@ -548,7 +548,7 @@
 
 											object_list[key].statement_flow = int(pre_statement_flow)
    
-								alert("begin D1")
+								#alert("begin D1")
 								#For nonbinar-evaluations
 								if object_list[key].datatype == "nonbineval" :
 								
@@ -624,7 +624,7 @@
 
 								object_list[key].statement_flow = int(pre_statement_flow)
 
-								alert("begin E1")
+								#alert("begin E1")
 								#if object_list[key].statement_flow == 0 or object_list[key].flow == 0 :    
 								if object_list[key].flow != 1 :    
 									#alert("A8 IF 0 name:%s  ; datatype:%s  ; flow:%s  ; #statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))									
@@ -653,7 +653,7 @@
 										graphstr += ('"%s" [label="step %s: %s\\n%s", fillcolor=white, style=filled] ; \n' % (start,step+1,start,str(graph_string)))
 	
 										#graphstr += ('"%s" [label="step %s: %s\\n%s"] \n' % (start,step+1,start,graph_string)) 
-								alert("before draw")
+								#alert("before draw")
 								if object_list[key].statement_flow == 1:
 
 									graph_string=""
@@ -1070,9 +1070,9 @@
 			def turn2func(ev) :
 #The goal is to implement the first step factors
 				global object_list
-				alert("begin1 %s" % document.select(".factorItems"))         
+				#alert("begin1 %s" % document.select(".factorItems"))         
 				for an_obj in range(0,len(object_list)): 
-								#alert("begin2")
+								##alert("begin2")
 								for a_name in document.select(".factorItems"):
 									try:	
 										#alert("a_name.id:[%s] object_list[an_obj].name:[%s] a_name.value:[%s]" % (a_name.id, object_list[an_obj].name, a_name.value ))
