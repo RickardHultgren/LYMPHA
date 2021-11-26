@@ -221,7 +221,7 @@
 
 					for start in starts:
 
-						for key in range(0,len(object_list)):
+						for key in range(0,len(object_list)):a
 							endstring = str()
 							strr=str("%s" % object_list[key].name)
 							strr = re.sub("\s+", "", strr.strip())
@@ -335,7 +335,7 @@
 								if str(start) == strr :
 
 									document <= ("NAME: %s" % object_list[key].name)
-					
+						
 									#For binaries
 									if object_list[key].datatype == "bina":	
 											if object_list[key].statement_value == "1B" :
@@ -444,7 +444,7 @@
 												string = (object_list[key].statement_value.replace(" ",""))
 												pattern = re.compile(r'([\=\+\-\/\*\(\)])')      
 												iteratorUntouched = re.split(pattern, string)
-								
+									
 												eqlist = list()
 												for varWord in iteratorUntouched:
 													print(varWord)
@@ -467,7 +467,7 @@
 												#comp = re.compile(r'(\d*)', re.IGNORECASE)
 												endstring = str()
 												string = (object_list[key].statement_value.replace(" ",""))
-  	
+  
 												#pattern = re.compile(r'([\=\+\-\/\*\(\)])')
 												#iteratorFresh = re.split(pattern, string)
 												iteratorFresh = re.split("(?:(?:[^a-zA-Z])|(?:[^a-zA-Z]+))|(?:[^a-zA-Z]+)", string)
@@ -485,7 +485,7 @@
 												endstring = (("").join(eqlist))
 												#Bugprone euation line:  
 												#endstring = str(eval(str(endstring)))
-											
+												
 												object_list[key].statement_value = endstring
 												#endnum = float()
 												#endnum = float(eval(str(endstring)))
@@ -503,8 +503,8 @@
 															op = "<="
 															pre_statement_flow = 1
 													elif object_list[key].operator1 == "no" and int(object_list[key].global_relative_variable1) != int(str(endnum)):
-														op = "!="
-														pre_statement_flow = 1
+															op = "!="
+															pre_statement_flow = 1
 													elif object_list[key].operator1 == "g" and int(object_list[key].global_relative_variable1) < int(str(endnum)):
 
 															op = "<"
@@ -545,7 +545,7 @@
 
 													document <= html.BR()
 													document <= str("%s = "%object_list[key].name)
-												
+													
 													document <= html.BR()
 
 												object_list[key].statement_flow = int(pre_statement_flow)
@@ -553,13 +553,13 @@
 									#alert("begin D1")
 									#For nonbinar-evaluations
 									if object_list[key].datatype == "nonbineval" :
-								
+									
 												#comp = re.compile(r'(\d*)', re.IGNORECASE)
 												endstring = str()
 												string = (object_list[key].statement_value.replace(" ",""))
 												pattern = re.compile(r'([\=\+\-\/\*\(\)])')
 												iteratorUntouched = re.split(pattern, string)
-								
+									
 												eqlist = list()
 												for varWord in iteratorUntouched:
 													print(varWord)
@@ -580,7 +580,7 @@
 												pre_statement_flow = 0
 												try:
 													if object_list[key].operator1 == "equiv" and int(object_list[key].global_relative_variable1) == int(str(endnum)):
-														print ("%s == %s ; exe" % (int(object_list[key].global_relative_variable1), int(str(endnum))))
+															print ("%s == %s ; exe" % (int(object_list[key].global_relative_variable1), int(str(endnum))))
 															pre_statement_flow = 1
 													elif object_list[key].operator1 == "leq" and int(object_list[key].global_relative_variable1) >= int((endnum)):
 															print ("%s >= %s ; exe" % (int(object_list[key].global_relative_variable1), int(str(endnum))))
@@ -622,7 +622,7 @@
 															print ("%s > %s ; exe" % (float(object_list[key].global_relative_variable1), float(str(endnum))))
 															pre_statement_flow = 1
 													else:
-															pre_statement_flow = 0
+														pre_statement_flow = 0
 
 								object_list[key].statement_flow = int(pre_statement_flow)
 
