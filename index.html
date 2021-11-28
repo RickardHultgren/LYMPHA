@@ -325,16 +325,24 @@
 
 							#alert("A1 name:%s  ; datatype:%s  ; flow:%s  ; statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))
 
+							if object_list[key].name[-1] == "?":
+								pre_statement_flow = 0
+							else:
+								if object_list[key].flow == 1 or object_list[key].statement_flow == 1:
+									pre_statement_flow = 1
+								else:
+									pre_statement_flow = 0
+
 							if str(start) == strr :
 
 
-								if object_list[key].name[-1] == "?":
-									pre_statement_flow = 0
-								else:
-									if object_list[key].flow == 1 or object_list[key].statement_flow == 1:
-										pre_statement_flow = 1
-									else:
-										pre_statement_flow = 0
+								#if object_list[key].name[-1] == "?":
+								#	pre_statement_flow = 0
+								#else:
+								#	if object_list[key].flow == 1 or object_list[key].statement_flow == 1:
+								#		pre_statement_flow = 1
+								#	else:
+								#		pre_statement_flow = 0
 
 										document <= ("NAME: %s" % object_list[key].name)
 							
