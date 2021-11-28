@@ -328,9 +328,9 @@
 							if str(start) == strr :
 
 
-							if object_list[key].name[-1] == "?":
-								pre_statement_flow = 0
-							else:
+								if object_list[key].name[-1] == "?":
+									pre_statement_flow = 0
+								else:
 									if object_list[key].flow == 1 or object_list[key].statement_flow == 1:
 										pre_statement_flow = 1
 									else:
