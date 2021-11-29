@@ -889,6 +889,7 @@
 				count = 0
 				for serie in series:
 					try:
+						alert("--A1")
 						count = 0
 
 						sides = anobj.split(' = ')
@@ -899,9 +900,11 @@
 						for key in range(0,len(object_list)) :
 						#Web version TRY############
 							try:
+								alert("--B1")
 								thename = object_list[key].name
 								if ("%s" % thename) == sides[0].replace(" ", "") :
 									try:
+										alert("--C1")
 										#For binary values
 										if str("1B") in str(sides[1]) :           
 										#elif re.compile(".*1B.*").match(sides[1]) :
