@@ -901,7 +901,7 @@
 							try:
 								thename = object_list[key].name
 								if ("%s" % thename) == sides[0].replace(" ", "") :
-
+									alert("middle check")								
 									#For binary values
 									if str("1B") in str(sides[1]) :           
 									#elif re.compile(".*1B.*").match(sides[1]) :
@@ -912,7 +912,6 @@
 											object_list[key].statement_flow = 0   
 											object_list[key].datatype = "bina"
 
-									alert("middle check")								
 									#For evaluations
 									# Check if operator:
 									elif ("==" in sides[1] or "!=" in sides[1] or "<=" in sides[1] or ">=" in sides[1] or "<" in sides[1] or ">" in sides[1] ) and not "->" in sides[1]:
