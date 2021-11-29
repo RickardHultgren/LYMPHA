@@ -912,7 +912,7 @@
 											object_list[key].statement_flow = 0   
 											object_list[key].datatype = "bina"
 
-								
+									alert("middle check")								
 									#For evaluations
 									# Check if operator:
 									elif ("==" in sides[1] or "!=" in sides[1] or "<=" in sides[1] or ">=" in sides[1] or "<" in sides[1] or ">" in sides[1] ) and not "->" in sides[1]:
@@ -951,7 +951,7 @@
 											zerochop = operator_chop[0].replace(" ","")
 											object_list[key].global_relative_variable1 = zerochop 
 											# chopped into binary list                                
-											alert("binvaeval")
+											alert("binvalue")
 											if bin_chopped == 1 :
 													binary_sums = list(operator_chop[2].split(','))
 													for binary in binary_sums:
