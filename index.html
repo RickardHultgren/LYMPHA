@@ -901,77 +901,78 @@
 							try:
 								thename = object_list[key].name
 								if ("%s" % thename) == sides[0].replace(" ", "") :
-									alert("middle check")								
-									#For binary values
-									if str("1B") in str(sides[1]) :           
-									#elif re.compile(".*1B.*").match(sides[1]) :
-											object_list[key].statement_flow = 1
-											object_list[key].datatype = "bina"
-									elif str("0B") in str(sides[1]) :                 
-									#elif re.compile(".*0B.*").match(sides[1]) :
-											object_list[key].statement_flow = 0   
-											object_list[key].datatype = "bina"
-
-									#For evaluations
-									# Check if operator:
-									elif ("==" in sides[1] or "!=" in sides[1] or "<=" in sides[1] or ">=" in sides[1] or "<" in sides[1] or ">" in sides[1] ) and not "->" in sides[1]:
-									#eval_pattern = re.compile(r"(==)|(!=)|(<)|(>)|(<=)|(>=)")
-									#if eval_pattern.match(sides[1]) :
-#                            if re.compile(".*==.*").match(sides[1]) :
-											if "==" in (sides[1]) :
-													object_list[key].operator1="equiv"
-#                            if re.compile(".*>=.*").match(sides[1]) :
-											if ">=" in (sides[1]) :
-													object_list[key].operator1="geq"
-#                            if re.compile(".*<=.*").match(sides[1]) :
-											if "<=" in (sides[1]) :
-													object_list[key].operator1="leq"
-#                            if re.compile(".*(!=).*").match(sides[1]) :
-											if "!=" in (sides[1]) :
-													object_list[key].operator1="no"
-											if re.compile(".*>.*").match(sides[1]) and not re.compile(r"(>=)").match(sides[1]) :
-													object_list[key].operator1="g"
-											if re.compile(".*<.*").match(sides[1]) and not re.compile(r"(<=)").match(sides[1]) :
-													object_list[key].operator1="l"
-											print(object_list[key].operator1)
-											preop = sides[1].replace(" ","")
-											bin_chopped = 0
-											if "\|{" in preop or "|{" in preop :
-											#if "\|{" in preop and "}|" in preop :
-												bin_chopped = 1
-											preop = re.sub(r'(\|{)', ' ', preop)
-											preop = re.sub(r'(}\|)', ' ', preop)                            
-											#preop = preop.replace("}|","")
-											#preop = re.sub("\|{","", preop)
-											chopcompile = re.compile(r"(<=|>=|!=|==|<|>)")
-											operator_chop = re.split(chopcompile, preop)
-											print(operator_chop)
-											#Tipping point
-											zerochop = operator_chop[0].replace(" ","")
-											object_list[key].global_relative_variable1 = zerochop 
-											# chopped into binary list                                
-											alert("binvalue")
-											if bin_chopped == 1 :
-													binary_sums = list(operator_chop[2].split(','))
-													for binary in binary_sums:
-														binary = binary.replace(" ","")
-														if binary != "" :
-															binary = str(binary.replace(" ",""))
-															object_list[key].binary_list.append(str(binary))
-														object_list[key].datatype = "bineval"
-														#object_list[key].binary_list = list(the_bin_list)<
-											elif bin_chopped == 0 :
-													object_list[key].statement_value = operator_chop[2]
-													object_list[key].datatype = "nonbineval"
-
-									#For non-binary values and equations
-									elif sides[0] != ""  and sides[1] != "" :
-											print("YYY %s" % object_list[key].name)
-										#if 0 == len(operator_chop) :
-											object_list[key].statement_value = sides[1] 
-											object_list[key].datatype = "valu"                               
-							
-
+									try:
+										#For binary values
+										if str("1B") in str(sides[1]) :           
+										#elif re.compile(".*1B.*").match(sides[1]) :
+												object_list[key].statement_flow = 1
+												object_list[key].datatype = "bina"
+										elif str("0B") in str(sides[1]) :                 
+										#elif re.compile(".*0B.*").match(sides[1]) :
+												object_list[key].statement_flow = 0   
+												object_list[key].datatype = "bina"
+	
+										#For evaluations
+										# Check if operator:
+										elif ("==" in sides[1] or "!=" in sides[1] or "<=" in sides[1] or ">=" in sides[1] or "<" in sides[1] or ">" in sides[1] ) and not "->" in sides[1]:
+										#eval_pattern = re.compile(r"(==)|(!=)|(<)|(>)|(<=)|(>=)")
+										#if eval_pattern.match(sides[1]) :
+	#                            if re.compile(".*==.*").match(sides[1]) :
+												if "==" in (sides[1]) :
+														object_list[key].operator1="equiv"
+	#                            if re.compile(".*>=.*").match(sides[1]) :
+												if ">=" in (sides[1]) :
+														object_list[key].operator1="geq"
+	#                            if re.compile(".*<=.*").match(sides[1]) :
+												if "<=" in (sides[1]) :
+														object_list[key].operator1="leq"
+	#                            if re.compile(".*(!=).*").match(sides[1]) :
+												if "!=" in (sides[1]) :
+														object_list[key].operator1="no"
+												if re.compile(".*>.*").match(sides[1]) and not re.compile(r"(>=)").match(sides[1]) :
+														object_list[key].operator1="g"
+												if re.compile(".*<.*").match(sides[1]) and not re.compile(r"(<=)").match(sides[1]) :
+														object_list[key].operator1="l"
+												print(object_list[key].operator1)
+												preop = sides[1].replace(" ","")
+												bin_chopped = 0
+												if "\|{" in preop or "|{" in preop :
+												#if "\|{" in preop and "}|" in preop :
+													bin_chopped = 1
+												preop = re.sub(r'(\|{)', ' ', preop)
+												preop = re.sub(r'(}\|)', ' ', preop)                            
+												#preop = preop.replace("}|","")
+												#preop = re.sub("\|{","", preop)
+												chopcompile = re.compile(r"(<=|>=|!=|==|<|>)")
+												operator_chop = re.split(chopcompile, preop)
+												print(operator_chop)
+												#Tipping point
+												zerochop = operator_chop[0].replace(" ","")
+												object_list[key].global_relative_variable1 = zerochop 
+												# chopped into binary list                                
+												alert("binvalue")
+												if bin_chopped == 1 :
+														binary_sums = list(operator_chop[2].split(','))
+														for binary in binary_sums:
+															binary = binary.replace(" ","")
+															if binary != "" :
+																binary = str(binary.replace(" ",""))
+																object_list[key].binary_list.append(str(binary))
+															object_list[key].datatype = "bineval"
+															#object_list[key].binary_list = list(the_bin_list)<
+												elif bin_chopped == 0 :
+														object_list[key].statement_value = operator_chop[2]
+														object_list[key].datatype = "nonbineval"
+	
+										#For non-binary values and equations
+										elif sides[0] != ""  and sides[1] != "" :
+												print("YYY %s" % object_list[key].name)
+											#if 0 == len(operator_chop) :
+												object_list[key].statement_value = sides[1] 
+												object_list[key].datatype = "valu"                               
+									except:
+										pass								
+	
 							except:
 								pass
 						count += 1          
