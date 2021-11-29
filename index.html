@@ -378,6 +378,7 @@
 														subfactors.append(int(object_list[item].statement_flow))
 											sum1 = subfactors.count(1)
 											sum0 = subfactors.count(0)
+											alert("%s %s %s" % (object_list[key].operator1, object_list[key].global_relative_variable1), int(sum1))
 											if object_list[key].operator1 != None: # and object_list[key].statement_flow == None :
 												if object_list[key].operator1 == "equiv" and int(object_list[key].global_relative_variable1) == int(sum1):
 													pre_statement_flow = 1
