@@ -352,7 +352,6 @@
 							
 										#For binaries
 										if object_list[key].datatype == "bina":	
-												alert("bina")
 												if object_list[key].statement_value == "1B" :
 													pre_statement_flow = 1
 													object_list[key].statement_flow = 1
@@ -362,6 +361,7 @@
 												checked = 1
 
 										#For binary evaluation
+										alert("bina eval")
 										if object_list[key].datatype == "bineval" and len(object_list[key].binary_list) >= 1:
 											pre_statement_flow = 0
 											subfactors = list()
