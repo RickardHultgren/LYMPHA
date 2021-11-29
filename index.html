@@ -893,14 +893,14 @@
 						count = 0
 
 						sides = anobj.split(' = ')
-						side1 = str(serie[0])
-						side2 = str(serie[1])
+						side1 = str(sides[0])
+						side2 = str(sides[1])
 						side1 = side1.replace(" ","")
 						side2 = side2.replace(" ","")
 						for key in range(0,len(object_list)) :
 						#Web version TRY############
 							try:
-								alert("--B1 thename: %s :: sides[0]: %s" % (thename , sides[0]) )
+								#alert("--B1 thename: %s :: sides[0]: %s" % (thename , sides[0]) )
 								thename = object_list[key].name
 								if ("%s" % thename) == sides[0].replace(" ", "") :
 									try:
