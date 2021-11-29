@@ -351,7 +351,7 @@
 										document <= ("NAME: %s" % object_list[key].name)
 							
 										#For binaries
-										#if object_list[key].datatype == "bina":	
+										if object_list[key].datatype == "bina":	
 												if object_list[key].statement_value == "1B" :
 													pre_statement_flow = 1
 													object_list[key].statement_flow = 1
