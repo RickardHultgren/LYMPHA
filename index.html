@@ -903,18 +903,18 @@
 									try:
 										alert("thename %s,  sides[0] %s" % (thename, sides[0]))
 										#For binary values
-										if str("1B") in str(sides[1]) :           
+										#if str("1B") in str(sides[1]) :           
 										#elif re.compile(".*1B.*").match(sides[1]) :
-												object_list[key].statement_flow = 1
-												object_list[key].datatype = "bina"
-										elif str("0B") in str(sides[1]) :                 
+												#object_list[key].statement_flow = 1
+												#object_list[key].datatype = "bina"
+										#elif str("0B") in str(sides[1]) :                 
 										#elif re.compile(".*0B.*").match(sides[1]) :
-												object_list[key].statement_flow = 0   
-												object_list[key].datatype = "bina"
+												#object_list[key].statement_flow = 0   
+												#object_list[key].datatype = "bina"
 	
 										#For evaluations
 										# Check if operator:
-										elif ("==" in sides[1] or "!=" in sides[1] or "<=" in sides[1] or ">=" in sides[1] or "<" in sides[1] or ">" in sides[1] ) and not "->" in sides[1]:
+										if ("==" in sides[1] or "!=" in sides[1] or "<=" in sides[1] or ">=" in sides[1] or "<" in sides[1] or ">" in sides[1] ) and not "->" in sides[1]:
 										#eval_pattern = re.compile(r"(==)|(!=)|(<)|(>)|(<=)|(>=)")
 										#if eval_pattern.match(sides[1]) :
 	#                            if re.compile(".*==.*").match(sides[1]) :
@@ -945,7 +945,7 @@
 												#preop = re.sub("\|{","", preop)
 												chopcompile = re.compile(r"(<=|>=|!=|==|<|>)")
 												operator_chop = re.split(chopcompile, preop)
-												print(operator_chop)
+												alert(operator_chop)
 												#Tipping point
 												zerochop = operator_chop[0].replace(" ","")
 												object_list[key].global_relative_variable1 = zerochop 
