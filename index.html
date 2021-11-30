@@ -901,7 +901,7 @@
 								thename = object_list[key].name
 								if ("%s" % thename) == sides[0].replace(" ", "") :
 									try:
-										alert("thename %s,  sides[0] %s" % (thename, sides[0]))
+										#alert("thename %s,  sides[0] %s" % (thename, sides[0]))
 										#For binary values
 										#if str("1B") in str(sides[1]) :           
 										#elif re.compile(".*1B.*").match(sides[1]) :
@@ -952,10 +952,13 @@
 												# chopped into binary list                                
 												alert("binvalue")
 												if bin_chopped == 1 :
+														alert("check1")
 														binary_sums = list(operator_chop[2].split(','))
 														for binary in binary_sums:
+															alert("check2")
 															binary = binary.replace(" ","")
 															if binary != "" :
+																alert("check3")
 																binary = str(binary.replace(" ",""))
 																object_list[key].binary_list.append(str(binary))
 															object_list[key].datatype = "bineval"
