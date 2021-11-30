@@ -376,7 +376,7 @@
 													#thename = re.sub("\s+", "", thename.strip())
 													#if object_list[item].name == binobj.replace(" ","") :
 													if thename == ("%s" % binobj.replace(" ","")) :
-														subfactors.append(int(object_list[item].statement_flow))
+														subfactors.append(int(int(object_list[item].value[:-1])))
 											sum1 = subfactors.count(1)
 											sum0 = subfactors.count(0)
 											alert("%s %s %s" % (object_list[key].operator1, object_list[key].global_relative_variable1), int(sum1))
