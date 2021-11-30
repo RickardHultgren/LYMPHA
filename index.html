@@ -888,10 +888,8 @@
 				# 3. Constant value
 				count = 0
 				for serie in series:
-					try:
-						#alert("--A1")
+					if " = " in serie :
 						count = 0
-
 						sides = serie.split(' = ')
 						side1 = str(sides[0])
 						side2 = str(sides[1])
@@ -900,7 +898,6 @@
 						for key in range(0,len(object_list)) :
 						#Web version TRY############
 							try:
-
 								thename = object_list[key].name
 								if ("%s" % thename) == sides[0].replace(" ", "") :
 									try:
