@@ -945,12 +945,12 @@
 												#preop = re.sub("\|{","", preop)
 												chopcompile = re.compile(r"(<=|>=|!=|==|<|>)")
 												operator_chop = re.split(chopcompile, preop)
-												alert(operator_chop)
+												#alert(operator_chop)
 												#Tipping point
 												zerochop = operator_chop[0].replace(" ","")
 												object_list[key].global_relative_variable1 = zerochop 
 												# chopped into binary list                                
-												alert("binvalue")
+												#alert("binvalue")
 												if bin_chopped == 1 :
 														binary_sums = list(operator_chop[2].split(','))
 														for binary in binary_sums:
