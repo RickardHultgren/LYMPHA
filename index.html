@@ -363,7 +363,8 @@
 
 										#For binary evaluation
 										#alert("bina eval")
-										if object_list[key].datatype == "bineval" :# and len(object_list[key].binary_list) >= 1:
+										#if object_list[key].datatype == "bineval" :# and len(object_list[key].binary_list) >= 1:
+										if len(object_list[key].binary_list) >= 1:
 											alert("bina eval")
 											pre_statement_flow = 0
 											subfactors = list()
