@@ -1044,14 +1044,16 @@
 #FIX FIX
 								#Finding the first factors.                 
 								if theturn < 3 :
+									alert("check1")
 									theval = str(object_list[k].statement_value)
 									theval = theval.replace(" ","")
 									document <= theval
 									document <= html.BR()
 									factorform = document['factorlist']
-									try:
+									if (object_list[k].name[-1] == "?") :
+										try:
 										#factorform = document['factorlist']
-										if (object_list[k].name[-1] == "?") :
+										#if (object_list[k].name[-1] == "?") :
                     
 											
 
@@ -1078,8 +1080,8 @@
 												#factorform <= html.BR()
 												#document <= html.BR()
 
-									except:
-										pass
+										except:
+											pass
 
 
 
