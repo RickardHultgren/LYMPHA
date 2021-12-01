@@ -1083,37 +1083,12 @@
 
 
 
-
-	                      #Replace with web input from factorlist
-												try:
-													if a_name.id == object_list[an_obj].name :
-														object_list[k].statement_value  = a_name.value
-														#if "1B" in a_name.value  or  "0B" in a_name.value : 
-															#object_list[k].datatype = "bina"
-														#else:
-															#object_list[k].datatype = "nonbineval"
-															#object_list[k].datatype = "valu"
-												except:
-													pass					#alert("C")
-
 					#Loading the next starts from the current starts.
 
 					for nexting in object_list[k].next_list :
 										for l in range(0,len(object_list)):  
 											if object_list[l].name == nexting :          
 												nextstates.append(nexting)
-
-					#Function for each start:				
-					for an_obj in range(0,len(object_list)): 
-										for a_name in document.select(".factorItems"):
-											if a_name.id == object_list[an_obj].name :
-												#object_list[k].statement_value = a_name.value
-
-
-
-
-
-
 
           #After each set of start loops a validation of theturn should be done.
 					if theturn == 2:
