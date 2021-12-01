@@ -1085,7 +1085,7 @@
 
 
 	                      #Replace with web input from factorlist
-												try:
+									try:
 													if a_name.id == object_list[an_obj].name :
 														object_list[k].statement_value  = a_name.value
 														#if "1B" in a_name.value  or  "0B" in a_name.value : 
@@ -1093,7 +1093,7 @@
 														#else:
 															#object_list[k].datatype = "nonbineval"
 															#object_list[k].datatype = "valu"
-												except:
+									except:
 													pass					#alert("C")
 						#Function for each start:				
 						for an_obj in range(0,len(object_list)): 
