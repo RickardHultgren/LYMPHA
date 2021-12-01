@@ -1023,17 +1023,17 @@
 					#alert(start_item.value)
 				lexer()
 				#Preview
-				###alert("xyz")
+				alert("xyz1")
 				prevwfunc()				        
-
+				alert("xyz2")
 				nextstates = list()
 				theturn = 1
-
+				alert("xyz3")
 				#Finding objects in starts
 				for ztep in range(0, int(steps)):
-
+					alert("xyz4")
 					for start in temporary_starts :
-
+						alert("xyz5")
 						for k in range(0,len(object_list)):
 							if object_list[k].name==start and start!="." and start!="?" and (object_list[k].name[-1] == "?") and theturn < 3 :
 									object_list[k].flow = 0 
