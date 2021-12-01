@@ -1027,9 +1027,9 @@
 				nextstates = list()
 				theturn = 1
 				#Finding objects in starts
-				for ztep in range(0, int(steps)) and theturn < 3 :
+				for ztep in range(0, int(steps)) :
 					try:
-						for start in temporary_starts :
+						for start in temporary_starts and theturn < 3 :
 
 							for k in range(0,len(object_list)):
 								if object_list[k].name==start and start!="." and start!="?" and (object_list[k].name[-1] == "?") :
