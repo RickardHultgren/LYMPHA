@@ -144,7 +144,7 @@
 			object_list = Statement(object_list)
 
 			#class Statement:
-			#    def __init__(self, flow, name, global_relative_variable1, global_relative_variable2, statement_flow, statement_value, operator1, next_list, binar_list, operation, spec_list):
+			#    def __init__(self, flow, name, global_relative_variable1, global_relative_variable2, statement_flow, statement_value, operator1, next_list, binary_list, operation, spec_list):
 			#        
 			#        self.flow = int(flow)
 			#                
@@ -157,10 +157,10 @@
 			#        self.spec_list = list()#
 			#
 			#        #list of contents:
-			#        #binar_list = binar_list
-			#        self.binar_list = list(binar_list)#
+			#        #binary_list = binary_list
+			#        self.binary_list = list(binary_list)#
 			#
-			#        #should the binar_list be counted as a sum or an equation?
+			#        #should the binary_list be counted as a sum or an equation?
 			#        #self.summerize = summerize
 			#        self.operation = operation  #This holds the operation that are found in the string (left to right)
 			#        
@@ -413,7 +413,7 @@
 											#pre_statement_flow = 0
 											#subfactors = list()
 											#Convecrting variables into values
-											#for binobj in object_list[key].binar_list :
+											#for binobj in object_list[key].binary_list :
 											#		for item in range(0,len(object_list)) :
 											#			thename = object_list[item].name
 											#			thename = str(thename)
@@ -852,7 +852,7 @@
 							object_list[((count_objs))].name = str(anobj)
 
 							object_list[((count_objs))].next_list = list()
-							object_list[((count_objs))].binar_list = list()
+							object_list[((count_objs))].binary_list = list()
 							object_list[((count_objs))].operation = str("")
 							object_list[((count_objs))].flow = 1
 							object_list[((count_objs))].statement_flow = 1
@@ -962,6 +962,7 @@
 															if binary != "" :
 																alert("check3")
 																binary = str(binary.replace(" ",""))
+																#object_list[key].binary_list += (str(binary)
 																object_list[key].binary_list.append(str(binary))
 															object_list[key].datatype = "bineval"
 															#object_list[key].binary_list = list(the_bin_list)<
