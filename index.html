@@ -1068,7 +1068,7 @@
 					#Make new starts. Should be done after each starts-loop
 					del temporary_starts[:]
 					for nexting in nextstates: 
-						if nexting not in starts: 
+						if nexting not in temporary_starts: 
 								temporary_starts.append(nexting) 
 					del nextstates[:]
 
