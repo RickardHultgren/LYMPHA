@@ -1094,14 +1094,14 @@
 									except:
 													pass					#alert("C")
 						#Function for each start:				
-						for an_obj in range(0,len(object_list)): 
+							for an_obj in range(0,len(object_list)): 
 										for a_name in document.select(".factorItems"):
 											if a_name.id == object_list[an_obj].name :
 												object_list[k].statement_value = a_name.value
 
 
           #After each set of start loops a validation of theturn should be done.
-					if theturn == 2:
+						if theturn == 2:
 							theturn = 3
 
 					#Loading the next starts from the current starts.
