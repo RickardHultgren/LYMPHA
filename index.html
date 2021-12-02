@@ -1029,15 +1029,15 @@
 				#Finding objects in starts
 				for ztep in range(0, int(steps)) :
 					#alert("aaa0")
-					#try:
-						for start in temporary_starts and theturn < 3 :
+					if theturn < 3:
+						for start in temporary_starts :
 							alert("aaa4")
 							for k in range(0,len(object_list)):
 								alert("aa4")
 								if object_list[k].name==start and (object_list[k].name[-1] == "?") :
 										object_list[k].flow = 0 
 										alert("a1")
-										object_list[k].statement_flow = 0    
+										object_list[k].statement_flow = 0 
 										alert("a2")
 										factorform = document['factorlist']
 										alert("a3")
@@ -1046,7 +1046,7 @@
 										object_list[k].flow = 0
 										alert("a5")									
 										factorform <= str("%s = "% object_list[k].name)
-										#alert("a6")									
+										#alert("a6")
 										factorform <= html.INPUT(Type="text", Id=(object_list[k].name),Class="factorItems")
 										factorform <= html.BR()
 										theturn = 2
