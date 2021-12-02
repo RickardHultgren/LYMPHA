@@ -1027,6 +1027,7 @@
 				nextstates = list()
 				theturn = 1
 				#Finding objects in starts
+        factorform = document['factorlist']
 				for ztep in range(0, int(steps)) :
 					#alert("aaa0")
 					if theturn < 3:
@@ -1039,7 +1040,6 @@
 										alert("a1")
 										object_list[k].statement_flow = 0 
 										alert("a2")
-										factorform = document['factorlist']
 										alert("a3")
 										object_list[k].statement_flow = 0
 										alert("a4")									
@@ -1054,25 +1054,25 @@
 						#	pass
 
 
-						#Loading the next starts from the current starts.
 
-						for nexting in object_list[k].next_list :
+							#After each set of start loops a validation of theturn should be done.
+							if theturn == 2:
+								theturn = 3
+
+					#Loading the next starts from the current starts.
+
+					for nexting in object_list[k].next_list :
 										for l in range(0,len(object_list)):  
 											if object_list[l].name == nexting :          
 												nextstates.append(nexting)
 
-          	#After each set of start loops a validation of theturn should be done.
-						if theturn == 2:
-							theturn = 3
 
-
-
-						#Make new starts. Should be done after each starts-loop
-						del temporary_starts[:]
-						for nexting in nextstates: 
-							if nexting not in temporary_starts: 
-								temporary_starts.append(nexting) 
-						del nextstates[:]
+					#Make new starts. Should be done after each starts-loop
+					del temporary_starts[:]
+					for nexting in nextstates: 
+						if nexting not in temporary_starts: 
+							temporary_starts.append(nexting) 
+					del nextstates[:]
 
 
 			def turn2func(ev) :
