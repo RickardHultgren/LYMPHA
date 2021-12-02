@@ -1050,29 +1050,29 @@
 										factorform <= html.INPUT(Type="text", Id=(object_list[k].name),Class="factorItems")
 										factorform <= html.BR()
 										theturn = 2
-					#except:
-					#	pass
+						#except:
+						#	pass
 
 
-					#Loading the next starts from the current starts.
+						#Loading the next starts from the current starts.
 
-					for nexting in object_list[k].next_list :
+						for nexting in object_list[k].next_list :
 										for l in range(0,len(object_list)):  
 											if object_list[l].name == nexting :          
 												nextstates.append(nexting)
 
-          #After each set of start loops a validation of theturn should be done.
-					if theturn == 2:
+          	#After each set of start loops a validation of theturn should be done.
+						if theturn == 2:
 							theturn = 3
 
 
 
-					#Make new starts. Should be done after each starts-loop
-					del temporary_starts[:]
-					for nexting in nextstates: 
-						if nexting not in temporary_starts: 
+						#Make new starts. Should be done after each starts-loop
+						del temporary_starts[:]
+						for nexting in nextstates: 
+							if nexting not in temporary_starts: 
 								temporary_starts.append(nexting) 
-					del nextstates[:]
+						del nextstates[:]
 
 
 			def turn2func(ev) :
