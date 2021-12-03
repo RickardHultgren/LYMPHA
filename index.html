@@ -830,13 +830,14 @@
 					pre_count = int(0)
 					count_objs = int()                 
 					#alert("60")
+					anobj_post = str()
 					for anobj in arrowobjs:
-						anobj = re.sub("\s*", "", anobj[0]) 
-						eqobjs = re.compile(r"((<=)|(>=)|(!=)|(==)(<)|(>))").split(anobj)
+						anobj_post = re.sub("\s*", "", anobj[0]) 
+						eqobjs = re.compile(r"((<=)|(>=)|(!=)|(==)(<)|(>))").split(anobj_post)
 						taken = 0
 						#Check if the object already exists
 						for takenkey in range(0,len(object_list)) :
-							if object_list[takenkey].name == anobj :
+							if object_list[takenkey].name == anobj_post :
 								taken = 1
 						
 							#Avoid number gaps
@@ -846,9 +847,9 @@
 						count_objs = pre_count
 						#Add node at the end of the dicts
 						#count_objs -= 1            
-						if (anobj) != "" and taken == 0 :
+						if (anobj_post) != "" and taken == 0 :
 
-							object_list[((count_objs))].name = str(anobj)
+							object_list[((count_objs))].name = str(anobj_post)
 
 							object_list[((count_objs))].next_list = list()
 							object_list[((count_objs))].binary_list = list()
