@@ -831,7 +831,7 @@
 					count_objs = int()                 
 					#alert("60")
 					for anobj in arrowobjs:
-						anobj = re.sub("\s*", "", anobj) 
+						anobj = re.sub("\s*", "", anobj[0]) 
 						eqobjs = re.compile(r"((<=)|(>=)|(!=)|(==)(<)|(>))").split(anobj)
 						taken = 0
 						#Check if the object already exists
