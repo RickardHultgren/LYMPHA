@@ -380,7 +380,7 @@
 														subfactors.append(int(int(object_list[item].value[:-1])))
 											sum1 = subfactors.count(1)
 											sum0 = subfactors.count(0)
-											alert("%s %s %s" % (object_list[key].operator1, object_list[key].global_relative_variable1), int(sum1))
+											#alert("%s %s %s" % (object_list[key].operator1, object_list[key].global_relative_variable1), int(sum1))
 											if object_list[key].operator1 != None: # and object_list[key].statement_flow == None :
 												if object_list[key].operator1 == "equiv" and int(object_list[key].global_relative_variable1) == int(sum1):
 													pre_statement_flow = 1
@@ -832,7 +832,7 @@
 					#alert("60")
 					for anobj in arrowobjs:
 						anobj = re.sub("\s*", "", anobj) 
-						alert(anobj)
+						#alert(anobj)
 						eqobjs = re.compile(r"((<=)|(>=)|(!=)|(==)(<)|(>))").split(anobj)
 						taken = 0
 						#Check if the object already exists
@@ -1020,7 +1020,7 @@
 				for start_item in document.select(".theStarts"):
 					starts.append(start_item.value)
 					temporary_starts.append(start_item.value)
-				alert(temporary_starts)
+				#alert(temporary_starts)
 				lexer()
 				#Preview
 				prevwfunc()				        
@@ -1034,17 +1034,17 @@
 						for start in temporary_starts :
 							
 							for k in range(0,len(object_list)):
-								alert("aa4 [%s]" % object_list[k].name)
+								#alert("aa4 [%s]" % object_list[k].name)
 								if object_list[k].name==start and (object_list[k].name[-1] == "?") :
 										object_list[k].flow = 0 
-										alert("a1")
+										#alert("a1")
 										object_list[k].statement_flow = 0 
-										alert("a2")
-										alert("a3")
+										#alert("a2")
+										#alert("a3")
 										object_list[k].statement_flow = 0
-										alert("a4")									
+										#alert("a4")									
 										object_list[k].flow = 0
-										alert("a5")									
+										#alert("a5")									
 										factorform <= str("%s = "% object_list[k].name)
 										#alert("a6")
 										factorform <= html.INPUT(Type="text", Id=(object_list[k].name),Class="factorItems")
@@ -1102,7 +1102,7 @@
 					for start_item in document.select(".theStarts"):
 						starts.append(start_item.value)
 						temporary_starts.append(start_item.value)
-					alert(starts)
+					#alert(starts)
 				except:
 					pass
          
