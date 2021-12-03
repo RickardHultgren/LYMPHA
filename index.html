@@ -199,7 +199,7 @@
 				global map_list 
 				global series 
 				global substates 
-				global nextstates 
+				#global nextstates 
 				global specs 
 				#global global_relative_variable1 
 				global global_relative_variable2 
@@ -221,11 +221,9 @@
 					starts.append(start_item.value)
 					temporary_starts.append(start_item.value)
 
-				for nexting in nextstates:
-					temp_nextstates.append(nexting)
+				temp_nextstates = list()
 
 				for step in range(0, int(steps)):
-					temp_nextstates = nextstates
 					for start in temporary_starts:
 						for key in range(0,len(object_list)):
 							endstring = str()
@@ -299,7 +297,7 @@
 				global map_list 
 				global series 
 				global substates 
-				global nextstates 
+				#global nextstates 
 				global specs 
 				#global global_relative_variable1 
 				global global_relative_variable2 
