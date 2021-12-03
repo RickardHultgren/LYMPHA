@@ -221,27 +221,24 @@
 					starts.append(start_item.value)
 					temporary_starts.append(start_item.value)
 
+				for nexting in nextstates:
+					temp_nextstates.append(nexting)
+
 				for step in range(0, int(steps)):
-					nextstates = list()
-
+					temp_nextstates = nextstates
 					for start in temporary_starts:
-
 						for key in range(0,len(object_list)):
 							endstring = str()
 							strr=str("%s" % object_list[key].name)
 							strr = re.sub("\s+", "", strr.strip())
 							pre_statement_flow = 1
 							if str(start) == strr :
-
 								graphstr += ('"%s" [label="step %s: %s", fillcolor=white, style=filled] ; \n' % (start,step+1,start))
-
 								for next_object in object_list[key].next_list :
-
 									if object_list[key].name != next_object :
 										graphstr += ('"%s" -> "%s" ; \n' % (start,next_object))
-										nextstates.append(next_object)
+										temp_nextstates.append(next_object)
 					for start in temporary_starts :
-
 						for k in range(0,len(object_list)):
 							if object_list[k].name==start:
 								for nexting in object_list[k].next_list :
@@ -249,7 +246,6 @@
 										if object_list[l].name == nexting :          
 											nextstates.append(nexting)									
 						for k in range(0,len(object_list)):
-
 							if object_list[k].name==start:
 								for nexting in object_list[k].next_list :
 									for l in range(0,len(object_list)):  
@@ -268,10 +264,10 @@
 												object_list[l].statement_flow = 1
 					del temporary_starts[:]
 					#starts = list()                           
-					for nexting in nextstates: 
+					for nexting in temp_nextstates: 
 						if nexting not in temporary_starts: 
 							temporary_starts.append(nexting) 
-					del nextstates[:]
+					del temp_nextstates[:]
 				graphstr += '}'
 
 				try:
