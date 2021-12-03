@@ -316,7 +316,7 @@
 				for step in range(0, int(steps)):
 					#nextstates = list()
 					checked = 0 
-					alert("zero")
+					#alert("zero")
 					for start in starts:
 						for key in range(0,len(object_list)):
 							endstring = str()
@@ -334,11 +334,14 @@
 							#		pre_statement_flow = 0
 
 							#	if str(start) == strr :
-							alert("checkaaa1")
+							#alert("checkaaa1")
 							if str(start) == strr :
+								alert("checkaaa1")
 								if object_list[key].flow == 0 or object_list[key].statement_flow == 0:
+									alert("checkaaa2")
 									pre_statement_flow = 0
 								else:
+									alert("checkaaa3")
 									if object_list[key].name[-1] != "?":
 										pre_statement_flow = 1
 									else:
@@ -449,12 +452,12 @@
 													object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
 												else:
 													pre_statement_flow = 0
-											#alert("begin B4")
+											alert("begin B4")
 											object_list[key].statement_flow = int(pre_statement_flow)   
 											object_list[key].flow = int(pre_statement_flow)        
 											checked = 1
 
-										#alert("begin C1")
+										alert("begin C1")
 										#For equations
 										if object_list[key].datatype == "valu":
 										#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
@@ -1094,7 +1097,7 @@
 									except:
 										pass
 # End results: name, statement_value, datatype:(bina, valu)
-				alert("the end")
+				#alert("the end")
 				try:
 					del starts[:]          
 				except:
