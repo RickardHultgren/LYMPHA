@@ -215,11 +215,16 @@
 				global steps
 				graphstr = 'digraph lympha {\nnode [shape=record];'
 				#ADDED INT IN INT(STEPS)
-				
+
+				temporary_starts =  list()
+				for start_item in document.select(".theStarts"):
+					starts.append(start_item.value)
+					temporary_starts.append(start_item.value)
+
 				for step in range(0, int(steps)):
 					nextstates = list()
 
-					for start in starts:
+					for start in temporary_starts:
 
 						for key in range(0,len(object_list)):
 							endstring = str()
@@ -235,7 +240,7 @@
 									if object_list[key].name != next_object :
 										graphstr += ('"%s" -> "%s" ; \n' % (start,next_object))
 										nextstates.append(next_object)
-					for start in starts :
+					for start in temporary_starts :
 
 						for k in range(0,len(object_list)):
 							if object_list[k].name==start:
@@ -261,11 +266,11 @@
 											if object_list[k].flow  == 1 or object_list[k].statement_flow == 1 :
 												object_list[l].flow = 1
 												object_list[l].statement_flow = 1
-					del starts[:]
+					del temporary_starts[:]
 					#starts = list()                           
 					for nexting in nextstates: 
-						if nexting not in starts: 
-							starts.append(nexting) 
+						if nexting not in temporary_starts: 
+							temporary_starts.append(nexting) 
 					del nextstates[:]
 				graphstr += '}'
 
@@ -352,7 +357,7 @@
 							
 										#For binaries
 										if object_list[key].datatype == "bina":	
-												alert("bina")
+												#alert("bina")
 												if object_list[key].statement_value == "1B" :
 													pre_statement_flow = 1
 													object_list[key].statement_flow = 1
@@ -365,7 +370,7 @@
 										#alert("bina eval")
 										#if object_list[key].datatype == "bineval" :# and len(object_list[key].binary_list) >= 1:
 										if len(object_list[key].binary_list) >= 1:
-											alert("bina eval")
+											#alert("bina eval")
 											pre_statement_flow = 0
 											subfactors = list()
 											#Convecrting variables into values
