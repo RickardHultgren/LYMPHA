@@ -337,12 +337,12 @@
 							#	if str(start) == strr :
 							#alert("checkaaa1")
 							if str(start) == strr :
-								alert("checkaaa1")
+								#alert("checkaaa1")
 								if object_list[key].flow == 0 or object_list[key].statement_flow == 0:
-									alert("checkaaa2")
+									#alert("checkaaa2")
 									pre_statement_flow = 0
 								else:
-									alert("checkaaa3")
+									#alert("checkaaa3")
 									if object_list[key].name[-1] != "?":
 										pre_statement_flow = 1
 									else:
@@ -453,12 +453,12 @@
 													object_list[key].statement_value = ("score: %s\nthreshold: %s" % (sum1, object_list[key].global_relative_variable1))
 												else:
 													pre_statement_flow = 0
-											alert("begin B4")
+											#alert("begin B4")
 											object_list[key].statement_flow = int(pre_statement_flow)   
 											object_list[key].flow = int(pre_statement_flow)        
 											checked = 1
 
-										alert("begin C1")
+										#alert("begin C1")
 										#For equations
 										if object_list[key].datatype == "valu":
 										#if object_list[key].statement_value != "" and object_list[key].operator1 == "" :
@@ -650,7 +650,7 @@
 
 								object_list[key].statement_flow = int(pre_statement_flow)
 
-								alert("begin E1")
+								#alert("begin E1")
 								#if object_list[key].statement_flow == 0 or object_list[key].flow == 0 :    
 								if object_list[key].flow != 1 :    
 									#alert("A8 IF 0 name:%s  ; datatype:%s  ; flow:%s  ; #statement_flow:%s" % (object_list[key].name, object_list[key].datatype, object_list[key].flow, object_list[key].statement_flow ))									
@@ -679,7 +679,7 @@
 										graphstr += ('"%s" [label="step %s: %s\\n%s", fillcolor=white, style=filled] ; \n' % (start,step+1,start,str(graph_string)))
 	
 										#graphstr += ('"%s" [label="step %s: %s\\n%s"] \n' % (start,step+1,start,graph_string)) 
-								alert("before draw")
+								#alert("before draw")
 								if object_list[key].statement_flow == 1:
 
 									graph_string=""
@@ -694,7 +694,7 @@
 
 									graphstr += ('"%s" [label="step %s: %s\\n%s", fillcolor=yellow, style=filled] ; \n' % (start,step+1,start,str(graph_string)))
 
-								alert("before draw2")									
+								#alert("before draw2")									
 								try:	
 									for next_object in object_list[key].next_list :
 
@@ -703,7 +703,7 @@
 											nextstates.append(next_object)
 								except:
 									pass
-					alert("before draw2.1")	
+					#alert("before draw2.1")	
 					for start in starts :
 						for k in range(0,len(object_list)):
 							if object_list[k].name==start:
@@ -711,7 +711,7 @@
 									for l in range(0,len(object_list)):  
 										if object_list[l].name == nexting :          
 											nextstates.append(nexting)									
-						alert("before draw2.2")	
+						#alert("before draw2.2")	
 						if checked == 0:
 							for k in range(0,len(object_list)):
 								if object_list[k].name==start:
@@ -721,7 +721,7 @@
 												if object_list[k].flow  == 0 or object_list[k].statement_flow == 0 :
 													object_list[l].flow = 0
 													object_list[l].statement_flow = 0
-							alert("before draw2.3")	
+							#alert("before draw2.3")	
 							for k in range(0,len(object_list)):
 								if object_list[k].name==start:
 									for nexting in object_list[k].next_list :
@@ -731,7 +731,7 @@
 												if object_list[k].flow  == 1 or object_list[k].statement_flow == 1 and object_list[l].flow != 0:
 													object_list[l].flow = 1
 													object_list[l].statement_flow = 1
-					alert("before draw3")					
+					#alert("before draw3")					
 					checked = 0
 					del starts[:]
 					#starts = list()                           
