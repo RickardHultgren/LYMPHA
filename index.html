@@ -321,9 +321,10 @@
 							if object_list[k].name == start :
 								object_list[k].flow = 1
 								object_list[k].statement_flow = 1
-								prechecked = 1 
+								
 					except:
 						pass
+				prechecked = 1 
 				for step in range(0, int(steps)):
 					#nextstates = list()
 					checked = 0
