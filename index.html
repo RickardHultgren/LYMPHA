@@ -344,10 +344,12 @@
 								else:
 									#alert("checkaaa3")
 									if object_list[key].name[-1] != "?":
-										try:
-											pre_statement_flow = object_list[key].statement_flow
-										except:
+										if object_list[key].statement_flow == 1 or object_list[key].flow == 1 :
 											pre_statement_flow = 0
+										elif object_list[key].statement_flow == 0 or object_list[key].flow == 0 :							
+											pre_statement_flow = 0
+										else:
+											pre_statement_flow = 1
 									else:
 										if object_list[key].flow == 1 or object_list[key].statement_flow == 1:
 											pre_statement_flow = 1
@@ -1038,6 +1040,12 @@
 				theturn = 1
 				#Finding objects in 
 				factorform = document['factorlist']
+				if theturn < 3:
+						for start in temporary_starts :
+							for k in range(0,len(object_list)):
+										object_list[k].statement_flow = 1
+										object_list[k].flow = 1
+
 				for ztep in range(0, int(steps)) :
 					#alert("aaa0")
 					if theturn < 3:
@@ -1046,8 +1054,8 @@
 							for k in range(0,len(object_list)):
 								#alert("aa4 [%s]" % object_list[k].name)
 								if object_list[k].name==start and (object_list[k].name[-1] == "?") :
-										object_list[k].statement_flow = 1
-										object_list[k].flow = 1
+										#object_list[k].statement_flow = 1
+										#object_list[k].flow = 1
 										object_list[k].flow = 0 
 										#alert("a1")
 										object_list[k].statement_flow = 0 
