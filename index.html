@@ -314,19 +314,22 @@
 				#if mode_graph == True:
 				graphstr = 'digraph lympha {\nnode [shape=record];'
 				#ADDED INT IN INT(STEPS)
-				checked = 0 
+				prechecked = 0 
 				for start in starts :
 					try:
 						for k in range(0,len(object_list)):
 							if object_list[k].name == start :
 								object_list[k].flow = 1
 								object_list[k].statement_flow = 1
-								checked = 1 
+								prechecked = 1 
 					except:
 						pass
 				for step in range(0, int(steps)):
 					#nextstates = list()
-					
+					checked = 0
+					if prechecked == 1 :
+						checked = 1 	
+						prechecked = 2 									
 					#alert("zero")
 					for start in starts:
 						for key in range(0,len(object_list)):
