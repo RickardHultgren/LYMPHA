@@ -347,7 +347,7 @@
 										try:
 											pre_statement_flow = object_list[key].statement_flow
 										except:
-											pre_statement_flow = 1
+											pre_statement_flow = 0
 									else:
 										if object_list[key].flow == 1 or object_list[key].statement_flow == 1:
 											pre_statement_flow = 1
@@ -1046,6 +1046,8 @@
 							for k in range(0,len(object_list)):
 								#alert("aa4 [%s]" % object_list[k].name)
 								if object_list[k].name==start and (object_list[k].name[-1] == "?") :
+										object_list[k].statement_flow = 1
+										object_list[k].flow = 1
 										object_list[k].flow = 0 
 										#alert("a1")
 										object_list[k].statement_flow = 0 
