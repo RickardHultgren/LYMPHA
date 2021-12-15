@@ -343,7 +343,12 @@
 									pre_statement_flow = 0
 								else:
 									#alert("checkaaa3")
-									if object_list[key].name[-1] == "?":
+									if object_list[key].name[-1] != "?":
+										try:
+											pre_statement_flow = object_list[key].statement_flow
+										except:
+											pass
+									else:
 										if object_list[key].flow == 1 or object_list[key].statement_flow == 1:
 											pre_statement_flow = 1
 										else:
