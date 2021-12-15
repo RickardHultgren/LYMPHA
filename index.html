@@ -314,23 +314,9 @@
 				#if mode_graph == True:
 				graphstr = 'digraph lympha {\nnode [shape=record];'
 				#ADDED INT IN INT(STEPS)
-				prechecked = 0 
-				for start in starts :
-					try:
-						for k in range(0,len(object_list)):
-							if object_list[k].name == start :
-								object_list[k].flow = 1
-								object_list[k].statement_flow = 1
-								
-					except:
-						pass
-				prechecked = 1 
 				for step in range(0, int(steps)):
 					#nextstates = list()
-					checked = 0
-					if prechecked == 1 :
-						checked = 3 	
-						prechecked = 2 									
+					checked = 0 
 					#alert("zero")
 					for start in starts:
 						for key in range(0,len(object_list)):
@@ -717,6 +703,15 @@
 											nextstates.append(next_object)
 								except:
 									pass
+					for start in starts :
+						for k in range(0,len(object_list)):
+							if object_list[k].name == start and step == 0 :
+								object_list[k].flow = 1
+								object_list[k].statement_flow = 1
+								
+					except:
+						pass
+
 					#alert("before draw2.1")	
 					for start in starts :
 						for k in range(0,len(object_list)):
