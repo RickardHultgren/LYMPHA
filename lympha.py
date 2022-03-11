@@ -1,4 +1,4 @@
-			from browser import document, bind, html, alert, window
+from browser import document, bind, html, alert, window
 #from javascript import this
 import urllib.request
       
