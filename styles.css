@@ -421,7 +421,436 @@ width:50vw;
 font-size:1vw;
 margin:0vw;
 width:60vw;
+}@import url('https://fonts.googleapis.com/css?family=Signika+Negative');
+
+#graph{width: 300px; height: 300px;
+border: 1px solid black; backgroundColor:#ff0000;
 }
+
+.box li:before { content: "◻" ;    display:inline-block;  
+	margin-left:0em;
+}
+
+.box,
+.box ul ul,
+.box ul{
+list-style: none;	
+}
+
+
+ .box li {
+	margin-left:-1em;
+	padding-left: 2em;
+  	text-indent: -1em;
+    }
+
+.checked {display:block;position:absolute; margin-left:-1em ; margin-top: -1.25em; color:#6400EF; width:2em; }
+
+#EventForm {
+    display: table;
+}   
+input{
+font-size:32pt; 	font-size:32pt;
+}
+
+#FactorForm {
+    display: table;
+}
+.divtr {
+
+}
+.divtd {
+    display: table-cell;
+    padding-top: 10px;
+}
+#Factor_1 {
+    display: table-row!important;
+}
+
+#Event_1 {
+    display: table-row!important;
+}
+.dragscroll{
+overflow-x:auto;
+	
+cursor:move;
+}
+
+html{
+font-size:32pt; 	
+}
+
+form{
+font-size:32pt; 	
+}
+
+body {
+	font-size:32pt;
+	overflow-x: hidden;
+	font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif, Helvetica, Arial;
+	width:auto;
+	padding:0em 5vw 0em 5vw;
+	background-color:#ffffff;
+	color: #000000;
+	text-align:center;
+	z-index:2; position: static;
+	
+}
+
+button {
+text-decoration:none;
+height:auto;
+margin-bottom:0.5em;
+text-align:center;
+color:#998855;
+#font-style:italic;
+padding:0.25em;
+display:inline-block;
+border: 0.1em solid #998855;
+background-color:#ffffff;
+font-size:0.9em;
+letter-spacing:0.15em;
+font-size:32pt; 	font-size:32pt;
+}
+
+.inputing{
+background-color:#334455;color:#EFAB00;font-family:'Signika Negative';font-style:normal;font-size:1.025em;border:0.1em solid #998855;font-weight:bold;padding:0.25em;margin:0em -.33em 0em 0em;
+}
+
+.button:hover,
+.button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    }
+    
+#menuish a{
+text-decoration:none;
+}
+
+.menubutton {
+height:auto;margin-bottom:0.5em;text-align:center;color:#998855;font-style:italic;;font-size:1em;padding:0.25em;display:inline-block; border: 0.1em solid #998855;background-color:#ffffff;font-family:'Signika Negative';font-size:0.9em;letter-spacing:0.15em;
+}
+
+.menubutton:hover,
+.menubutton:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+p {
+margin-bottom:.825em;
+max-width:50em;
+padding:0pt 1em 0pt 1em;
+text-align:justify;
+width:auto;
+z-index:2;position: relative;
+}
+
+ul {
+font-size:initial;
+position:static;
+width:auto;
+margin-left:3em;
+margin-right:3em;
+width:auto;
+border:0em;
+}
+
+ul ul {
+	margin-right:0em;
+}
+
+ol {
+font-size:initial;
+position:static;
+width:auto;
+margin-left:3em;
+margin-right:3em;
+width:auto;
+border:0em;
+}
+
+ul > li ,
+ol > li {
+position:static;
+font-size:32pt;	
+text-align:justify;
+width:auto;
+}
+
+a {
+	color:#998855;text-decoration:none;font-style:italic;
+}
+
+a:hover,
+a:focus {
+    color: #5511ff;
+    text-decoration: underline;
+    cursor: pointer;
+    }
+
+.container{
+width:auto;
+border:0em;
+font-size:inherit;
+text-align:center;
+}
+
+#thetop{
+width:100%;
+height:auto;
+}
+
+
+#footer{
+	width:100w;
+	margin:0em;
+	font-size:0.75em;
+}
+
+img{
+overflow-x:auto;	
+}
+
+h1 {
+color:#EFAB00;
+font-weight:bold;
+}
+
+.sc {
+    font-variant: small-caps;
+    -ms-font-feature-settings: "smcp";
+    -moz-font-feature-settings: "smcp";
+    -webkit-font-feature-settings: "smcp";
+    font-feature-settings: "smcp";
+    			-moz-font-feature-settings: 'onum';
+			-ms-font-feature-settings: 'onum';
+			-webkit-font-feature-settings: 'onum';
+			font-feature-settings: 'onum';
+	font-variant-numeric: oldstyle-nums;
+}
+
+
+h2{
+text-align:justify;
+}
+
+
+div {
+text-align:left;
+}
+
+h1 {
+font: normal 200% 'Signika Negative';color:#555555;
+}
+
+
+
+
+.menu2 {
+font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif, Helvetica, Arial;
+display:block;
+z-index:3;
+background-color:#cccccc;
+color:#777777;
+margin:2px 0px 2px 0px;
+border:0em;
+width:100%;
+text-align:center;
+font-weight:bold;
+letter-spacing:2px;
+height:2em;
+}
+
+.menu2active {
+font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif, Helvetica, Arial;	
+color:#222222;
+display:block;
+z-index:3;
+margin:2px 0px 2px 0px;
+border:0em;
+width:100%;
+font-weight:bold;
+letter-spacing:2px;
+text-align:center;
+background-color:#EFAB00;
+height:2em;
+}
+
+
+#logopic{
+width:20vw;
+text-align:left;
+}
+
+#name{
+width:50%;
+background-color:None;
+font: normal 100% 'Open Sans', Sans, arial; font-variant:small-caps; letter-spacing:3px;
+#padding:0px 0em 0em 0em ;
+text-align:right;
+#text-align:left;
+#margin:0em 0px 0px 0px;
+}
+
+#thetable{
+}
+
+#menusmall {
+        display:block;
+}
+
+#menubig {
+        display:none;
+}
+
+pre,
+.code {
+border: #bfa98f dotted 1px;
+background-color:#676165;
+color:#ffc946;
+font-family:"Share Tech Mono","Lucida Console",Monospace,"DejaVu Sans Mono","Courier New",MiscFixed;
+text-align:left;
+}
+
+
+@media only all and (min-width: 981px) {
+
+#EventForm {
+    display: table;
+}   
+input{
+font-size:1.5vw
+}
+
+
+button{
+font-size:1.5vw
+}
+
+body {
+width:100vw;
+font-size:1.5vw;
+padding:0vw 20vw 0vw 20vw;
+}
+
+.container{
+font-size:1.5vw;
+}
+
+ol, ul {
+font-size:initial;
+position:static;
+width:auto;
+margin-left:5vw;
+margin-right:5vw;
+width:auto;
+border:0em;
+max-width:45vw;
+}
+
+ul ul {
+	margin-right:0vw;
+}
+	
+ul {
+left:0vw;
+right:0vw;
+}
+
+
+	
+ul > li ,
+ol > li {
+position:static;
+font-size:1.5vw;
+}
+	
+	
+.subhead {
+font: bold 130% 'Signika Negative';color:#000000;
+}
+
+h2 {
+font: bold 120% 'Signika Negative';color:#333333; text-align:justify;
+}
+
+.code span{
+}
+
+#menusmall {
+    display:none;
+}
+
+
+#menubig {
+    display:block;
+}
+
+.menu2 {
+font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif, Helvetica, Arial;
+height:auto;margin-bottom:0.5em;text-align:center;color:#998855;font-style:italic;font-size:1em;padding:0.25em;display:inline-block; border: 0.1em solid #998855;background-color:#ffffff;font-family:'Signika Negative';font-size:0.9em;letter-spacing:0.15em;
+font-size:.75em;
+width:13.5vw;
+background-color:#eeeeee;
+z-index:2;
+position:static;
+display:inline-block;
+padding:0.125em 0em 0.125em 0em;
+}
+
+.menu2active {
+font-family:'Signika Negative', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif, Helvetica, Arial;
+height:auto;margin-bottom:0.5em;text-align:center;color:#998855;font-style:italic;;font-size:1em;padding:0.25em;display:inline-block; border: 0.1em solid #998855;background-color:#ffffff;font-family:'Signika Negative';font-size:0.9em;letter-spacing:0.15em;
+font-size:.75em;
+width:13.5vw;
+background-color:#EFAB00;
+z-index:2;
+position:static;
+display:inline-block;
+padding:0.125em 0em 0.125em 0em;
+color:#ffffff;
+border-color:#222222;
+}
+
+
+
+
+
+.menuon {
+	display:block;
+}
+.menuoff {
+	display:none;
+}    
+
+ul li {
+font-size:1.5vw;
+text-align:justify;
+width:auto;
+}
+
+p {
+padding:0pt 5vw 0pt 5vw;
+font-size:1.5vw;
+margin:0vw 0vw .825em 0vw;
+text-align:justify;
+width:50vw;
+}
+
+#footer {
+font-size:1vw;
+margin:0vw;
+width:60vw;
+}
+.dragscroll{
+	overflow-x:auto;max-width:60vw;cursor:move;
+	}
+
+} 		
+
 .dragscroll{
 	overflow-x:auto;max-width:60vw;cursor:move;
 	}

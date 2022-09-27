@@ -23,7 +23,7 @@ import re
 #			theturn = 1
 
 def recursive_parse(node,substitutions):
-	if hasattr(node.left,"id"):
+de	if hasattr(node.left,"id"):
 		if node.left.id in substitutions.keys():
 			node.left = substitutions[node.left.id]
 	else:
@@ -60,13 +60,13 @@ mode_exe = False
 mode_show = False
 mode_map = False
 
-#Graphviz
+#Graphviz for html variant
 d3 = window.d3
 
 # Check if all script files are loaded:
 filecheck = False
 
-# Lists of statements:
+# Lists of option:
 exe_list = list()
 show_list = list()
 map_list = list()
