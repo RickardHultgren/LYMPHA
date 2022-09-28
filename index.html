@@ -48,7 +48,7 @@ import re
 #			theturn = 1
 
 def recursive_parse(node,substitutions):
-de	if hasattr(node.left,"id"):
+	if hasattr(node.left,"id"):
 		if node.left.id in substitutions.keys():
 			node.left = substitutions[node.left.id]
 	else:
